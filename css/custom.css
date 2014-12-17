@@ -53,12 +53,15 @@ ul li {
 100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }    
 }
 
-.cd-timeline-content img{
+.cd-timeline-content img, .sidebar.menu img{
   width: 75px;
   height: 75px;
-
 }
-.inverted.menu{
 
+.inverted.menu{
   margin-bottom: 0px;
+}
+
+.sidebar p{
+  color: #ffffff !important;
 }

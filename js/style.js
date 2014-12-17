@@ -3,6 +3,9 @@ $(document).ready(function(){
 	$('.ui.dropdown').dropdown();
 	
 	$('.cd-timeline-img.cd-location').sidebar('toggle');
+
+	$('.left.sidebar.menu').sidebar('attach events', '.toggle.button');	
+	$('.toggle.button').removeClass('disabled');
    
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
