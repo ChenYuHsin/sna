@@ -65,3 +65,13 @@ ul li {
 .sidebar p, .sidebar div{
   color: #ffffff !important;
 }
+.sidebar .author{
+  color: #ffffff !important;
+}
+.sidebar .actions a{
+  color: #2E94CF !important;
+
+}
+.sidebar .content{
+  text-align: left;
+}
