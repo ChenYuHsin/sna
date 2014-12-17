@@ -75,3 +75,9 @@ ul li {
 .sidebar .content{
   text-align: left;
 }
+.ui.card.profile{
+  margin: 10px auto;
+}
+.card img{
+  max-height: 350px;
+}
