@@ -62,6 +62,6 @@ ul li {
   margin-bottom: 0px;
 }
 
-.sidebar p{
+.sidebar p, .sidebar div{
   color: #ffffff !important;
 }
