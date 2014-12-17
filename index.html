@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - Vertical Timeline</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+
+  <link rel="stylesheet" href="css/reset.css">
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link href="css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+    <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/semantic.min.js"></script>
+    <script src="js/style.js"></script>
+
+</head>
+
+<body id="style">
+  	<div class="ui inverted menu">
+		  <a class="active item">
+		    <i class="user icon"></i> Profile
+		  </a>
+		  <a class="item dropdown ui">
+		    <i class="comment outline icon"></i> Notifications
+				<div class="menu">
+	        		<div class="item "> 
+
+	        		</div>
+	        	</div>
+	        <span class="ui teal label">1</span>
+		  </a>
+		  <a class="item">
+		    <i class="users icon"></i> Friends
+		  </a>
+	</div>
+	<header>
+		<div class="clock">
+    <div id="Date"></div>
+    <ul>
+        <li id="hours"></li>
+        <li id="point">:</li>
+        <li id="min"></li>
+        <li id="point">:</li>
+        <li id="sec"></li>
+    </ul>
+</div>
+	</header>
+
+	<section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+
+				</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">8:00 - 10:00</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+					
+				</p>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+					
+				</p>
+				<span class="cd-date">12:00 - 14:00</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+					
+				</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">14:00 - 16:00</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+					
+				</p>				
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">16:00 - 18:00</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<p>
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+					<img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1458578_846072432085153_3952564697783623613_n.jpg?oh=5f51db4fce09d6a029ed88b8c9231dae&oe=54FFC1A3">
+					<img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
+					<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10846265_704553172975061_1640683362541123535_n.jpg?oh=6a5587cb002404a932e87fde5d098174&oe=5510F278&__gda__=1426650020_5753390c4b09f9223524230b89d99b1d">
+					
+				</p>
+				<span class="cd-date">18:00 - 20:00</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section> <!-- cd-timeline -->
+
+  <section>
+
+  	<div class="ui left vertical inverted labeled icon sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+  <a class="item">
+    <i class="calendar icon"></i>
+    History
+  </a>
+  <a class="item">
+    <i class="mail icon"></i>
+    Messages
+  </a>
+  <a class="item">
+    <i class="chat icon"></i>
+    Discussions
+  </a>
+  <a class="item">
+    <i class="trophy icon"></i>
+    Achievements
+  </a>
+  <a class="item">
+    <i class="shop icon"></i>
+    Store
+  </a>
+  <a class="item">
+    <i class="settings icon"></i>
+    Settings
+  </a>
+</div>
+  </section>
+
+  <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
