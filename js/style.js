@@ -6,6 +6,14 @@ $(document).ready(function(){
 
 	$('.left.sidebar.menu').sidebar('attach events', '.toggle.button .cd-timeline-img');	
 	$('.toggle.button .cd-timeline-img').removeClass('disabled');
+	$('.special.cards .image').dimmer({
+  		on: 'hover'
+	});
+	$('.reply').click(function(){
+		$('.modal').modal('show');
+
+	})
+	
    
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]

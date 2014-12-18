@@ -23,7 +23,7 @@
     <script src="js/style.js"></script>
 
 </head>
-<body>
+<body class>
   <div class="ui inverted menu">
       <a class="active item">
         <i class="user icon"></i> Profile
@@ -60,7 +60,8 @@
           <li id="sec"></li>
     </ul>
     </header>
-    <section> <!-- 朋友卡片-->
+  <div class="ui page grid">
+    <section class="sixteen wide column"> <!-- 朋友卡片-->
       <div class="ui card profile">
         <div class="image">
           <img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
@@ -80,7 +81,7 @@
       </div>
     </div>
     </section>
-    <section>
+    <section class="sixteen wide column">
       <h2 class="ui header">
         <i class="settings icon"></i>
         <div class="content">
@@ -174,5 +175,67 @@
   </div>
 </div>
     </section>
+
+    <div class="sixteen wide column"><!--add friends-->
+      <h2 class="ui header">
+        <i class="settings icon"></i>
+        <div class="content">
+          Recommanded Friends
+          <div class="sub header">Here is friends I might know.</div>
+        </div>
+      </h2>
+
+      <div class="ui special cards">
+        <div class="card">
+          <div class="dimmable image">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <div class="ui primary button">Add Friend</div>
+                </div>
+              </div>
+            </div>
+            <img src="img/p1.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Team Fu</a>
+            <div class="meta">
+              <span class="date">Create in Sep 2014</span>
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="users icon"></i>
+              2 Members
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="dimmable image">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <div class="ui primary button">Add Friend</div>
+                </div>
+              </div>
+            </div>
+            <img src="img/p2.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Team Hess</a>
+            <div class="meta">
+              <span class="date">Create in Aug 2014</span>
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="users icon"></i>
+              2 Members
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <html>

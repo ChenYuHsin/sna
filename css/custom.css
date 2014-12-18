@@ -79,5 +79,8 @@ ul li {
   margin: 10px auto;
 }
 .card img{
-  max-height: 350px;
+  max-height: 290px;
+}
+.dropdown .item{
+  text-align: center;
 }
