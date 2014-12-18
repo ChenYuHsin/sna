@@ -12,7 +12,13 @@ $(document).ready(function(){
 	$('.reply').click(function(){
 		$('.modal').modal('show');
 
-	})
+	});
+	//$('.ui.sticky').sticky();
+	$('#friends_page .cd-timeline-block').click(function(){
+		$('.modal').modal('show');
+
+	});
+	
 	
    
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 

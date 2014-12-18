@@ -84,3 +84,35 @@ ul li {
 .dropdown .item{
   text-align: center;
 }
+
+#friends_page .cd-timeline-block{
+  height: 50px;
+}
+#friends_page .cd-timeline-block i{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  font-size: 24px;
+  width: 0px;
+}
+#friends_page #cd-timeline img{
+  z-index: 999;
+  position: relative;
+  border: 5px solid #ffffff;
+}
+
+
+.cd-timeline-img.cd-smile{
+  background: #FE9A2E;
+}
+.cd-timeline-img.cd-frown{
+  background: #000000;
+}
+.cd-timeline-img.cd-meh{
+  background:#75ce66;  
+}
+.cd-timeline-img.cd-heart{
+  background: #c03b44;
+}
