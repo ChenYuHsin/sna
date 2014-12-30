@@ -517,3 +517,6 @@ div.codepen_arrow .right:after {
 .popup_item img, .post_content img{
   border-radius: .25rem;
 }
+.me_line{
+  margin-top: 28px!important;
+}

@@ -113,7 +113,7 @@ $(document).ready(function(){
 						  
 						    "<div class='content'>"+
 							    "<div class='image'>"+
-							      "<img src='img/1.jpg'></img>"+
+							      "<img src='img/7.jpg'></img>"+
 							    "</div>"+
 							    "<div class='description'>"+
 							    	"<textarea></textarea>"+
