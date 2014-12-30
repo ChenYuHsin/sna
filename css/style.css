@@ -43,8 +43,8 @@ Modules - reusable parts of our design
 -------------------------------- */
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-  width: 90%;
-  max-width: 1170px;
+ /* width: 90%;
+  max-width: 1170px;  choco commit them*/
   margin: 0 auto;
 }
 .cd-container::after {
@@ -141,7 +141,7 @@ header h1 {
   left: 0;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  
   box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline-img img {
@@ -168,7 +168,7 @@ header h1 {
     width: 60px;
     height: 60px;
     left: 50%;
-    margin-left: -30px;
+    margin-left: -25px;/*choco origin -30px*/
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;

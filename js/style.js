@@ -4,22 +4,135 @@ $(document).ready(function(){
 	
 	$('.cd-timeline-img.cd-location').sidebar('toggle');
 
-	$('.left.sidebar.menu').sidebar('attach events', '.toggle.button .cd-timeline-img');	
-	$('.toggle.button .cd-timeline-img').removeClass('disabled');
+	$('.left.sidebar.menu').sidebar('attach events', '.status');	
+	$('.status').removeClass('disabled');
+	
 	$('.special.cards .image').dimmer({
   		on: 'hover'
 	});
-	$('.reply').click(function(){
-		$('.modal').modal('show');
+	$('.btn_make_dent').click(function(){
+		$('.post_content').modal('show');
 
 	});
 	//$('.ui.sticky').sticky();
-	$('#friends_page .cd-timeline-block').click(function(){
-		$('.modal').modal('show');
-
+    
+	$('body').on("click",".cd-timeline-img",function(){
+		$('.reply_content').modal('show');
+		
 	});
 	
+	$('.shape').shape();
+	$('.ui.ignored .button:nth-child(1)').click(function(){
+		$('.shape').shape('set next side', getSideUp()).shape('flip left');
+	});
+	$('.ui.ignored .button:nth-child(2)').click(function(){
+		$('.shape').shape('set next side', getSideDown()).shape('flip right');
+	});
+	//$('.shape').shape('flip up');
+	var getSideUp = function(){
+		var order = $('.side.active').attr('id');
+		var num = Number(order);
+		console.log("id"+order);
+		if(num == $('.side').length){
+			return "."+1;
+		}else{
+			console.log("."+ ++num);
+			return "."+ num++;
+		}
+		
+	}
+	var getSideDown = function(){
+		var order = $('.side.active').attr('id');
+		var num = Number(order);
+		console.log("id"+order);
+		if(num == 1){
+			return "."+ $('.side').length;
+		}else{
+			
+			return "."+ --num;
+			
+		}
+		
+	}
+	//$('.shape').shape('set next side', '.second.side').shape('flip up');
+
 	
+
+	//******************************** 時段 ******************************************//
+	var timeLineTpl = function(startPoint, keepTime ,face , color){
+		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
+						"<div class='cd-timeline-img cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
+							"<i class='"+face+" icon inverted'></i>"+
+						"</div>"+
+					"</div>";
+		return timeTpl;
+	};
+	$(".me_line").append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+	$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
+	$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
+	$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
+
+	/************************************** 時段popup ************************************************************/
+	var popupTpl = function(img, description){
+		var popupTplCotent = "<div class='ui items popup_item'>"+
+								  "<div class='item'>"+
+								    "<a class='ui tiny image'>"+
+								      "<img src='"+img+" ' style='border-radius: .25rem;'>"+
+								    "</a>"+
+								    "<div class='content'>"+
+								      "<a class='author'>Joe Henderson</a>"+
+								      "<div class='metadata'>"+
+								      	"<div class='date'>1</div>"+
+								      "</div>"+
+								      "<div class='description'>"+
+								        
+								        "<p>"+description+"</p>"+
+								      "</div>"+
+								    "</div>"+
+								  "</div>";
+		return  popupTplCotent;
+
+	};
+
+	var c1="Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.";
+	var c2 = "www";
+	$('.cd-timeline-img').attr("data-html", popupTpl("img/5.jpg", c1));
+	$('.cd-timeline-block').click(function(){
+		
+	});
+	$(".cd-timeline-img").popup({on: "hover"});
+
+
+	/***************************************** make a dent 內文 *********************************************************/
+	var dentTpl = function(){
+		var make_dent_tpl = "<div class='ui modal post_content small'>"+
+						  "<i class='close icon'></i>"+
+						  "<div class='header'>"+
+						    "Post"+
+						  "</div>"+
+						  
+						    "<div class='content'>"+
+							    "<div class='image'>"+
+							      "<img src='img/1.jpg'></img>"+
+							    "</div>"+
+							    "<div class='description'>"+
+							    	"<textarea></textarea>"+
+								     "<div class='ui primary button post_upload_pic'>"+
+								      "<i class='photo icon'></i>Upload Pictures"+
+								    "</div>"+
+							    "</div>"+
+							  "</div>"+
+							  "<div class='actions'>"+
+							    "<div class='ui button'>Cancel</div>"+
+							    "<div class='ui button'>Send</div>"+
+							"</div>"+
+
+						"</div>";
+		return make_dent_tpl;
+	}
+	
+	$('body').append(dentTpl());
+
    
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
@@ -51,4 +164,54 @@ $(document).ready(function(){
 	    // Add a leading zero to the value of hours
 	    $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
 	    }, 1000);
+
+var nextcheckColor = function(element, elecolor){
+	if(element.find(".cd-timeline-img").attr("data-color")){
+		if(element.find(".cd-timeline-img").data("color")===elecolor){
+			element.find(".cd-timeline-img").css({"background": "#66c17b"});
+			nextcheckColor(element.find(".cd-timeline-img").closest(".cd-timeline-block").next(),elecolor);
+		}
+	}
+};
+var prevcheckColor = function(element, elecolor){
+	if(element.find(".cd-timeline-img").attr("data-color")){
+		if(element.find(".cd-timeline-img").data("color")===elecolor){
+			element.find(".cd-timeline-img").css({"background": "#66c17b"});
+			prevcheckColor(element.find(".cd-timeline-img").closest(".cd-timeline-block").prev(),elecolor);
+		}
+	}
+};
+var nextremoveColor = function(element, elecolor){
+	if(element.find(".cd-timeline-img").attr("data-color")){
+		if(element.find(".cd-timeline-img").data("color")===elecolor){
+			element.find(".cd-timeline-img").css({"background": "#5bbd72"});
+			nextremoveColor(element.closest(".cd-timeline-block").next(), elecolor);
+		}
+	}
+}
+var prevremoveColor = function(element, elecolor){
+	if(element.find(".cd-timeline-img").attr("data-color")){
+		if(element.find(".cd-timeline-img").data("color")===elecolor){
+			element.find(".cd-timeline-img").css({"background": "#5bbd72"});
+			prevremoveColor(element.closest(".cd-timeline-block").prev(), elecolor);
+		}
+	}
+}
+	
+	$("#friends_page .cd-timeline-img.ui.button").hover(function(){
+		var color = $(this).data("color");
+		var nextele = $(this).closest(".cd-timeline-block").next();
+		var prevele = $(this).closest(".cd-timeline-block").prev();
+		nextcheckColor(nextele, color);
+		prevcheckColor(prevele, color);
+	},function(){
+		var color = $(this).data("color");
+		var nextele = $(this).closest(".cd-timeline-block").next();
+		var prevele = $(this).closest(".cd-timeline-block").prev();
+		nextremoveColor(nextele, color);
+		prevremoveColor(prevele, color);
+
+	});
+
+	
 });
