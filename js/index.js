@@ -2,23 +2,19 @@ jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
 	var bitch = function(){
 		if(Parse.User.current()==null){
-		$('.logout_btn').css("display","none");
-		$('.account_info').css("display", "none");
-
+			$('.logout_btn').css("display","none");
+			$('.account_info').css("display", "none");
 		}
 		else{
 			$('.login_btn').css("display","none");
 			FB.api('/me', function(response) {
 		               var my_name = response.name;
-
 		               $(".account_info").html("Hi! "+ my_name);
 		           });
 
 		           FB.api('/me/picture?width=50', function(response) {
 		               var my_picture_url = response.data.url;
-		               $(".login_btn").css("display", "block");
-		               $(".login_btn").html();
-		               $(".login_btn").attr('src', my_picture_url);
+		               $("#account_img").attr('src', my_picture_url);
 		           });
 		}
 	}
