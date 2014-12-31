@@ -47,9 +47,9 @@
 						$(".account_info").html("Hi! "+ my_name);
 					});
 				}
-	            FB.Event.subscribe('auth.login',function(response){
+				if(Parse.User.current()!=null){
 					logined();
-				})
+				}
 	          };
 	         
 	          (function(d, s, id){
