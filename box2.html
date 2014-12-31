@@ -19,8 +19,30 @@
 	    <script src="js/modernizr.js"></script>
 	    <script src="js/semantic.min.js"></script>
 	    <script src="js/style.js"></script>
+	    <script src="js/fbapi.js"></script>
 
 	</head>
+	<script>
+        window.fbAsyncInit = function() {
+            Parse.FacebookUtils.init({ // this line replaces FB.init({
+              appId      : '1539519972970637', // Facebook App ID
+              status     : true,  // check Facebook Login status
+              cookie     : true,  // enable cookies to allow Parse to access the session
+              xfbml      : true,  // initialize Facebook social plugins on the page
+              version    : 'v2.2' // point to the latest Facebook Graph API version
+            });
+         
+            // Run code after the Facebook SDK is loaded.
+          };
+         
+          (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+    </script>
 	<body>
 	<div id="friends_page">
 		<!--mavigation-->
@@ -29,10 +51,10 @@
 			  <a href="profile.html" class="active item">
 			    <i class="user icon"></i> Profile
 			  </a>
-			  <a class="item dropdown ui status">
-			    <i class="comment outline icon"></i> Status
-		        <span class="ui teal label">1</span>
-				  </a>
+			  <a class="item status">
+			    <i class="alarm icon"></i> Status
+		        
+			  </a>
 				  <a class="item">
 				    <i class="users icon"></i> Friends
 				  </a>
@@ -352,7 +374,7 @@
 	Login
 	</div>
 	<div class="content">
- 		<div class="ui facebook button center">
+ 		<div id="my-login-button" class="ui facebook button center">
  			<i class="facebook icon"></i>Login wuth Facebook
 		</div>
 	</div>
