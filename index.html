@@ -20,6 +20,7 @@
 	    <script src="js/modernizr.js"></script>
 	    <script src="js/semantic.min.js"></script>
 	    <script src="js/style.js"></script>
+	    <script src="js/index.js"></script>
 
 
 	</head>
@@ -35,7 +36,20 @@
 	            });
 	         
 	            // Run code after the Facebook SDK is loaded.
-	           
+	            var logined = function(){
+					$('.login_btn').css("display","none");
+					FB.api('/me/picture?width=20', function(response) {
+						var my_picture_url = response.data.url;
+						$("#account_img").attr('src', my_picture_url);
+					});
+					FB.api('/me', function(response) {
+						var my_name = response.name;
+						$(".account_info").html("Hi! "+ my_name);
+					});
+				}
+	            FB.Event.subscribe('auth.login',function(response){
+					logined();
+				})
 	          };
 	         
 	          (function(d, s, id){
@@ -46,7 +60,6 @@
 	            fjs.parentNode.insertBefore(js, fjs);
 	          }(document, 'script', 'facebook-jssdk'));
 	</script>
-	<script src="js/index.js"></script>
 	<div id="friends_page">
 		<!--mavigation-->
 		<div class="ui inverted main menu fixed ui grid page">
