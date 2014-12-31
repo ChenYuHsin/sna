@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 	            } 
 	            else{
 	                alert("User logged in through Facebook!");
-	                location.assign("index.html");
+	                // location.assign("index.html");
 	                bitch();
 	            }
 	        },
