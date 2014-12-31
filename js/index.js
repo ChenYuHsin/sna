@@ -1,14 +1,8 @@
 jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
 
-	if(Parse.User.current()==null){
-		$('.logout_btn').css("display","none");
-		$('.account_info').css("display", "none");
-
-	}
-	else{
-		$('.login_btn').css("display","none");
-		FB.api('/me', function(response) {
+	var fetch_my_profile = function () {
+                    FB.api('/me', function(response) {
 	               var my_name = response.name;
 
 	               $(".account_info").html("Hi! "+ my_name);
@@ -20,6 +14,16 @@ jQuery(document).ready(function($){
 	               $(".login_btn").html();
 	               $(".login_btn").attr('src', my_picture_url);
 	           });
+    	};
+
+	if(Parse.User.current()==null){
+		$('.logout_btn').css("display","none");
+		$('.account_info').css("display", "none");
+
+	}
+	else{
+		$('.login_btn').css("display","none");
+		fetch_my_profile();
 	}
 
 	//fblogin button
