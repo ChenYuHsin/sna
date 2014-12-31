@@ -4,6 +4,7 @@ jQuery(document).ready(function($){
 		if(Parse.User.current()==null){
 			$('.logout_btn').css("display","none");
 			$('.account_info').css("display", "none");
+			$('#account_img').css("display", "none");
 		}
 		else{
 			$('.login_btn').css("display","none");
