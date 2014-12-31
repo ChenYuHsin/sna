@@ -1,25 +1,21 @@
 jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
-	var bitch = function(){
-		if(Parse.User.current()==null){
-			$('.logout_btn').css("display","none");
-			$('.account_info').css("display", "none");
-			$('#account_img').css("display", "none");
-		}
-		else{
-			$('.login_btn').css("display","none");
-			FB.api('/me/picture?width=20', function(response) {
-		               var my_picture_url = response.data.url;
-		               $("#account_img").attr('src', my_picture_url);
-		           });
-			FB.api('/me', function(response) {
-		               var my_name = response.name;
-		               $(".account_info").html("Hi! "+ my_name);
-		           });
-		}
+	if(Parse.User.current()==null){
+		$('.logout_btn').css("display","none");
+		$('.account_info').css("display", "none");
+		$('#account_img').css("display", "none");
 	}
-
-	bitch();
+		// else{
+		// 	$('.login_btn').css("display","none");
+		// 	FB.api('/me/picture?width=20', function(response) {
+		//                var my_picture_url = response.data.url;
+		//                $("#account_img").attr('src', my_picture_url);
+		//            });
+		// 	FB.api('/me', function(response) {
+		//                var my_name = response.name;
+		//                $(".account_info").html("Hi! "+ my_name);
+		//            });
+		// }
 
 	//fblogin button
 	$("#my-login-button").click(function(){
