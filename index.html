@@ -36,7 +36,7 @@
 	            });
 	         
 	            // Run code after the Facebook SDK is loaded.
-	            window.fbLoaded = function () {
+	            var fbLoaded = function () {
 					FB.Event.subscribe('auth.login',function(response){
 						logined();
 					})
@@ -52,7 +52,7 @@
 					    });
 					}
 				}
-	            window.fbLoaded();
+	            fbLoaded();
 	          };
 	         
 	          (function(d, s, id){
