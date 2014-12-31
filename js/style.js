@@ -20,6 +20,9 @@ $(document).ready(function(){
 		$('.reply_content').modal('show');
 		
 	});
+	$('.login_btn').click(function(){
+		$('.login_content').modal('show');
+	});
 	
 	$('.shape').shape();
 	$('.ui.ignored .button:nth-child(1)').click(function(){
@@ -94,7 +97,7 @@ $(document).ready(function(){
 
 	};
 
-	var c1="Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.";
+	var c1="晚餐吃大魚墮落！誰要跟我一起！！";
 	var c2 = "www";
 	$('.cd-timeline-img').attr("data-html", popupTpl("img/5.jpg", c1));
 	$('.cd-timeline-block').click(function(){
