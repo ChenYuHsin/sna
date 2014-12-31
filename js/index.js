@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 	}
 	else{
 		$('.login_btn').css("display","none");
-		fetch_my_profile();
+		//fetch_my_profile();
 	}
 
 	//fblogin button
@@ -39,6 +39,7 @@ jQuery(document).ready(function($){
 	            } 
 	            else{
 	                alert("User logged in through Facebook!");
+	                fetch_my_profile();
 	                location.assign("index.html");
 	            }
 	        },
