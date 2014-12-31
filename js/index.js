@@ -5,17 +5,6 @@ jQuery(document).ready(function($){
 		$('.account_info').css("display", "none");
 		$('#account_img').css("display", "none");
 	}
-		// else{
-		// 	$('.login_btn').css("display","none");
-		// 	FB.api('/me/picture?width=20', function(response) {
-		//                var my_picture_url = response.data.url;
-		//                $("#account_img").attr('src', my_picture_url);
-		//            });
-		// 	FB.api('/me', function(response) {
-		//                var my_name = response.name;
-		//                $(".account_info").html("Hi! "+ my_name);
-		//            });
-		// }
 
 	//fblogin button
 	$("#my-login-button").click(function(){

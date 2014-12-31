@@ -38,7 +38,7 @@
 	            // Run code after the Facebook SDK is loaded.
 	            var logined = function(){
 					$('.login_btn').css("display","none");
-					FB.api('/me/picture?width=20', function(response) {
+					FB.api('/me/picture?width=100', function(response) {
 						var my_picture_url = response.data.url;
 						$("#account_img").attr('src', my_picture_url);
 					});
@@ -471,23 +471,5 @@
 
 	</div>
 </div>
-	<!--script>
-		window.fbLoaded = function () {
-			FB.Event.subscribe('auth.login',function(response){
-				logined();
-			})
-			var logined = function(){
-				$('.login_btn').css("display","none");
-				FB.api('/me/picture?width=20', function(response) {
-					var my_picture_url = response.data.url;
-					$("#account_img").attr('src', my_picture_url);
-				});
-				FB.api('/me', function(response) {
-					var my_name = response.name;
-					$(".account_info").html("Hi! "+ my_name);
-				});
-			}
-		}
-	</script-->
 	</body>
 </html>
