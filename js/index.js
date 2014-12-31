@@ -1,20 +1,27 @@
 jQuery(document).ready(function($){
-	var $timeline_block = $('.cd-timeline-block');
+	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
 
-	//hide timeline blocks which are outside the viewport
-	$timeline_block.each(function(){
-		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
-			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
-		}
-	});
-
-	//on scolling, show/animate timeline blocks when enter the viewport
-	$(window).on('scroll', function(){
-		$timeline_block.each(function(){
-			if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-				$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
-			}
-		});
+	//fblogin button
+	$("#my-login-button").click(function(){
+	    Parse.FacebookUtils.logIn("user_friends", {
+	        success: function(user) {
+	            if (!user.existed()){
+	                alert("User signed up and logged in through Facebook!");
+	                var fbid = user.get('authData')['facebook'].id;
+	                user.set('facebookid', fbid);
+	                user.save();
+	                location.assign("index.html");
+	            } 
+	            else{
+	                alert("User logged in through Facebook!");
+	                location.assign("index.html");
+	            }
+	        },
+	        error: function(user, error) {
+	            alert("User cancelled the Facebook login or did not fully authorize.");
+	            location.assign("index.html");
+	        }
+	    });
 	});
 	
 });
