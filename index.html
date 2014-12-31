@@ -15,14 +15,35 @@
 	    <link href="css/custom.css" rel="stylesheet" type="text/css">
 
 	    <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
+	    <script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 	    <script src="js/jquery.min.js"></script>
 	    <script src="js/modernizr.js"></script>
 	    <script src="js/semantic.min.js"></script>
 	    <script src="js/style.js"></script>
-	    <script src="js/fbapi.js"></script>
 
 	</head>
 	<body>
+	<script>
+	        window.fbAsyncInit = function() {
+	            Parse.FacebookUtils.init({ // this line replaces FB.init({
+	              appId      : '633858636720666', // Facebook App ID
+	              status     : true,  // check Facebook Login status
+	              cookie     : true,  // enable cookies to allow Parse to access the session
+	              xfbml      : true,  // initialize Facebook social plugins on the page
+	              version    : 'v2.2' // point to the latest Facebook Graph API version
+	            });
+	         
+	            // Run code after the Facebook SDK is loaded.
+	          };
+	         
+	          (function(d, s, id){
+	            var js, fjs = d.getElementsByTagName(s)[0];
+	            if (d.getElementById(id)) {return;}
+	            js = d.createElement(s); js.id = id;
+	            js.src = "//connect.facebook.net/en_US/sdk.js";
+	            fjs.parentNode.insertBefore(js, fjs);
+	          }(document, 'script', 'facebook-jssdk'));
+	</script>
 	<div id="friends_page">
 		<!--mavigation-->
 		<div class="ui inverted main menu fixed ui grid page">
