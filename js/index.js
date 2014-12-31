@@ -19,6 +19,8 @@ jQuery(document).ready(function($){
 		}
 	}
 
+	bitch();
+
 	//fblogin button
 	$("#my-login-button").click(function(){
 	    Parse.FacebookUtils.logIn("user_friends", {
@@ -32,8 +34,7 @@ jQuery(document).ready(function($){
 	            } 
 	            else{
 	                alert("User logged in through Facebook!");
-	                // location.assign("index.html");
-	                bitch();
+	                location.assign("index.html");
 	            }
 	        },
 	        error: function(user, error) {
