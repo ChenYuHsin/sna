@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
 	var $timeline_block = $('.cd-timeline-block');
 
 	//hide timeline blocks which are outside the viewport
@@ -16,8 +17,6 @@ jQuery(document).ready(function($){
 			}
 		});
 	});
-
-	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
 
 	//fblogin button
 	$("#my-login-button").click(function(){
