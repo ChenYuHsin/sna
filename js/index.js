@@ -10,13 +10,16 @@ jQuery(document).ready(function($){
 	                var fbid = user.get('authData')['facebook'].id;
 	                user.set('facebookid', fbid);
 	                user.save();
+	                window.reload();
 	            } 
 	            else{
 	                alert("User logged in through Facebook!");
+	                window.reload();
 	            }
 	        },
 	        error: function(user, error) {
 	            alert("User cancelled the Facebook login or did not fully authorize.");
+	            window.reload();
 	        }
 	    });
 	});
