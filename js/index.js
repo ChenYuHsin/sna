@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
-
-                    if(Parse.User.current()==null){
+	var bitch = function(){
+		if(Parse.User.current()==null){
 		$('.logout_btn').css("display","none");
 		$('.account_info').css("display", "none");
 
@@ -21,6 +21,7 @@ jQuery(document).ready(function($){
 		               $(".login_btn").attr('src', my_picture_url);
 		           });
 		}
+	}
 
 	//fblogin button
 	$("#my-login-button").click(function(){
@@ -36,6 +37,7 @@ jQuery(document).ready(function($){
 	            else{
 	                alert("User logged in through Facebook!");
 	                location.assign("index.html");
+	                bitch();
 	            }
 	        },
 	        error: function(user, error) {
