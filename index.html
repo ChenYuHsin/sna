@@ -41,7 +41,7 @@
 					FB.api('/me/picture?width=100', function(response) {
 						var my_picture_url = response.data.url;
 						$("#account_img").attr('src', my_picture_url);
-						$(".friends_pic").attr('src', my_picture_url);
+						$(".my_timeline_pic").attr('src', my_picture_url);
 
 					});
 					FB.api('/me', function(response) {
@@ -177,7 +177,7 @@
 		    <!--自己的時間軸-->
 			<section id="cd-timeline" class="me_line cd-container two wide column" style="position: relative">
 				<a class="avatar">
-					<img class="friends_pic"/>
+					<img class="friends_pic my_timeline_pic"/>
 				</a>
 				<!-- 12個時段-->
 				
