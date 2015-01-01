@@ -520,3 +520,7 @@ div.codepen_arrow .right:after {
 .me_line{
   margin-top: 28px!important;
 }
+.main.menu .right img{
+  width: 15px;
+  height: 15px;
+}
