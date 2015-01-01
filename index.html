@@ -40,7 +40,9 @@
 					$('.login_btn').css("display","none");
 					FB.api('/me/picture?width=100', function(response) {
 						var my_picture_url = response.data.url;
-						$("#account_img").attr('src', my_picture_url);
+						$("#account_img")each(function(){
+							$(this).attr('src', my_picture_url);
+						})
 
 					});
 					FB.api('/me', function(response) {
