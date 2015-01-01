@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 
 	/***************************************** make a dent 內文 *********************************************************/
-	var dentTpl = function(){
+	/*var dentTpl = function(){
 		var make_dent_tpl = "<div class='ui modal post_content small'>"+
 						  "<i class='close icon'></i>"+
 						  "<div class='header'>"+
@@ -132,9 +132,9 @@ $(document).ready(function(){
 
 						"</div>";
 		return make_dent_tpl;
-	}
+	}*/
 	
-	$('body').append(dentTpl());
+	//$('body').append(dentTpl());
 
    
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
