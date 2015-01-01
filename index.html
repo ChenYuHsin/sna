@@ -3,7 +3,7 @@
 
 		<meta charset="UTF-8">
 
-		<title>I AM MOMENT</title>
+		<title>Modent</title>
 
 		<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		  
@@ -36,6 +36,20 @@
 	            });
 	         
 	            // Run code after the Facebook SDK is loaded.
+	            var logined = function(){
+					$('.login_btn').css("display","none");
+					FB.api('/me/picture?width=100', function(response) {
+						var my_picture_url = response.data.url;
+						$("#account_img").attr('src', my_picture_url);
+					});
+					FB.api('/me', function(response) {
+						var my_name = response.name;
+						$(".account_info").html("Hi! "+ my_name);
+					});
+				}
+				if(Parse.User.current()!=null){
+					logined();
+				}
 	          };
 	         
 	          (function(d, s, id){
@@ -64,17 +78,20 @@
 			  	 <a href="" class="item">
 			    	<i class="angle down icon"></i>
 			  	</a>  
-			  	<div class="right menu inverted">
-			  		<a class=" item account_info">
-			  			Hello! name
+			  	
+			  		<a class="item" style="float: right">
+			  			<img id="account_img"/>
 			  		</a>
-				    <a class="item login_btn">
+			  		<a class=" item account_info" style="float: right">
+
+			  		</a>
+				    <a class="item login_btn" style="float: right">
 			    		Login
 			  		</a> 
-			  		<a class="item logout_btn">
+			  		<a class="item logout_btn" style="float: right">
 			    		Logout
 			  		</a>   
-				</div>
+				
 			  
 			</div>
 		</div>
@@ -294,8 +311,8 @@
         <a>Helen Troy</a> added <a>2 new illustrations</a>
       </div>
       <div class="extra images">
-        <a><img src="/images/wireframe/image.png"></a>
-        <a><img src="/images/wireframe/image.png"></a>
+        <<!-- a><img src="/images/wireframe/image.png"></a>
+        <a><img src="/images/wireframe/image.png"></a> -->
       </div>
       <div class="meta">
         <a class="like">
@@ -357,8 +374,8 @@
         <a>Justen Kitsune</a> added <a>2 new photos</a> of you
       </div>
       <div class="extra images">
-        <a><img src="/images/wireframe/image.png"></a>
-        <a><img src="/images/wireframe/image.png"></a>
+        <!-- <a><img src="/images/wireframe/image.png"></a>
+        <a><img src="/images/wireframe/image.png"></a> -->
       </div>
       <div class="meta">
         <a class="like">
@@ -452,5 +469,4 @@
 	</div>
 </div>
 	</body>
-	
 </html>
