@@ -106,37 +106,8 @@ $(document).ready(function(){
 	$(".cd-timeline-img").popup({on: "hover"});
 
 
-	/***************************************** make a dent 內文 *********************************************************/
-	/*var dentTpl = function(){
-		var make_dent_tpl = "<div class='ui modal post_content small'>"+
-						  "<i class='close icon'></i>"+
-						  "<div class='header'>"+
-						    "Post"+
-						  "</div>"+
-						  
-						    "<div class='content'>"+
-							    "<div class='image'>"+
-							      "<img src='img/7.jpg'></img>"+
-							    "</div>"+
-							    "<div class='description'>"+
-							    	"<textarea></textarea>"+
-								     "<div class='ui primary button post_upload_pic'>"+
-								      "<i class='photo icon'></i>Upload Pictures"+
-								    "</div>"+
-							    "</div>"+
-							  "</div>"+
-							  "<div class='actions'>"+
-							    "<div class='ui button'>Cancel</div>"+
-							    "<div class='ui button'>Send</div>"+
-							"</div>"+
+	//時段end
 
-						"</div>";
-		return make_dent_tpl;
-	}*/
-	
-	//$('body').append(dentTpl());
-
-   
 	var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 	var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
