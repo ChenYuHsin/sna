@@ -102,7 +102,7 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(i = 0;i < friends.length; i++){
-		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
+		//$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
@@ -112,7 +112,6 @@ if (currentUser) {
 		    // Do something with the returned Parse.Object values
 		    var className= ".no_"+i;
 		    //$(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
-		    alert();
 		  },
 		  error: function(error) {
 		    alert("Error: " + error.code + " " + error.message);
