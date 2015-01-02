@@ -92,8 +92,8 @@ jQuery(document).ready(function($){
 
 /********************************* 朋友的timeline *****************************************/
 
-var friendsTimlineSection = function(num){
-	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
+var friendsTimlineSection = function(){
+	var friendsSection = "<section id='cd-timeline' class=' no_  cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
 	return friendsSection;
@@ -102,7 +102,7 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(i = 0;i < friends.length; i++){
-		$("#friends_timmeline_area .center").append("<div>ddddd</div>");
+		$("#friends_timmeline_area .center").append(friendsTimlineSection());
 		/*var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
