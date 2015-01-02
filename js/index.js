@@ -100,6 +100,7 @@ var friendsTimlineSection = function(num){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
+	alert(friends.length);
 	for(i = 1;i <= friends.length; i++){
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
 	}
