@@ -111,7 +111,7 @@ if (currentUser) {
 		    alert("Successfully retrieved " + results.length );
 		    // Do something with the returned Parse.Object values
 		    var className= ".no_"+i;
-		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+		    //$(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
 		  },
 		  error: function(error) {
 		    alert("Error: " + error.code + " " + error.message);
