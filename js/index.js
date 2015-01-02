@@ -93,14 +93,16 @@ jQuery(document).ready(function($){
 /********************************* 朋友的timeline *****************************************/
 var currentUser = Parse.User.current();
 if (currentUser) {
-    var query = new Parse.Query(Parse.User);
+	var friends = currentUser.get("friends");
+	console.log(friends);
+    /*var query = new Parse.Query(Parse.User);
 	query.equalTo("objectId", currentUser.id);  // find all the women
 	query.find({
 	  success: function(result) {
 	    var friend = result.get("friends");
 	    console.log(friend.length);
 	  }
-	});
+	});*/
 } else {
     // show the signup or login page
 }
