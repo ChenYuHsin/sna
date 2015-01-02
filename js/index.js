@@ -100,9 +100,21 @@ var friendsTimlineSection = function(num){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	alert(friends.length);
-	for(i = 1;i <= friends.length; i++){
+	for(i = 0;i < friends.length; i++){
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
+		var Dent = Parse.Object.extend("Dent");
+		var dent = new Parse.Query(Dent);
+		dent.equalTo("poster", friends[i]);
+		dent.find({
+		  success: function(results) {
+		    alert("Successfully retrieved " + results.length );
+		    // Do something with the returned Parse.Object values
+		    
+		  },
+		  error: function(error) {
+		    alert("Error: " + error.code + " " + error.message);
+		  }
+		});
 	}
     
 } else {
