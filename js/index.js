@@ -94,7 +94,7 @@ jQuery(document).ready(function($){
 
 var friendsTimlineSection = function(num){
 	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
-								"<img src='img/5.jpg' alt='Picture' class='friends_pic' >"+
+								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
 	return friendsSection;
 }
