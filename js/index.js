@@ -102,6 +102,7 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(i = 0;i < friends.length; i++){
+		alert(friends.length);
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
