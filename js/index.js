@@ -104,6 +104,7 @@ if (currentUser) {
 	for(i = 0;i < friends.length; i++){
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
 		var Dent = Parse.Object.extend("Dent");
+		alert("1");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
 		dent.find({
