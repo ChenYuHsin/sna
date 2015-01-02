@@ -31,6 +31,9 @@ $(document).ready(function(){
 	$('.ui.ignored .button:nth-child(2)').click(function(){
 		$('.shape').shape('set next side', getSideDown()).shape('flip right');
 	});
+
+	//make dent emption
+	$('.make_dent_emotion .checkbox').checkbox();
 	//$('.shape').shape('flip up');
 	var getSideUp = function(){
 		var order = $('.side.active').attr('id');
