@@ -97,9 +97,8 @@ if (currentUser) {
 	query.equalTo("objectId", currentUser.id);  // find all the women
 	query.find({
 	  success: function(result) {
-	    var friend = query.get("friends");
+	    var friend = result.get("friends");
 	    console.log(friend.length);
-	    alert(currentUser.id);
 	  }
 	});
 } else {
