@@ -105,12 +105,12 @@ if (currentUser) {
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
-		dent.equalTo("poster", friends[i]);
+		dent.equalTo("poster2", friends[i]);
 		dent.find({
 		  success: function(results) {
 		    alert("Successfully retrieved " + results.length );
 		    // Do something with the returned Parse.Object values
-		    var className= ".no_"+i-1;
+		    var className= ".no_"+i;
 		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
 		  },
 		  error: function(error) {
