@@ -107,7 +107,7 @@ if (currentUser) {
 							"</section>";
 		$("#friends_timmeline_area #1 .content").append(friendsSection);
 
-		/*var Dent = Parse.Object.extend("Dent");
+		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
 		dent.find({
@@ -115,12 +115,12 @@ if (currentUser) {
 		    alert("Successfully retrieved " + results.length );
 		    // Do something with the returned Parse.Object values
 		    //var className= ".no_"+i;
-		    //$(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
 		  },
 		  error: function(error) {
 		    alert("Error: " + error.code + " " + error.message);
 		  }
-		});*/
+		});
 	}
     
 } else {
