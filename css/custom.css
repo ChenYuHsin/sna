@@ -112,7 +112,7 @@ ul li {
   margin-left: 50%;
   left: -40px;  
 }
-#friends_page #test .cd-container{
+#friends_page #friends_timmeline_area .cd-container{
   margin-top: 0px;
   margin-right: 35px;
 }
@@ -259,7 +259,7 @@ div.codepen_arrow .right:after {
   transform: rotate(45deg);
 }*/
 
-#test{
+#friends_timmeline_area{
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
@@ -275,7 +275,7 @@ div.codepen_arrow .right:after {
 
   
 }
-#test section{
+#friends_timmeline_area section{
 
   display: inline-block;
   
@@ -363,7 +363,7 @@ div.codepen_arrow .right:after {
   width: 100%;
    height: 600px;
 }
-#test.ui.grid>*{
+#friends_timmeline_area.ui.grid>*{
   padding: 0px;
 }
 .ui.cube.shape .side{
