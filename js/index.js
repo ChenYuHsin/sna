@@ -94,15 +94,8 @@ jQuery(document).ready(function($){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	console.log(friends);
-    /*var query = new Parse.Query(Parse.User);
-	query.equalTo("objectId", currentUser.id);  // find all the women
-	query.find({
-	  success: function(result) {
-	    var friend = result.get("friends");
-	    console.log(friend.length);
-	  }
-	});*/
+	console.log(friends[0]);
+    
 } else {
     // show the signup or login page
 }
