@@ -92,7 +92,7 @@ jQuery(document).ready(function($){
 
 /********************************* 朋友的timeline *****************************************/
 
-var friendsTimlineSection = function(num){
+/*var friendsTimlineSection = function(num){
 	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/5.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
@@ -121,7 +121,7 @@ if (currentUser) {
     
 } else {
     // show the signup or login page
-}
+}*/
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function( startPoint, keepTime ,face , color){
 		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
