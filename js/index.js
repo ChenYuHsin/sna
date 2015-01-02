@@ -133,10 +133,10 @@ if (currentUser) {
 		
 	};
 	//timeLineTpl( 1, 3, 'smile' ,'yellow');
-	$(".me_line").append(timeLineTpl(1, 3, 'smile' ,'yellow'));
-	$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
-	$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
-	$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
+	//$(".me_line").append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+	//$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
+	//$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
+	//$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
 	function queryDent(timelineClass){
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
