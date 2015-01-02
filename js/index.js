@@ -91,6 +91,7 @@ jQuery(document).ready(function($){
    });
 
 /********************************* 朋友的timeline *****************************************/
+
 var friendsTimlineSection = function(num){
 	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/5.jpg' alt='Picture' class='friends_pic' >"+
@@ -109,7 +110,8 @@ if (currentUser) {
 		  success: function(results) {
 		    alert("Successfully retrieved " + results.length );
 		    // Do something with the returned Parse.Object values
-		    
+		    var className= ".no_"+i-1;
+		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
 		  },
 		  error: function(error) {
 		    alert("Error: " + error.code + " " + error.message);
