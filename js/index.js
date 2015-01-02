@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	for(i = 0;i < friends.length; i++){
+	for(var i = 0;i < friends.length; i++){
 		var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
@@ -114,7 +114,7 @@ if (currentUser) {
 		alert(className);
 		dent.find({
 		  success: function(results) {
-		    alert("Successfully retrieved " + results.length );
+		    alert("Successfully retrieved " + className );
 		    // Do something with the returned Parse.Object values
 
 		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
