@@ -74,12 +74,12 @@ jQuery(document).ready(function($){
 		});
 	};
 	$('#start_datetime').datetimepicker({
-		    	dateFormat: "yy-mm-dd"
-		    });
-		    
-		    $('#end_datetime').datetimepicker({
-		    	dateFormat: "yy-mm-dd"
-		    });
+	   	dateFormat: "yy-mm-dd"
+	});
+	    
+    $('#end_datetime').datetimepicker({
+	   	dateFormat: "yy-mm-dd"
+    });
 
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
