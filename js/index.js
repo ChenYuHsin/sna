@@ -102,9 +102,8 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(i = 0;i < friends.length; i++){
-		alert(friends.length);
 		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
-		var Dent = Parse.Object.extend("Dent");
+		/*var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
 		dent.find({
@@ -117,7 +116,7 @@ if (currentUser) {
 		  error: function(error) {
 		    alert("Error: " + error.code + " " + error.message);
 		  }
-		});
+		});*/
 	}
     
 } else {
