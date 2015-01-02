@@ -102,10 +102,10 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(i = 0;i < friends.length; i++){
-		var friendsSection = "<section id='cd-timeline' class=' no_ cd-container two wide column center' style='position: relative'>"+
+		var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
-		$("#friends_timmeline_area .center").append(friendsSection);
+		$("#friends_timmeline_area .center").append("dd");
 
 		/*var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
