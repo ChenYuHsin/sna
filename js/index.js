@@ -73,13 +73,11 @@ jQuery(document).ready(function($){
 			}
 		});
 	};
-	$('#start_datetime').datetimepicker({
-	   	dateFormat: "yy-mm-dd"
-	});
+	
 	    
-    $('#end_datetime').datetimepicker({
+    /*$('#end_datetime').datetimepicker({
 	   	dateFormat: "yy-mm-dd"
-    });
+    });*/
 
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
@@ -91,6 +89,63 @@ jQuery(document).ready(function($){
     	deliverDent(currentUser, category, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    });
+
+/********************************* 朋友的timeline *****************************************/
+var currentUser = Parse.User.current();
+if (currentUser) {
+    var query = new Parse.Query(Parse.User);
+	query.equalTo("objectId", currentUser.id);  // find all the women
+	query.find({
+	  success: function(result) {
+	    var friend = query.get("friends");
+	    alert(friend);
+	  }
+	});
+} else {
+    // show the signup or login page
+}
+/*************************************** this is test *************************************************/
+	var timeLineTpl = function( startPoint, keepTime ,face , color){
+		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
+						"<div class='cd-timeline-img cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
+							"<i class='"+face+" icon inverted'></i>"+
+						"</div>"+
+					"</div>";
+		return timeTpl;
+		
+	};
+	//timeLineTpl( 1, 3, 'smile' ,'yellow');
+	/*$(".me_line").append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+	$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
+	$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
+	$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));*/
+	function queryDent(timelineClass){
+		var Dent = Parse.Object.extend("Dent");
+		var query = new Parse.Query(Dent);
+		var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
+		query.find({
+			success: function(results){
+				// alert("Successfully retrieved " + results.length + " scores.");
+				for(var i=0; i<results.length; i++){
+					var dent = results[i];
+					var dent_poster = dent.get("poster").id;
+					var dent_category = dent.get("category");
+					var dent_content = dent.get("content");
+					var dent_start = dent.get("s_datetime");
+					var dent_end = dent.get("e_datetime");
+					origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
+				}
+				
+				$(timelineClass).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+			},
+			error: function(object, error){
+				alert(error.message);
+			}
+		});
+	}
+
+	queryDent(".me_line");
+
 
 	
 });
