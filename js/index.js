@@ -99,6 +99,7 @@ if (currentUser) {
 	  success: function(result) {
 	    var friend = query.get("friends");
 	    console.log(friend.length);
+	    alert(currentUser.id);
 	  }
 	});
 } else {
