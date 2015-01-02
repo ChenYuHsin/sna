@@ -98,7 +98,7 @@ if (currentUser) {
 	query.find({
 	  success: function(result) {
 	    var friend = query.get("friends");
-	    alert(friend);
+	    console.log(friend);
 	  }
 	});
 } else {
