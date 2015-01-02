@@ -114,11 +114,11 @@ if (currentUser) {
 		dent.find({
 		  success: function(results) {
 		    alert("Successfully retrieved ");
-		    for(j = 0 ; j < friends.length ; j++){}
+		    for(j = 0 ; j < friends.length ; j++){
 		    	var className= ".no_"+j;
 				alert(className);
 		    	$(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
-		    }
+		    };
 		    // Do something with the returned Parse.Object values
 
 		    
