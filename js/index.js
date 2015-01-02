@@ -91,10 +91,18 @@ jQuery(document).ready(function($){
    });
 
 /********************************* 朋友的timeline *****************************************/
+var friendsTimlineSection = function(num){
+	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
+								"<img src='img/5.jpg' alt='Picture' class='friends_pic' >"+
+							"</section>";
+	return friendsSection;
+}
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	console.log(friends[0]);
+	for(i = 1;i <= friends.length; i++){
+		$("#friends_timmeline_area .center").append(friendsTimlineSection(i));
+	}
     
 } else {
     // show the signup or login page
