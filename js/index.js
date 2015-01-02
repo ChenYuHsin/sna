@@ -110,12 +110,11 @@ if (currentUser) {
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
+		var className= ".no_"+i;
 		dent.find({
 		  success: function(results) {
 		    alert("Successfully retrieved " + results.length );
 		    // Do something with the returned Parse.Object values
-		    var className= ".no_"+i;
-		    alert(i);
 		    $(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
 		  },
 		  error: function(error) {
