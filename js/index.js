@@ -39,23 +39,7 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
-	// Run code after the Facebook SDK is loaded.
-	            var logined = function(){
-					$('.login_btn').css("display","none");
-					FB.api('/me/picture?width=100', function(response) {
-						var my_picture_url = response.data.url;
-						$("#account_img").attr('src', my_picture_url);
-						$(".my_timeline_pic").attr('src', my_picture_url);
-
-					});
-					FB.api('/me', function(response) {
-						var my_name = response.name;
-						$(".account_info").html("Hi! "+ my_name);
-					});
-				}
-				if(Parse.User.current()!=null){
-					logined();
-				}
+	
 
 	
 });
