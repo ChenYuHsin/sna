@@ -1,5 +1,11 @@
 jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
+	var currentUser = Parse.User.current();
+		if (currentUser) {
+		    alert(currentUser.id);
+		} else {
+		    // show the signup or login page
+		}
 	if(Parse.User.current()==null){
 		$('.logout_btn').css("display","none");
 		$('.account_info').css("display", "none");
@@ -39,7 +45,39 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
-	
+
+	function deliverDent(user, category, content, s, e){
+		
+		alert(user + ":" + category + ":" + content + ":" + s + ":" + e);
+		var Dent = Parse.Object.extend("Dent");
+  		var dent = new Dent();
+  		var Poster = Parse.Object.extend("User");
+  		var query = new Parse.Query(Poster);
+  			
+		query.get(user, {
+			success: function(p) {
+				var poster = p;
+				var s_datetime = new Date(s);
+	  			var e_datetime = new Date(e);
+	  			dent.set("poster", poster);
+	  			dent.set("category", category);
+	  			dent.set("content", content);
+	  			dent.set("s_datetime", s_datetime);
+	  			dent.set("e_datetime", e_datetime);
+	  			dent.save(null, {
+				  	success: function(gameScore) {
+				    	queryDent();
+				  	},
+				  	error: function(gameScore, error) {
+				    	alert('Failed to create new object, with error code: ' + error.message);
+				  	}
+				});
+			},
+			error: function(object, error) {
+				alert(error.message);
+			}
+		});
+	}
 
 	
 });
