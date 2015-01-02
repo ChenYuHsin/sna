@@ -105,7 +105,7 @@ if (currentUser) {
 		var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative'>"+
 								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
-		$("#friends_timmeline_area .side").append(friendsSection);
+		$("#friends_timmeline_area .content").append(friendsSection);
 
 		/*var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
