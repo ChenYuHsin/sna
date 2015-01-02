@@ -1,11 +1,6 @@
 jQuery(document).ready(function($){
 	Parse.initialize("i3YYpkGy0zHRuBevYamiXHNZIGQO8Mmj7IjUxGXE", "sHviJS2dqoTQWIPM3Fx3Si2zv01YQ9KgMIQXMun5");
-	var currentUser = Parse.User.current();
-		if (currentUser) {
-		    alert(currentUser.id);
-		} else {
-		    // show the signup or login page
-		}
+
 	if(Parse.User.current()==null){
 		$('.logout_btn').css("display","none");
 		$('.account_info').css("display", "none");
@@ -47,14 +42,13 @@ jQuery(document).ready(function($){
 	});
 
 	function deliverDent(user, category, content, s, e){
-		
-		alert(user + ":" + category + ":" + content + ":" + s + ":" + e);
+		alert(user.id + ":" + category + ":" + content + ":" + s + ":" + e);
 		var Dent = Parse.Object.extend("Dent");
   		var dent = new Dent();
   		var Poster = Parse.Object.extend("User");
   		var query = new Parse.Query(Poster);
   			
-		query.get(user, {
+		query.get(user.id, {
 			success: function(p) {
 				var poster = p;
 				var s_datetime = new Date(s);
@@ -66,7 +60,8 @@ jQuery(document).ready(function($){
 	  			dent.set("e_datetime", e_datetime);
 	  			dent.save(null, {
 				  	success: function(gameScore) {
-				    	queryDent();
+				    	//queryDent();
+				    	alert("success");
 				  	},
 				  	error: function(gameScore, error) {
 				    	alert('Failed to create new object, with error code: ' + error.message);
@@ -77,7 +72,18 @@ jQuery(document).ready(function($){
 				alert(error.message);
 			}
 		});
-	}
+	};
+	
+	$(".dent_send").click(function(){
+		var currentUser = Parse.User.current();
+		var category = $('input:radio:checked[name="emotion"]').val();
+    	//var category = $('#category').val();
+    	var content = $('.make_dent_content').val();
+    	var start_datetime = $('#start_datetime').val();
+    	var end_datetime = $('#end_datetime').val();
+    	deliverDent(currentUser, category, content, start_datetime, end_datetime);
+		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
+   });
 
 	
 });
