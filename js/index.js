@@ -106,6 +106,7 @@ if (currentUser) {
 								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
 							"</section>";
 		$("#friends_timmeline_area .center").append(friendsSection);
+		alert();
 		/*var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
