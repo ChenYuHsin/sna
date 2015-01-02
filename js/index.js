@@ -73,7 +73,14 @@ jQuery(document).ready(function($){
 			}
 		});
 	};
-	
+	$('#start_datetime').datetimepicker({
+		    	dateFormat: "yy-mm-dd"
+		    });
+		    
+		    $('#end_datetime').datetimepicker({
+		    	dateFormat: "yy-mm-dd"
+		    });
+
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
 		var category = $('input:radio:checked[name="emotion"]').val();
