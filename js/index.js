@@ -169,8 +169,8 @@ if (currentUser) {
 }
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function( startPoint, keepTime ,face ,popup_content ,color){
-		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"' data-comtent='"+popup_content+"'>"+
-						"<div class='cd-timeline-img cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
+		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
+						"<div class='cd-timeline-img data-conent='"+popup_content+"' cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
