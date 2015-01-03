@@ -203,7 +203,7 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					console.log(calstart);
+					console.log(ClassName);
 					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
 
 					
