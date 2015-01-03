@@ -183,7 +183,7 @@ if (currentUser) {
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
-					console.log(dent.get("poster"));
+					console.log(dent.get("poster").id);
 					var dent_poster = dent.get("poster").id;
 					var dent_category = dent.get("category");
 					var dent_content = dent.get("content");
