@@ -59,7 +59,8 @@
 					});
 					FB.api("/me/friends",function (response) {
 			        	// if (response && !response.error) {
-			        		for(var i = 0; i<response.length; i++){
+			        		console.log(response.length);
+			        		for(var i = 0; i<=response.length; i++){
 			        			console.log(response.data[i]);
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
