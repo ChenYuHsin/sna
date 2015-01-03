@@ -53,6 +53,13 @@
 						user.save();
 						$(".account_info").html("Hi! "+ my_name);
 					});
+					FB.api("/me/friends",function (response) {
+			        	if (response && !response.error) {
+			        		for(var i = 0; i<response.length; i++){
+			        			console.log(response.data[i]);
+			        		}
+			        	}
+			        });
 				}
 				if(Parse.User.current()!=null){
 					logined();
