@@ -118,12 +118,15 @@ if (currentUser) {
 	for(var i = 0;i < friends.length; i++){
 		var queryFriend = new Parse.Query(Parse.User);
 		queryFriend.get(friends[i], {
-			success: function(gameScore) {
+			success: function(friends) {
 			// The object was retrieved successfully.
+			var d = friends.get("imagesrc");
+			alert(d);
 			},
 			error: function(object, error) {
 			// The object was not retrieved successfully.
 			// error is a Parse.Error with an error code and message.
+			alert(object +" "+error);
 			}
 		});
 		/*queryFriend.equalTo("objectId", friends[i]);
