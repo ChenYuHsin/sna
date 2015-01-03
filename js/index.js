@@ -108,6 +108,7 @@ $(".add_friend_btn").click(function(){
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result){
+				friends.push(result);
 				currentUser.save(null, {
 					success: function(){
 						currentUser.set("friends", friends);
