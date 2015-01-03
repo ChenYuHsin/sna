@@ -138,7 +138,7 @@ if (currentUser) {
 		queryFriend.equalTo("objectId", friends[i]);  // find all the women
 		queryFriend.find({
 			success: function(result) {
-				alert(result);
+				alert(result.get("imagesrc"));
 		    //var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
 			//					"<img src='"+ result.get('imagesrc')+"' alt='Picture' class='friends_pic'>"+
 			//				"</section>";
