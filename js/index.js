@@ -198,7 +198,7 @@ if (currentUser) {
 					var calstart = dent_start.getHours()+dent_start.getMinutes();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/1800000;
 					var ClassName = "[data-meId = '"+ dent_poster +"']";
-					console.log(ClassName);
+					console.log(calstart);
 					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
 
 					
