@@ -234,7 +234,10 @@ if (currentUser) {
 		});
 	}
 	queryDent();
-	$(".cd-timeline-img").popup({on: "hover"});
+	$(".cd-timeline-img").on("hover", function(){
+		popup({on: "hover"};
+	})
+	//$(".cd-timeline-img").popup({on: "hover"});
 
 
 	
