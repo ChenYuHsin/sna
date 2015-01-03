@@ -109,6 +109,7 @@ $(".add_friend_btn").click(function(){
 		queryFriend.find({
 			success: function(result){
 				friends.push(result);
+				console.log(friends);
 				currentUser.save(null, {
 					success: function(){
 						currentUser.set("friends", friends);
