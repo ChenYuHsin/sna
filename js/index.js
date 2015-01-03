@@ -168,7 +168,7 @@ if (currentUser) {
     // show the signup or login page
 }
 /*************************************** this is test *************************************************/
-	var timeLineTpl = function( startPoint, keepTime ,face ){
+	var timeLineTpl = function( startPoint, keepTime ,face , color){
 		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
 						"<div class='cd-timeline-img cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
@@ -203,7 +203,7 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					console.log(ClassName);
-					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category));
+					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
 
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
