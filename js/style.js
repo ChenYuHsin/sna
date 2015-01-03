@@ -128,7 +128,7 @@ $(document).ready(function(){
 
 	var c1="晚餐吃大魚墮落！誰要跟我一起！！";
 	var c2 = "www";
-	$('.cd-timeline-img').attr("data-html", popupTpl("img/5.jpg", c1));
+	//$('.cd-timeline-img').attr("data-html", popupTpl("img/5.jpg", c1));
 	$('.cd-timeline-block').click(function(){
 		
 	});
