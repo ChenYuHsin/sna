@@ -116,7 +116,7 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
-		var queryFriend = new Parse.Object.extend("User");
+		var queryFriend = new Parse.Query(Parse.User);
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result) {
