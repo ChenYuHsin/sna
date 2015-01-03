@@ -189,12 +189,12 @@ if (currentUser) {
 					var dent_start = dent.get("s_datetime");
 					var dent_end = dent.get("e_datetime");
 					var calstart = dent_start.getHours()+dent_start.getMinutes();
-					var calkeep = (dent_end.getTime() - dent_start.getTime())
-					console.log(calkeep);
+					var calkeep = (dent_end.getTime() - dent_start.getTime())/1800000;
+					
 					origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
 				
-				$(timelineClass).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
+				$(timelineClass).append(timeLineTpl(calstart, calkeep, 'smile' ,'yellow'));
 			},
 			error: function(object, error){
 				alert(error.message);
