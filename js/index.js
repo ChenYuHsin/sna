@@ -188,7 +188,7 @@ if (currentUser) {
 					var dent_content = dent.get("content");
 					var dent_start = dent.get("s_datetime");
 					var dent_end = dent.get("e_datetime");
-					console.log(dent_start.getHours());
+					console.log(dent_start.getHours()+","+dent_start.getMinutes());
 					origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
 				
