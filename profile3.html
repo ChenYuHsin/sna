@@ -55,6 +55,8 @@
 					});
 					FB.api("/me/friends",function (response) {
 			        	// if (response && !response.error) {
+			        		console.log(response);
+			        		console.log(response.data);
 			        		console.log(response.data[0]);
 			        		for(var i = 0; i<response.length; i++){
 			        			console.log(response.data[i]);
