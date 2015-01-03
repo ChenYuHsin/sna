@@ -132,7 +132,7 @@ $(document).ready(function(){
 	$('.cd-timeline-block').click(function(){
 		
 	});
-	//$(".cd-timeline-img").popup({on: "hover"});
+	$(".cd-timeline-img").popup({on: "hover"});
 
 
 	//時段end
