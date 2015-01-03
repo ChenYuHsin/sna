@@ -90,7 +90,14 @@ jQuery(document).ready(function($){
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    });
 
+/***********************************  object id to me_line *******************************************/
+	var currentUser = Parse.User.current();
+	if(currentUser){
+		$('.me_line').attr("data-meId", currentUser.id);
+	}else{
 
+	}
+	$('.me_line').attr
 /******************************** add friends ****************************************/
 $(".add_friend_btn").click(function(){
 	var currentUser = Parse.User.current();
@@ -128,7 +135,7 @@ if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
 		var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative'>"+
-								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
+								"<img src='img/7.jpg' alt='Picture' class='friends_pic'  data-friendId='"+friends[i]+"'>"+
 							"</section>";
 		$("#friends_timmeline_area #1 .content").append(friendsSection);
 
@@ -171,11 +178,11 @@ if (currentUser) {
 	//$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
 	//$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
 	//$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
-	function queryDent(timelineClass){
+	function queryDent(){
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
 		
-		var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
+		//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
 		query.find({
 			success: function(results){
 				// alert("Successfully retrieved " + results.length + " scores.");
@@ -190,11 +197,13 @@ if (currentUser) {
 					var dent_end = dent.get("e_datetime");
 					var calstart = dent_start.getHours()+dent_start.getMinutes();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/1800000;
+
 					
 					origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
+				var ClassName = "[data-meId = "+ dent_poster.id +"]";
 				
-				$(timelineClass).append(timeLineTpl(calstart, calkeep, 'smile' ,'yellow'));
+				$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
 			},
 			error: function(object, error){
 				alert(error.message);
@@ -202,7 +211,7 @@ if (currentUser) {
 		});
 	}
 
-	queryDent(".me_line");
+	queryDent();
 
 
 	
