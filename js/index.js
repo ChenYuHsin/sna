@@ -195,7 +195,7 @@ if (currentUser) {
 					var dent_content = dent.get("content");
 					var dent_start = dent.get("s_datetime");
 					var dent_end = dent.get("e_datetime");
-					var calstart = dent_start.getHours()+dent_start.getMinutes();
+					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/1800000;
 					var ClassName = "[data-meId = '"+ dent_poster +"']";
 					console.log(calstart);
