@@ -30,7 +30,10 @@ jQuery(document).ready(function($){
 	                var fbid = user.get('authData')['facebook'].id;
 	                user.set('facebookid', fbid);
 	                user.save();
-	                FB.api('/me/picture?width=100', function(response) {
+	                location.assign("index.html");
+	            } 
+	            else{
+	            	FB.api('/me/picture?width=100', function(response) {
 						var my_picture_url = response.data.url;
 						user.set('imagesrc', my_picture_url);
 						user.save();
@@ -40,9 +43,6 @@ jQuery(document).ready(function($){
 						user.set('name', my_name);
 						user.save();
 					});
-	                location.assign("index.html");
-	            } 
-	            else{
 	                alert("User logged in through Facebook!");
 	                location.assign("index.html");
 	            }
