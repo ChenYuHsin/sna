@@ -98,6 +98,9 @@ $(".add_friend_btn").click(function(){
 	  success: function(result) {
 	    var friends_array = result.get("friends");
 	    console.log(friends_array);
+	  },
+	  error: function(){
+	  	alert('error');
 	  }
 	});
 })
