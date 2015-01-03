@@ -7,6 +7,20 @@ jQuery(document).ready(function($){
 		$('#account_img').css("display", "none");
 	}
 
+	var logined = function(){
+					$('.login_btn').css("display","none");
+					FB.api('/me/picture?width=100', function(response) {
+						var my_picture_url = response.data.url;
+						$("#account_img").attr('src', my_picture_url);
+						$(".my_timeline_pic").attr('src', my_picture_url);
+					});
+					FB.api('/me', function(response) {
+						var my_name = response.name;
+						$(".account_info").html("Hi! "+ my_name);
+
+					});
+				}
+
 	//fblogin button
 	$("#my-login-button").click(function(){
 	    Parse.FacebookUtils.logIn("user_friends", {
@@ -16,6 +30,16 @@ jQuery(document).ready(function($){
 	                var fbid = user.get('authData')['facebook'].id;
 	                user.set('facebookid', fbid);
 	                user.save();
+	                FB.api('/me/picture?width=100', function(response) {
+						var my_picture_url = response.data.url;
+						user.set('imagesrc', my_picture_url);
+						user.save();
+					});
+					FB.api('/me', function(response) {
+						var my_name = response.name;
+						user.set('name', my_name);
+						user.save();
+					});
 	                location.assign("index.html");
 	            } 
 	            else{

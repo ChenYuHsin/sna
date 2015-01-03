@@ -50,7 +50,6 @@
 						var my_picture_url = response.data.url;
 						$("#account_img").attr('src', my_picture_url);
 						$(".my_timeline_pic").attr('src', my_picture_url);
-
 					});
 					FB.api('/me', function(response) {
 						var my_name = response.name;
