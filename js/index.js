@@ -104,7 +104,18 @@ $(".add_friend_btn").click(function(){
 	if(currentUser){
 		var friends = currentUser.get("friends");
 		var friend_id = $(this).closest("div").attr("data-friendId");
-		friends.push(friend_id);
+		var queryFriend = new Parse.Query("User");
+		queryFriend.equalTo("objectId", friends[i]);
+		queryFriend.find({
+			success: function(result){
+				friends.push(result);
+				current.set("friends",friends);
+			},
+			error: function(){
+				alert("sss");
+			}
+		});
+		/*friends.push(friend_id);
 		console.log(friends);
 		currentUser.save(null, {
 			success: function(){
@@ -113,7 +124,7 @@ $(".add_friend_btn").click(function(){
 			error: function(){
 				alert("error");
 			}
-		})
+		})*/
 		
 		
 
@@ -122,6 +133,7 @@ $(".add_friend_btn").click(function(){
 	}
 	
 })
+
 /********************************* 朋友的timeline *****************************************/
 
 /*var friendsTimlineSection = function(num){
@@ -138,7 +150,7 @@ if (currentUser) {
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result) {
-				var d =result.get("imagesrc");
+				//var d =result.get("imagesrc");
 			
 		    //var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
 			//					"<img src='"+ result.get('imagesrc')+"' alt='Picture' class='friends_pic'>"+
