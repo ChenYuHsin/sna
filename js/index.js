@@ -109,7 +109,7 @@ $(".add_friend_btn").click(function(){
 		queryFriend.find({
 			success: function(result){
 				friends.push(result);
-				current.set("friends",friends);
+				currentUser.set("friends",friends);
 			},
 			error: function(){
 				alert("sss");
