@@ -37,6 +37,10 @@
 	        	});
 	         
 	            // Run code after the Facebook SDK is loaded.
+	            var friendbase = function(id, url, name){
+					var friendbody = $('<div class="card" id="1234567" data-roleId="'+id+'"><div class="dimmable image"><div class="ui dimmer"><div class="content"><div class="center"><div class="ui inverted button add_friend_btn">Add Friend</div></div></div></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+					$('#recommendfriend').append(friendbody);
+				}
 	            var logined = function(){
 	            	var user = Parse.User.current();
 					$('.login_btn').css("display","none");
@@ -55,11 +59,19 @@
 					});
 					FB.api("/me/friends",function (response) {
 			        	// if (response && !response.error) {
-			        		console.log(response);
-			        		console.log(response.data);
-			        		console.log(response.data[0]);
 			        		for(var i = 0; i<response.length; i++){
 			        			console.log(response.data[i]);
+			        			var user = Parse.Object.extend("User");
+			        			var query = new Parse.Query(user);
+			        			query.equalTo("facebookid", response.data[i].id);
+			        			query.first({
+			        				success:function(userdata){
+			        					var userid = userdata.id;
+			        					var username = userdata.get('name');
+			        					var userphotourl = userdata.get('imagesrc');
+			        					friendbase(userid, username, userphotourl);
+			        				}
+			        			})
 			        		}
 			        	// }
 			        });
