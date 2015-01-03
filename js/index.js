@@ -103,7 +103,7 @@ $(".add_friend_btn").click(function(){
 	var currentUser = Parse.User.current();
 	if(currentUser){
 		var friends = currentUser.get("friends");
-		var friend_id = $(this).closest("div").attr("data-friendId");
+		var friend_id = $(this).closest(".card").attr("data-friendId");
 		var queryFriend = new Parse.Query("User");
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
