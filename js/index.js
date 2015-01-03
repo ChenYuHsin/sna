@@ -216,7 +216,7 @@ if (currentUser) {
 			}
 		});
 	}
-
+	queryDent();
 	
 
 
