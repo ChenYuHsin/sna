@@ -75,7 +75,6 @@
 
 			        					var currentuser = Parse.User.current();
 			        					var friend = currentuser.get('friends');
-			        					console.log(friend);
 			        					for(var i = 0; i<friend.length; i++){
 			        						if(friend[i] == userid){
 			        							friendlist(userphotourl, username);
@@ -194,14 +193,7 @@
 				  </div>
 				</h2>
 					<div class="ui six doubling cards" id="friendlists">
-					  <div class="card">
-					    <div class="image">
-					      <img src="/images/avatar/large/elliot.jpg">
-					    </div>
-					    <div class="content">
-					      <a class="header">Elliot Fu</a>
-					    </div>
-					  </div>
+
 					</div>
 				
 			</section>
