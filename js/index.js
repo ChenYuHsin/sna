@@ -234,7 +234,7 @@ if (currentUser) {
 		});
 	}
 	queryDent();
-	
+	$(".cd-timeline-img").popup({on: "hover"});
 
 
 	
