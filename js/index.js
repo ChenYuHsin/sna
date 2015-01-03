@@ -115,10 +115,9 @@ $(".add_friend_btn").click(function(){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	console.log(friends[0]);
 	for(var i = 0;i < friends.length; i++){
 		var queryFriend = new Parse.Query(Parse.User);
-		queryFriend.equalTo("objectId", friends[i]);
+		queryFriend.equalTo("objectId", friends[0]);
 		queryFriend.find({
 			success: function(result) {
 			    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
