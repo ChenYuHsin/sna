@@ -100,38 +100,9 @@ jQuery(document).ready(function($){
 	$('.me_line').attr
 /******************************** add friends ****************************************/
 $(".add_friend_btn").click(function(){
-	var currentUser = Parse.User.current();
-	if(currentUser){
-		var friends = currentUser.get("friends");
-		var friend_id = $(this).closest(".card").attr("data-friendId");
-		var queryFriend = new Parse.Query("User");
-		queryFriend.equalTo("objectId", friend_id);
-		queryFriend.find({
-			success: function(result){
-				alert();
-			},
-			error: function(error){
-				alert(error);
-			}
-		});
-		/*friends.push(friend_id);
-		console.log(friends);
-		currentUser.save(null, {
-			success: function(){
-				currentUser.set("friends", friends);
-			},
-			error: function(){
-				alert("error");
-			}
-		})*/
-		
-		
 
-	}else{
-
-	}
 	
-})
+});
 
 /********************************* 朋友的timeline *****************************************/
 
