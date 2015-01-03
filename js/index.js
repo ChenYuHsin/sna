@@ -204,7 +204,7 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					
-					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,popupTplCotent ,'yellow'));
+					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category  ,'yellow'));
 
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
