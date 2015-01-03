@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$('.left.sidebar.menu').sidebar('attach events', '.status');	
 	$('.status').removeClass('disabled');
 	
-	$('.special.cards img').dimmer({
+	$('.special.cards .image').dimmer({
   		on: 'hover'
 	});
 	$('.btn_make_dent').click(function(){
