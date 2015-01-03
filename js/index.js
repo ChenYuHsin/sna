@@ -94,7 +94,7 @@ $(".add_friend_btn").click(function(){
 	var currentUser = Parse.User.current();
 	if(currentUser){
 		var friends = currentUser.get("friends");
-		console.log("friends");
+		console.log(friends);
 	}else{
 
 	}
