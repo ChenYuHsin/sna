@@ -97,7 +97,6 @@ jQuery(document).ready(function($){
 	}else{
 
 	}
-	$('.me_line').attr
 /******************************** add friends ****************************************/
 $(".add_friend_btn").click(function(){
 
