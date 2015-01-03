@@ -168,9 +168,9 @@ if (currentUser) {
     // show the signup or login page
 }
 /*************************************** this is test *************************************************/
-	var timeLineTpl = function( startPoint, keepTime ,face ,popup_content ,color){
+	var timeLineTpl = function( startPoint, keepTime ,face  ,color){
 		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
-						"<div class='cd-timeline-img data-conent='"+popup_content+"' cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
+						"<div class='cd-timeline-img  cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
@@ -204,23 +204,6 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					
-					var popupTplCotent = "<div class='ui items popup_item'>"+
-											  "<div class='item'>"+
-											    "<a class='ui tiny image'>"+
-											      "<img src='"+dent_poster_obj.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
-											    "</a>"+
-											    "<div class='content'>"+
-											      "<a class='author'>Joe Henderson</a>"+
-											      "<div class='metadata'>"+
-											      	"<div class='date'>1</div>"+
-											      "</div>"+
-											      "<div class='description'>"+
-											        
-											        "<p>"+dent_content+"</p>"+
-											      "</div>"+
-											    "</div>"+
-											  "</div>";
-					
 					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,popupTplCotent ,'yellow'));
 
 					
@@ -234,7 +217,7 @@ if (currentUser) {
 		});
 	}
 	queryDent();
-	$(".cd-timeline-img").popup({on: "hover"});
+	
 
 
 	
