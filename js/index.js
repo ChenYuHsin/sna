@@ -93,7 +93,7 @@ jQuery(document).ready(function($){
 /***********************************  object id to me_line *******************************************/
 	var currentUser = Parse.User.current();
 	if(currentUser){
-		$('.me_line').attr("data-meid", currentUser.id);
+		$('.me_line').attr("data-timelineid", currentUser.id);
 	}else{
 
 	}
