@@ -168,8 +168,8 @@ if (currentUser) {
     // show the signup or login page
 }
 /*************************************** this is test *************************************************/
-	var timeLineTpl = function( startPoint, keepTime ,face , color){
-		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"'>"+
+	var timeLineTpl = function( startPoint, keepTime ,face ,popup_content ,color){
+		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"' data-comtent='"+popup_content+"'>"+
 						"<div class='cd-timeline-img cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
@@ -194,6 +194,7 @@ if (currentUser) {
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
+					var dent_poster_obj = dent.get("poster");
 					var dent_poster = dent.get("poster").id;
 					var dent_category = dent.get("category");
 					var dent_content = dent.get("content");
@@ -202,8 +203,25 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					console.log(ClassName);
-					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
+					var popupTpl = function(img, description){
+					var popupTplCotent = "<div class='ui items popup_item'>"+
+											  "<div class='item'>"+
+											    "<a class='ui tiny image'>"+
+											      "<img src='"+dent_poster_obj.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
+											    "</a>"+
+											    "<div class='content'>"+
+											      "<a class='author'>Joe Henderson</a>"+
+											      "<div class='metadata'>"+
+											      	"<div class='date'>1</div>"+
+											      "</div>"+
+											      "<div class='description'>"+
+											        
+											        "<p>"+dent_content+"</p>"+
+											      "</div>"+
+											    "</div>"+
+											  "</div>";
+					
+					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,popupTplCotent ,'yellow'));
 
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
