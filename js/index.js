@@ -116,11 +116,11 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
-		var queryFriend = new Parse.Query("User");
+		var queryFriend = new Parse.Object.extend("User");
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result) {
-			console.log(result);
+			console.log(result.);
 			
 		    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
 								"<img src='' alt='Picture' class='friends_pic'>"+
