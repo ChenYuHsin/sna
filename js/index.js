@@ -134,12 +134,12 @@ var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
-		var queryFriend = new Parse.Query(Parse.User);
+		var queryFriend = new Parse.Query("User");
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result) {
-				//var d =result.get("imagesrc");
-				console.log(result.get('username'));
+				var d =result.get("imagesrc");
+			
 		    //var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
 			//					"<img src='"+ result.get('imagesrc')+"' alt='Picture' class='friends_pic'>"+
 			//				"</section>";
@@ -154,7 +154,6 @@ if (currentUser) {
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.equalTo("poster2", friends[i]);
-		
 		dent.find({
 		  success: function(results) {
 		    //alert("Successfully retrieved ");
