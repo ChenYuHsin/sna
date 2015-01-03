@@ -179,7 +179,7 @@ if (currentUser) {
 		query.find({
 			success: function(results){
 				// alert("Successfully retrieved " + results.length + " scores.");
-				console.log(results.get("poster").id);
+				console.log(results.get("poster"));
 				for(var i=0; i<results.length; i++){
 					var dent = results[i];
 					var dent_poster = dent.get("poster").id;
