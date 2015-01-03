@@ -143,7 +143,10 @@ if (currentUser) {
 			//					"<img src='"+ result.get('imagesrc')+"' alt='Picture' class='friends_pic'>"+
 			//				"</section>";
 			$("#friends_timmeline_area #1 .content").append(friendsSection);
-		  }
+		  	},
+		  	error: function(){
+		  		alert("error");
+		  	}
 		});
 		
 
