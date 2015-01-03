@@ -183,12 +183,12 @@ if (currentUser) {
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
-					console.log(dent.get("poster").id);
 					var dent_poster = dent.get("poster").id;
 					var dent_category = dent.get("category");
 					var dent_content = dent.get("content");
 					var dent_start = dent.get("s_datetime");
 					var dent_end = dent.get("e_datetime");
+					console.log(dent_start);
 					origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
 				
