@@ -120,7 +120,7 @@ if (currentUser) {
 		queryFriend.equalTo("objectId", friends[i]);
 		queryFriend.find({
 			success: function(result) {
-				//var d =result.get("imagesrc");
+			console.log(result.get("username"));
 			
 		    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
 								"<img src='' alt='Picture' class='friends_pic'>"+
