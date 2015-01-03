@@ -89,6 +89,8 @@ jQuery(document).ready(function($){
     	deliverDent(currentUser, category, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    });
+
+
 /******************************** add friends ****************************************/
 $(".add_friend_btn").click(function(){
 	var currentUser = Parse.User.current();
@@ -172,10 +174,12 @@ if (currentUser) {
 	function queryDent(timelineClass){
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
+		
 		var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
 		query.find({
 			success: function(results){
 				// alert("Successfully retrieved " + results.length + " scores.");
+				console.log(results.get("poster").id);
 				for(var i=0; i<results.length; i++){
 					var dent = results[i];
 					var dent_poster = dent.get("poster").id;
