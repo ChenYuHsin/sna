@@ -202,7 +202,7 @@ if (currentUser) {
 					var dent_end = dent.get("e_datetime");
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
-					var ClassName = "[data-meId = '"+ dent_poster +"']";
+					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					console.log(calstart);
 					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,'yellow'));
 
@@ -217,7 +217,7 @@ if (currentUser) {
 		});
 	}
 
-	queryDent();
+	
 
 
 	
