@@ -38,7 +38,7 @@
 	         
 	            // Run code after the Facebook SDK is loaded.
 	            var recommendfriend = function(id, url, name){
-					var friendbody = $('<div class="card" data-roleId="'+id+'"><div class="dimmable image"><div class="ui dimmer"><div class="content"><div class="center"><div class="ui inverted button add_friend_btn">Add Friend</div></div></div></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button"><i class="add icon"></i>Add Friend</div></div>');
+					var friendbody = $('<div class="card" data-roleId="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
 					$('#recommendfriend').append(friendbody);
 				}
 				var friendlist = function(url, name){
