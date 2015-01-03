@@ -37,7 +37,7 @@
 	        	});
 	         
 	            // Run code after the Facebook SDK is loaded.
-	            var friendbase = function(id, url, name){
+	            var recommendfriend = function(id, url, name){
 					var friendbody = $('<div class="card" id="1234567" data-roleId="'+id+'"><div class="dimmable image"><div class="ui dimmer"><div class="content"><div class="center"><div class="ui inverted button add_friend_btn">Add Friend</div></div></div></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
 					$('#recommendfriend').append(friendbody);
 				}
@@ -72,8 +72,17 @@
 			        					var userid = userdata.id;
 			        					var username = userdata.get('name');
 			        					var userphotourl = userdata.get('imagesrc');
-			        					friendbase(userid, userphotourl, username);
-			        					friendlist(userphotourl, username);
+
+			        					var currentuser = Parse.User.current();
+			        					var friend = currentuser.get('friends');
+			        					for(var i = 0; i<friend.length; i++){
+			        						if(friend[i].id == userid){
+			        							friendlist(userphotourl, username);
+			        						}
+			        						else{
+			        							recommendfriend(userid, userphotourl, username);
+			        						}
+			        					}        					
 			        				}
 			        			})
 			        		}
