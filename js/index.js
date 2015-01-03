@@ -89,7 +89,18 @@ jQuery(document).ready(function($){
     	deliverDent(currentUser, category, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    });
-
+/******************************** add friends ****************************************/
+$(".add_friend_btn").click(function(){
+	var currentUser = Parse.User.current();
+	var user = Parse.Object.extend(Parse.User);
+	query.equalTo("objectId", currentUser.id);  // find all the women
+	query.find({
+	  success: function(result) {
+	    var friends_array = result.get("friends");
+	    console.log(friends_array);
+	  }
+	});
+})
 /********************************* 朋友的timeline *****************************************/
 
 /*var friendsTimlineSection = function(num){
