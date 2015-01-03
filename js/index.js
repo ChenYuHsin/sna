@@ -115,7 +115,7 @@ $(".add_friend_btn").click(function(){
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
-	console.log(friends);
+	console.log(friends[0]);
 	for(var i = 0;i < friends.length; i++){
 		var queryFriend = new Parse.Query(Parse.User);
 		queryFriend.equalTo("objectId", friends[i]);
