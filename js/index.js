@@ -118,8 +118,8 @@ $(".add_friend_btn").click(function(){
 					}
 				})
 			},
-			error: function(){
-				alert("sss");
+			error: function(error){
+				alert(error);
 			}
 		});
 		/*friends.push(friend_id);
