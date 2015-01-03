@@ -95,7 +95,7 @@ $(".add_friend_btn").click(function(){
 	if(currentUser){
 		var friends = currentUser.get("friends");
 		var friend_id = $(this).closest("div").attr("id");
-		firends.push(friend_id);
+		friends.push(friend_id);
 		console.log(friends);
 		currentUser.save(null, {
 			success: function(){
