@@ -75,8 +75,9 @@
 
 			        					var currentuser = Parse.User.current();
 			        					var friend = currentuser.get('friends');
+			        					console.log(friend);
 			        					for(var i = 0; i<friend.length; i++){
-			        						if(friend[i].id == userid){
+			        						if(friend[i] == userid){
 			        							friendlist(userphotourl, username);
 			        						}
 			        						else{
