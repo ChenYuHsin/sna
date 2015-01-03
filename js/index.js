@@ -169,7 +169,7 @@ if (currentUser) {
 }
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startPoint, keepTime ,face ,color){
-		var timeTpl = "<div class='cd-timeline-block start"+startPoint+"' id='"+poster+"'>"+
+		var timeTpl = "<div class='cd-timeline-block poster start"+startPoint+"'>"+
 						"<div class='cd-timeline-img  cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
@@ -219,9 +219,10 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-								  console.log(popupTplCotent);
+							
 					$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
-
+					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
+					$(popuoClass).attr("data-html", popupTplCotent);
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
