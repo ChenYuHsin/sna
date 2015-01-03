@@ -219,6 +219,7 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
+								  console.log(popupTplCotent);
 					$(ClassName).append(timeLineTpl(calstart, calkeep, dent_category ,popupTplCotent ,'yellow'));
 
 					
