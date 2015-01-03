@@ -119,14 +119,15 @@ if (currentUser) {
 		var queryFriend = new Parse.Query(Parse.User);
 		queryFriend.get(friends[i], {
 			success: function(friends) {
-			// The object was retrieved successfully.
-			var d = friends.get("imagesrc");
-			alert(d);
+				var imgsrc = friends.get("imagesrc");
+				var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
+									"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+								"</section>";
+				$("#friends_timmeline_area #1 .content").append(friendsSection);
+				
 			},
 			error: function(object, error) {
-			// The object was not retrieved successfully.
-			// error is a Parse.Error with an error code and message.
-			alert(object +" "+error);
+				alert(object +" "+error);
 			}
 		});
 		/*queryFriend.equalTo("objectId", friends[i]);
