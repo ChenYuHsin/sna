@@ -92,17 +92,13 @@ jQuery(document).ready(function($){
 /******************************** add friends ****************************************/
 $(".add_friend_btn").click(function(){
 	var currentUser = Parse.User.current();
-	var user = Parse.Object.extend(Parse.User);
-	query.equalTo("objectId", currentUser.id);  // find all the women
-	query.find({
-	  success: function(result) {
-	    var friends_array = result.get("friends");
-	    console.log(friends_array);
-	  },
-	  error: function(){
-	  	alert('error');
-	  }
-	});
+	if(currentUser){
+		var friends = currentUser.get("friends");
+		console.log("friends");
+	}else{
+
+	}
+	
 })
 /********************************* 朋友的timeline *****************************************/
 
