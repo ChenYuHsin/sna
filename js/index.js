@@ -120,12 +120,12 @@ if (currentUser) {
 		queryFriend.equalTo("username", "2z8N2uzYPpZ2NoNLB76VmQHZt");
 		queryFriend.find({
 			success: function(result) {
-			console.log(result);
-			
-		    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
-								"<img src='' alt='Picture' class='friends_pic'>"+
-							"</section>";
-			$("#friends_timmeline_area #1 .content").append(friendsSection);
+				console.log(result);
+				alert();
+			    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
+									"<img src='' alt='Picture' class='friends_pic'>"+
+								"</section>";
+				$("#friends_timmeline_area #1 .content").append(friendsSection);
 		  	},
 		  	error: function(){
 		  		alert("error");
