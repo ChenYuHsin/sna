@@ -59,7 +59,8 @@
 					});
 					FB.api("/me/friends",function (response) {
 			        	// if (response && !response.error) {
-			        		for(var i = 0; i<=6; i++){
+			        		console.log(response.data.length);
+			        		for(var i = 0; i<response.data.length; i++){
 			        			console.log(response.data[i]);
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
@@ -69,7 +70,7 @@
 			        					var userid = userdata.id;
 			        					var username = userdata.get('name');
 			        					var userphotourl = userdata.get('imagesrc');
-			        					friendbase(userid, username, userphotourl);
+			        					friendbase(userid, userphotourl, username);
 			        				}
 			        			})
 			        		}
