@@ -301,20 +301,7 @@ if (currentUser) {
 					});
 					var LikesDent = Parse.Object.extend("LikesDent");
 					var likesDent = new LikesDent(); 
-					likesDent.set('dent_id',dent_id );
-					likesDent.set('likers', Parse.User.current().id);
-					likesDent.save(null, {
-					  success: function(gameScore) {
-					    // Execute any logic that should take place after the object is saved.
-					    
-					  },
-					  error: function(gameScore, error) {
-					    // Execute any logic that should take place if the save fails.
-					    // error is a Parse.Error with an error code and message.
-					    alert();
-					  }
-					});
-
+					
 				},
 				error: function(object, error) {
 					alert(error.message);
