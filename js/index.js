@@ -240,6 +240,20 @@ if (currentUser) {
 		});
 	}
 	$('body').on("click",".cd-timeline-img",function(){
+		var post_id = $(this).closest('cd-timeline-block').attr('id');
+		var Dent = Parse.Object.extend("Dent");
+		var query = new Parse.Query(Dent);
+		query.find({
+			success: function(result){
+				$("#poster_modal_img").attr("src", result.get("poster_img"));
+				$("#poster_modal_name").text(result.gey("poster_name"));
+				$("#poster_modal_content").text(result.get("content"));
+			},
+			error: function(){
+
+			}
+		})
+
 		$('.reply_content').modal('show');
 		
 	});
