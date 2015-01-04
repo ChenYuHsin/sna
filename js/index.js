@@ -377,7 +377,7 @@ if (currentUser) {
 				      	var datetime = response.createdAt;
 				      	var id = response.id;
 				      	var responser = response.get("responser");
-				      	alert(responser+"responser.get('imagesrc')");
+				      	alert("responser"+responser.get('imagesrc'));
 				      	var likes = response.get("likers");
 				      	var likes_count = 0;
 				      	var table_response = "<div class='comment reply_post'>"+
