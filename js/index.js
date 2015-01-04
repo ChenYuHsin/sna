@@ -385,7 +385,7 @@ if (currentUser) {
 								      "<img src='img/4.jpg'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'>Joe Henderson</a>"+
+								      "<a class='author'>"+response.get('dent_id').get('name')+"</a>"+
 								      "<div class='metadata'>"+
 								        "<div class='date'></div>"+
 								      "</div>"+
