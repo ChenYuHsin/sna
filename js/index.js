@@ -229,6 +229,7 @@ if (currentUser) {
 					
 					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});		
 					
+					//here is for click modal
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
