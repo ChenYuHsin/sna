@@ -315,7 +315,7 @@ if (currentUser) {
 		function deliverReponse(){
 
 			var currentUser = Parse.User.current();
-			var responser = $("#user").val();
+			var responser = currentUser.id;
 			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
 			var content = $("#reply_area").val();
 			var Dent = Parse.Object.extend("Dent");
