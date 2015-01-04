@@ -225,7 +225,7 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-
+								  return popupTplCotent;
 						
 					    
 					  },
@@ -236,7 +236,7 @@ if (currentUser) {
 					  
 					});
 					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-					  $(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					
 							
 					
