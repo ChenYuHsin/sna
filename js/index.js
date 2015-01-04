@@ -375,7 +375,7 @@ if (currentUser) {
 			    		//var user_id = $("#user").val();
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
-			    		var response = results[i];
+			    		var response = results[1];
 				      	var content = response.get("content");
 				      	var datetime = response.createdAt;
 				      	var id = response.id;
@@ -383,7 +383,7 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
-  						var post = results[i].get("responser");
+  						var post = response.get("responser");
 						post.fetch({
 						  success: function(post) {
 						    var name = post.get("name");
@@ -407,36 +407,8 @@ if (currentUser) {
 								$('#dent_id').after(table_response);
 						  }
 						});
-  						/*query_responser.equalTo("objectId", response.get("responser").id);
-  						query_responser.find({
-  							success: function(result){
-  								for (var j = 0; j < result.length; j++) { 
-			     				var obj = result[j];
-			     				var table_response = "<div class='comment reply_post'>"+
-								    "<a class='avatar'>"+
-								      "<img src='"+obj.get('imagesrc')+"'>"+
-								    "</a>"+
-								    "<div class='content'>"+
-								      "<a class='author'>"+obj.get('name')+"</a>"+
-								      "<div class='metadata'>"+
-								        "<div class='date'>"+obj.createdAt+"</div>"+
-								      "</div>"+
-								      "<div class=text'>"+
-								        content+
-								      "</div>"+
-								      
-								    "</div>"+
-								  "</div>";
-
-								$('#dent_id').after(table_response);
-								}
-								
-
-  							},
-  							error: function(){
-
-  							}
-  						})*/
+  						
+  					
   						
 
   						//alert(response.get("responser").id);
