@@ -380,12 +380,16 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
+				      	var User = Parse.Object.extend("User");
+  						var query_responser = new Parse.Query(User);
+  						//query_responser.equalTo("objectId", response.get("responser").id);
+  						alert(response.get("responser").id);
 				      	var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
 								      "<img src='img/4.jpg'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'>"+response.get('dent_id')+"</a>"+
+								      "<a class='author'></a>"+
 								      "<div class='metadata'>"+
 								        "<div class='date'></div>"+
 								      "</div>"+
