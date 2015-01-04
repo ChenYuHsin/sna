@@ -240,7 +240,7 @@ if (currentUser) {
 		});
 	}
 	$('body').on("click",".cd-timeline-img",function(){
-		var post_id = $(this).closest('cd-timeline-block').attr('id');
+		var post_id = $(this).closest('cd-timeline-block').attr("id");
 
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
