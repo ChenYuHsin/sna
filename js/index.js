@@ -395,7 +395,7 @@ if (currentUser) {
 								    "<div class='content'>"+
 								      "<a class='author'>"+name+"</a>"+
 								      "<div class='metadata'>"+
-								        "<div class='date'></div>"+
+								        "<div class='date'>"+post.createdAt+"</div>"+
 								      "</div>"+
 								      "<div class=text'>"+
 								        content+
