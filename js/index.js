@@ -258,6 +258,7 @@ if (currentUser) {
 					$("#poster_create_at").text(updatedAt);
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
+					$("#dent_id").attr("data-dentId", post_id);
 			      
 			    }
 				
@@ -310,6 +311,47 @@ if (currentUser) {
 				}
 			});
 		}
+
+		function deliverReponse(){
+
+			var currentUser = Parse.User.current();
+			var responser = $("#user").val();
+			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
+			var content = $("#reply_area").val();
+			var Dent = Parse.Object.extend("Dent");
+  			var query1 = new Parse.Query(Dent);
+  			var Responser = Parse.Object.extend("User");
+  			var query2 = new Parse.Query(Responser);
+  			query1.get(dent_id, {
+  				success: function(d) {
+  					query2.get(responser, {
+  						success: function(u){
+  							var Response = Parse.Object.extend("Response");
+  							var response = new Response();
+  							response.set("responser", u);
+  							response.set("dent_id", d);
+  							response.set("content", content);
+  							response.save(null, {
+							  	success: function(gameScore) {
+							    	//queryResponse(d);
+							  	},
+							  	error: function(gameScore, error) {
+							    	alert('Failed to create new object, with error code: ' + error.message);
+							  	}
+							});
+  						},
+  						error: function(error){
+  							alert(error.message);
+  						}
+  					});
+  				},
+  				error: function(error){
+  					alert(error.message);
+  				}
+  			});
+		}
+		$("#reply_send").click(deliverReponse());
+
 
 
 	
