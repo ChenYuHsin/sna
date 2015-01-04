@@ -207,7 +207,7 @@ if (currentUser) {
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
-					$(popuoClass).attr("data-cintent", dent_content).popup({on: "hover"});
+					$(popuoClass).attr("data-content", dent_content).popup({on: "hover"});
 					var query_poster = new Parse.Query(Parse.User);
 					query_poster.get(dent_poster, {
 					  success: function(result) {
