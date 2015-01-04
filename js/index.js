@@ -387,7 +387,7 @@ if (currentUser) {
   						var post = response.get("responser");
 						post.fetch({
 						  success: function(post) {
-						  	console.log(id);
+						  	console.log("dd"+id);
 						    var name = post.get("name");
 						    var imgsrc = post.get("imagesrc");
 						    var table_response = "<div class='comment reply_post'>"+
