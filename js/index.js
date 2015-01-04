@@ -259,7 +259,7 @@ if (currentUser) {
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					$("#dent_id").attr("data-dentId", post_id);
-			      	queryResponse(post_id);
+			      	queryResponse(obj);
 			    }
 				
 			},
@@ -268,7 +268,7 @@ if (currentUser) {
 			}
 		})
 
-		$('.reply_content').modal({closable  : false}).modal('show');
+		$('.reply_content').modal('show');
 		
 	});
 	
