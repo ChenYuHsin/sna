@@ -311,7 +311,7 @@ if (currentUser) {
 					  error: function(gameScore, error) {
 					    // Execute any logic that should take place if the save fails.
 					    // error is a Parse.Error with an error code and message.
-					    
+					    alert();
 					  }
 					});
 
