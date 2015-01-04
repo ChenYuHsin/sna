@@ -257,7 +257,7 @@ if (currentUser) {
 					$("#poster_modal_content").text(obj.get("content"));
 					$("#poster_create_at").text(updatedAt);
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
-					$("#modal_rating_count").text(obj.get("likes").length) +" likes";
+					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 			      
 			    }
 				
