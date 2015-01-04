@@ -248,10 +248,14 @@ if (currentUser) {
 
 		query.find({
 			success: function(result){
-				alert(result.length);
-				$("#poster_modal_img").attr("src", result.get("poster_img"));
-				$("#poster_modal_name").text(result.gey("poster_name"));
-				$("#poster_modal_content").text(result.get("content"));
+				for (var i = 0; i < result.length; i++) { 
+			      var obj = result[i];
+			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
+					$("#poster_modal_name").text(obj.get("poster_name"));
+					$("#poster_modal_content").text(obj.get("content"));
+			      
+			    }
+				
 			},
 			error: function(){
 
