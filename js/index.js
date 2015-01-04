@@ -228,6 +228,7 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
+						$(popuoClass).attr("title",result.get('name')).popup({on: "hover"});
 						
 						//alert(popuoClass);
 						//$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
