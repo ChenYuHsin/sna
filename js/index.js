@@ -227,6 +227,7 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 						var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
+						alert(popuoClass);
 						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
 					  },
