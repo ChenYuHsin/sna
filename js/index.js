@@ -341,7 +341,7 @@ if (currentUser) {
   							response.set("content", content);
   							response.save(null, {
 							  	success: function(gameScore) {
-							    	//queryResponse(d);
+							    	queryResponse(d);
 							    	alert('success!');
 							  	},
 							  	error: function(gameScore, error) {
@@ -359,6 +359,66 @@ if (currentUser) {
   				}
   			});
 		}
+
+		function queryResponse(dent){
+			var Response = Parse.Object.extend("Response");
+			var query = new Parse.Query(Response);
+			
+			query.equalTo("dent_id", dent);
+			query.find({
+			  	success: function(results) {
+			  		// alert("Successfully retrieved " + results.length + " scores.");
+			    	for (var i = 0; i < results.length; i++) { 
+			    		//var user_id = $("#user").val();
+			    		var currentUser = Parse.User.current();
+						var user_id = currentUser.id;
+			    		var response = results[i];
+				      	var content = response.get("content");
+				      	var datetime = response.createdAt;
+				      	var id = response.id;
+				      	var responser = response.get("responser");
+				      	alert(responser:+"responser.get('imagesrc')");
+				      	var likes = response.get("likers");
+				      	var likes_count = 0;
+				      	var table_response = "<div class='comment reply_post'>"+
+								    "<a class='avatar'>"+
+								      "<img src='img/4.jpg'>"+
+								    "</a>"+
+								    "<div class='content'>"+
+								      "<a class='author'>Joe Henderson</a>"+
+								      "<div class='metadata'>"+
+								        "<div class='date'></div>"+
+								      "</div>"+
+								      "<div class=text'>"+
+								        content
+								      "</div>"+
+								      
+								    "</div>"+
+								  "</div>";
+				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
+				      	/*if(typeof(likes) != "undefined"){
+							likes_count = likes.length;
+							for(var j=0; j<likes_count; j++){
+								if(likes[j] == user_id){
+									button_status = "<td><button onclick='clickDislike(\"" + id + "\")'>Dislike</button></td>";
+								}else{
+									button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
+								}
+							}
+						}else{
+							likes_count = 0;
+							button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
+						}*/
+				      	//table_response += "<tr><td>" + responser.id + "</td><td>" + content + "</td><td>" + datetime + "</td>" + button_status+ "<td>" + likes_count + "</td></tr>"
+			    	}
+			    	//$("#response").html(table_response);
+			  	},
+			  	error: function(error) {
+			    	alert("Error: " + error.code + " " + error.message);
+			  	}
+			});
+		}
+
 		
 
 
