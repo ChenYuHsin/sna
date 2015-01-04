@@ -376,9 +376,9 @@ if (currentUser) {
 				      	var content = response.get("content");
 				      	var datetime = response.createdAt;
 				      	var id = response.id;
-				      	var responser = response.get("responser");
-				      	console.log("responser"+responser.get('imagesrc'));
-				      	var likes = response.get("likers");
+				      	//var responser = response.get("responser");
+				      	//console.log("responser"+responser.get('imagesrc'));
+				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
 				      	var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
@@ -395,6 +395,8 @@ if (currentUser) {
 								      
 								    "</div>"+
 								  "</div>";
+
+						$('.ui.comment').append(table_response);
 				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
 				      	/*if(typeof(likes) != "undefined"){
 							likes_count = likes.length;
