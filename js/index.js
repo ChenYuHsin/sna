@@ -191,7 +191,7 @@ if (currentUser) {
 		query.find({
 			success: function(results){
 				// alert("Successfully retrieved " + results.length + " scores.");
-				var query_poster = new Parse.Query(Parse.User);
+				
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
@@ -204,10 +204,9 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					var popupTplCotent;
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 					//alert(popuoClass);
-					
+					var query_poster = new Parse.Query(Parse.User);
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					query_poster.get(dent_poster, {
 					  success: function(result) {
