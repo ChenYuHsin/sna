@@ -211,7 +211,7 @@ if (currentUser) {
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
-								      "<img src='"+dent.get('poster_img')+" ' style='border-radius: .25rem;'>"+
+								      "<img src='' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
 								      "<a class='author'>dd</a>"+
@@ -225,7 +225,7 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 					
-					$(popuoClass).attr("data-content", dent_content).popup({on: "hover"});		
+					$(popuoClass).attr("data-content", popupTplCotent).popup({on: "hover"});		
 					
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
