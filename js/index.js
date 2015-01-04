@@ -47,7 +47,7 @@ jQuery(document).ready(function($){
   		var dent = new Dent();
   		var Poster = Parse.Object.extend("User");
   		var query = new Parse.Query(Poster);
-  		var poster_img = $('.post_content img'),attr('src');  			
+  		var poster_img = $('.post_content img').attr('src');  			
 		query.get(user.id, {
 			success: function(p) {
 				var poster = p;
