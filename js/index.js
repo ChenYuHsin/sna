@@ -48,7 +48,6 @@ jQuery(document).ready(function($){
   		var Poster = Parse.Object.extend("User");
   		var query = new Parse.Query(Poster);
   		var imgsrc = $(".post_content img").attr("src");
-  		console.log(imgsrc); 
   			
 		query.get(user.id, {
 			success: function(p) {
@@ -60,6 +59,7 @@ jQuery(document).ready(function($){
 	  			dent.set("content", content);
 	  			dent.set("s_datetime", s_datetime);
 	  			dent.set("e_datetime", e_datetime);
+	  			dent.set("poster_img", imgsrc);
 	  			dent.save(null, {
 				  	success: function(gameScore) {
 				    	//queryDent();
@@ -208,18 +208,14 @@ if (currentUser) {
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
-					$(popuoClass).attr("data-content", dent_content).popup({on: "hover"});
-					var query_poster = new Parse.Query(Parse.User);
-					query_poster.get(dent_poster, {
-					  success: function(result) {
-					    // The object was retrieved successfully.
-					    var popupTplCotent = "<div class='ui items popup_item'>"+
+					
+					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
-								      "<img src='"+result.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
+								      "<img src='"+dent.get(poster_img)+" ' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'>"+result.get('name')+"</a>"+
+								      "<a class='author'>dd</a>"+
 								      "<div class='metadata'>"+
 								      	"<div class='date'>1</div>"+
 								      "</div>"+
@@ -229,21 +225,8 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-						
-						//alert(popuoClass);
-						//$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
-					    
-					  },
-					  error: function(object, error) {
-					    // The object was not retrieved successfully.
-					    // error is a Parse.Error with an error code and message.
-					    
-					  }
-					  
-					});
 					
-					
-							
+					$(popuoClass).attr("data-content", dent_content).popup({on: "hover"});		
 					
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
