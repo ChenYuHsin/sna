@@ -123,6 +123,7 @@ if (currentUser) {
 									"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 								"</section>";
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
+				queryDent();
 				
 			},
 			error: function(object, error) {
@@ -203,18 +204,6 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					var query_poster = new Parse.Query(Parse.User);
-					query_poster.get(dent_poster, {
-					  success: function(result) {
-					    // The object was retrieved successfully.
-					    console.log(result.get('imagesrc'));
-					  },
-					  error: function(object, error) {
-					    // The object was not retrieved successfully.
-					    // error is a Parse.Error with an error code and message.
-					    alert();
-					  }
-					});
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
@@ -245,7 +234,7 @@ if (currentUser) {
 			}
 		});
 	}
-	queryDent();
+	
 
 	//$("body").on("hover",$(".cd-timeline-img").popup({on: "hover"}));
 	//$(".cd-timeline-img").popup({on: "hover"});
