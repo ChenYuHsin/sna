@@ -251,9 +251,11 @@ if (currentUser) {
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
+			      var updatedAt = obj.updatedAt;
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
+					$("#dent_create_at").text(updatedAt);
 			      
 			    }
 				
