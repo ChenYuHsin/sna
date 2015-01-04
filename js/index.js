@@ -244,7 +244,10 @@ if (currentUser) {
 
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
+		alert(post_id);
 		query.equalTo("objectId", post_id);
+		alert();
+
 		query.find({
 			success: function(result){
 				alert(result.get("poster_img"));
