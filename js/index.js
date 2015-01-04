@@ -205,6 +205,7 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popupTplCotent;
+					alert(dent.id);
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					query_poster.get(dent_poster, {
