@@ -371,7 +371,7 @@ if (currentUser) {
 			query.find({
 			  	success: function(results) {
 			  		// alert("Successfully retrieved " + results.length + " scores.");
-			    	for (var i = 0; i < results.length; i++) { 
+			    	for (var i = 0; i < results.length;) { 
 			    		//var user_id = $("#user").val();
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
@@ -387,7 +387,7 @@ if (currentUser) {
   						var post = response.get("responser");
 						post.fetch({
 						  success: function(post) {
-						  	console.log("dd"+id);
+						  	console.log(id);
 						    var name = post.get("name");
 						    var imgsrc = post.get("imagesrc");
 						    var table_response = "<div class='comment reply_post'>"+
@@ -407,6 +407,7 @@ if (currentUser) {
 								  "</div>";
 
 								$('#dent_id').after(table_response);
+								i++
 						  }
 						});
   						
