@@ -207,20 +207,13 @@ if (currentUser) {
 					query_poster.get(dent_poster, {
 					  success: function(result) {
 					    // The object was retrieved successfully.
-					    alert(result.get("imagesrc"));
-					  },
-					  error: function(object, error) {
-					    // The object was not retrieved successfully.
-					    // error is a Parse.Error with an error code and message.
-					  }
-					});
-					var popupTplCotent = "<div class='ui items popup_item'>"+
+					    var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
-								      "<img src='"+dent_poster_obj.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
+								      "<img src='"+result.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'>Joe Henderson</a>"+
+								      "<a class='author'>"+result.get('name')+"</a>"+
 								      "<div class='metadata'>"+
 								      	"<div class='date'>1</div>"+
 								      "</div>"+
@@ -230,6 +223,14 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
+					    
+					  },
+					  error: function(object, error) {
+					    // The object was not retrieved successfully.
+					    // error is a Parse.Error with an error code and message.
+					  }
+					});
+					
 							
 					$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
 					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
