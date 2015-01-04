@@ -248,6 +248,7 @@ if (currentUser) {
 
 		query.find({
 			success: function(result){
+				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
