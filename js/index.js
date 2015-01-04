@@ -223,6 +223,9 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
+						$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
+						var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
+						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
 					  },
 					  error: function(object, error) {
@@ -232,9 +235,7 @@ if (currentUser) {
 					});
 					
 							
-					$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
-					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+					
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
