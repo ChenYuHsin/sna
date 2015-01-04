@@ -404,6 +404,7 @@ if (currentUser) {
 								  "</div>";
 
 								$('#dent_id').after(table_response);
+								}
 								alert("success");
 
   							},
