@@ -268,7 +268,7 @@ if (currentUser) {
 			}
 		})
 
-		$('.reply_content').modal('show');
+		$('.reply_content').modal({closable  : false}).modal('show');
 		
 	});
 	
