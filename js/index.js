@@ -229,7 +229,7 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 						
-						alert(popuoClass);
+						//alert(popuoClass);
 						//$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
 					  },
