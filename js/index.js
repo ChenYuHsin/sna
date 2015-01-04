@@ -205,13 +205,14 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					//alert(popuoClass);
-					var query_poster = new Parse.Query(Parse.User);
+					alert("hi"+popuoClass);
+					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
+					var query_poster = new Parse.Query(Parse.User);
 					query_poster.get(dent_poster, {
 					  success: function(result) {
 					    // The object was retrieved successfully.
-					    popupTplCotent = "<div class='ui items popup_item'>"+
+					    var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
 								      "<img src='"+result.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
