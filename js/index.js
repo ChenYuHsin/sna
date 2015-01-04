@@ -47,6 +47,8 @@ jQuery(document).ready(function($){
   		var dent = new Dent();
   		var Poster = Parse.Object.extend("User");
   		var query = new Parse.Query(Poster);
+  		var imgsrc = $(".post_content img").attr("src");
+  		console.log(imgsrc); 
   			
 		query.get(user.id, {
 			success: function(p) {
@@ -205,7 +207,6 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					console.log(dent_poster_obj.get('name'));
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					$(popuoClass).attr("data-content", dent_content).popup({on: "hover"});
 					var query_poster = new Parse.Query(Parse.User);
