@@ -371,7 +371,7 @@ if (currentUser) {
 			query.find({
 			  	success: function(results) {
 			  		// alert("Successfully retrieved " + results.length + " scores.");
-			    	for (var i = 0; i < results.length;) { 
+			    	for (var i = 0; i < results.length; i++) { 
 			    		//var user_id = $("#user").val();
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
@@ -407,7 +407,7 @@ if (currentUser) {
 								  "</div>";
 
 								$('#dent_id').after(table_response);
-								i++
+
 						  }
 						});
   						
