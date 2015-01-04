@@ -383,7 +383,7 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
-  						var post = response.get("responser");
+  						var post = results[i].get("responser");
 						post.fetch({
 						  success: function(post) {
 						    var name = post.get("name");
