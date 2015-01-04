@@ -233,9 +233,10 @@ if (currentUser) {
 					    // The object was not retrieved successfully.
 					    // error is a Parse.Error with an error code and message.
 					  }
-					  var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-					  $(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+					  
 					});
+					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
+					  $(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					
 							
 					
