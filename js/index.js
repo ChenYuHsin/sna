@@ -207,7 +207,7 @@ if (currentUser) {
 					query_poster.get(dent_poster, {
 					  success: function(result) {
 					    // The object was retrieved successfully.
-					    alert(result.get("name"));
+					    alert(result.get("imagesrc"));
 					  },
 					  error: function(object, error) {
 					    // The object was not retrieved successfully.
