@@ -203,6 +203,7 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
+					console.log(dent_poster_obj.get('imagesrc'));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
