@@ -206,7 +206,7 @@ if (currentUser) {
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popupTplCotent;
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					alert(popuoClass);
+					//alert(popuoClass);
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					query_poster.get(dent_poster, {
@@ -236,6 +236,7 @@ if (currentUser) {
 					  error: function(object, error) {
 					    // The object was not retrieved successfully.
 					    // error is a Parse.Error with an error code and message.
+					    alert();
 					  }
 					  
 					});
