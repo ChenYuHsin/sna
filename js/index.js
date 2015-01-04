@@ -204,11 +204,12 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
+					var popupTplCotent;
 					$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
 					query_poster.get(dent_poster, {
 					  success: function(result) {
 					    // The object was retrieved successfully.
-					    var popupTplCotent = "<div class='ui items popup_item'>"+
+					    popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
 								      "<img src='"+result.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
@@ -225,14 +226,15 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 
-						var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+						
 					    
 					  },
 					  error: function(object, error) {
 					    // The object was not retrieved successfully.
 					    // error is a Parse.Error with an error code and message.
 					  }
+					  var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
+					  $(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					});
 					
 							
