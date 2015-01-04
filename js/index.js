@@ -389,12 +389,12 @@ if (currentUser) {
 			     				var obj = result[i];
 			     				var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
-								      "<img src='img/4.jpg'>"+
+								      "<img src='"+obj.get('imagesrc')+"'>"+
 								    "</a>"+
 								    "<div class='content'>"+
 								      "<a class='author'>"+obj.get('name')+"</a>"+
 								      "<div class='metadata'>"+
-								        "<div class='date'></div>"+
+								        "<div class='date'>"+obj.createdAt+"</div>"+
 								      "</div>"+
 								      "<div class=text'>"+
 								        content+
