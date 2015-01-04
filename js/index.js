@@ -243,7 +243,8 @@ if (currentUser) {
 		var post_id = $(this).closest('cd-timeline-block').attr('id');
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
-		query.find(post_id,{
+		query.equalTo("object", post_id);
+		query.find({
 			success: function(result){
 				$("#poster_modal_img").attr("src", result.get("poster_img"));
 				$("#poster_modal_name").text(result.gey("poster_name"));
