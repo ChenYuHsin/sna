@@ -405,7 +405,7 @@ if (currentUser) {
 
 								$('#dent_id').after(table_response);
 								}
-								alert("success");
+								
 
   							},
   							error: function(){
