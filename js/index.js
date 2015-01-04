@@ -203,8 +203,8 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					var Poster = Parse.Object.extend("User");
-					var poster_query  = new Parse.Query(Poster);
+					
+					var poster_query  = new Parse.Query(Parse.User);
 					poster_query.get(dent_poster, {
 					  success: function(result) {
 						var popupTplCotent = "<div class='ui items popup_item'>"+
