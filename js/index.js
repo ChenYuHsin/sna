@@ -302,7 +302,7 @@ if (currentUser) {
 					var LikesDent = Parse.Object.extend("LikesDent");
 					var likesDent = new LikesDent(); 
 					likesDent.set('dent_id',dent_id );
-					likesDent.set('likers', Parse.User.current());
+					likesDent.set('likers', Parse.User.current().id);
 					likesDent.save(null, {
 					  success: function(gameScore) {
 					    // Execute any logic that should take place after the object is saved.
