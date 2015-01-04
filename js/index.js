@@ -259,7 +259,7 @@ if (currentUser) {
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					$("#dent_id").attr("data-dentId", post_id);
-			      
+			      	queryResponse(post_id);
 			    }
 				
 			},
@@ -341,7 +341,7 @@ if (currentUser) {
   							response.set("content", content);
   							response.save(null, {
 							  	success: function(gameScore) {
-							    	queryResponse(d);
+							    	//queryResponse(d);
 							    	alert('success!');
 							  	},
 							  	error: function(gameScore, error) {
