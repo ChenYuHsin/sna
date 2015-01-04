@@ -256,7 +256,7 @@ if (currentUser) {
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
 					$("#poster_create_at").text(updatedAt);
-					$(".modal_rating").click(clickLike(post_id ,obj.get("poster").id));
+					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id);
 			      
 			    }
 				
@@ -283,7 +283,7 @@ if (currentUser) {
 					var queryLikes = new Parse.Query(Dent);
 					queryLikes.get(dent_id, {
 						success: function(r){
-							r.addUnique("likers", user_id);
+							r.addUnique("likes", user_id);
 							r.save(null, {
 								success: function(object){
 									console.log("update Dent-likes success.");
