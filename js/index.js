@@ -397,6 +397,7 @@ if (currentUser) {
 								  "</div>";
 
 						$('.ui.comment').append(table_response);
+						alert("success");
 				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
 				      	/*if(typeof(likes) != "undefined"){
 							likes_count = likes.length;
