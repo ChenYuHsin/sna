@@ -255,7 +255,8 @@ if (currentUser) {
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
-					$("#dent_create_at").text(updatedAt);
+					$("#poster_create_at").text(updatedAt);
+					$(".modal_rating").click(clickLike(post_id ,obj.get("poster").id));
 			      
 			    }
 				
@@ -269,6 +270,42 @@ if (currentUser) {
 		
 	});
 	
+
+	function clickLike(dent_id , user_id){
+  			var User = Parse.Object.extend("User");
+  			var query = new Parse.Query(User);
+  			// 搜尋此使用者
+			query.get(user_id, {
+				success: function(u) {
+					var user = u;
+		  			// 修改 dent 資料表內 likes 欄位的資料
+					var Dent = Parse.Object.extend("Dent");
+					var queryLikes = new Parse.Query(Dent);
+					queryLikes.get(dent_id, {
+						success: function(r){
+							r.addUnique("likers", user_id);
+							r.save(null, {
+								success: function(object){
+									console.log("update Dent-likes success.");
+									//queryDent(requests["id"]);
+								},
+								error: function(object, error){
+									console.log(error.message);
+								}
+							});
+						},
+						error: function(object, error){
+							console.log(error.message);
+						}
+					});
+				},
+				error: function(object, error) {
+					alert(error.message);
+					console.log("error");
+				}
+			});
+		}
+
 
 	
 
