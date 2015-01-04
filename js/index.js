@@ -376,7 +376,7 @@ if (currentUser) {
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
 			    		var response = results[i];
-			    		console.log(results[0]+" "+results[1]);
+			    		console.log(results[0].id+" "+results[1].id);
 				      	var content = response.get("content");
 				      	var datetime = response.createdAt;
 				      	var id = response.id;
