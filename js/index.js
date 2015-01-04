@@ -212,7 +212,7 @@ if (currentUser) {
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
-								      "<img src='"+dent.get(poster_img)+" ' style='border-radius: .25rem;'>"+
+								      "<img src='"+dent.get('poster_img')+" ' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
 								      "<a class='author'>dd</a>"+
