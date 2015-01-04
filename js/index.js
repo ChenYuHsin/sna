@@ -383,15 +383,14 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
-				      	var User = Parse.Object.extend("User");
-  						var query_responser = new Parse.Query(User);
   						var post = response.get("responser");
 						post.fetch({
 						  success: function(post) {
 						    var name = post.get("name");
+						    var imgsrc = post.get("imagesrc");
 						    var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
-								      "<img src=''>"+
+								      "<img src='"+imgsrc+"'>"+
 								    "</a>"+
 								    "<div class='content'>"+
 								      "<a class='author'>"+name+"</a>"+
