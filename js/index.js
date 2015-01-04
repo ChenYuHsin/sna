@@ -382,14 +382,17 @@ if (currentUser) {
 				      	var likes_count = 0;
 				      	var User = Parse.Object.extend("User");
   						var query_responser = new Parse.Query(User);
-  						//query_responser.equalTo("objectId", response.get("responser").id);
-  						//alert(response.get("responser").id);
-				      	var table_response = "<div class='comment reply_post'>"+
+  						query_responser.equalTo("objectId", response.get("responser").id);
+  						query_responser.find({
+  							success: function(result){
+  								for (var i = 0; i < result.length; i++) { 
+			     				var obj = result[i];
+			     				var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
 								      "<img src='img/4.jpg'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'></a>"+
+								      "<a class='author'>"+obj.get('name')+"</a>"+
 								      "<div class='metadata'>"+
 								        "<div class='date'></div>"+
 								      "</div>"+
@@ -400,8 +403,16 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 
-						$('#dent_id').after(table_response);
-						alert("success");
+								$('#dent_id').after(table_response);
+								alert("success");
+
+  							},
+  							error: function(){
+
+  							}
+  						})
+  						//alert(response.get("responser").id);
+				      	
 				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
 				      	/*if(typeof(likes) != "undefined"){
 							likes_count = likes.length;
