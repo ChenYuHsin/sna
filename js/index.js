@@ -231,7 +231,7 @@ if (currentUser) {
 					  error: function(object, error) {
 					    // The object was not retrieved successfully.
 					    // error is a Parse.Error with an error code and message.
-					    alert();
+					    console.log(object+" "+error);
 					  }
 					});
 					
