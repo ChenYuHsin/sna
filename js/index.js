@@ -385,7 +385,30 @@ if (currentUser) {
 				      	var likes_count = 0;
 				      	var User = Parse.Object.extend("User");
   						var query_responser = new Parse.Query(User);
-  						query_responser.equalTo("objectId", response.get("responser").id);
+  						var post = response.get("responser");
+						post.fetch({
+						  success: function(post) {
+						    var name = post.get("name");
+						    var table_response = "<div class='comment reply_post'>"+
+								    "<a class='avatar'>"+
+								      "<img src=''>"+
+								    "</a>"+
+								    "<div class='content'>"+
+								      "<a class='author'></a>"+
+								      "<div class='metadata'>"+
+								        "<div class='date'></div>"+
+								      "</div>"+
+								      "<div class=text'>"+
+								        content+
+								      "</div>"+
+								      
+								    "</div>"+
+								  "</div>";
+
+								$('#dent_id').after(table_response);
+						  }
+						});
+  						/*query_responser.equalTo("objectId", response.get("responser").id);
   						query_responser.find({
   							success: function(result){
   								for (var j = 0; j < result.length; j++) { 
@@ -414,24 +437,8 @@ if (currentUser) {
   							error: function(){
 
   							}
-  						})
-  						var table_response = "<div class='comment reply_post'>"+
-								    "<a class='avatar'>"+
-								      "<img src=''>"+
-								    "</a>"+
-								    "<div class='content'>"+
-								      "<a class='author'></a>"+
-								      "<div class='metadata'>"+
-								        "<div class='date'></div>"+
-								      "</div>"+
-								      "<div class=text'>"+
-								        content+
-								      "</div>"+
-								      
-								    "</div>"+
-								  "</div>";
-
-								$('#dent_id').after(table_response);
+  						})*/
+  						
 
   						//alert(response.get("responser").id);
 				      	
