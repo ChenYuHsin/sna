@@ -394,7 +394,7 @@ if (currentUser) {
 								      "<img src=''>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'></a>"+
+								      "<a class='author'>"+name+"</a>"+
 								      "<div class='metadata'>"+
 								        "<div class='date'></div>"+
 								      "</div>"+
