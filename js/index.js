@@ -230,7 +230,35 @@ if (currentUser) {
 					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});		
 					
 					//here is for click modal
-					
+					var modal_post = "<div class='ui modal reply_content small'>"+
+										"<i class='close icon'></i>"+
+										"<div class='header'>"+
+										"Reply"+
+										"</div>"+
+										"<div class='content'>"+
+											"<div class='ui comments'>"+
+												"<div class='comment owner_post'>"+
+											    "<a class='avatar'>"+
+											      "<img src='"+dent.get('poster_img')+"'>"+
+											    "</a>"+
+											    "<div class='content'>"+
+											      "<a class='author'>"+dent.get('poster_name')+"</a>"+
+											      "<div class='metadata'>"+
+											        "<div class='date'>1 day ago</div>"+
+											        "<div class='rating'>"+
+											          "<i class='heart icon'></i>"+
+											          "5 Faves"+
+											        "</div>"+
+											      "</div>"+
+
+											      "<div class='text'>"+
+											        dent_content+
+											      "</div>"+
+											      
+											    "</div>"+
+											  "</div></div></div></div>";
+
+					$(body).append(modal_post);
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
 				
@@ -241,6 +269,9 @@ if (currentUser) {
 		});
 	}
 	
+
+	
+
 
 	//$("body").on("hover",$(".cd-timeline-img").popup({on: "hover"}));
 	//$(".cd-timeline-img").popup({on: "hover"});
