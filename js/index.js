@@ -415,6 +415,24 @@ if (currentUser) {
 
   							}
   						})
+  						var table_response = "<div class='comment reply_post'>"+
+								    "<a class='avatar'>"+
+								      "<img src=''>"+
+								    "</a>"+
+								    "<div class='content'>"+
+								      "<a class='author'></a>"+
+								      "<div class='metadata'>"+
+								        "<div class='date'></div>"+
+								      "</div>"+
+								      "<div class=text'>"+
+								        content+
+								      "</div>"+
+								      
+								    "</div>"+
+								  "</div>";
+
+								$('#dent_id').after(table_response);
+								
   						//alert(response.get("responser").id);
 				      	
 				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
