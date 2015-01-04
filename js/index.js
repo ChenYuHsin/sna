@@ -205,7 +205,8 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popupTplCotent;
-					alert(dent.id);
+					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
+					alert(popuoClass);
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					query_poster.get(dent_poster, {
@@ -227,8 +228,8 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-						var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-						alert(popuoClass);
+						
+						//alert(popuoClass);
 						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
 					  },
