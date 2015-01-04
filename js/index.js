@@ -346,7 +346,7 @@ if (currentUser) {
   					});
   				},
   				error: function(error){
-  					alert(error.message);
+  					alert(error);
   				}
   			});
 		}
