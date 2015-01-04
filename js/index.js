@@ -204,9 +204,10 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					
+					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
+					$(popuoClass).attr("data-cintent", dent_content).popup({on: "hover"});
 					var query_poster = new Parse.Query(Parse.User);
 					query_poster.get(dent_poster, {
 					  success: function(result) {
@@ -227,9 +228,9 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-						var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
+						
 						alert(popuoClass);
-						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+						//$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
 					  },
 					  error: function(object, error) {
