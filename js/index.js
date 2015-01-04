@@ -281,6 +281,7 @@ if (currentUser) {
 		  			// 修改 dent 資料表內 likes 欄位的資料
 					var Dent = Parse.Object.extend("Dent");
 					var queryLikes = new Parse.Query(Dent);
+
 					queryLikes.get(dent_id, {
 						success: function(r){
 							r.addUnique("likes", user_id);
@@ -298,6 +299,22 @@ if (currentUser) {
 							console.log(error.message);
 						}
 					});
+					var LikesDent = Parse.Object.extend("LikesDent");
+					var likesDent = new LikesDent(); 
+					likesDent.set('dent_id',dent_id );
+					likesDent.set('likers', Parse.User.current());
+					gameScore.save(null, {
+					  success: function(gameScore) {
+					    // Execute any logic that should take place after the object is saved.
+					    
+					  },
+					  error: function(gameScore, error) {
+					    // Execute any logic that should take place if the save fails.
+					    // error is a Parse.Error with an error code and message.
+					    
+					  }
+					});
+
 				},
 				error: function(object, error) {
 					alert(error.message);
