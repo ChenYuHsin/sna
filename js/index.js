@@ -312,11 +312,10 @@ if (currentUser) {
 			});
 		}
 
-		function deliverReponse(){
-
+		function deliverReponse(dent_id){
 			var currentUser = Parse.User.current();
 			var responser = currentUser.id;
-			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
+			
 			var content = $("#reply_area").val();
 			var Dent = Parse.Object.extend("Dent");
   			var query1 = new Parse.Query(Dent);
@@ -350,7 +349,10 @@ if (currentUser) {
   				}
   			});
 		}
-		$("#reply_send").click(deliverReponse());
+		$("#reply_send").click(function(){
+			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
+			deliverReponse(dent_id);
+		})
 
 
 
