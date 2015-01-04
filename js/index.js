@@ -169,8 +169,8 @@ if (currentUser) {
     // show the signup or login page
 }
 /*************************************** this is test *************************************************/
-	var timeLineTpl = function(poster ,startPoint, keepTime ,face ,color){
-		var timeTpl = "<div class='cd-timeline-block "+poster+" start"+startPoint+"'>"+
+	var timeLineTpl = function(poster ,startPoint, keepTime ,face ,color, postId){
+		var timeTpl = "<div class='cd-timeline-block "+poster+" start"+startPoint+"' id='"+postId+"'>"+
 						"<div class='cd-timeline-img  cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
@@ -206,7 +206,7 @@ if (currentUser) {
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popupTplCotent;
 					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow'));
+					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent_poster));
 					query_poster.get(dent_poster, {
 					  success: function(result) {
 					    // The object was retrieved successfully.
