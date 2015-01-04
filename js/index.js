@@ -388,8 +388,8 @@ if (currentUser) {
   						query_responser.equalTo("objectId", response.get("responser").id);
   						query_responser.find({
   							success: function(result){
-  								for (var i = 0; i < result.length; i++) { 
-			     				var obj = result[i];
+  								for (var j = 0; j < result.length; j++) { 
+			     				var obj = result[j];
 			     				var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
 								      "<img src='"+obj.get('imagesrc')+"'>"+
@@ -432,7 +432,7 @@ if (currentUser) {
 								  "</div>";
 
 								$('#dent_id').after(table_response);
-								
+
   						//alert(response.get("responser").id);
 				      	
 				      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
