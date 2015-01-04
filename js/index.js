@@ -204,8 +204,7 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					alert("hi"+popuoClass);
+					
 					
 					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
 					var query_poster = new Parse.Query(Parse.User);
@@ -228,7 +227,7 @@ if (currentUser) {
 								      "</div>"+
 								    "</div>"+
 								  "</div>";
-						
+						var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 						alert(popuoClass);
 						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
 					    
