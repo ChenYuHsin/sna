@@ -205,7 +205,7 @@ if (currentUser) {
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var Poster = Parse.Object.extend("User");
 					var poster_query  = new Parse.Query(Poster);
-					query.get(dent_poster, {
+					poster_query.get(dent_poster, {
 					  success: function(result) {
 						var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
