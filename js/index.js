@@ -258,7 +258,7 @@ if (currentUser) {
 											    "</div>"+
 											  "</div></div></div></div>";
 
-					$(body).append(modal_post);
+					$('body').append(modal_post);
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
 				
