@@ -375,9 +375,8 @@ if (currentUser) {
 			    		//var user_id = $("#user").val();
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
-						var response1 = results[0];
 			    		var response = results[i];
-			    		console.log(results[0].id+" "+results[1].id);
+			    		console.log(results[i].id);
 				      	var content = response.get("content");
 				      	var datetime = response.createdAt;
 				      	var id = response.id;
@@ -385,7 +384,7 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
-  						var post = response1.get("responser");
+  						var post = response.get("responser");
 						post.fetch({
 						  success: function(post) {
 						  	console.log(response.id);
