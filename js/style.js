@@ -16,10 +16,7 @@ $(document).ready(function(){
 	});
 	//$('.ui.sticky').sticky();
     
-	$('body').on("click",".cd-timeline-img",function(){
-		$('.reply_content').modal('show');
-		
-	});
+	
 	$('.login_btn').click(function(){
 		$('.login_content').modal('show');
 	});
