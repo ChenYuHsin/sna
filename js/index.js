@@ -191,7 +191,7 @@ if (currentUser) {
 		query.find({
 			success: function(results){
 				// alert("Successfully retrieved " + results.length + " scores.");
-
+				var query_poster = new Parse.Query(Parse.User);
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
@@ -204,6 +204,16 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
+					query_poster.get(dent_poster, {
+					  success: function(result) {
+					    // The object was retrieved successfully.
+					    alert(result.get("name"));
+					  },
+					  error: function(object, error) {
+					    // The object was not retrieved successfully.
+					    // error is a Parse.Error with an error code and message.
+					  }
+					});
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
