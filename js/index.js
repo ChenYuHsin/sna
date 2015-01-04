@@ -390,7 +390,7 @@ if (currentUser) {
 								        "<div class='date'></div>"+
 								      "</div>"+
 								      "<div class=text'>"+
-								        content
+								        content+
 								      "</div>"+
 								      
 								    "</div>"+
