@@ -216,7 +216,7 @@ if (currentUser) {
 								      "<img src='"+dent.get('poster_img')+"' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
-								      "<a class='author'>dd</a>"+
+								      "<a class='author'>"+dent.get('poster_name')+"</a>"+
 								      "<div class='metadata'>"+
 								      	"<div class='date'>1</div>"+
 								      "</div>"+
