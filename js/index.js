@@ -312,6 +312,13 @@ if (currentUser) {
 			});
 		}
 
+
+		$("#reply_send").click(function(){
+			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
+			console.log(dent_id);
+			deliverReponse(dent_id);
+		});
+
 		function deliverReponse(dent_id){
 			var currentUser = Parse.User.current();
 			var responser = currentUser.id;
@@ -352,11 +359,7 @@ if (currentUser) {
   				}
   			});
 		}
-		$("#reply_send").click(function(){
-			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
-			console.log(dent_id);
-			deliverReponse(dent_id);
-		})
+		
 
 
 
