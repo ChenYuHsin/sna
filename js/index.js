@@ -361,6 +361,9 @@ if (currentUser) {
 		}
 
 		function queryResponse(dent){
+			if($(".reply_post").length != 0){
+				$(".reply_post").remove();
+			}
 			var Response = Parse.Object.extend("Response");
 			var query = new Parse.Query(Response);
 			
