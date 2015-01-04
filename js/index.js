@@ -47,8 +47,7 @@ jQuery(document).ready(function($){
   		var dent = new Dent();
   		var Poster = Parse.Object.extend("User");
   		var query = new Parse.Query(Poster);
-  		
-  			
+  		var poster_img = $('.post_content img'),attr('src');  			
 		query.get(user.id, {
 			success: function(p) {
 				var poster = p;
@@ -59,6 +58,7 @@ jQuery(document).ready(function($){
 	  			dent.set("content", content);
 	  			dent.set("s_datetime", s_datetime);
 	  			dent.set("e_datetime", e_datetime);
+	  			dert.set("poster_img", poster_img);
 	  			dent.save(null, {
 				  	success: function(gameScore) {
 				    	//queryDent();
