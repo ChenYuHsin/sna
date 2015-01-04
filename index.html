@@ -53,12 +53,14 @@
 						user.save();
 						$("#account_img").attr('src', my_picture_url);
 						$(".my_timeline_pic").attr('src', my_picture_url);
+
 					});
 					FB.api('/me', function(response) {
 						var my_name = response.name;
 						user.set('name', my_name);
 						user.save();
 						$(".account_info").html("Hi! "+ my_name);
+						$(".make_dent_name").html(my_name);
 					});
 				}
 				if(Parse.User.current()!=null){
@@ -499,7 +501,7 @@
 			<img class="my_timeline_pic"></img>
 		</div>
 		<div class='description'>
-			<div class="title">ddd</div>
+			<div class="make_dent_name"></div>
 			<textarea class="make_dent_content" placeholder="Let's share something to others!"></textarea>
 			<div class="ui form make_dent_emotion">
 			  <div class="inline fields">
