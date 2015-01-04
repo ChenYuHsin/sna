@@ -315,7 +315,7 @@ if (currentUser) {
 
 		$("#reply_send").click(function(){
 			var dent_id = $(this).closest("#dent_id").attr("data-dentId");//requests["id"];
-			console.log(dent_id);
+			alert(dent_id);
 			deliverReponse(dent_id);
 		});
 
