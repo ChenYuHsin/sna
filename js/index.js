@@ -194,7 +194,7 @@ if (currentUser) {
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
-					var dent_poster_obj = dent.get("poster");
+					
 					var dent_poster = dent.get("poster").id;
 					var dent_category = dent.get("category");
 					var dent_content = dent.get("content");
@@ -203,11 +203,14 @@ if (currentUser) {
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					console.log(dent_poster_obj.get("name"));
-					var popupTplCotent = "<div class='ui items popup_item'>"+
+					var Poster = Parse.Object.extend("User");
+					var poster_query  = new Parse.Query(Poster);
+					query.get(dent_poster, {
+					  success: function(result) {
+						var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
-								      "<img src='"+dent_poster_obj.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
+								      "<img src='"+result.get('imagesrc')+" ' style='border-radius: .25rem;'>"+
 								    "</a>"+
 								    "<div class='content'>"+
 								      "<a class='author'>Joe Henderson</a>"+
@@ -221,9 +224,16 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 							
-					$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
-					var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
-					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+						$(ClassName).append(timeLineTpl( dent_poster,calstart, calkeep, dent_category  ,'yellow'));
+						var popuoClass = "."+dent_poster+" "+".cd-timeline-img";
+						$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});
+					  },
+					  error: function(object, error) {
+					    // The object was not retrieved successfully.
+					    // error is a Parse.Error with an error code and message.
+					  }
+					});
+					
 					
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
 				}
