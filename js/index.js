@@ -383,7 +383,7 @@ if (currentUser) {
 				      	var User = Parse.Object.extend("User");
   						var query_responser = new Parse.Query(User);
   						//query_responser.equalTo("objectId", response.get("responser").id);
-  						alert(response.get("responser").id);
+  						//alert(response.get("responser").id);
 				      	var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
 								      "<img src='img/4.jpg'>"+
