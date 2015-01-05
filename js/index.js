@@ -208,11 +208,12 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					var carkeep = (dent_end.getTime() - dent_start.getTime())/60000*2;
+					var gaptime = dent_end.getTime() - dent_start.getTime();
+					var carkeep = gaptime/60000*2;
 					var getstartHour = dent_start.getHours();
 					var getstartMinutes = dent_start.getMinutes();
 					var calmarginTop = (getstartHour-8)*60*2 + getstartMinutes*2;
-					console.log(dent_end.getTime() - dent_start.getTime());
+					console.log(carkeep);
 					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,'yellow', dent.id));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
