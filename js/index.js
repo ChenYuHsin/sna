@@ -174,7 +174,7 @@ if (currentUser) {
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"px'>"+
-						"<div class='cd-timeline-img  cd-"+face + " "+color +" ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
+						"<div class='cd-timeline-img  cd-"+face + "  ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
