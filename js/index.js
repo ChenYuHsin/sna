@@ -40,6 +40,13 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
+	function minusMarginTop(){
+		var timeLineArray = [];
+		$(".cd-container").each(function(){
+			timeLineArray.push($(this).attr(".data-timelineid"));
+			alert(timeLineArray)[0];
+		});
+	}
 
 	function deliverDent(user, category, color, content, s, e){
 		alert(user.id + ":" + category + ":" + content + ":" + s + ":" + e);
@@ -188,13 +195,7 @@ if (currentUser) {
 	//$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
 	//$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
 	//$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
-	function minusMarginTop(){
-		var timeLineArray = [];
-		$(".cd-container").each(function(){
-			timeLineArray.push($(this).attr(".data-timelineid"));
-			alert(timeLineArray)[0];
-		});
-	}
+	
 	function queryDent(){
 		var Dent = Parse.Object.extend("Dent");
 		var query = new Parse.Query(Dent);
@@ -286,8 +287,8 @@ if (currentUser) {
 		$('.reply_content').modal('show');
 		
 	});
-	
-minusMarginTop();
+	minusMarginTop();
+
 	function clickLike(dent_id , user_id){
   			var User = Parse.Object.extend("User");
   			var query = new Parse.Query(User);
