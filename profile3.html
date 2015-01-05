@@ -63,6 +63,7 @@
 					});
 					FB.api("/me/friends",function (response) {
 			        	 if (response && !response.error) {
+			        	 	console.log(response);
 			        		for(var i = 0; i<response.data.length; i++){
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
