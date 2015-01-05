@@ -42,7 +42,7 @@ jQuery(document).ready(function($){
 	});
 	function minusMarginTop(){
 		var timeLineArray = [];
-		$(".cd-container").each(function(){
+		$("#cd-timeline").each(function(){
 			timeLineArray.push($(this).attr("data-timelineid"));
 			alert($(this).attr("data-timelineid"));
 		});
