@@ -174,7 +174,7 @@ if (currentUser) {
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"px'>"+
-						"<div class='cd-timeline-img  cd-"+face +color +" ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
+						"<div class='cd-timeline-img  cd-"+face + " "+color +" ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
@@ -209,7 +209,7 @@ if (currentUser) {
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
 					var gaptime = dent_end.getTime() - dent_start.getTime();
-					var carkeep = gaptime/60000*2;
+					var calkeep = gaptime/60000*2;
 					var getstartHour = dent_start.getHours();
 					var getstartMinutes = dent_start.getMinutes();
 					var calmarginTop = (getstartHour-8)*60*2 + getstartMinutes*2;
