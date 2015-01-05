@@ -206,6 +206,7 @@ if (currentUser) {
 					var dent_content = dent.get("content");
 					var dent_start = dent.get("s_datetime");
 					var dent_end = dent.get("e_datetime");
+					var dent_color = dent.get("color");
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
@@ -216,7 +217,7 @@ if (currentUser) {
 					var getstartMinutes = dent_start.getMinutes();
 					var calmarginTop = (getstartHour-8)*60*2 + getstartMinutes*2;
 					console.log(calkeep);
-					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,'yellow', dent.id));
+					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
