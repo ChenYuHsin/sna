@@ -69,22 +69,31 @@
 			        			query.equalTo("facebookid", response.data[i].id);
 			        			query.first({
 			        				success:function(userdata){
+			        					console.log(userdata);
 			        					var userid = userdata.id;
 			        					var username = userdata.get('name');
 			        					var userphotourl = userdata.get('imagesrc');
 
 			        					var currentuser = Parse.User.current();
 			        					var friend = currentuser.get('friends');
-			        					console.log(friend);
-			        					console.log(friend.length);
-			        					for(var i = 0; i<=friend.length; i++){
-				        					if(friend[i] == userid){
-				        						friendlist(userphotourl, username);
-				        					}
-				        					else{
-				        						recommendfriend(userid, userphotourl, username);
-				        					}
-				        				}       					
+			        					if(friend.length == 0){
+			        						if(userdata.length !=0){
+			        							alert("你目前並沒有任何的好友，我們有推薦一些你可能會認識的人，現在就加入一些好友吧！");
+			        							for(var i = 0; i<userdata.length; i++){
+			        								recommendfriend(userid, userphotourl, username);
+			        							}			        							
+			        						}
+			        						else{
+			        							alert("你目前並沒有好友，且目前你的好友都沒有在使用Modent，請推薦一些朋友來一起使用Modent！");
+			        						}
+			        					}
+			        					else{
+			        						for(var i = 0; i<friend.length; i++){
+			        							if(friend[i] == userid){
+			        								friendlist(userphotourl, username);
+			        							}
+			        						}
+			        					}       					
 			        				}
 			        			})
 			        		}
