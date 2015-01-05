@@ -43,8 +43,8 @@ jQuery(document).ready(function($){
 	function minusMarginTop(){
 		var timeLineArray = [];
 		$(".cd-container").each(function(){
-			timeLineArray.push($(this).attr(".data-timelineid"));
-			alert($(this).attr(".data-timelineid"));
+			timeLineArray.push($(this).attr("data-timelineid"));
+			alert($(this).attr("data-timelineid"));
 		});
 	}
 
