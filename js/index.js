@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
 	    });
 	});
 
-	function deliverDent(user, category, content, s, e){
+	function deliverDent(user, category, color, content, s, e){
 		alert(user.id + ":" + category + ":" + content + ":" + s + ":" + e);
 		var Dent = Parse.Object.extend("Dent");
   		var dent = new Dent();
@@ -56,6 +56,7 @@ jQuery(document).ready(function($){
 	  			var e_datetime = new Date(e);
 	  			dent.set("poster", poster);
 	  			dent.set("category", category);
+	  			dent.set("color", color);
 	  			dent.set("content", content);
 	  			dent.set("s_datetime", s_datetime);
 	  			dent.set("e_datetime", e_datetime);
@@ -85,11 +86,12 @@ jQuery(document).ready(function($){
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
 		var category = $('input:radio:checked[name="emotion"]').val();
+		var color = $('input:radio:checked[name="emotion"]').attr('data-color');
     	//var category = $('#category').val();
     	var content = $('.make_dent_content').val();
     	var start_datetime = $('#start_datetime').val();
     	var end_datetime = $('#end_datetime').val();
-    	deliverDent(currentUser, category, content, start_datetime, end_datetime);
+    	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    });
 
@@ -174,7 +176,7 @@ if (currentUser) {
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"px'>"+
-						"<div class='cd-timeline-img  cd-"+face + "  ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
+						"<div class='cd-timeline-img  cd-"+face +" "+color+ " ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
