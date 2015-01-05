@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
 		var timeLineArray = [];
 		$(".cd-container").each(function(){
 			timeLineArray.push($(this).attr(".data-timelineid"));
-			alert(timeLineArray[0]);
+			alert($(this).attr(".data-timelineid"));
 		});
 	}
 
