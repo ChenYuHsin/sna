@@ -384,6 +384,7 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
+				      	var post = response.get("responser");
   						var name = response.get("responser").get('name');
   						var imgsrc = response.get("responser").get('imagesrc');
 						  	
