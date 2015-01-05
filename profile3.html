@@ -75,14 +75,15 @@
 
 			        					var currentuser = Parse.User.current();
 			        					var friend = currentuser.get('friends');
-			        						for(var i = 0; i<friend.length; i++){
-				        						if(friend[i] == userid){
-				        							friendlist(userphotourl, username);
-				        						}
-				        						else{
-				        							recommendfriend(userid, userphotourl, username);
-				        						}
-				        					}       					
+			        					console.log(friend);
+			        					for(var i = 0; i<friend.length; i++){
+				        					if(friend[i] == userid){
+				        						friendlist(userphotourl, username);
+				        					}
+				        					else{
+				        						recommendfriend(userid, userphotourl, username);
+				        					}
+				        				}       					
 			        				}
 			        			})
 			        		}
