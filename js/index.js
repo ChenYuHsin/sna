@@ -366,7 +366,7 @@ if (currentUser) {
 			}
 			var Response = Parse.Object.extend("Response");
 			var query = new Parse.Query(Response);
-			
+			query.include('responser');
 			query.equalTo("dent_id", dent);
 			query.find({
 			  	success: function(results) {
@@ -384,12 +384,9 @@ if (currentUser) {
 				      	//console.log("responser"+responser.get('imagesrc'));
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
-  						var post = response.get("responser");
-						post.fetch({
-						  success: function(post) {
-						  	console.log(id);
-						    var name = post.get("name");
-						    var imgsrc = post.get("imagesrc");
+  						var name = response.get("responser").get('name');
+  						var imgsrc = response.get("responser").get('imagesrc');
+						  	
 						    var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
 								      "<img src='"+imgsrc+"'>"+
@@ -408,8 +405,6 @@ if (currentUser) {
 
 								$('#dent_id').after(table_response);
 
-						  }
-						});
   						
   					
   						
