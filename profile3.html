@@ -62,7 +62,7 @@
 						$(".account_info").html("Hi! "+ my_name);
 					});
 					FB.api("/me/friends",function (response) {
-			        	// if (response && !response.error) {
+			        	 if (response && !response.error) {
 			        		for(var i = 0; i<response.data.length; i++){
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
@@ -70,6 +70,7 @@
 			        			query.first({
 			        				success:function(userdata){
 			        					console.log(userdata);
+			        					console.log(userdata.length);
 			        					var userid = userdata.id;
 			        					var username = userdata.get('name');
 			        					var userphotourl = userdata.get('imagesrc');
@@ -78,13 +79,9 @@
 			        					var friend = currentuser.get('friends');
 			        					if(friend.length == 0){
 			        						if(userdata.length !=0){
-			        							alert("你目前並沒有任何的好友，我們有推薦一些你可能會認識的人，現在就加入一些好友吧！");
 			        							for(var i = 0; i<userdata.length; i++){
 			        								recommendfriend(userid, userphotourl, username);
 			        							}			        							
-			        						}
-			        						else{
-			        							alert("你目前並沒有好友，且目前你的好友都沒有在使用Modent，請推薦一些朋友來一起使用Modent！");
 			        						}
 			        					}
 			        					else{
@@ -97,7 +94,10 @@
 			        				}
 			        			})
 			        		}
-			        	// }
+			        	 }
+			        	 else{
+			        	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
+			        	 }
 			        });
 				}
 				if(Parse.User.current()!=null){
