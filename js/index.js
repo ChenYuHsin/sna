@@ -15,6 +15,7 @@ jQuery(document).ready(function($){
 	                alert("User signed up and logged in through Facebook!");
 	                var fbid = user.get('authData')['facebook'].id;
 	                user.set('facebookid', fbid);
+	                user.set('friends', []);
 	                user.save();
 	                location.assign("index.html");
 	            } 

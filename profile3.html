@@ -75,7 +75,6 @@
 
 			        					var currentuser = Parse.User.current();
 			        					var friend = currentuser.get('friends');
-			        					if(friend != undefined){
 			        						for(var i = 0; i<friend.length; i++){
 				        						if(friend[i] == userid){
 				        							friendlist(userphotourl, username);
@@ -83,11 +82,7 @@
 				        						else{
 				        							recommendfriend(userid, userphotourl, username);
 				        						}
-				        					} 
-			        					}
-			        					else{
-			        						alert("目前你並沒有朋友在使用Modent!快推薦朋友來使用喔!");
-			        					}       					
+				        					}       					
 			        				}
 			        			})
 			        		}
