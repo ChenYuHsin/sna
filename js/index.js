@@ -172,9 +172,9 @@ if (currentUser) {
     // show the signup or login page
 }
 /*************************************** this is test *************************************************/
-	var timeLineTpl = function(poster ,startPoint, keepTime ,face ,color, postId){
-		var timeTpl = "<div class='cd-timeline-block "+poster+" start"+startPoint+"' id='"+postId+"'>"+
-						"<div class='cd-timeline-img  cd-"+face+ " keep"+keepTime+" "+color +" ui button' data-position='right center' data-variation='wide'>"+
+	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
+		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"'>"+
+						"<div class='cd-timeline-img  cd-"+face +color +" ui button' style='height: "+keepTime+"' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
 					"</div>";
@@ -208,8 +208,11 @@ if (currentUser) {
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
 					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
-					$(ClassName).append(timeLineTpl(dent_poster,calstart, calkeep, dent_category  ,'yellow', dent.id));
-					
+					var carkeep = (dent_end.getTime() - dent_start.getTime())/60000*2;
+					var getstartHour = dent_start.getHours();
+					var getstartMinutes = dent_start.getMinutes();
+					var calmarginTop = getstartHour*60*2 + getstartMinutes;
+					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,'yellow', dent.id));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
 								    "<a class='ui tiny image'>"+
