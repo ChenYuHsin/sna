@@ -211,7 +211,7 @@ if (currentUser) {
 					var carkeep = (dent_end.getTime() - dent_start.getTime())/60000*2;
 					var getstartHour = dent_start.getHours();
 					var getstartMinutes = dent_start.getMinutes();
-					var calmarginTop = getstartHour*60*2 + getstartMinutes;
+					var calmarginTop = (getstartHour-8)*60*2 + getstartMinutes*2;
 					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,'yellow', dent.id));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
