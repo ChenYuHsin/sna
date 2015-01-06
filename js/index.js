@@ -171,7 +171,7 @@ if (currentUser) {
 		});
 	}
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
-    console.log($(".dinner").css("border", "1px solid black"));
+    $(".dinner").css("border", "1px solid black");
     console.log($(".dinner").find('.cd-timeline-img'));
     console.log($('.make_dent'));
 } else {
