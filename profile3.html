@@ -98,6 +98,14 @@
 				        					var username = alluser[i].get('name');
 				        					var userphotourl = alluser[i].get('imagesrc');
 				        					recommendfriend(userid, userphotourl, username);
+				        					var friends = Parse.User.current().get('friends');
+				        					for(var j = 0; j<friends.length; j++){
+				        						var friend = friends[j];
+				        						var judge = $('.card').attr('data-roleId');
+				        						if(judge == friend){
+				        							$(this).remove();
+				        						}
+				        					}
 			        					}
 			        				}
 			        			}
