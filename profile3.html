@@ -64,6 +64,7 @@
 					FB.api("/me/friends",function (response) {
 			        	 if (response.data.length!=0) {
 			        		for(var i = 0; i<response.data.length; i++){
+			        			console.log(response.data[i].id);
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
 			        			query.equalTo("facebookid", response.data[i].id);
