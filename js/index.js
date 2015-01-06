@@ -41,14 +41,7 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
-	function minusMarginTop(){
-		var timeLineArray = [];
-		$("#cd-timeline").each(function(){
-			timeLineArray.push($(this).attr("data-timelineid"));
-			alert($(this).attr("data-timelineid"));
-		});
-	}
-
+	
 	function deliverDent(user, category, color, content, s, e){
 		alert(user.id + ":" + category + ":" + content + ":" + s + ":" + e);
 		var Dent = Parse.Object.extend("Dent");
@@ -288,7 +281,7 @@ if (currentUser) {
 		$('.reply_content').modal('show');
 		
 	});
-	minusMarginTop();
+	
 
 	function clickLike(dent_id , user_id){
   			var User = Parse.Object.extend("User");
