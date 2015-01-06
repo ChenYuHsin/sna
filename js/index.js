@@ -172,7 +172,7 @@ if (currentUser) {
 	}
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
     console.log($(".dinner"));
-    console.log($(".dinner").attr("id"));
+    console.log($(".dinner").find('.cd-timeline-img'));
 } else {
     // show the signup or login page
 }
