@@ -170,10 +170,12 @@ if (currentUser) {
 		  }
 		});
 	}
-    
+    console.log($('#cd-timeline'));
+console.log($('#cd-timeline').attr('data-timelineid'));
 } else {
     // show the signup or login page
 }
+console.log($('#cd-timeline'));
 console.log($('#cd-timeline').attr('data-timelineid'));
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
