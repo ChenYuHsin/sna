@@ -82,23 +82,27 @@
 			        						for(var j = 0; j<friend.length; j++){
 			        							if(friend[j] == userid){
 			        								friendlist(userphotourl, username);
+			        								localStorage.setItem("surefriendid"+j+"",userid);
 			        							}
 			        							else{
 			        								localStorage.setItem("maybefriendid"+j+"", userid);
 			        								localStorage.setItem("maybefriendname"+j+"", username);
 			        								localStorage.setItem("maybefriendurl"+j+"", userphotourl);
 			        							}
-			        						}
-			        						for(var k = 0; k<friend.length; k++){
-			        							var maybeid = localStorage.getItem("maybefriendid"+k+"");
-			        							var maybename = localStorage.getItem("maybefriendname"+k+"");
-			        							var maybeurl = localStorage.getItem("maybefriendurl"+k+"");
-			        							recommendfriend(maybeid, maybeurl, maybename);
 			        						}		
-			        					}       					
+			        					}      					
 			        				}
 			        			})
 			        		}
+			        		for(var k = 0; k<friend.length; k++){
+			        			var sureid = localStorage.getItem("surefriendid"+k+"");
+			        			var maybeid = localStorage.getItem("maybefriendid"+k+"");
+			        			var maybename = localStorage.getItem("maybefriendname"+k+"");
+			        			var maybeurl = localStorage.getItem("maybefriendurl"+k+"");
+			        			if(sureid != maybeid){
+			        				recommendfriend(maybeid, maybeurl, maybename);
+			        			}
+			        		} 
 			        	 }
 			        	 else{
 			        	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
