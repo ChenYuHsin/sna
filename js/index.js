@@ -134,13 +134,13 @@ if (currentUser) {
 				console.log($('[id="cd-timeline"]'));
 				console.log($('[id="cd-timeline"]').length);
 				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
+				
+				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
+				console.log($(".dinner").attr('data-timelineid'));
 				for(i=1; i< $("[id='cd-timeline']").length; i++){
 					var fetchObj = "[id='cd-timeline']["+i+"]";
 					console.log($(fetchObj).attr('data-timelineid'));
 				}
-				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
-				console.log($(".dinner").attr('data-timelineid'));
-				
 			},
 			error: function(object, error) {
 				alert(object +" "+error);
