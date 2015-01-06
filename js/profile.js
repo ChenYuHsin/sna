@@ -3,11 +3,11 @@ $(document).on("click", "#add_friend_btn", function(){
 	var friendname = $(this).parent().children('.content').children('.header').text();
 	var r = confirm("Do you want to add " + friendname + " as a friend?");
 	if (r==true){
+		var currentuser = Parse.User.current();
 		var currentuserfriends = Parse.User.current().get('friends');
+		currentuserfriends.push(friendid);
 		console.log(currentuserfriends);
-		var afteraddfriend = currentuserfriends.push(friendid);
-		console.log(afteraddfriend);
-		currentuserfriends.set("friends", afteraddfriend);
-		currentuserfriends.save();
+		currentuser.set("friends", currentuserfriends);
+		currentuser.save();
 	}
 });
