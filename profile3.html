@@ -79,14 +79,22 @@
 			        						recommendfriend(userid, userphotourl, username);
 			        					}
 			        					else{
-			        						for(var i = 0; i<friend.length; i++){
-			        							if(friend[i] == userid){
+			        						for(var j = 0; j<friend.length; j++){
+			        							if(friend[j] == userid){
 			        								friendlist(userphotourl, username);
 			        							}
 			        							else{
-			        								recommendfriend(userid, userphotourl, username);
+			        								localStorage.setItem("maybefriendid"+j+"", userid);
+			        								localStorage.setItem("maybefriendname"+j+"", username);
+			        								localStorage.setItem("maybefriendurl"+j+"", userphotourl);
 			        							}
 			        						}
+			        						for(var k = 0; k<friend.length; k++){
+			        							var maybeid = localStorage.getItem("maybefriendid"+k+"");
+			        							var maybename = localStorage.getItem("maybefriendname"+k+"");
+			        							var maybeurl = localStorage.getItem("maybefriendurl"+k+"");
+			        							recommendfriend(maybeid, maybeurl, maybename);
+			        						}		
 			        					}       					
 			        				}
 			        			})
