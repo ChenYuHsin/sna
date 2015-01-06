@@ -170,13 +170,10 @@ if (currentUser) {
 		  }
 		});
 	}
-    console.log($('#cd-timeline'));
-console.log($('#cd-timeline').attr('data-timelineid'));
+    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 } else {
     // show the signup or login page
 }
-console.log($('#cd-timeline'));
-console.log($('#cd-timeline').attr('data-timelineid'));
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"px'>"+
