@@ -101,16 +101,10 @@
 				        					var friends = Parse.User.current().get('friends');
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j];
-				        						console.log(friend);
-				        						console.log($("div[class='card']").length);
-				        						console.log($("div[class='card'][0]"));
-				        						var cardlength = $("div[class='card']").length;
-				        						for(var k = 0; k<cardlength; k++){
-				        							var judge = $("div[class='card']["+k+"]").attr('id');
-				        							console.log(judge);
-				        							if(judge == friend){
-				        								$('[id="'+judge+'"]').remove();
-				        							}
+				        						var judge = $("div[id='"+friend+"']");
+				        						console.log(judge);
+				        						if(judge){
+				        							$('[id="'+judge+'"]').remove();
 				        						}
 				        					}	
 			        					}
