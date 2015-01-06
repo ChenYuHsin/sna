@@ -105,7 +105,7 @@
 				        						console.log($("div[class='card']").length);
 				        						var cardlength = $("div[class='card']").length;
 				        						for(var k = 0; k<cardlength; k++){
-				        							var judge = $("div[class='card']"+[k]+"").attr('id');
+				        							var judge = $("div[class='card']["+k+"]").attr('id');
 				        							console.log(judge);
 				        							if(judge == friend){
 				        								$('[id="'+judge+'"]').remove();
