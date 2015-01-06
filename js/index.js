@@ -131,8 +131,11 @@ if (currentUser) {
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
 				queryDent();
 				$(".dinner").css("border", "1px solid black");
+
 				console.log(jQuery("[class=dinner]").find('img').attr('src'));
-				console.log(jQuery("[class=dinner]").length);
+				console.log($('[class="dinner"]'));
+				console.log($('[class="dinner"]')).length);
+				console.log($('[class="dinner"]').attr('data-timelineid'));
 				for(i=0; i<jQuery("[class=dinner]").length; i++){
 					console.log($(this).attr('data-timelineid'));
 				}
