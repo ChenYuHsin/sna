@@ -130,6 +130,7 @@ if (currentUser) {
 								"</section>";
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
 				queryDent();
+				$(".dinner").css("border", "1px solid black");
 				
 			},
 			error: function(object, error) {
@@ -171,7 +172,6 @@ if (currentUser) {
 		});
 	}
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
-    $(".dinner").css("border", "1px solid black");
     console.log($(".dinner").find('.cd-timeline-img'));
     console.log($('.make_dent'));
 } else {
