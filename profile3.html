@@ -102,8 +102,7 @@
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j];
 				        						var judge = $("div[id='"+friend+"']");
-				        						console.log(judge);
-				        						if(judge){
+				        						if(judge!=null){
 				        							$('[id="'+judge+'"]').remove();
 				        						}
 				        					}	
