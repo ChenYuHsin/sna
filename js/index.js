@@ -132,6 +132,9 @@ if (currentUser) {
 				queryDent();
 				$(".dinner").css("border", "1px solid black");
 				console.log(jQuery("[class=dinner]").find('img').attr('src'));
+				for(i=0; i<jQuery("[class=dinner]").length; i++){
+					console.log($(this).attr('data-timelineid'));
+				}
 				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
 				
