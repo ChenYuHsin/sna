@@ -131,7 +131,7 @@ if (currentUser) {
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
 				queryDent();
 				$(".dinner").css("border", "1px solid black");
-				console.log(jQuery("[class=dinner]"));
+				console.log(jQuery("[class=dinner]").find('img'));
 				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
 				
