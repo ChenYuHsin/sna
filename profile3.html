@@ -80,6 +80,7 @@
 			        					}
 			        					else{
 			        						for(var j = 0; j<friend.length; j++){
+			        							localStorage.setItem("friendlength", friend.length);
 			        							if(friend[j] == userid){
 			        								friendlist(userphotourl, username);
 			        								localStorage.setItem("surefriendid"+j+"",userid);
@@ -94,7 +95,9 @@
 			        				}
 			        			})
 			        		}
-			        		for(var k = 0; k<friend.length; k++){
+			        		var stringlength = localStorage.getItem("friendlength");
+			        		var friendlength = parseInt(stringlength);
+			        		for(var k = 0; k<friendlength; k++){
 			        			var sureid = localStorage.getItem("surefriendid"+k+"");
 			        			var maybeid = localStorage.getItem("maybefriendid"+k+"");
 			        			var maybename = localStorage.getItem("maybefriendname"+k+"");
