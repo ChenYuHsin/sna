@@ -1,7 +1,6 @@
 $(document).on("click", "#add_friend_btn", function(){
 	$('#add_friend_btn').on("click",function(){
-		var friendid = $(this).parent('data-roleid').text();
-		var friendname = $(this).parent().children('.content').children('.header').text();
+		var friendid = $(this).parent().attr('data-roleid').text();
 		console.log(friendid);
 		console.log(friendname);
 		var r = confirm("Do you want to add " + friendname + " as a friend?");
@@ -11,7 +10,7 @@ $(document).on("click", "#add_friend_btn", function(){
 			currentuserfriends.save();
 		}
 		else{
-			alert("Please consider before you press the button!");
+			
 		}
 	})
 });
