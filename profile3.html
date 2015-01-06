@@ -100,7 +100,7 @@
 				        					recommendfriend(userid, userphotourl, username);
 				        					var friends = Parse.User.current().get('friends');
 				        					for(var j = 0; j<friends.length; j++){
-				        						var friend = friends[j];
+				        						var friend = friends[j].id;
 				        						var judge = $('.card').attr('id');
 				        						if(judge == friend){
 				        							$('[id="'+judge+'"]').remove();
