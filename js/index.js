@@ -189,6 +189,8 @@ if (currentUser) {
 	//$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
 	//$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
 	//$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
+
+
 	
 	function queryDent(){
 		var Dent = Parse.Object.extend("Dent");
@@ -237,7 +239,8 @@ if (currentUser) {
 								    "</div>"+
 								  "</div>";
 					
-					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});		
+					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});	
+
 					
 					//here is for click modal
 					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
@@ -249,6 +252,12 @@ if (currentUser) {
 			}
 		});
 	}
+	var minusMarginTop = function(){
+		$("#cd-timeline").each(function(){
+			alert();
+		})
+	};
+	minusMarginTop();
 	$('body').on("click",".cd-timeline-img",function(){
 		var post_id = $(this).closest('.cd-timeline-block').attr("id");
 
