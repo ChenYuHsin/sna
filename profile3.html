@@ -93,9 +93,9 @@
 			        		query.find({
 			        			success:function(alluser){
 			        				for(var i = 0; i<alluser.length; i++){
-			        					var userid = alluser.id;
-			        					var username = alluser.get('name');
-			        					var userphotourl = alluser.get('imagesrc');
+			        					var userid = alluser[i].id;
+			        					var username = alluser[i].get('name');
+			        					var userphotourl = alluser[i].get('imagesrc');
 			        					recommendfriend(userid, userphotourl, username);
 			        				}
 			        			}
