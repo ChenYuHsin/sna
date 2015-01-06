@@ -13,5 +13,5 @@ $(document).ready(function(){
 		else{
 		    alert("Please consider before you press the button!");
 		}
-	}
+	})
 })
