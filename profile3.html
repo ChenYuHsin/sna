@@ -101,7 +101,9 @@
 				        					var friends = Parse.User.current().get('friends');
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j].id;
+				        						console.log(friend);
 				        						var judge = $('.card').attr('id');
+				        						console.log(judge);
 				        						if(judge == friend){
 				        							$('[id="'+judge+'"]').remove();
 				        						}
