@@ -1,5 +1,5 @@
 $(document).on("click", "#add_friend_btn", function(){
-	var friendid = $(this).parent().attr('data-roleId');
+	var friendid = $(this).parent().attr('id');
 	var friendname = $(this).parent().children('.content').children('.header').text();
 	var r = confirm("Do you want to add " + friendname + " as a friend?");
 	if (r==true){
