@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	console.log($('#add_friend_btn'));
-	$('#add_friend_btn').on("click",function(){
+	console.log($('#addfriendbtn'));
+	$('#addfriendbtn').on("click",function(){
 		var friendid = $(this).parent('data-roleid').text();
 		var friendname = $(this).parent().children('.content').children('.header').text();
 		console.log(friendid);
