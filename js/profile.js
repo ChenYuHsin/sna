@@ -4,7 +4,9 @@ $(document).on("click", "#add_friend_btn", function(){
 	var r = confirm("Do you want to add " + friendname + " as a friend?");
 	if (r==true){
 		var currentuserfriends = Parse.User.current().get('friends');
+		console.log(currentuserfriends);
 		var afteraddfriend = currentuserfriends.push(friendid);
+		console.log(afteraddfriend);
 		currentuserfriends.set("friends", afteraddfriend);
 		currentuserfriends.save();
 	}
