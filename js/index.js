@@ -135,7 +135,7 @@ if (currentUser) {
 				console.log($('[id="cd-timeline"]').length);
 				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
 				
-				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
+				console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
 				setTimeout(function(){ 
 					for(i=1; i< $("[id='cd-timeline']").length; i++){
