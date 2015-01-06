@@ -38,7 +38,7 @@
 	         
 	            // Run code after the Facebook SDK is loaded.
 	            var recommendfriend = function(id, url, name){
-					var friendbody = $('<div class="card" data-roleId="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+					var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
 					$('#recommendfriend').append(friendbody);
 				}
 				var friendlist = function(url, name){
@@ -101,10 +101,9 @@
 				        					var friends = Parse.User.current().get('friends');
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j];
-				        						var judge = $('.card').attr('data-roleId');
-				        						console.log(judge);
+				        						var judge = $('.card').attr('id');
 				        						if(judge == friend){
-				        							judge.remove();
+				        							$("'#"+id+"'").remove();
 				        						}
 				        					}
 			        					}
