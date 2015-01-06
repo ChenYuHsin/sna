@@ -137,6 +137,13 @@ if (currentUser) {
 				
 				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
+				setTimeout(function(){ 
+					for(i=1; i< $("[id='cd-timeline']").length; i++){
+					var fetchObj = "[id='cd-timeline']["+i+"]";
+					console.log($(fetchObj).attr('data-timelineid'));
+					}
+					},
+					 5000);
 				
 			},
 			error: function(object, error) {
@@ -463,10 +470,6 @@ if (currentUser) {
 			  	}
 			});
 		}
-		for(i=1; i< $("[id='cd-timeline']").length; i++){
-					var fetchObj = "[id='cd-timeline']["+i+"]";
-					console.log($(fetchObj).attr('data-timelineid'));
-				}
 
 		
 
