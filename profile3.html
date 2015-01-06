@@ -102,8 +102,9 @@
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j];
 				        						var judge = $('.card').attr('data-roleId');
+				        						console.log(judge);
 				        						if(judge == friend){
-				        							$(this).remove();
+				        							judge.remove();
 				        						}
 				        					}
 			        					}
