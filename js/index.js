@@ -138,7 +138,7 @@ if (currentUser) {
 				console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
 				$('[id="cd-timeline"]').each(function(){
-					console.log($(this)find('img').attr('src'));
+					console.log($(this).find('img').attr('src'));
 				})
 				
 			},
