@@ -64,7 +64,6 @@
 					FB.api("/me/friends",function (response) {
 			        	 if (response.data.length!=0) {
 			        		for(var i = 0; i<response.data.length; i++){
-			        			localStorage.setItem("i", i);
 			        			var user = Parse.Object.extend("User");
 			        			var query = new Parse.Query(user);
 			        			query.equalTo("facebookid", response.data[i].id);
@@ -75,25 +74,32 @@
 			        					var userphotourl = userdata.get('imagesrc');
 
 			        					var currentuser = Parse.User.current();
-			        					var friend = currentuser.get('friends');
-			        					friend.sort(function(a, b){return a-b});
-			        					currentuser.set('friends', friend);
-			        					currentuser.save();
+			        					var friend = currentuser.get('friends');	
 			        					if(friend.length == 0){
 			        						recommendfriend(userid, userphotourl, username);
 			        					}
 			        					else{
-			        						var i = localStorage.getItem("i");
-			        						if(friend[i] == response.data[i].id){
-			        							friendlist(userphotourl, username);
-			        						}
-			        						else{
-			        							recommendfriend(userid, userphotourl, username);
+			        						for(var j = 0; j<friend.length; j++){
+			        							if(friend[j] == userid){
+				        							friendlist(userphotourl, username);
+				        						}
 			        						}		
 			        					}      					
 			        				}
 			        			})
 			        		}
+			        		var user = Parse.Object.extend('User');
+			        		var query = new Parse.Query(user);
+			        		query.find({
+			        			success:function(alluser){
+			        				for(var i = 0; i<alluser.length; i++){
+			        					var userid = alluser.id;
+			        					var username = alluser.get('name');
+			        					var userphotourl = alluser.get('imagesrc');
+			        					recommendfriend(userid, userphotourl, username);
+			        				}
+			        			}
+			        		})
 			        	 }
 			        	 else{
 			        	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
