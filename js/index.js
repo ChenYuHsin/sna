@@ -131,13 +131,12 @@ if (currentUser) {
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
 				queryDent();
 				$(".dinner").css("border", "1px solid black");
-				var dd = jQuery("[class=dinner]");
-				console.log(dd[1]);
 				console.log($('[id="cd-timeline"]'));
 				console.log($('[id="cd-timeline"]').length);
 				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
-				for(i=0; i<jQuery("[class=dinner]").length; i++){
-					console.log($(this).attr('data-timelineid'));
+				for(i=1; i< $("[id='cd-timeline']").length; i++){
+					var fetchObj = "[id='cd-timeline']["+i+"]";
+					console.log($(fetchObj).attr('data-timelineid'));
 				}
 				console.log(jQuery("[class=dinner]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
