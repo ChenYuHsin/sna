@@ -172,7 +172,7 @@ if (currentUser) {
 	}
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
     console.log($(".dinner"));
-    console.log($(".dinner").attr("data-timelineid"));
+    console.log($(".dinner").attr("data-timelineId"));
 } else {
     // show the signup or login page
 }
