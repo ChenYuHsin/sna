@@ -125,7 +125,7 @@ if (currentUser) {
 		queryFriend.get(friends[i], {
 			success: function(friends) {
 				var imgsrc = friends.get("imagesrc");
-				var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
+				var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
 									"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 								"</section>";
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
@@ -171,6 +171,7 @@ if (currentUser) {
 		});
 	}
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
+    console.log($(".dinner").attr("data-timelineid"));
 } else {
     // show the signup or login page
 }
