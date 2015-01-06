@@ -93,9 +93,7 @@
 			        		query.find({
 			        			success:function(alluser){
 			        				for(var i = 0; i<alluser.length; i++){
-			        					if(alluser[i] != Parse.User.current()){
-			        						console.log(Parse.User.current());
-			        						console.log(alluser[i]);
+			        					if(alluser[i].id != Parse.User.current().id){
 			        						var userid = alluser[i].id;
 				        					var username = alluser[i].get('name');
 				        					var userphotourl = alluser[i].get('imagesrc');
