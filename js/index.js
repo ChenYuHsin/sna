@@ -173,6 +173,7 @@ if (currentUser) {
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
     console.log($(".dinner"));
     console.log($(".dinner").find('.cd-timeline-img'));
+    console.log($('.make_dent'));
 } else {
     // show the signup or login page
 }
