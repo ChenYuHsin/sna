@@ -132,7 +132,7 @@ if (currentUser) {
 				queryDent();
 				$(".dinner").css("border", "1px solid black");
 				var dd = jQuery("[class=dinner]");
-				console.log(dd[1].find('img').attr('src'));
+				console.log(dd[1]);
 				console.log($('[id="cd-timeline"]'));
 				console.log($('[id="cd-timeline"]').length);
 				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
