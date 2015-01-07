@@ -155,9 +155,10 @@ if (currentUser) {
 					  var objclass = "."+obj;
 					  var tt= "[data-block="+value+"]";
 					  var arr = [];
-					  alert(tt);
+					  $(tt).each(){
+					  	console.log($(tt).prevAll('.cd-timeline-block ').length);
+					  }
 					  var timelineArticle = [];
-					  $(tt).length;
 					  console.log($(tt).length);
 					})
 
