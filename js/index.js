@@ -125,7 +125,7 @@ if (currentUser) {
 									"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 								"</section>";
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
-				queryDent();
+				
 				//console.log($('[id="cd-timeline"]'));
 				//console.log($('[id="cd-timeline"]').length);
 				//console.log($('[id="cd-timeline"]').attr('data-timelineid'));
@@ -235,7 +235,7 @@ if (currentUser) {
 		  }
 		});
 	}
-	
+	queryDent();
 	
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
     console.log($(".dinner").find('.cd-timeline-img'));
