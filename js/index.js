@@ -145,11 +145,11 @@ if (currentUser) {
 						timeline_obj = {
 							margintop: $(this).attr("id")
 						};
-						
+						console.log(timeline_obj.margintop);
 					});
 					
 					timelineArray.push(timeline_obj);
-					console.log(timeline_obj.margintop);
+					
 
 				})
 				
