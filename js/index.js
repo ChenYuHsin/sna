@@ -139,12 +139,16 @@ if (currentUser) {
 				var timelineArray = [];
 				$('[id="cd-timeline"]').each(function(){
 					console.log($(this).attr('data-timelineid'));
-					var timeline_obj = $(this).attr('data-timelineid');
-					timelineArray.push(timeline_obj);
+					
 					$(this).find(".cd-timeline-block").each(function(){
-						timeline_obj.margin_top = $(this).css("margin_top");
-						console.log(timeline_obj.margin_top);
+						var timeline_obj = {
+							margintop: $(this).css("margin_top");
+						};
+						
 					});
+					timeline_obj = $(this).attr('data-timelineid');
+					timelineArray.push(timeline_obj);
+					consoe.log(timeline_obj.margintop);
 
 				})
 				
