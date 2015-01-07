@@ -145,13 +145,13 @@ if (currentUser) {
 					timelineArray.push(timeline_obj);
 				});
 				console.log(timelineArray);
-				for(i=0; i<timelineArray.length; i++){
+				/*for(i=0; i<timelineArray.length; i++){
 					var further = "[data-block='"+timelineArray[i]+"']";
 					console.log(further);
 					$('[data-block="cveJoqYgE5"]').each(function(){
 						console.log($(this).attr('id'));
 					})
-				}
+				}*/
 				$('[id="5jQbs0itYx"]').each(function(){
 						console.log($(this).attr('data-block'));
 					})
