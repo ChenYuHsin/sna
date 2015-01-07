@@ -157,11 +157,8 @@ if (currentUser) {
 				  var objclass = "."+obj;
 				  var tt= "[data-block='"+obj+"]'";
 				  var arr = [];
-				  $(objclass).find(tt).each(function(){
-				  	arr.push($(this));
-				  	console.log(arr);
-				  })
-				 });
+				  $(objclass).find(tt).length;
+				  console.log($(objclass).find(tt).length);
 				
 			},
 			error: function(object, error) {
