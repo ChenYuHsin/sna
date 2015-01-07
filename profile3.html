@@ -83,6 +83,9 @@
 			        							if(friend[j] == userid){
 				        							friendlist(userphotourl, username);
 				        						}
+				        						else{
+				        							recommendfriend(userid, userphotourl, username);
+				        						}
 			        						}		
 			        					}      					
 			        				}
@@ -97,7 +100,7 @@
 			        						var userid = alluser[i].id;
 				        					var username = alluser[i].get('name');
 				        					var userphotourl = alluser[i].get('imagesrc');
-				        					recommendfriend(userid, userphotourl, username);
+				        					//recommendfriend(userid, userphotourl, username);
 				        					var friends = Parse.User.current().get('friends');
 				        					for(var j = 0; j<friends.length; j++){
 				        						var friend = friends[j];
