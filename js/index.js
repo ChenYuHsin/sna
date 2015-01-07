@@ -38,6 +38,10 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
+
+	$("#profile").click(function(){
+	    window.location.assign("profile3.html");
+	});
 	
 	function deliverDent(user, category, color, content, s, e){
 		var Dent = Parse.Object.extend("Dent");
@@ -339,11 +343,11 @@ if (currentUser) {
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
-			      var updatedAt = obj.updatedAt;
+			      var createAt = obj.createAt;
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
-					$("#poster_create_at").text(moment(updatedAt).fromNow());
+					$("#poster_create_at").text(moment(createAt).fromNow());
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					$("#dent_id").attr("data-dentId", post_id);
