@@ -159,6 +159,7 @@ if (currentUser) {
 					  var tt= "[data-block="+value+"]";
 					  var arr = [];
 					  alert(tt);
+					  var timelineArticle = [];
 					  $(tt).length;
 					  console.log($(tt).length);
 					})
