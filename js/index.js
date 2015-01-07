@@ -149,7 +149,7 @@ if (currentUser) {
 					})
 				}*/
 				var arr = [];
-				setTimeout(function(){
+				/*setTimeout(function(){
 					$.each( timelineArray, function( index, value ) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
@@ -167,6 +167,7 @@ if (currentUser) {
 					  		arrarr.push($(this).css("margin-top"));
 
 					  	})
+					  	var prevMargintop = $(this).css("margin-top");
 					  	var sumTop = 0;
 					  	for(i=0; i<arrarr.length; i++){
 					  		var num = parseInt(arrarr[i],10);
@@ -174,8 +175,9 @@ if (currentUser) {
 					  		sumTop=sumTop+toNumber;
 					  	}
 					  	console.log(sumTop);
+					  	var parseMinus = parseInt(prevMargintop,10);
 					  	var originMarginTop = parseInt(dd,10);
-					  	var minus = parseFloat(originMarginTop )-sumTop;
+					  	var minus = parseFloat(originMarginTop )-parseFloat(parseMinus);
 					  	console.log(minus+" "+parseFloat(originMarginTop )+" "+sumTop);
 					  	$(this).removeAttr("style").css("margin-top",minus+"px");
 					  	
@@ -192,7 +194,7 @@ if (currentUser) {
 					  console.log($(tt).length);
 					})
 
-				},2000)
+				},1000)*/
 				
 			},
 			error: function(object, error) {
