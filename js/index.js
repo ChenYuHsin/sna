@@ -159,10 +159,14 @@ if (currentUser) {
 					  $(tt).each(function(){
 					  	var dd = $(this).attr("id");
 					  	arrid.push(dd);
+					  	var top = $(this).prevAll('.cd-timeline-block').attr('margin-top');
+					  	console.log(top);
 					  })
-					  console.log(arrid);
+
+					  
 					  arr.push(tt);
-					  console.log(arr);
+					  //console.log(arrid);
+					  //console.log(arr);
 
 					  	
 					  
