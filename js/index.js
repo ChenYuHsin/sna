@@ -463,7 +463,7 @@ if (currentUser) {
 			    		console.log(results[i].id);
 				      	var content = response.get("content");
 				      	var datetime = moment(response.createdAt).fromNow();
-				      	console.log ("datetime",datetime.toLocaleString());
+				      	console.log("datetime",datetime.toLocaleString());
 				      	var id = response.id;
 				      	//var responser = response.get("responser");
 				      	//console.log("responser"+responser.get('imagesrc'));
@@ -480,7 +480,7 @@ if (currentUser) {
 								    "<div class='content'>"+
 								      "<a class='author'>"+name+"</a>"+
 								      "<div class='metadata'>"+
-								        "<div class='date'>"+post.createdAt+"</div>"+
+								        "<div class='date'>"+moment(post.createdAt).fromNow()+"</div>"+
 								      "</div>"+
 								      "<div class=text'>"+
 								        content+
