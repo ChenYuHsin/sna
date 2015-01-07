@@ -170,7 +170,8 @@ if (currentUser) {
 					  	})
 					  	var sumTop;
 					  	for(i=0; i<arrarr.length; i++){
-					  		var toNumber = parseFloat(arrarr[i]);
+					  		var num = parseInt(arrarr[i],10);
+					  		var toNumber = parseFloat(num);
 					  		sumTop=sumTop+toNumber;
 					  	}
 					  	console.log(sumTop);
