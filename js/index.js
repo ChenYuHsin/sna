@@ -159,6 +159,7 @@ if (currentUser) {
 					  $(tt).each(function(){
 					  	var dd = $(this).attr("id");
 					  	arrid.push(dd);
+					  	console.log($(tt));
 					  	var top = $(this).prev().attr('margin-top');
 					  	console.log(top);
 					  })
