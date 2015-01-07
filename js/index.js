@@ -414,10 +414,10 @@ if (currentUser) {
   			var query2 = new Parse.Query(Responser);
   			query1.get(dent_id, {
   				success: function(d) {
-  					alert('success!!!');
+  					
   					query2.get(responser, {
   						success: function(u){
-  							alert('success!!');
+  							
   							var Response = Parse.Object.extend("Response");
   							var response = new Response();
   							response.set("responser", u);
@@ -426,7 +426,7 @@ if (currentUser) {
   							response.save(null, {
 							  	success: function(gameScore) {
 							    	//queryResponse(d);
-							    	alert('success!');
+							    	
 							  	},
 							  	error: function(gameScore, error) {
 							    	alert('Failed to create new object, with error code: ' + error.message);
