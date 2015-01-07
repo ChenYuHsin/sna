@@ -142,7 +142,7 @@ if (currentUser) {
 					
 					$(this).find(".cd-timeline-block").each(function(){
 						var timeline_obj = {
-							margintop: $(this).css("margin_top");
+							margintop: $(this).css("margin_top")
 						};
 						
 					});
