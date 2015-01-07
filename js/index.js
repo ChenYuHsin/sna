@@ -152,8 +152,8 @@ if (currentUser) {
 						console.log($(this).attr('id'));
 					})
 				}
-				$('[class="cveJoqYgE5"]').each(function(){
-						console.log($(this).attr('id'));
+				$('[id="5jQbs0itYx"]').each(function(){
+						console.log($(this).attr('data-block'));
 					})
 				
 			},
