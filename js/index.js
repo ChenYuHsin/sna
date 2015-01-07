@@ -155,10 +155,10 @@ if (currentUser) {
 				$.each( timelineArray, function( index, value ) {
 				  var obj = timelineArray[index];
 				  var objclass = "."+obj;
-				  var tt= "[data-block='"+obj+"]'";
+				  var tt= "[data-block='"+value+"]'";
 				  var arr = [];
-				  $(objclass).find('.cd-timeline-block').length;
-				  console.log($(objclass).find('.cd-timeline-block').length);
+				  $(objclass).find(tt).length;
+				  console.log($(objclass).find(tt).length);
 				})
 				
 			},
