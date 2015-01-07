@@ -43,7 +43,6 @@ jQuery(document).ready(function($){
 	});
 	
 	function deliverDent(user, category, color, content, s, e){
-		alert(user.id + ":" + category + ":" + content + ":" + s + ":" + e);
 		var Dent = Parse.Object.extend("Dent");
   		var dent = new Dent();
   		var Poster = Parse.Object.extend("User");
@@ -266,7 +265,6 @@ if (currentUser) {
 	}
 	var minusMarginTop = function(){
 		$("#cd-timeline").each(function(){
-			alert();
 		})
 	};
 	minusMarginTop();
