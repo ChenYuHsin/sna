@@ -156,11 +156,11 @@ if (currentUser) {
 					$.each( timelineArray, function( index, value ) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
-					  var tt= "div[data-block="+value+"]";
+					  var tt= "[data-block="+value+"]";
 					  var arr = [];
 					  alert(tt);
-					  $(objclass).find(tt).length;
-					  console.log($(objclass).find(tt).length);
+					  $(tt).length;
+					  console.log($(tt).length);
 					})
 
 				},3000)
