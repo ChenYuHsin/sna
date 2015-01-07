@@ -461,7 +461,8 @@ if (currentUser) {
 			    		var response = results[i];
 			    		console.log(results[i].id);
 				      	var content = response.get("content");
-				      	var datetime = response.createdAt;
+				      	var datetime = moment(response.createdAt).fromNow();
+				      	console.log ("datetime",datetime.toLocaleString());
 				      	var id = response.id;
 				      	//var responser = response.get("responser");
 				      	//console.log("responser"+responser.get('imagesrc'));
