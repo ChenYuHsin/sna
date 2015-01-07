@@ -159,7 +159,7 @@ if (currentUser) {
 				  var arr = [];
 				  $(objclass).find(tt).length;
 				  console.log($(objclass).find(tt).length);
-				}
+				})
 				
 			},
 			error: function(object, error) {
