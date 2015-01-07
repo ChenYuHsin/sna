@@ -444,6 +444,7 @@ if (currentUser) {
 		}
 
 		function queryResponse(dent){
+			moment.locale('zh-TW');
 			if($(".reply_post").length != 0){
 				$(".reply_post").remove();
 			}
