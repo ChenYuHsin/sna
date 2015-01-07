@@ -140,7 +140,7 @@ if (currentUser) {
 				$('[id="cd-timeline"]').each(function(){
 					console.log($(this).attr('data-timelineid'));
 					var timelineid = $(this).attr('data-timelineid');
-					var further = "[class="+timelineid+"]";
+					var further = "[class='"+timelineid+"']";
 					var timeline_obj = $(this).attr('data-timelineid');
 					$(further).each(function(){
 						console.log($(this).attr("id"));
