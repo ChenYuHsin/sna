@@ -140,11 +140,18 @@ if (currentUser) {
 				$('[id="cd-timeline"]').each(function(){
 					console.log($(this).attr('data-timelineid'));
 					var timelineid = $(this).attr('data-timelineid');
-					var further = "[class='"+timelineid+"']";
+					
 					var timeline_obj = $(this).attr('data-timelineid');
 					timelineArray.push(timeline_obj);
 				});
 				console.log(timelineArray);
+				for(i=1; i<=timelineArray.length; i++){
+					var further = "[class='"+timelineArray[i]+"']";
+					$(further).each(function(){
+						console.log($(this).attr('id'));
+					})
+				}
+				
 				
 			},
 			error: function(object, error) {
