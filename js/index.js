@@ -157,6 +157,7 @@ if (currentUser) {
 				  var objclass = "."+obj;
 				  var tt= "[data-block='"+value+"]'";
 				  var arr = [];
+				  alert(tt);
 				  $(objclass).find(tt).length;
 				  console.log($(objclass).find(tt).length);
 				})
