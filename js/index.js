@@ -156,7 +156,7 @@ if (currentUser) {
 					$.each( timelineArray, function( index, value ) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
-					  var tt= "[data-block='"+value+"']";
+					  var tt= "div[data-block='"+value+"']";
 					  var arr = [];
 					  alert(tt);
 					  $(objclass).find(tt).length;
