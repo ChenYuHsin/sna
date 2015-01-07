@@ -372,6 +372,7 @@ div.codepen_arrow .right:after {
 .cd-timeline-img.ui.button{
   margin-left: -25px;
   border-radius: 0;
+  left: 50%;
 }
 .stackable.column{
   margin-top: 14px !important;
