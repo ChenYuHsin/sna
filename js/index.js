@@ -335,6 +335,7 @@ if (currentUser) {
 
 		query.find({
 			success: function(result){
+				moment.locale('zh-TW');
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
