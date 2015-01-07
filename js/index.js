@@ -149,7 +149,7 @@ if (currentUser) {
 					})
 				}*/
 				var arr = [];
-				setTimeout(function(){
+				/*setTimeout(function(){
 					$.each( timelineArray, function( index, value ) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
@@ -194,7 +194,7 @@ if (currentUser) {
 					  console.log($(tt).length);
 					})
 
-				},1000)
+				},1000)*/
 				
 			},
 			error: function(object, error) {
