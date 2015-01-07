@@ -128,7 +128,7 @@ if (currentUser) {
 				queryDent();
 				//console.log($('[id="cd-timeline"]'));
 				//console.log($('[id="cd-timeline"]').length);
-				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
+	/*		console.log($('[id="cd-timeline"]').attr('data-timelineid'));
 				
 				console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
@@ -140,13 +140,13 @@ if (currentUser) {
 					var timeline_obj = $(this).attr('data-timelineid');
 					timelineArray.push(timeline_obj);
 				});
-				console.log(timelineArray);
+				console.log(timelineArray);                   */
 				/*for(i=0; i<timelineArray.length; i++){
 					var further = "[data-block='"+timelineArray[i]+"']";
 					console.log(further);
 					$('[data-block="cveJoqYgE5"]').each(function(){
 						console.log($(this).attr('id'));
-					})
+					})             
 				}*/
 				var arr = [];
 				/*setTimeout(function(){
