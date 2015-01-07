@@ -152,9 +152,9 @@ if (currentUser) {
 						console.log($(this).attr('id'));
 					})
 				}*/
-				$('[id="5jQbs0itYx"]').each(function(){
-						console.log($(this).attr('data-block'));
-					})
+				$.each( timelineArray, function( index, value ) {
+				  alert( index + ": " + value );
+				});
 				
 			},
 			error: function(object, error) {
