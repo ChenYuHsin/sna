@@ -136,8 +136,16 @@ if (currentUser) {
 				
 				console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
 				console.log($(".dinner").attr('data-timelineid'));
+				var timelineArray = [];
 				$('[id="cd-timeline"]').each(function(){
-					console.log($(this).find('img').attr('src'));
+					console.log($(this).attr('data-timelineid'));
+					var timeline_obj = $(this).attr('data-timelineid');
+					timelineArray.push(timeline_obj);
+					$(this).find(".cd-timeline-block").each(function(){
+						timeline_obj.margin_top = $(this).css("margin_top");
+						console.log(timeline_obj.margin_top);
+					});
+
 				})
 				
 			},
