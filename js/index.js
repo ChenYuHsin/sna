@@ -157,11 +157,11 @@ if (currentUser) {
 					  var tt= "[data-block="+value+"]";
 					  var arrid=[];
 					  $(tt).each(function(){
-					  	var tryt = $(this).offset().top;
+					  
 					  	console.log(tryt);
 					  	var dd = $(this).css("margin-top");
 					  	arrid.push(dd);
-					  	console.log($(tt));
+					  	//console.log($(tt));
 					  	var top = $(this).prevAll();
 					  	var arrarr=[];//前面的top
 					  	$(top).each(function(){
@@ -175,6 +175,9 @@ if (currentUser) {
 					  		sumTop=sumTop+toNumber;
 					  	}
 					  	console.log(sumTop);
+					  	var originMarginTop = parseInt(dd,10);
+					  	var minus = parseFloat(originMarginTop )-sumTop;
+					  	$(this).attr("margin-top",minus);
 					  	
 					  })
 
