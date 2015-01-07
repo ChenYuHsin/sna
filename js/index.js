@@ -139,8 +139,10 @@ if (currentUser) {
 				var timelineArray = [];
 				$('[id="cd-timeline"]').each(function(){
 					console.log($(this).attr('data-timelineid'));
+					var timelineid = $(this).attr('data-timelineid');
+					var further = "[data-timelineid="+timelineid+"]";
 					var timeline_obj = $(this).attr('data-timelineid');
-					$(this).find(".cd-timeline-block").each(function(){
+					$(further).each(function(){
 						console.log($(this).attr("id"));
 						timeline_obj = {
 							margintop: $(this).attr("id")
