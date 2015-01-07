@@ -14,7 +14,6 @@
 	    <link href="css/semantic.min.css" rel="stylesheet" type="text/css">
 	    <link href="css/custom.css" rel="stylesheet" type="text/css">
 
-	    <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
 	    <script src="js/jquery.min.js"></script>
 	    <script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 	    <script src="js/modernizr.js"></script>
@@ -60,6 +59,7 @@
 						Parse.User.current().save();
 						$(".account_info").html("Hi! "+ my_name);
 					});
+					//Recommend friends section
 					var user = Parse.Object.extend('User');
 			        		var query = new Parse.Query(user);
 			        		query.find({
@@ -82,6 +82,7 @@
 			        				}
 			        			}
 			        		})
+			        		//Friend list section
 			        		var userfriend = Parse.User.current().get('friends');
 			        		if(userfriend.length != 0){
 			        			for(var i = 0; i<userfriend.length; i++){
@@ -98,64 +99,6 @@
 				        			})
 				        		}
 			        		}
-			        		
-
-					// FB.api("/me/friends",function (response) {
-			  //       	 if (response.data.length!=0) {
-			  //       		for(var i = 0; i<response.data.length; i++){
-			  //       			var user = Parse.Object.extend("User");
-			  //       			var query = new Parse.Query(user);
-			  //       			query.equalTo("facebookid", response.data[i].id);
-			  //       			query.first({
-			  //       				success:function(userdata){
-			  //       					var userid = userdata.id;
-			  //       					var username = userdata.get('name');
-			  //       					var userphotourl = userdata.get('imagesrc');
-
-			  //       					var currentuser = Parse.User.current();
-			  //       					var friend = currentuser.get('friends');	
-			  //       					if(friend.length == 0){
-			  //       						recommendfriend(userid, userphotourl, username);
-			  //       					}
-			  //       					else{
-			  //       						for(var j = 0; j<friend.length; j++){
-			  //       							if(friend[j] == userid){
-				 //        							friendlist(userphotourl, username);
-				 //        						}
-			  //       						}		
-			  //       					}      					
-			  //       				}
-			  //       			})
-			  //       		}
-			        		// var user = Parse.Object.extend('User');
-			        		// var query = new Parse.Query(user);
-			        		// var currentuserfriend = Parse.User.current().get('friends');
-			        		// query.equalTo('friends', currentuserfriend);
-			        		// query.find({
-			        		// 	success:function(alluser){
-			        		// 		for(var i = 0; i<alluser.length; i++){
-			        		// 			if(alluser[i].id != Parse.User.current().id){
-			        		// 				var userid = alluser[i].id;
-				        	// 				var username = alluser[i].get('name');
-				        	// 				var userphotourl = alluser[i].get('imagesrc');
-				        	// 				recommendfriend(userid, userphotourl, username);
-				        	// 				var friends = Parse.User.current().get('friends');
-				        	// 				for(var j = 0; j<friends.length; j++){
-				        	// 					var friend = friends[j];
-				        	// 					var judge = $("div[id='"+friend+"']");
-				        	// 					if(judge!=null){
-				        	// 						$('[id="'+friend+'"]').remove();
-				        	// 					}
-				        	// 				}	
-			        		// 			}
-			        		// 		}
-			        		// 	}
-			        		// })
-			  //       	 }
-			  //       	 else{
-			  //       	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
-			  //       	 }
-			  //       });
 				}
 				if(Parse.User.current()!=null){
 					logined();
@@ -237,21 +180,6 @@
 				  </div>
 				</h2>
 				<div class="ui six doubling special cards" id="recommendfriend">
-					<!-- <div class="card" id="1234567" data-roleId="8hGeU3b7nd">
-					    <div class="dimmable image">
-					      <div class="ui dimmer">
-					        <div class="content">
-					          <div class="center">
-					            <div class="ui inverted button add_friend_btn">Add Friend</div>
-					          </div>
-					        </div>
-					      </div>
-					      <img src="img/1.jpg">
-					    </div>
-					    <div class="content">
-					      <a class="header">Team Fu</a>
-					    </div>
-					 </div> -->
 
 				</div>
 			</section>
