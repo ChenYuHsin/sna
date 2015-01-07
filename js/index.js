@@ -152,15 +152,18 @@ if (currentUser) {
 						console.log($(this).attr('id'));
 					})
 				}*/
-				$.each( timelineArray, function( index, value ) {
-				  var obj = timelineArray[index];
-				  var objclass = "."+obj;
-				  var tt= "[data-block='"+value+"]'";
-				  var arr = [];
-				  alert(tt);
-				  $(objclass).find(tt).length;
-				  console.log($(objclass).find(tt).length);
-				})
+				setTimeout(function(){
+					$.each( timelineArray, function( index, value ) {
+					  var obj = timelineArray[index];
+					  var objclass = "."+obj;
+					  var tt= "[data-block='"+value+"']";
+					  var arr = [];
+					  alert(tt);
+					  $(objclass).find(tt).length;
+					  console.log($(objclass).find(tt).length);
+					})
+
+				},3000)
 				
 			},
 			error: function(object, error) {
