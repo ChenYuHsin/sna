@@ -42,6 +42,10 @@ jQuery(document).ready(function($){
 	$("#profile").click(function(){
 	    window.location.assign("profile3.html");
 	});
+
+	$(".logo").click(function(){
+	    window.location.assign("index.html");
+	});
 	
 	function deliverDent(user, category, color, content, s, e){
 		var Dent = Parse.Object.extend("Dent");
@@ -343,9 +347,7 @@ if (currentUser) {
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
-			      console.log(obj);
 			      var createAt = obj.createdAt;
-			      console.log(createAt);
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
