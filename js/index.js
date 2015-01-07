@@ -142,18 +142,9 @@ if (currentUser) {
 					var timelineid = $(this).attr('data-timelineid');
 					var further = "[class='"+timelineid+"']";
 					var timeline_obj = $(this).attr('data-timelineid');
-					$(further).each(function(){
-						console.log($(this).attr("id"));
-						timeline_obj = {
-							margintop: $(this).attr("id")
-						};
-						console.log(timeline_obj.margintop);
-					});
-					
 					timelineArray.push(timeline_obj);
-					
-
-				})
+				});
+				console.log(timelineArray);
 				
 			},
 			error: function(object, error) {
