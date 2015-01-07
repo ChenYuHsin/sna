@@ -149,12 +149,13 @@ if (currentUser) {
 						console.log($(this).attr('id'));
 					})
 				}*/
+				var arr = [];
 				setTimeout(function(){
 					$.each( timelineArray, function( index, value ) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
 					  var tt= "[data-block="+value+"]";
-					  var arr = [];
+					  
 					  arr.push(tt);
 					  console.log(arr);
 
