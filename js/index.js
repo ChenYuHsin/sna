@@ -12,7 +12,6 @@ jQuery(document).ready(function($){
 	    Parse.FacebookUtils.logIn("user_friends", {
 	        success: function(user) {
 	            if (!user.existed()){
-	                alert("User signed up and logged in through Facebook!");
 	                var fbid = user.get('authData')['facebook'].id;
 	                user.set('facebookid', fbid);
 	                user.set('friends', []);
@@ -20,12 +19,10 @@ jQuery(document).ready(function($){
 	                location.assign("index.html");
 	            } 
 	            else{
-	                alert("User logged in through Facebook!");
 	                location.assign("index.html");
 	            }
 	        },
 	        error: function(user, error) {
-	            alert("User cancelled the Facebook login or did not fully authorize.");
 	            location.assign("index.html");
 	        }
 	    });
