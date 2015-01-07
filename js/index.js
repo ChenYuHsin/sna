@@ -157,17 +157,20 @@ if (currentUser) {
 					  var tt= "[data-block="+value+"]";
 					  var arrid=[];
 					  $(tt).each(function(){
-					  	var dd = $(this).attr("id");
+					  	var tryt = $(this).offset().top;
+					  	console.log(tryt);
+					  	var dd = $(this).css("margin-top");
 					  	arrid.push(dd);
 					  	console.log($(tt));
 					  	var top = $(this).prevAll();
-					  	var arrarr=[];
+					  	var arrarr=[];//前面的top
 					  	$(top).each(function(){
 					  		arrarr.push($(this).css("margin-top"));
-					  		console.log(arrarr);
 
 					  	})
 					  	console.log(top);
+					  	var new = dd-arrarr
+					  	$(this).attr("margin-top",)
 					  })
 
 					  
