@@ -147,6 +147,7 @@ if (currentUser) {
 				console.log(timelineArray);
 				for(i=1; i<=timelineArray.length; i++){
 					var further = "[class='"+timelineArray[i]+"']";
+					console.log(further);
 					$(further).each(function(){
 						console.log($(this).attr('id'));
 					})
