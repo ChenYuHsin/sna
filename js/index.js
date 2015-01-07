@@ -160,7 +160,7 @@ if (currentUser) {
 					  	var dd = $(this).attr("id");
 					  	arrid.push(dd);
 					  	console.log($(tt));
-					  	var top = $(this).prev().css('margin-top');
+					  	var top = $(this).prevAll().css('margin-top');
 					  	console.log(top);
 					  })
 
