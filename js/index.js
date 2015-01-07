@@ -155,7 +155,12 @@ if (currentUser) {
 					  var obj = timelineArray[index];
 					  var objclass = "."+obj;
 					  var tt= "[data-block="+value+"]";
-					  
+					  var arrid=[];
+					  $(tt).each(function(){
+					  	var dd = $(this).attr("id");
+					  	arrid.push(dd);
+					  })
+					  console.log(arrid);
 					  arr.push(tt);
 					  console.log(arr);
 
