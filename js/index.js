@@ -148,7 +148,7 @@ if (currentUser) {
 				for(i=0; i<timelineArray.length; i++){
 					var further = "[data-block='"+timelineArray[i]+"']";
 					console.log(further);
-					$(further).each(function(){
+					$('[data-block="cveJoqYgE5"]').each(function(){
 						console.log($(this).attr('id'));
 					})
 				}
