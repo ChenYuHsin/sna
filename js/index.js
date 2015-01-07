@@ -148,7 +148,7 @@ if (currentUser) {
 					});
 					timeline_obj = $(this).attr('data-timelineid');
 					timelineArray.push(timeline_obj);
-					consoe.log(timeline_obj.margintop);
+					console.log(timeline_obj.margintop);
 
 				})
 				
