@@ -168,9 +168,12 @@ if (currentUser) {
 					  		arrarr.push($(this).css("margin-top"));
 
 					  	})
-					  	console.log(top);
-					  	var new = dd-arrarr
-					  	$(this).attr("margin-top",)
+					  	var sumTop;
+					  	for(i=0; i<arrarr.length; i++){
+					  		sumTop=sumTop+arrarr[i];
+					  	}
+					  	console.log(sumTop);
+					  	
 					  })
 
 					  
