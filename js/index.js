@@ -236,69 +236,7 @@ if (currentUser) {
 		});
 	}
 	queryDent();
-	var timelineArray = [];
-				$('[id="cd-timeline"]').each(function(){
-					console.log($(this).attr('data-timelineid'));
-					var timelineid = $(this).attr('data-timelineid');
-					
-					var timeline_obj = $(this).attr('data-timelineid');
-					timelineArray.push(timeline_obj);
-				});
-				console.log(timelineArray);                   
-				for(i=0; i<timelineArray.length; i++){
-					var further = "[data-block='"+timelineArray[i]+"']";
-					console.log(further);
-					$('[data-block="cveJoqYgE5"]').each(function(){
-						console.log($(this).attr('id'));
-					})             
-				}
-				var arr = [];
-				setTimeout(function(){
-					$.each( timelineArray, function( index, value ) {
-					  var obj = timelineArray[index];
-					  var objclass = "."+obj;
-					  var tt= "[data-block="+value+"]";
-					  var arrid=[];
-					  $(tt).each(function(){
-					  
-					  	
-					  	var dd = $(this).css("margin-top");
-					  	arrid.push(dd);
-					  	//console.log($(tt));
-					  	var top = $(this).prevAll();
-					  	var arrarr=[];//前面的top
-					  	$(top).each(function(){
-					  		arrarr.push($(this).css("margin-top"));
-
-					  	})
-					  	var prevMargintop = $(this).css("margin-top");
-					  	var sumTop = 0;
-					  	for(i=0; i<arrarr.length; i++){
-					  		var num = parseInt(arrarr[i],10);
-					  		var toNumber = parseFloat(num);
-					  		sumTop=sumTop+toNumber;
-					  	}
-					  	console.log(sumTop);
-					  	var parseMinus = parseInt(prevMargintop,10);
-					  	var originMarginTop = parseInt(dd,10);
-					  	var minus = parseFloat(originMarginTop )-parseFloat(parseMinus);
-					  	console.log(minus+" "+parseFloat(originMarginTop )+" "+sumTop);
-					  	$(this).removeAttr("style").css("margin-top",minus+"px");
-					  	
-					  })
-
-					  
-					  arr.push(tt);
-					  //console.log(arrid);
-					  //console.log(arr);
-
-					  	
-					  
-					  var timelineArticle = [];
-					  console.log($(tt).length);
-					})
-
-				},1000)
+	
     console.log($("[data-timelineid = '8hGeU3b7nd']"));
     console.log($(".dinner").find('.cd-timeline-img'));
     console.log($('.make_dent'));
