@@ -192,7 +192,7 @@ if (currentUser) {
 					  console.log($(tt).length);
 					})
 
-				},3000)
+				},2000)
 				
 			},
 			error: function(object, error) {
