@@ -157,8 +157,8 @@ if (currentUser) {
 				  var objclass = "."+obj;
 				  var tt= "[data-block='"+obj+"]'";
 				  var arr = [];
-				  $(objclass).find(tt).length;
-				  console.log($(objclass).find(tt).length);
+				  $(objclass).find('.cd-timeline-block').length;
+				  console.log($(objclass).find('.cd-timeline-block').length);
 				})
 				
 			},
