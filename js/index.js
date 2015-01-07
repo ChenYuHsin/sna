@@ -141,11 +141,11 @@ if (currentUser) {
 					console.log($(this).attr('data-timelineid'));
 					var timeline_obj = $(this).attr('data-timelineid');
 					$(this).find(".cd-timeline-block").each(function(){
-						
+						console.log($(this));
 						timeline_obj = {
 							margintop: $(this).attr("id")
 						};
-						console.log(timeline_obj[margintop]);
+						console.log(timeline_obj.margintop);
 					});
 					
 					timelineArray.push(timeline_obj);
