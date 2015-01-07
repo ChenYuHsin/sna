@@ -158,7 +158,7 @@ if (currentUser) {
 					  var arrid=[];
 					  $(tt).each(function(){
 					  
-					  	console.log(tryt);
+					  	
 					  	var dd = $(this).css("margin-top");
 					  	arrid.push(dd);
 					  	//console.log($(tt));
