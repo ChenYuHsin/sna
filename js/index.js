@@ -168,7 +168,7 @@ if (currentUser) {
 					  		arrarr.push($(this).css("margin-top"));
 
 					  	})
-					  	var sumTop;
+					  	var sumTop = 0;
 					  	for(i=0; i<arrarr.length; i++){
 					  		var num = parseInt(arrarr[i],10);
 					  		var toNumber = parseFloat(num);
