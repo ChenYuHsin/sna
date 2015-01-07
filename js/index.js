@@ -178,7 +178,7 @@ if (currentUser) {
 					  	var originMarginTop = parseInt(dd,10);
 					  	var minus = parseFloat(originMarginTop )-sumTop;
 					  	console.log(minus+" "+parseFloat(originMarginTop )+" "+sumTop);
-					  	$(this).removeAttr("margin-top").attr("margin-top",minus+"px");
+					  	$(this).removeAttr("style").css("margin-top",minus+"px");
 					  	
 					  })
 
