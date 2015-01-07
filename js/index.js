@@ -343,7 +343,8 @@ if (currentUser) {
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
-			      var createAt = obj.createAt;
+			      console.log(obj);
+			      var createAt = obj.createdAt;
 			      console.log(createAt);
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
