@@ -126,9 +126,8 @@ if (currentUser) {
 								"</section>";
 				$("#friends_timmeline_area #1 .content").append(friendsSection);
 				queryDent();
-				$(".dinner").css("border", "1px solid black");
-				console.log($('[id="cd-timeline"]'));
-				console.log($('[id="cd-timeline"]').length);
+				//console.log($('[id="cd-timeline"]'));
+				//console.log($('[id="cd-timeline"]').length);
 				console.log($('[id="cd-timeline"]').attr('data-timelineid'));
 				
 				console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
@@ -193,7 +192,7 @@ if (currentUser) {
 					  console.log($(tt).length);
 					})
 
-				},3000)
+				},1000)
 				
 			},
 			error: function(object, error) {
