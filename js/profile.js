@@ -8,5 +8,6 @@ $(document).on("click", "#add_friend_btn", function(){
 		currentuserfriends.push(friendid);
 		currentuser.set("friends", currentuserfriends);
 		currentuser.save();
+		window.location.assign("profile3.html");
 	}
 });
