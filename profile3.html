@@ -61,37 +61,8 @@
 						user.save();
 						$(".account_info").html("Hi! "+ my_name);
 					});
-					FB.api("/me/friends",function (response) {
-			        	 if (response.data.length!=0) {
-			        		for(var i = 0; i<response.data.length; i++){
-			        			var user = Parse.Object.extend("User");
-			        			var query = new Parse.Query(user);
-			        			query.equalTo("facebookid", response.data[i].id);
-			        			query.first({
-			        				success:function(userdata){
-			        					var userid = userdata.id;
-			        					var username = userdata.get('name');
-			        					var userphotourl = userdata.get('imagesrc');
-
-			        					var currentuser = Parse.User.current();
-			        					var friend = currentuser.get('friends');	
-			        					if(friend.length == 0){
-			        						recommendfriend(userid, userphotourl, username);
-			        					}
-			        					else{
-			        						for(var j = 0; j<friend.length; j++){
-			        							if(friend[j] == userid){
-				        							friendlist(userphotourl, username);
-				        						}
-			        						}		
-			        					}      					
-			        				}
-			        			})
-			        		}
-			        		var user = Parse.Object.extend('User');
+					var user = Parse.Object.extend('User');
 			        		var query = new Parse.Query(user);
-			        		var currentuserfriend = Parse.User.current().get('friends');
-			        		query.equalTo('friends', currentuserfriend);
 			        		query.find({
 			        			success:function(alluser){
 			        				for(var i = 0; i<alluser.length; i++){
@@ -112,11 +83,79 @@
 			        				}
 			        			}
 			        		})
-			        	 }
-			        	 else{
-			        	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
-			        	 }
-			        });
+			        		var userfriend = Parse.User.current().get('friends');
+			        		if(userfriend.length != 0){
+			        			for(var i = 0; i<userfriend.length; i++){
+				        			var queryfriend = Parse.Object.extend('User');
+				        			var query = new Parse.Query(queryfriend);
+				        			query.equalTo('objectId', userfriend[i]);
+				        			query.first({
+				        				success:function(frienddata){
+				        					var friendphotourl = frienddata.get('imagesrc');
+				        					var friendname = frienddata.get('name');
+				        					friendlist(friendphotourl, friendname);
+				        				}
+				        			})
+				        		}
+			        		}
+			        		
+
+					// FB.api("/me/friends",function (response) {
+			  //       	 if (response.data.length!=0) {
+			  //       		for(var i = 0; i<response.data.length; i++){
+			  //       			var user = Parse.Object.extend("User");
+			  //       			var query = new Parse.Query(user);
+			  //       			query.equalTo("facebookid", response.data[i].id);
+			  //       			query.first({
+			  //       				success:function(userdata){
+			  //       					var userid = userdata.id;
+			  //       					var username = userdata.get('name');
+			  //       					var userphotourl = userdata.get('imagesrc');
+
+			  //       					var currentuser = Parse.User.current();
+			  //       					var friend = currentuser.get('friends');	
+			  //       					if(friend.length == 0){
+			  //       						recommendfriend(userid, userphotourl, username);
+			  //       					}
+			  //       					else{
+			  //       						for(var j = 0; j<friend.length; j++){
+			  //       							if(friend[j] == userid){
+				 //        							friendlist(userphotourl, username);
+				 //        						}
+			  //       						}		
+			  //       					}      					
+			  //       				}
+			  //       			})
+			  //       		}
+			        		// var user = Parse.Object.extend('User');
+			        		// var query = new Parse.Query(user);
+			        		// var currentuserfriend = Parse.User.current().get('friends');
+			        		// query.equalTo('friends', currentuserfriend);
+			        		// query.find({
+			        		// 	success:function(alluser){
+			        		// 		for(var i = 0; i<alluser.length; i++){
+			        		// 			if(alluser[i].id != Parse.User.current().id){
+			        		// 				var userid = alluser[i].id;
+				        	// 				var username = alluser[i].get('name');
+				        	// 				var userphotourl = alluser[i].get('imagesrc');
+				        	// 				recommendfriend(userid, userphotourl, username);
+				        	// 				var friends = Parse.User.current().get('friends');
+				        	// 				for(var j = 0; j<friends.length; j++){
+				        	// 					var friend = friends[j];
+				        	// 					var judge = $("div[id='"+friend+"']");
+				        	// 					if(judge!=null){
+				        	// 						$('[id="'+friend+'"]').remove();
+				        	// 					}
+				        	// 				}	
+			        		// 			}
+			        		// 		}
+			        		// 	}
+			        		// })
+			  //       	 }
+			  //       	 else{
+			  //       	 	alert("你並沒有好友使用Modent！請推薦好友一起來分享Modent！");
+			  //       	 }
+			  //       });
 				}
 				if(Parse.User.current()!=null){
 					logined();
