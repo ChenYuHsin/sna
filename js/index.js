@@ -146,7 +146,7 @@ if (currentUser) {
 				});
 				console.log(timelineArray);
 				for(i=0; i<timelineArray.length; i++){
-					var further = "[class='cd-timeline-block "+timelineArray[i]+"']";
+					var further = "[class='"+timelineArray[i]+"']";
 					console.log(further);
 					$(further).each(function(){
 						console.log($(this).attr('id'));
@@ -201,7 +201,7 @@ if (currentUser) {
 }
 /*************************************** this is test *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
-		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' style='margin-top:"+startmarginTo+"px'>"+
+		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' data-block='"+poster+"'' style='margin-top:"+startmarginTo+"px'>"+
 						"<div class='cd-timeline-img  cd-"+face +" "+color+ " ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
