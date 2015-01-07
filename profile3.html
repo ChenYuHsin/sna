@@ -49,7 +49,6 @@
 					$('.login_btn').css("display","none");
 					FB.api('/me/picture?width=500', function(response) {
 						var my_picture_url = response.data.url;
-						console.log(my_picture_url);
 						Parse.User.current().set('imagesrc', my_picture_url);
 						Parse.User.current().save();
 						$("#account_img").attr('src', my_picture_url);
