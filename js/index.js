@@ -153,8 +153,15 @@ if (currentUser) {
 					})
 				}*/
 				$.each( timelineArray, function( index, value ) {
-				  alert( index + ": " + value );
-				});
+				  var obj = timelineArray[index];
+				  var objclass = "."+obj;
+				  var tt= "[data-block='"+obj+"]'";
+				  var arr = [];
+				  $(objclass).find(tt).each(function(){
+				  	arr.push($(this));
+				  	console.log(arr);
+				  })
+				 });
 				
 			},
 			error: function(object, error) {
