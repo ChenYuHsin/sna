@@ -41,8 +41,8 @@
 					var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
 					$('#recommendfriend').append(friendbody);
 				}
-				var friendlist = function(url, name){
-					var listbody = $('<div class="card"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+				var friendlist = function(id, url, name){
+					var listbody = $('<div class="card" id="'+id+'"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
 					$('#friendlists').append(listbody);
 				}
 	            var logined = function(){
@@ -91,9 +91,10 @@
 				        			query.equalTo('objectId', userfriend[i]);
 				        			query.first({
 				        				success:function(frienddata){
+				        					var friendid = frienddata.id;
 				        					var friendphotourl = frienddata.get('imagesrc');
 				        					var friendname = frienddata.get('name');
-				        					friendlist(friendphotourl, friendname);
+				        					friendlist(friendid, friendphotourl, friendname);
 				        				}
 				        			})
 				        		}
