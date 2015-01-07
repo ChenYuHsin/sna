@@ -145,8 +145,8 @@ if (currentUser) {
 					timelineArray.push(timeline_obj);
 				});
 				console.log(timelineArray);
-				for(i=1; i<=timelineArray.length; i++){
-					var further = "[class='"+timelineArray[i]+"']";
+				for(i=0; i<timelineArray.length; i++){
+					var further = "[class='cd-timeline-block "+timelineArray[i]+"']";
 					console.log(further);
 					$(further).each(function(){
 						console.log($(this).attr('id'));
