@@ -335,6 +335,8 @@ if (currentUser) {
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
 			      var updatedAt = obj.updatedAt;
+			      var updateat = moment(updatedAt);
+			      	console.log("updateat",updateat);
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
@@ -460,10 +462,8 @@ if (currentUser) {
 			    		var currentUser = Parse.User.current();
 						var user_id = currentUser.id;
 			    		var response = results[i];
-			    		console.log(results[i].id);
 				      	var content = response.get("content");
 				      	var datetime = moment(response.createdAt).fromNow();
-				      	console.log("datetime",datetime.toLocaleString());
 				      	var id = response.id;
 				      	//var responser = response.get("responser");
 				      	//console.log("responser"+responser.get('imagesrc'));
