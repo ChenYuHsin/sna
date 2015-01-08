@@ -532,7 +532,7 @@ if (currentUser) {
 							"<div class='ui button reply_send'>Send</div>"+
 						"</div>"+
 					"</div>";
-				$(body).append(tpl);	
+				$("body").append(tpl);	
 				var Dent = Parse.Object.extend("Dent");
 				var query = new Parse.Query(Dent);
 				query.equalTo("objectId", post_id);
