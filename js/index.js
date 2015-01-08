@@ -107,12 +107,13 @@ jQuery(document).ready(function($){
 				alert("Error: " + error.code + " " + error.message);
 			}
 		});
+		console.log(postIdArray);
 		$(".cd-timeline-block").each(function(){
 			var post_id = $(this).prop("id");
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
-		console.log(postIdArray);
+		
 		$.each(postIdArray,function(index, value){
 			$( value ).on( "click", {
 			  name: value
