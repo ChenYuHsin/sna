@@ -98,10 +98,10 @@ jQuery(document).ready(function($){
 		//response modal 產生
 		var postIdArray = [];
 
-		$(".cd-timeline-block").each(function(){
+		$("div").each(function(){
 			var post_id = $(this).prop("id");
-			printResponseTpl(post_id);
-			postIdArray.push(post_id);
+			//printResponseTpl(post_id);
+			//postIdArray.push(post_id);
 		});
 		console.log(postIdArray);
 		$.each(postIdArray,function(index, value){
