@@ -463,6 +463,7 @@ if (currentUser) {
 			var Response = Parse.Object.extend("Response");
 			var query = new Parse.Query(Response);
 			query.include('responser');
+			query.ascending("createdAt");
 			query.equalTo("dent_id", dent);
 			query.find({
 			  	success: function(results) {
