@@ -104,7 +104,8 @@ jQuery(document).ready(function($){
 				for(i=0; i<results.length; i++){
 					var dentId = results[i];
 					postIdArray.push(dentId.id);
-					console.log(dentId.id);
+					//console.log(dentId.id);
+					console.log(postIdArray);
 				}
 				
 			},
@@ -112,7 +113,7 @@ jQuery(document).ready(function($){
 				alert("Error: " + error.code + " " + error.message);
 			}
 		});
-		console.log(postIdArray);
+		
 		$(".cd-timeline-block").each(function(){
 			var post_id = $(this).prop("id");
 			printResponseTpl(post_id);
