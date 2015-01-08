@@ -97,12 +97,12 @@ jQuery(document).ready(function($){
 		queryDent();
 		//response modal 產生
 		var postIdArray = [];
-		$.each($(".cd-timeline-block"), function(index, value){
-			var post_id = $(this).attr("id");
+
+		$(".cd-timeline-block").each(function(){
+			var post_id = $(this).arrt("id");
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
-		
 		console.log(postIdArray);
 		$.each(postIdArray,function(index, value){
 			$( value ).on( "click", {
