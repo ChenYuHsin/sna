@@ -518,8 +518,7 @@ if (currentUser) {
 										      "</div>"+
 
 										      "<div id='poster_modal_content' class='text'>"+
-										       obj.get("content")+
-										      
+										       obj.get("content")+										   
 										    "</div>"+
 										  "</div>"+
 										  "<form class='ui reply form'>"+
@@ -533,8 +532,8 @@ if (currentUser) {
 									"<div class='actions'>"+
 										"<div class='ui button'>Cancel</div>"+
 										"<div class='ui button reply_send'>Send</div>"+
-									"</div>"+
-								"</div>";
+									"</div></div>";
+
 							$("body").append(tpl);	
 					      	queryResponse(obj);
 					      	$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
