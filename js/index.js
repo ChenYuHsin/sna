@@ -103,6 +103,7 @@ jQuery(document).ready(function($){
 			success: function(results) {
 				for(i=0; i<results.length; i++){
 					var dentId = results[i].id;
+					printResponseTpl(dentId)
 					if(dentId==null){
 						
 					}else{
@@ -112,9 +113,10 @@ jQuery(document).ready(function($){
 					//console.log(dentId.id);
 					
 				}
+
 				console.log(postIdArray);
 				$.each(postIdArray,function(index, value){
-					$( value ).on( "click", {
+					$( ".modal_"+value ).on( "click", {
 					  name: value
 					}, showResponseModal );
 
