@@ -518,7 +518,7 @@ if (currentUser) {
 										      "</div>"+
 
 										      "<div id='poster_modal_content' class='text'>"+
-										       obj.get("content")
+										       obj.get("content")+
 										      
 										    "</div>"+
 										  "</div>"+
