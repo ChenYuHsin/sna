@@ -243,7 +243,7 @@ if (currentUser) {
 } else {
     // show the signup or login page
 }
-/*************************************** this is test *************************************************/
+/*************************************** 這是時段template *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' data-block='"+poster+"'' style='margin-top:"+startmarginTo+"px'>"+
 						"<div class='cd-timeline-img  cd-"+face +" "+color+ " ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
