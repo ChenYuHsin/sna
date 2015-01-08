@@ -98,7 +98,7 @@ jQuery(document).ready(function($){
 		//response modal 產生
 		var postIdArray = [];
 		$(".cd-timeline-block").each(function(){
-			var post_id = $(this).attr('id');
+			var post_id = this.id;
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
