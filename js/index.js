@@ -38,6 +38,14 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
+
+	$("#profile").click(function(){
+	    window.location.assign("profile3.html");
+	});
+
+	$(".logo").click(function(){
+	    window.location.assign("index.html");
+	});
 	
 	function deliverDent(user, category, color, content, s, e){
 		var Dent = Parse.Object.extend("Dent");
@@ -335,14 +343,15 @@ if (currentUser) {
 
 		query.find({
 			success: function(result){
+				moment.locale('zh-TW');
 				/**/
 				for (var i = 0; i < result.length; i++) { 
 			      var obj = result[i];
-			      var updatedAt = obj.updatedAt;
+			      var createAt = obj.createdAt;
 			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
 					$("#poster_modal_name").text(obj.get("poster_name"));
 					$("#poster_modal_content").text(obj.get("content"));
-					$("#poster_create_at").text(moment(updatedAt).fromNow());
+					$("#poster_create_at").text(moment(createAt).fromNow());
 					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					$("#dent_id").attr("data-dentId", post_id);
@@ -448,16 +457,17 @@ if (currentUser) {
 		}
 
 		function queryResponse(dent){
-			moment.locale('zh-TW');
 			if($(".reply_post").length != 0){
 				$(".reply_post").remove();
 			}
 			var Response = Parse.Object.extend("Response");
 			var query = new Parse.Query(Response);
 			query.include('responser');
+			query.descending("createdAt");
 			query.equalTo("dent_id", dent);
 			query.find({
 			  	success: function(results) {
+			  		moment.locale('zh-TW');
 			  		// alert("Successfully retrieved " + results.length + " scores.");
 			    	for (var i = 0; i < results.length; i++) { 
 			    		//var user_id = $("#user").val();
@@ -482,7 +492,7 @@ if (currentUser) {
 								    "<div class='content'>"+
 								      "<a class='author'>"+name+"</a>"+
 								      "<div class='metadata'>"+
-								        "<div class='date'>"+moment(post.createdAt).fromNow()+"</div>"+
+								        "<div class='date'>"+datetime+"</div>"+
 								      "</div>"+
 								      "<div class=text'>"+
 								        content+
