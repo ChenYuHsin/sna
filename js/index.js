@@ -102,7 +102,7 @@ jQuery(document).ready(function($){
 		dent.find({
 			success: function(results) {
 				for(i=0; i<results.length; i++){
-					postIdArray.push(results.get("objectId"));
+					postIdArray.push(results.id);
 					console.log(results.get("objectId"));
 				}
 				
