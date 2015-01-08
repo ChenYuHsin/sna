@@ -38,7 +38,6 @@ jQuery(document).ready(function($){
 	        }
 	    });
 	});
-
 	$("#profile").click(function(){
 	    window.location.assign("profile3.html");
 	});
@@ -46,6 +45,77 @@ jQuery(document).ready(function($){
 	$(".logo").click(function(){
 	    window.location.assign("index.html");
 	});
+	$(".dent_send").click(function(){
+		var currentUser = Parse.User.current();
+		var category = $('input:radio:checked[name="emotion"]').val();
+		var color = $('input:radio:checked[name="emotion"]').attr('data-color');
+    	//var category = $('#category').val();
+    	var content = $('.make_dent_content').val();
+    	var start_datetime = $('#start_datetime').val();
+    	var end_datetime = $('#end_datetime').val();
+    	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
+		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
+   });
+
+	/***********************************  object id to me_line *******************************************/
+	
+	var currentUser = Parse.User.current();
+	if (currentUser) {
+		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line 
+		/*****  朋友timeline ******/
+		var friends = currentUser.get("friends");
+		for(var i = 0;i < friends.length; i++){
+			var queryFriend = new Parse.Query(Parse.User);
+			queryFriend.get(friends[i], {
+				success: function(friends) {
+					var imgsrc = friends.get("imagesrc");
+					var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
+										"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+									"</section>";
+					$("#friends_timmeline_area #1 .content").append(friendsSection);
+					
+					
+					
+				},
+				error: function(object, error) {
+					alert(object +" "+error);
+				}
+			});
+		
+
+			var Dent = Parse.Object.extend("Dent");
+			var dent = new Parse.Query(Dent);
+			dent.equalTo("poster2", friends[i]);
+			dent.find({
+			  success: function(results) {
+			  },
+			  error: function(error) {
+			    alert("Error: " + error.code + " " + error.message);
+			  }
+			});
+		}
+		queryDent();
+		var postIdArray = [];
+		$(".cd-timeline-block").each(function(){
+			var post_id = $(this).attr('id');
+			printResponseTpl(post_id);
+			postIdArray.push(post_id);
+		});
+		$.each(postIdArray,function(index, value){
+			$( value ).on( "click", {
+			  name: value
+			}, showResponseModal );
+
+		});
+		
+	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
+	    console.log($(".dinner").find('.cd-timeline-img'));
+	    console.log($('.make_dent'));
+	} else {
+	    // show the signup or login page
+	}
+})//------------------------------------------------------------------
+	
 	
 	function deliverDent(user, category, color, content, s, e){
 		var Dent = Parse.Object.extend("Dent");
@@ -83,163 +153,11 @@ jQuery(document).ready(function($){
 		});
 	};
 	
-	    
-    /*$('#end_datetime').datetimepicker({
-	   	dateFormat: "yy-mm-dd"
-    });*/
-
-	$(".dent_send").click(function(){
-		var currentUser = Parse.User.current();
-		var category = $('input:radio:checked[name="emotion"]').val();
-		var color = $('input:radio:checked[name="emotion"]').attr('data-color');
-    	//var category = $('#category').val();
-    	var content = $('.make_dent_content').val();
-    	var start_datetime = $('#start_datetime').val();
-    	var end_datetime = $('#end_datetime').val();
-    	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
-		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
-   });
-
-/***********************************  object id to me_line *******************************************/
-	var currentUser = Parse.User.current();
-	if(currentUser){
-		$('.me_line').attr("data-timelineid", currentUser.id);
-	}else{
-
-	}
-
-/********************************* 朋友的timeline *****************************************/
-
-var currentUser = Parse.User.current();
-if (currentUser) {
-	var friends = currentUser.get("friends");
-	for(var i = 0;i < friends.length; i++){
-		var queryFriend = new Parse.Query(Parse.User);
-		queryFriend.get(friends[i], {
-			success: function(friends) {
-				var imgsrc = friends.get("imagesrc");
-				var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
-									"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
-								"</section>";
-				$("#friends_timmeline_area #1 .content").append(friendsSection);
-				
-				//console.log($('[id="cd-timeline"]'));
-				//console.log($('[id="cd-timeline"]').length);
-				//console.log($('[id="cd-timeline"]').attr('data-timelineid'));
-				
-				//console.log(jQuery("[class=dinner][1]").attr('data-timelineid')); 
-				//console.log($(".dinner").attr('data-timelineid'));
-		   /* 	var timelineArray = [];
-				$('[id="cd-timeline"]').each(function(){
-					console.log($(this).attr('data-timelineid'));
-					var timelineid = $(this).attr('data-timelineid');
-					
-					var timeline_obj = $(this).attr('data-timelineid');
-					timelineArray.push(timeline_obj);
-				});
-				console.log(timelineArray);                   
-				for(i=0; i<timelineArray.length; i++){
-					var further = "[data-block='"+timelineArray[i]+"']";
-					console.log(further);
-					$('[data-block="cveJoqYgE5"]').each(function(){
-						console.log($(this).attr('id'));
-					})             
-				}
-				var arr = [];
-				setTimeout(function(){
-					$.each( timelineArray, function( index, value ) {
-					  var obj = timelineArray[index];
-					  var objclass = "."+obj;
-					  var tt= "[data-block="+value+"]";
-					  var arrid=[];
-					  $(tt).each(function(){
-					  
-					  	
-					  	var dd = $(this).css("margin-top");
-					  	arrid.push(dd);
-					  	//console.log($(tt));
-					  	var top = $(this).prevAll();
-					  	var arrarr=[];//前面的top
-					  	$(top).each(function(){
-					  		arrarr.push($(this).css("margin-top"));
-
-					  	})
-					  	var prevMargintop = $(this).css("margin-top");
-					  	var sumTop = 0;
-					  	for(i=0; i<arrarr.length; i++){
-					  		var num = parseInt(arrarr[i],10);
-					  		var toNumber = parseFloat(num);
-					  		sumTop=sumTop+toNumber;
-					  	}
-					  	console.log(sumTop);
-					  	var parseMinus = parseInt(prevMargintop,10);
-					  	var originMarginTop = parseInt(dd,10);
-					  	var minus = parseFloat(originMarginTop )-parseFloat(parseMinus);
-					  	console.log(minus+" "+parseFloat(originMarginTop )+" "+sumTop);
-					  	$(this).removeAttr("style").css("margin-top",minus+"px");
-					  	
-					  })
-
-					  
-					  arr.push(tt);
-					  //console.log(arrid);
-					  //console.log(arr);
-
-					  	
-					  
-					  var timelineArticle = [];
-					  console.log($(tt).length);
-					})
-
-				},1000)          */     
-				
-			},
-			error: function(object, error) {
-				alert(object +" "+error);
-			}
-		});
-		/*queryFriend.equalTo("objectId", friends[i]);
-		queryFriend.find({
-			success: function(result) {
-				
-			    var friendsSection = "<section id='cd-timeline' class=' no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends[i]+"'>"+
-									"<img src='' alt='Picture' class='friends_pic'>"+
-								"</section>";
-				$("#friends_timmeline_area #1 .content").append(friendsSection);
-		  	},
-		  	error: function(){
-		  		alert("error");
-		  	}
-		});
-		*/
-
-		var Dent = Parse.Object.extend("Dent");
-		var dent = new Parse.Query(Dent);
-		dent.equalTo("poster2", friends[i]);
-		dent.find({
-		  success: function(results) {
-		    //alert("Successfully retrieved ");
-		    /*for(j = 0 ; j < friends.length ; j++){
-		    	var className= ".no_"+j;
-		    	$(className).append(timeLineTpl(1, 3, 'smile' ,'yellow'));
-		    };*/
-		    // Do something with the returned Parse.Object values
-
-		    
-		  },
-		  error: function(error) {
-		    alert("Error: " + error.code + " " + error.message);
-		  }
-		});
-	}
-	queryDent();
 	
-    console.log($("[data-timelineid = '8hGeU3b7nd']"));
-    console.log($(".dinner").find('.cd-timeline-img'));
-    console.log($('.make_dent'));
-} else {
-    // show the signup or login page
-}
+
+	
+
+
 /*************************************** 這是時段template *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
 		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' data-block='"+poster+"'' style='margin-top:"+startmarginTo+"px'>"+
@@ -250,13 +168,6 @@ if (currentUser) {
 		return timeTpl;
 		
 	};
-	//timeLineTpl( 1, 3, 'smile' ,'yellow');
-	//$(".me_line").append(timeLineTpl(1, 3, 'smile' ,'yellow'));
-	//$(".me_line").append(timeLineTpl(7, 2, 'frown', 'blue' ));
-	//$("#test .no_1").append(timeLineTpl(2, 2, 'empty heart', 'red'));
-	//$("#test .no_2").append(timeLineTpl(3, 4, 'meh' ,'green'));
-
-
 	
 	function queryDent(){
 		var Dent = Parse.Object.extend("Dent");
@@ -445,18 +356,7 @@ if (currentUser) {
 		
 		
 	//});//dddkkskdkdkkdkdkkd
-		var postIdArray = [];
-		$(".cd-timeline-block").each(function(){
-			var post_id = $(this).attr('id');
-			printResponseTpl(post_id);
-			postIdArray.push(post_id);
-		});
-		$.each(postIdArray,function(index, value){
-			$( value ).on( "click", {
-			  name: value
-			}, showResponseModal );
-
-		})
+		
 		function showResponseModal(value){
 			var modalId = ".ui.modal."+value.data.name;
 			console.log(value);
@@ -620,4 +520,3 @@ if (currentUser) {
 
 
 	
-});
