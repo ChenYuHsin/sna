@@ -103,7 +103,7 @@ jQuery(document).ready(function($){
 			success: function(results) {
 				for(i=0; i<results.length; i++){
 					var dentId = results[i].id;
-					if(dentId==null){
+					if(dentId!==null){
 						postIdArray.push(dentId);
 					}
 					
