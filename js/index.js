@@ -97,10 +97,19 @@ jQuery(document).ready(function($){
 		queryDent();
 		//response modal 產生
 		var postIdArray = [];
-
-		$("div").each(function(){
+		var Dent = Parse.Object.extend("Dent");
+		var dent = new Parse.Query(Dent);
+		dent.find({
+			success: function(results) {
+				postIdArray.push(dent.id);
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+		$(".cd-timeline-block").each(function(){
 			var post_id = $(this).prop("id");
-			//printResponseTpl(post_id);
+			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
 		console.log(postIdArray);
@@ -385,7 +394,7 @@ jQuery(document).ready(function($){
 							
 							
 							$("#dent_id").attr("data-dentId", post_id);
-							var tpl = "<div class='ui modal reply_content small "+post_id+"' >"+
+							var tpl = "<div class='ui modal reply_content small modal_"+post_id+"' >"+
 									"<i class='close icon'></i>"+
 									"<div class='header'>"+
 									"Reply"+
