@@ -459,6 +459,7 @@ if (currentUser) {
 		})
 		function showResponseModal(value){
 			var modalId = ".ui.modal."+value;
+			console.log(value);
 			$(modalId).modal('show');
 		}
 		function printResponseTpl(post_id){
