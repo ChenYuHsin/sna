@@ -457,7 +457,6 @@ if (currentUser) {
 		}
 
 		function queryResponse(dent){
-			moment.locale('zh-TW');
 			if($(".reply_post").length != 0){
 				$(".reply_post").remove();
 			}
@@ -467,6 +466,7 @@ if (currentUser) {
 			query.equalTo("dent_id", dent);
 			query.find({
 			  	success: function(results) {
+			  		moment.locale('zh-TW');
 			  		// alert("Successfully retrieved " + results.length + " scores.");
 			    	for (var i = 0; i < results.length; i++) { 
 			    		//var user_id = $("#user").val();
