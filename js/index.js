@@ -491,7 +491,7 @@ if (currentUser) {
 								    "<div class='content'>"+
 								      "<a class='author'>"+name+"</a>"+
 								      "<div class='metadata'>"+
-								        "<div class='date'>"+moment(post.createdAt).fromNow()+"</div>"+
+								        "<div class='date'>"+datetime+"</div>"+
 								      "</div>"+
 								      "<div class=text'>"+
 								        content+
