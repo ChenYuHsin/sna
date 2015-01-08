@@ -528,11 +528,17 @@ div.codepen_arrow .right:after {
 .logo{
   font-family: 'Pacifico', cursive;
 }
+.logo:hover{
+  cursor: pointer;
+}
 
 #userphoto:hover{
   cursor:default;
 }
 
+#accountinfo:hover{
+  cursor:default;
+}
 .account_info:hover{
   cursor:default;
 }
