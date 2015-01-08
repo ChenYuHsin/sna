@@ -102,6 +102,7 @@ jQuery(document).ready(function($){
 		dent.find({
 			success: function(results) {
 				postIdArray.push(dent.id);
+				console.log(dent.id);
 			},
 			error: function(error) {
 				alert("Error: " + error.code + " " + error.message);
