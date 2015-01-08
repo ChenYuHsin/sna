@@ -103,7 +103,7 @@ jQuery(document).ready(function($){
 			success: function(results) {
 				for(i=0; i<results.length; i++){
 					postIdArray.push(results.id);
-					console.log(results.get("objectId"));
+					console.log(results.id);
 				}
 				
 			},
