@@ -99,7 +99,7 @@ jQuery(document).ready(function($){
 		var postIdArray = [];
 
 		$(".cd-timeline-block").each(function(){
-			var post_id = $(this).arrt("id");
+			var post_id = $(this).attr("id");
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
