@@ -505,7 +505,7 @@ if (currentUser) {
 										"<div class='ui comments'>"+
 											"<div class='comment owner_post'>"+
 										    "<a class='avatar'>"+
-										      "<img id='poster_modal_img' src='"+obj.get("poster_img"+"'>"+
+										      "<img id='poster_modal_img' src='"+obj.get("poster_img")+"'>"+
 										    "</a>"+
 										    "<div class='content' id='dent_id'>"+
 										      "<a id= 'poster_modal_name' class='author'>"+obj.get("poster_name")+"</a>"+
@@ -517,8 +517,7 @@ if (currentUser) {
 										        "</div>"+
 										      "</div>"+
 
-										      "<div id='poster_modal_content' class='text'>"+
-										       obj.get("content")+										   
+										      "<div id='poster_modal_content' class='text'>"+obj.get("content")+										   
 										    "</div>"+
 										  "</div>"+
 										  "<form class='ui reply form'>"+
