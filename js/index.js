@@ -97,8 +97,8 @@ jQuery(document).ready(function($){
 		queryDent();
 		//response modal 產生
 		var postIdArray = [];
-		$.each($(".cd-timeline-block"), function(){
-			var post_id = $(this).id;
+		$.each($(".cd-timeline-block"), function(index, value){
+			var post_id = $(this).attr("id");
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
