@@ -113,6 +113,12 @@ jQuery(document).ready(function($){
 					
 				}
 				console.log(postIdArray);
+				$.each(postIdArray,function(index, value){
+					$( value ).on( "click", {
+					  name: value
+					}, showResponseModal );
+
+				});
 				
 			},
 			error: function(error) {
@@ -120,18 +126,13 @@ jQuery(document).ready(function($){
 			}
 		});
 		
-		$(".cd-timeline-block").each(function(){
+		/*$(".cd-timeline-block").each(function(){
 			var post_id = $(this).prop("id");
 			printResponseTpl(post_id);
 			postIdArray.push(post_id);
 		});
+		*/
 		
-		$.each(postIdArray,function(index, value){
-			$( value ).on( "click", {
-			  name: value
-			}, showResponseModal );
-
-		});
 		
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
