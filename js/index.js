@@ -102,11 +102,15 @@ jQuery(document).ready(function($){
 		dent.find({
 			success: function(results) {
 				for(i=0; i<results.length; i++){
-					var dentId = results[i];
-					postIdArray.push(dentId.id);
+					var dentId = results[i].id;
+					if(dentId!=""){
+						postIdArray.push(dentId);
+					}
+					
 					//console.log(dentId.id);
-					console.log(postIdArray);
+					
 				}
+				console.log(postIdArray);
 				
 			},
 			error: function(error) {
