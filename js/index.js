@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 		var dent = new Parse.Query(Dent);
 		dent.find({
 			success: function(results) {
-				postIdArray.push(dent.id);
+				postIdArray.push(dent.get("objectId");
 				console.log(dent.id);
 			},
 			error: function(error) {
