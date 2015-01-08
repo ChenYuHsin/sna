@@ -107,20 +107,9 @@ jQuery(document).ready(function($){
 	}else{
 
 	}
-/******************************** add friends ****************************************/
-$(".add_friend_btn").click(function(){
-
-	
-});
 
 /********************************* 朋友的timeline *****************************************/
 
-/*var friendsTimlineSection = function(num){
-	var friendsSection = "<section id='cd-timeline' class=' no_" +num + " cd-container two wide column center' style='position: relative'>"+
-								"<img src='img/7.jpg' alt='Picture' class='friends_pic' >"+
-							"</section>";
-	return friendsSection;
-}*/
 var currentUser = Parse.User.current();
 if (currentUser) {
 	var friends = currentUser.get("friends");
@@ -329,11 +318,7 @@ if (currentUser) {
 			}
 		});
 	}
-	var minusMarginTop = function(){
-		$("#cd-timeline").each(function(){
-		})
-	};
-	minusMarginTop();
+	
 	/*$('body').on("click",".cd-timeline-img",function(){
 		var post_id = $(this).closest('.cd-timeline-block').attr("id");
 
@@ -459,7 +444,7 @@ if (currentUser) {
 
 		
 		
-	});
+	//});//dddkkskdkdkkdkdkkd
 		var postIdArray = [];
 		$(".cd-timeline-block").each(function(){
 			var post_id = $(this).attr('id');
