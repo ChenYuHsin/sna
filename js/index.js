@@ -458,7 +458,7 @@ if (currentUser) {
 
 		})
 		function showResponseModal(value){
-			var modalId = ".ui.modal."+value;
+			var modalId = ".ui.modal."+value.data.name;
 			console.log(value);
 			$(modalId).modal('show');
 		}
