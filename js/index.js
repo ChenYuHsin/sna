@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 		$("div").each(function(){
 			var post_id = $(this).prop("id");
 			//printResponseTpl(post_id);
-			//postIdArray.push(post_id);
+			postIdArray.push(post_id);
 		});
 		console.log(postIdArray);
 		$.each(postIdArray,function(index, value){
