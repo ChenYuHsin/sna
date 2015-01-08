@@ -474,7 +474,7 @@ if (currentUser) {
 		})
 		function showResponseModal(value){
 			var modalId = ".ui.modal."+value;
-			$(modalId)..modal('show');
+			$(modalId).modal('show');
 		}
 		function printResponseTpl(post_id){
 			
