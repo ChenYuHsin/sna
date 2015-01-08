@@ -455,7 +455,111 @@ if (currentUser) {
   				}
   			});
 		}
+		$('body').on("click",".cd-timeline-img",function(){
+		var post_id = $(this).closest('.cd-timeline-block').attr("id");
 
+		var Dent = Parse.Object.extend("Dent");
+		var query = new Parse.Query(Dent);
+		query.equalTo("objectId", post_id);
+
+		query.find({
+			success: function(result){
+				moment.locale('zh-TW');
+				/**/
+				for (var i = 0; i < result.length; i++) { 
+			      var obj = result[i];
+			      var createAt = obj.createdAt;
+			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
+					$("#poster_modal_name").text(obj.get("poster_name"));
+					$("#poster_modal_content").text(obj.get("content"));
+					$("#poster_create_at").text(moment(createAt).fromNow());
+					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
+					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
+					$("#dent_id").attr("data-dentId", post_id);
+			      	queryResponse(obj);
+			    }
+				
+			},
+			error: function(){
+
+			}
+		})
+
+		$('.reply_content').modal('show');
+		
+	});
+
+		$(".cd-timeline-block").each(function(){
+			printResponseTpl($(this).attr('id'));
+		});
+		function printResponseTpl(post_id){
+			var tpl = "<div class='ui modal reply_content small'>"+
+						"<i class='close icon'></i>"+
+						"<div class='header'>"+
+						"Reply"+
+						"</div>"+
+						"<div class='content'>"+
+							"<div class='ui comments'>"+
+								"<div class='comment owner_post'>"+
+							    "<a class='avatar'>"+
+							      "<img id='poster_modal_img' src=''>"+
+							    "</a>"+
+							    "<div class='content' id='dent_id'>"+
+							      "<a id= 'poster_modal_name' class='author'></a>"+
+							      "<div class='metadata'>"+
+							        "<div id='poster_create_at' class='date'></div>"+
+							        "<div  class='rating modal_rating'>"+
+							          "<a id='modal_rating_count'><i class='heart icon'></i>"+
+							          "</a>"+
+							        "</div>"+
+							      "</div>"+
+
+							      "<div id='poster_modal_content' class='text'>"+
+							       
+							      
+							    "</div>"+
+							  "</div>"+
+							  "<form class='ui reply form'>"+
+							    "<div class='field'>"+
+							      "<textarea id='reply_area'></textarea>"+
+							    "</div>"+
+							  "</form>"+
+							"</div>"+
+							"</div>"+
+						"</div>"+
+						"<div class='actions'>"+
+							"<div class='ui button'>Cancel</div>"+
+							"<div class='ui button reply_send'>Send</div>"+
+						"</div>"+
+					"</div>";
+				$(body).append(tpl);	
+				var Dent = Parse.Object.extend("Dent");
+				var query = new Parse.Query(Dent);
+				query.equalTo("objectId", post_id);
+
+				query.find({
+					success: function(result){
+						moment.locale('zh-TW');
+						/**/
+						for (var i = 0; i < result.length; i++) { 
+					      var obj = result[i];
+					      var createAt = obj.createdAt;
+					      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
+							$("#poster_modal_name").text(obj.get("poster_name"));
+							$("#poster_modal_content").text(obj.get("content"));
+							$("#poster_create_at").text(moment(createAt).fromNow());
+							$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
+							$("#modal_rating_count").text(obj.get("likes").length+ " likes");
+							$("#dent_id").attr("data-dentId", post_id);
+					      	queryResponse(obj);
+					    }
+						
+					},
+					error: function(){
+
+					}
+				})
+		}
 		function queryResponse(dent){
 			if($(".reply_post").length != 0){
 				$(".reply_post").remove();
