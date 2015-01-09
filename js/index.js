@@ -407,7 +407,7 @@ jQuery(document).ready(function($){
 									"<div class='header'>"+
 									"Reply"+
 									"</div>"+
-									"<div class='content'>"+
+									"<div class='content' id='reply_content'>"+
 										"<div class='ui comments'>"+
 											"<div class='comment owner_post'>"+
 										    "<a class='avatar'>"+
@@ -460,7 +460,7 @@ jQuery(document).ready(function($){
 			var query = new Parse.Query(Response);
 			query.include('responser');
 			query.descending("createdAt");
-			query.equalTo("dent_id", dent);
+			query.equalTo("dent_id", dent); //dent_id型態為物件
 			query.find({
 			  	success: function(results) {
 			  		moment.locale('zh-TW');
@@ -498,7 +498,7 @@ jQuery(document).ready(function($){
 								      
 								    "</div>"+
 								  "</div>";
-
+							$('.modal_'+dent.id+ " #reply_content").after(table_response);
 								
 
   						
@@ -523,7 +523,7 @@ jQuery(document).ready(function($){
 						}*/
 				      	//table_response += "<tr><td>" + responser.id + "</td><td>" + content + "</td><td>" + datetime + "</td>" + button_status+ "<td>" + likes_count + "</td></tr>"
 			    	}
-			    	$('.modal_'+dent.id+ " .content").after(table_response);
+
 			    	//$("#response").html(table_response);
 			  	},
 			  	error: function(error) {
