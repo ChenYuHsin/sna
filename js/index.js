@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
 
 				console.log(postIdArray);
 				$.each(postIdArray,function(index, value){
-					$( "#dent_"value+ " .cd-timeline-img" ).on( "click", {
+					$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
 					  name: value
 					}, showResponseModal );
 
