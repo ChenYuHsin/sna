@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
 
 				console.log(postIdArray);
 				$.each(postIdArray,function(index, value){
-					$( ".modal_"+value ).on( "click", {
+					$( "#dent_"value+ " .cd-timeline-img" ).on( "click", {
 					  name: value
 					}, showResponseModal );
 
@@ -127,14 +127,6 @@ jQuery(document).ready(function($){
 				alert("Error: " + error.code + " " + error.message);
 			}
 		});
-		
-		/*$(".cd-timeline-block").each(function(){
-			var post_id = $(this).prop("id");
-			printResponseTpl(post_id);
-			postIdArray.push(post_id);
-		});
-		*/
-		
 		
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
@@ -188,7 +180,7 @@ jQuery(document).ready(function($){
 
 /*************************************** 這是時段template *************************************************/
 	var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
-		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='"+postId+"' data-block='"+poster+"'' style='margin-top:"+startmarginTo+"px'>"+
+		var timeTpl = "<div class='cd-timeline-block "+poster+"' id='dent_"+postId+"' data-block='"+poster+"'' style='margin-top:"+startmarginTo+"px'>"+
 						"<div class='cd-timeline-img  cd-"+face +" "+color+ " ui button' style='height: "+keepTime+"px ' data-position='right center' data-variation='wide'>"+
 							"<i class='"+face+" icon inverted'></i>"+
 						"</div>"+
@@ -403,10 +395,10 @@ jQuery(document).ready(function($){
 						for (var i = 0; i < result.length; i++) { 
 					      var obj = result[i];
 					      var createAt = obj.createdAt;
-					      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
+					      	/$("#poster_modal_img").attr("src", obj.get("poster_img"));
 							$("#poster_modal_name").text(obj.get("poster_name"));
 							$("#poster_modal_content").text(obj.get("content"));
-							$("#poster_create_at").text(moment(createAt).fromNow());
+							$("#poster_create_at").text(moment(createAt).fromNow());*/
 							
 							
 							$("#dent_id").attr("data-dentId", post_id);
