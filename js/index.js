@@ -440,7 +440,7 @@ jQuery(document).ready(function($){
 									"</div></div>";
 
 							$("body").append(tpl);	
-					      	queryResponse(obj.id);
+					      	queryResponse(obj);
 					      	$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					      	$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					    }
@@ -459,7 +459,7 @@ jQuery(document).ready(function($){
 			var query = new Parse.Query(Response);
 			query.include('responser');
 			query.descending("createdAt");
-			query.equalTo("dent_id", dent);
+			query.equalTo("dent_id", dent.id);
 			query.find({
 			  	success: function(results) {
 			  		moment.locale('zh-TW');
