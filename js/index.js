@@ -211,7 +211,7 @@ jQuery(document).ready(function($){
 					var calstart = dent_start.getHours();
 					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
 					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-					var popuoClass = "#"+dent.id+" "+".cd-timeline-img";
+					var popuoClass = "#dent_"+dent.id+" "+".cd-timeline-img";
 					var gaptime = dent_end.getTime() - dent_start.getTime();
 					var calkeep = gaptime/60000*2;
 					var getstartHour = dent_start.getHours();
