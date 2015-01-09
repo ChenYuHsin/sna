@@ -478,7 +478,7 @@ jQuery(document).ready(function($){
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
 				      	var post = response.get("responser");
-				      	var name= "ee"
+				      	var name= post.get("name");
 				      	var imgsrc="ddd";
   						//var name = response.get("responser").get('name');
   						//var imgsrc = response.get("responser").get('imagesrc');
