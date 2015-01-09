@@ -477,8 +477,10 @@ jQuery(document).ready(function($){
 				      	//var likes = response.get("likers");
 				      	var likes_count = 0;
 				      	var post = response.get("responser");
-  						var name = response.get("responser").get('name');
-  						var imgsrc = response.get("responser").get('imagesrc');
+				      	var name="eee";
+				      	var imagesrc="ddd";
+  						//var name = response.get("responser").get('name');
+  						//var imgsrc = response.get("responser").get('imagesrc');
 						  	
 						    var table_response = "<div class='comment reply_post'>"+
 								    "<a class='avatar'>"+
