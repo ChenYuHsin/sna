@@ -499,7 +499,7 @@ jQuery(document).ready(function($){
 								    "</div>"+
 								  "</div>";
 
-								$('.modal_'+dent.id+ " .content").after(table_response);
+								
 
   						
   					
@@ -523,6 +523,7 @@ jQuery(document).ready(function($){
 						}*/
 				      	//table_response += "<tr><td>" + responser.id + "</td><td>" + content + "</td><td>" + datetime + "</td>" + button_status+ "<td>" + likes_count + "</td></tr>"
 			    	}
+			    	$('.modal_'+dent.id+ " .content").after(table_response);
 			    	//$("#response").html(table_response);
 			  	},
 			  	error: function(error) {
