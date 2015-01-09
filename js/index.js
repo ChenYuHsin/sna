@@ -498,7 +498,7 @@ jQuery(document).ready(function($){
 								      
 								    "</div>"+
 								  "</div>";
-							$('.modal_'+dent.id+ " #reply_content").after(table_response);
+							$('.modal_'+dent.id+ " #dent_id").after(table_response);
 								
 
   						
