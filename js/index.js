@@ -440,7 +440,7 @@ jQuery(document).ready(function($){
 									"</div></div>";
 
 							$("body").append(tpl);	
-					      	queryResponse(obj);
+					      	queryResponse(obj.id);
 					      	$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 					      	$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 					    }
