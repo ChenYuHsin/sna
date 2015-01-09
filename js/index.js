@@ -459,7 +459,7 @@ jQuery(document).ready(function($){
 			var query = new Parse.Query(Response);
 			query.include('responser');
 			query.descending("createdAt");
-			query.equalTo("dent_id", dent.id);
+			query.equalTo("dent_id", dent);
 			query.find({
 			  	success: function(results) {
 			  		moment.locale('zh-TW');
