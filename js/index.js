@@ -455,7 +455,7 @@ jQuery(document).ready(function($){
 			if($(".reply_post").length != 0){
 				$(".reply_post").remove();
 			}
-			console.log(dent.id);
+			//console.log(dent.id);
 			var Response = Parse.Object.extend("Response");
 			var query = new Parse.Query(Response);
 			query.include('responser');
@@ -499,7 +499,7 @@ jQuery(document).ready(function($){
 								    "</div>"+
 								  "</div>";
 
-								$('#modal_'+dent.id).after(table_response);
+								$('.modal_'+dent.id+ " .content").after(table_response);
 
   						
   					
