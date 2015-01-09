@@ -379,7 +379,7 @@ jQuery(document).ready(function($){
 		
 		function showResponseModal(value){
 			var modalId = ".ui.modal."+value.data.name;
-			console.log(value.data.name);
+			console.log(modalId);
 			$(modalId).modal('show');
 		}
 		function printResponseTpl(post_id){
