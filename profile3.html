@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 	    <link href="css/semantic.min.css" rel="stylesheet" type="text/css">
 	    <link href="css/custom.css" rel="stylesheet" type="text/css">
+	    <link href="css/screen.css" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" type="text/css" href="IconHoverEffects/css/default.css" />
+    	<link rel="stylesheet" type="text/css" href="IconHoverEffects/css/component.css" />
 
 	    <script src="js/jquery.min.js"></script>
 	    <script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
@@ -52,6 +55,7 @@
 						Parse.User.current().save();
 						$("#account_img").attr('src', my_picture_url);
 						$(".my_timeline_pic").attr('src', my_picture_url);
+						$("#profilephoto").attr('src', my_picture_url);
 					});
 					FB.api('/me', function(response) {
 						var my_name = response.name;
@@ -151,7 +155,31 @@
 			  
 			</div>
 		</div>
-		<header>
+		<div class="profile-con">
+			<section id="set-3">              
+		        <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3b">
+		            <!-- <a href="#set-3" class="hi-icon hi-icon-images">Images</a> -->
+		            <img id="profilephoto" src=""/>         
+		            </figure>
+		            <!-- <a href="#set-3" class="hi-icon hi-icon-pencil">Edit</a> -->
+		        </div>
+		    </section>
+		    <!-- <section class="belt">
+		        <div class="followers">
+		            <div class="follwers-num Num">123456789</div>
+		            <div class="belt-title">Followers</div>
+		        </div>
+		        <div class="Dents">
+		            <div class="Dents-num Num">123456789</div>
+		            <div class="belt-title til-dents">Dents I Made</div>
+		        </div>
+		        <div class="friends-included">
+		            <div class="included-num Num">123456789</div>
+		            <div class="belt-title">Included</div>
+		        </div>
+		    </section> -->
+		</div>
+		<!-- <header>
 			<div class="clock">
 		    <div id="Date"></div>
 		    <ul>
@@ -161,16 +189,9 @@
 		        <li id="point">:</li>
 		        <li id="sec"></li>
 	    	</ul>
-	    </header>
+	    </header> -->
 		<div class="ui grid page">
 		<!-- 以下為stackable，讓rwd btn全版-->
-			<div class="row">
-				<div class="stackable column "> 
-					<div class="left floated left aligned six wide column">
-					    <div class="ui black button btn_make_dent"><i class="write icon"></i>Make a Dent!</div>
-					</div>
-				</div>
-			</div>
 			<section id="add_friends" class="sixteen wide column center" >
 				<h2 class="ui header">
 				  <i class="users icon"></i>

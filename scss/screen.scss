@@ -1,0 +1,326 @@
+@charset "utf-8";//UTF-8編碼必須，為了可以打中文!
+// color
+@import "base/base";
+@import "base/color";
+
+
+
+body{
+		font-family:"Roboto" ,"微軟正黑體" , "Microsoft JhengHei";
+}
+
+// .profile-con{
+// 	max-width: 980px;
+// 	margin:auto;
+// }
+
+.top-line{
+	color:#666666;
+}
+
+$size:250px;
+$gap:250px;
+.profile-con #set-3{
+	background: rgb(255,93,177); /* Old browsers */
+	background: -moz-linear-gradient(45deg, rgba(255,93,177,1) 0%, rgba(254,119,95,1) 0%, rgba(237,230,198,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(255,93,177,1)), color-stop(0%,rgba(254,119,95,1)), color-stop(100%,rgba(237,230,198,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg, rgba(255,93,177,1) 0%,rgba(254,119,95,1) 0%,rgba(237,230,198,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg, rgba(255,93,177,1) 0%,rgba(254,119,95,1) 0%,rgba(237,230,198,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg, rgba(255,93,177,1) 0%,rgba(254,119,95,1) 0%,rgba(237,230,198,1) 100%); /* IE10+ */
+	background: linear-gradient(45deg, rgba(255,93,177,1) 0%,rgba(254,119,95,1) 0%,rgba(237,230,198,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', endColorstr='#ede6c6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	.top-line{
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	span,i{
+		color:#333;
+		font-size: 25px;
+		vertical-align: middle;
+	}
+
+	i{
+		vertical-align: middle;
+		&.fa-angle-left{
+			margin-right: $gap;
+		}
+		&.fa-ellipsis-v{
+			margin-left: $gap;
+		}
+	}
+
+	a{
+		vertical-align: middle;
+	}
+	img{
+		vertical-align: middle;
+		display: inline-block;
+		height:$size;
+		width: $size;
+		border-radius: 50%;
+		box-shadow: 0 0 0 4px #fff;
+	}
+}
+
+
+#friend-followed, #might-interested{
+	background-color: #F0F0F0;
+	margin:10px 0px 10px 0px;
+}
+
+.belt{
+  display: -webkit-flex;
+  display: flex;
+  &>div{
+  	color:#FFF;
+  	text-align: center;
+  	flex:1;
+  	background-color: #F8AC8F;
+  	margin:4px 2px 4px 2px;
+  	padding:30px 0px 30px 0px;
+  	&.followers{
+  		margin-left: 0px;
+  	}
+  	&.Dents{
+  		background-color: #FF7F66;
+  	}
+  	&.friends-included{
+  		margin-right: 0px;
+  	}
+  }
+  .Num{
+	font-size: 25px;
+  }
+  .belt-title{
+  	font-size: 20px;
+  	text-transform : uppercase;
+  	color:#666666;
+  	margin:10px;
+  	&.til-dents{
+  		color:#fff;
+  	}
+  }
+
+}
+
+
+.ui.page.grid{
+	margin:0px;
+	padding: 0px;
+	.ui.header{
+		color:#FF7F66;
+		margin: calc(2rem - .165em) 0 1rem;
+		margin:-webkit-calc(2rem - .165em) 0 1rem;
+		div.content{
+			font-weight:normal;
+		}
+	}
+
+	.effect-zoe{
+		a{
+			margin:10px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	min-width: 100px;
+	max-width: 200px;
+	min-height:100px; 
+	max-height: 200px;
+	width: 48%;
+	height: auto;
+	background: #3085a3;
+	text-align: center;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.9;
+}
+
+.grid figure figcaption {
+
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+}
+
+
+/*---------------*/
+/***** Zoe *****/
+/*---------------*/
+
+figure.effect-zoe figcaption {
+	top: auto;
+	bottom: 0;
+	padding: 1em;
+	height: 3.75em;
+	background: #fff;
+	color: #3c4a50;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+figure.effect-zoe h2 {
+	float: left;
+}
+
+figure.effect-zoe p.icon-links a {
+	float: right;
+	color: #3c4a50;
+	font-size: 1.4em;
+}
+
+figure.effect-zoe:hover p.icon-links a:hover,
+figure.effect-zoe:hover p.icon-links a:focus {
+	color: #252d31;
+}
+
+figure.effect-zoe p.description {
+	position: absolute;
+	bottom: 8em;
+	padding: 2em;
+	color: #fff;
+	text-transform: none;
+	font-size: 90%;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+figure.effect-zoe h2,
+figure.effect-zoe p.icon-links a {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,200%,0);
+	transform: translate3d(0,200%,0);
+}
+
+figure.effect-zoe p.icon-links a span::before {
+	display: inline-block;
+	padding: 8px 10px;
+	font-family: 'feathericons';
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+figure.effect-zoe h2 {
+	display: inline-block;
+}
+
+figure.effect-zoe:hover p.description {
+	opacity: 1;
+}
+
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover h2,
+figure.effect-zoe:hover p.icon-links a {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-zoe:hover h2 {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.effect-zoe:hover p.icon-links a:first-child {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+//friends
+
+
