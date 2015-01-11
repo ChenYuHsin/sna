@@ -194,6 +194,7 @@ jQuery(document).ready(function($){
 		var query = new Parse.Query(Dent);
 		
 		//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
+		query.ascending("s_datetime");
 		query.find({
 			success: function(results){
 				var pre_time_start_hour = 8;
