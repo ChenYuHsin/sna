@@ -560,7 +560,22 @@ function queryStatus(currentUser){
 			  				// console.log("createdAt:" + results[j].createdAt);
 			  				// status_contents.push(results[j].get("content"));
 			  				// console.log("createdAt:" + results[j].get("content"));
-			  				var status = {user: results[j].get("poster"), dent: results[j], createdTime: results[j].createdAt, category: "dent"};
+			  				var status = {user: results[j].get("poster"), contents: results[j], createdTime: results[j].createdAt, category: "dent"};
+			  				total_status.push(status);
+			  			}
+			  		},
+			  		error: function(error) {
+			    		alert("Error: " + error.code + " " + error.message);
+			  		}
+				});
+
+				var Response = Parse.Object.extend("Response");
+				var queryFriendResponse = new Parse.Query(Response);
+				queryFriendResponse.equalTo("poster", friend);
+				queryFriendResponse.find({
+					success: function(results) {
+			  			for(var k=0; k<results.length; k++){
+			  				var status = {user: results[k].get("responser"), contents: results[j], createdTime: results[j].createdAt, category: "response"};
 			  				total_status.push(status);
 			  			}
 			  		},
@@ -600,12 +615,6 @@ function showStatus(total_status){
 	// append
 	var status_section = $("#status_content");
 	for(var i=0; i<total_status.length; i++){
-		console.log(total_status[i].user.get("name"));
-		console.log(total_status[i].user.get("imagesrc"));
-		console.log(total_status[i].user.get("friends"));
-		console.log(total_status[i].dent.id);
-		console.log(total_status[i].createdTime);
-		console.log(total_status[i].dent.get("content"));
 		var action;
 		if(total_status.category == "dent"){
 			action = "make a dent";
@@ -613,17 +622,17 @@ function showStatus(total_status){
 			action = "reply on your dent";
 		}
 		var template = '<div class="event">' + 
-	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
+	    	'<div class="label"><img src="'+ total_status[i].contents.get("poster_img") +'"></div>' + 
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
-	        		'<a class="user">' + total_status[i].user.get("name") + '</a> ' + action +
+	        		'<a class="user">' + total_status[i].contents.get("post_name") + '</a> ' + action +
 	        		'<div class="date">' + moment(total_status.createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
-        		total_status[i].dent.get("content") + 
+        		total_status[i].contents.get("content") + 
       			'</div>' +
 	      		'<div class="meta">' +
-	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].dent.get("likes").length + ' Likes</a>'+
+	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].contents.get("likes").length + ' Likes</a>'+
       			'</div>' +
     		'</div>' +
   		'</div>';
