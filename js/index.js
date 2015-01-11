@@ -616,10 +616,17 @@ function showStatus(total_status){
 	var status_section = $("#status_content");
 	for(var i=0; i<total_status.length; i++){
 		var action;
-		if(total_status.category != "dent"){
+		console.log("category" + total_status.category);
+		if(total_status[i].category != "dent"){
 			action = "reply on your dent";
 		}else{
 			action = "make a dent";
+		}
+		var likes;
+		if(total_status[i].category == "dent"){
+			likes = total_status[i].contents.get("likes").length;
+		}else{
+			likes = total_status[i].contents.get("likers").length;
 		}
 		var template = '<div class="event">' + 
 	    	'<div class="label"><img src="'+ total_status[i].contents.get("poster_img") +'"></div>' + 
@@ -632,7 +639,7 @@ function showStatus(total_status){
         		total_status[i].contents.get("content") + 
       			'</div>' +
 	      		'<div class="meta">' +
-	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].contents.get("likes").length + ' Likes</a>'+
+	        		'<a class="like"><i class="like icon"></i> ' + likes + ' Likes</a>'+
       			'</div>' +
     		'</div>' +
   		'</div>';
