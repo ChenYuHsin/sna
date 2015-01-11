@@ -611,7 +611,7 @@ function showStatus(total_status){
         		total_status[i].dent.get("content") + 
       			'</div>' +
 	      		'<div class="meta">' +
-	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].dent.get["likes"].length + ' Likes</a>'+
+	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].dent.get("likes").length + ' Likes</a>'+
       			'</div>' +
     		'</div>' +
   		'</div>';
