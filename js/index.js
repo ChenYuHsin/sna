@@ -539,7 +539,7 @@ function queryResponse(dent){
 	});
 }
 
-function queryStatus(user_id){
+function queryStatus(currentUser){
 	var notifications;
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
