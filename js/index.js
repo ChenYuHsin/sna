@@ -571,7 +571,7 @@ function queryStatus(currentUser){
 
 				var Response = Parse.Object.extend("Response");
 				var queryFriendResponse = new Parse.Query(Response);
-				queryFriendResponse.equalTo("poster", friend);
+				queryFriendResponse.equalTo("responser", friend);
 				queryFriendResponse.find({
 					success: function(results) {
 			  			for(var k=0; k<results.length; k++){
