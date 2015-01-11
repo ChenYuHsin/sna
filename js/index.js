@@ -634,7 +634,8 @@ function showStatus(total_status){
 				likes = 0;
 			}else{
 				console.log(total_status[i].contents.get("likers"));
-				likes = total_status[i].contents.get("likers").length;	
+				likes = 0;
+				// likes = total_status[i].contents.get("likers").length;	
 			}
 		}
 		var template = '<div class="event">' + 
