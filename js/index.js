@@ -541,17 +541,21 @@ function queryResponse(dent){
 
 function queryStatus(currentUser){
 	var notifications;
+	console.log("get in queryStatus");
 	var friends = currentUser.get("friends");
+	console.log(friends);
 	for(var i = 0;i < friends.length; i++){
 		var queryFriend = new Parse.Query(Parse.User);
 		queryFriend.get(friends[i], {
 			success: function(friend) {
+				console.log(friend);
 				var friendDent = Parse.Object.extend("Dent");
 				var queryFriendDent = new Parse.Query(friendDent);
 				queryFriendDent.equalTo("Poster", friend);
 				queryFriendDent.descending("createdAt");
 				queryDent.find({
 			  		success: function(result) {
+			  			console.log(result);
 			  			notifications[result.createdAt] = result;
 			  		},
 			  		error: function(error) {
