@@ -624,13 +624,13 @@ function showStatus(total_status){
 		}
 		var likes;
 		if(total_status[i].category == "dent"){
-			if(total_status[i].contents.get("likes").length == "undefined"){
+			if(total_status[i].contents.get("likes") == "undefined"){
 				likes = 0;
 			}else{
 				likes = total_status[i].contents.get("likes").length;	
 			}
 		}else{
-			if(total_status[i].contents.get("likers").length == "undefined"){
+			if(total_status[i].contents.get("likers") == "undefined"){
 				likes = 0;
 			}else{
 				likes = total_status[i].contents.get("likers").length;	
