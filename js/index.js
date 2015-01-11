@@ -540,12 +540,9 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	var notifications = new Array();
-	// alert("get in queryStatus");
-	// console.log("get in queryStatus");
+	var status_contents = new Array();
+	var status_times = new Array();
 	var friends = currentUser.get("friends");
-	// alert(friends.length);
-	// console.log(friends);
 	for(var i = 0;i < friends.length; i++){
 		var Friend = Parse.Object.extend("User");
 		var queryFriend = new Parse.Query(Friend);
@@ -555,18 +552,19 @@ function queryStatus(currentUser){
 				var Dent = Parse.Object.extend("Dent");
 				var queryFriendDent = new Parse.Query(Dent);
 				queryFriendDent.equalTo("poster", friend);
-				queryFriendDent.descending("createdAt");
 				queryFriendDent.find({
 			  		success: function(result) {
-			  			alert(result.id);
-			  			// console.log(result);
-			  			notifications[result.createdAt] = result;
+			  			// alert(result.id);
+			  			status_times.push(result.createdAt);
+			  			console.log(result.createdAt);
+			  			status_contents.push(result.get("content"));
+			  			console.log(result.get("content"));
 			  		},
 			  		error: function(error) {
 			    		alert("Error: " + error.code + " " + error.message);
 			  		}
 				});
-			},
+	ㄣ		},
 			error: function(object, error) {
 				alert(object +" "+error);
 			}
@@ -574,8 +572,9 @@ function queryStatus(currentUser){
 	}
 
 	setTimeout(function(){
-		console.log(notifications);
-	}, 2000);
+		console.log(status_times);
+		console.log(status_contents);
+	}, 3000);
 }
 		
 
