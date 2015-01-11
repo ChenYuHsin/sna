@@ -549,7 +549,6 @@ function queryStatus(currentUser){
 		var queryFriend = new Parse.Query(Friend);
 		queryFriend.get(friends[i], {
 			success: function(friend) {
-				alert(friend.id);
 				var Dent = Parse.Object.extend("Dent");
 				var queryFriendDent = new Parse.Query(Dent);
 				queryFriendDent.equalTo("poster", friend);
@@ -561,7 +560,7 @@ function queryStatus(currentUser){
 			  				// console.log("createdAt:" + results[j].createdAt);
 			  				// status_contents.push(results[j].get("content"));
 			  				// console.log("createdAt:" + results[j].get("content"));
-			  				var status = {user: results[j].get("poster").id, content: results[j].get("content"), createdTime: results.createdAt};
+			  				var status = {user: results[j].get("poster"), dent: results[j], createdTime: results[j].createdAt, category: "dent"};
 			  				total_status.push(status);
 			  			}
 			  		},
@@ -582,6 +581,7 @@ function queryStatus(currentUser){
 		// var new_status = sortStatus(status_contents, status_times);
 		// showStatus(new_status[0], new_times[1]);
 		console.log(total_status);
+		showStatus(total_status);
 	}, 3000);
 }
 		
@@ -593,8 +593,30 @@ function sortStatus(contents, times){
 	// console.log("new:" + new_times);
 }
 
-function showStatus(times, contents){
-
+function showStatus(total_status){
+	// 應該先排列
+	// for 解析所有status
+	// 套入 template
+	// append
+	var status_section = $("#status_content");
+	for(var i=0; i<total_status.length; i++){
+		var template = '<div class="event">' + 
+	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>'
+	    	'<div class="content">' + 
+	      		'<div class="summary">' + 
+	        		'<a class="user">' + total_status[i].user.get("name") + '</a> make a dent' + 
+	        		'<div class="date">' + moment(total_status.createdTime).fromNow() + '</div>'+
+	      		'</div>' +
+	      		'<div class="extra text">' +
+        		total_status[i].dent.get("content") + 
+      			'</div>' +
+	      		'<div class="meta">' +
+	        		'<a class="like"><i class="like icon"></i> ' + total_status[i].dent.get["likes"].length + ' Likes</a>'+
+      			'</div>' +
+    		'</div>' +
+  		'</div>';
+  		status_section.append(template);
+	}
 }
 
 
