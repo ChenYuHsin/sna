@@ -572,8 +572,10 @@ function queryStatus(currentUser){
 				var Response = Parse.Object.extend("Response");
 				var queryFriendResponse = new Parse.Query(Response);
 				queryFriendResponse.equalTo("responser", friend);
+				console.log("Response");
 				queryFriendResponse.find({
 					success: function(results) {
+						console.log("Response: " + results.length);
 			  			for(var k=0; k<results.length; k++){
 			  				var status = {user: results[k].get("responser"), contents: results[j], createdTime: results[j].createdAt, category: "response"};
 			  				total_status.push(status);
