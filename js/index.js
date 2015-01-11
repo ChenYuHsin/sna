@@ -540,7 +540,34 @@ function queryResponse(dent){
 }
 
 function queryStatus(user_id){
-	alert(user_id);
+	var notifications;
+	var friends = currentUser.get("friends");
+	for(var i = 0;i < friends.length; i++){
+		var queryFriend = new Parse.Query(Parse.User);
+		queryFriend.get(friends[i], {
+			success: function(friend) {
+				var friendDent = Parse.Object.extend("Dent");
+				var queryFriendDent = new Parse.Query(friendDent);
+				queryFriendDent.equalTo("Poster", friend);
+				queryFriendDent.descending("createdAt");
+				queryDent.find({
+			  		success: function(result) {
+			  			notifications[result.createdAt] = result;
+			  		},
+			  		error: function(error) {
+			    		alert("Error: " + error.code + " " + error.message);
+			  		}
+				});
+			},
+			error: function(object, error) {
+				alert(object +" "+error);
+			}
+		});
+	}
+
+	setTimeout(function(){
+		console.log(notifications);
+	}, 2000);
 }
 		
 
