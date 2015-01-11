@@ -553,20 +553,20 @@ function queryStatus(currentUser){
 				var queryFriendDent = new Parse.Query(Dent);
 				queryFriendDent.equalTo("poster", friend);
 				queryFriendDent.find({
-			  		success: function(result) {
-			  			console.log("why");
-			  			console.log(result);
+			  		success: function(results) {
 			  			// alert(result.id);
-			  			status_times.push(result.createdAt + "");
-			  			console.log("createdAt:" + result.createdAt);
-			  			status_contents.push(result.get("content"));
-			  			console.log("content:" + result.get("content"));
+			  			for(var j=0; j<results.length; j++){
+			  				status_times.push(results[j].createdAt);
+			  				console.log("createdAt:" + results[j].createdAt);
+			  				status_contents.push(results[j].get("content"));
+			  				console.log("createdAt:" + results[j].get("content"));
+			  			}
 			  		},
 			  		error: function(error) {
 			    		alert("Error: " + error.code + " " + error.message);
 			  		}
 				});
-	ㄣ		},
+			},
 			error: function(object, error) {
 				alert(object +" "+error);
 			}
