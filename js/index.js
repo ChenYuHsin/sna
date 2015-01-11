@@ -196,8 +196,9 @@ jQuery(document).ready(function($){
 		//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
 		query.find({
 			success: function(results){
-				// alert("Successfully retrieved " + results.length + " scores.");
-				
+				var pre_time_start_hour = 8;
+				var pre_time_start_minute = 0;
+
 				for(var i=0; i<results.length; i++){
 
 					var dent = results[i];
@@ -216,8 +217,11 @@ jQuery(document).ready(function($){
 					var calkeep = gaptime/60000*2;
 					var getstartHour = dent_start.getHours();
 					var getstartMinutes = dent_start.getMinutes();
-					var calmarginTop = (getstartHour-8)*60*2 + getstartMinutes*2;
-					console.log(calkeep);
+					var calmarginTop = (getstartHour-pre_time_start_hour)*60*2 + (getstartMinutes-pre_time_start_minute)*2;
+
+					pre_time_start_hour = getstartHour;
+					pre_time_start_minute = getstartMinutes;
+
 					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
 					var popupTplCotent = "<div class='ui items popup_item'>"+
 								  "<div class='item'>"+
