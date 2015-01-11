@@ -633,6 +633,7 @@ function showStatus(total_status){
 			if(total_status[i].contents.get("likers") == "undefined"){
 				likes = 0;
 			}else{
+				console.log(total_status[i].contents.get("likers"));
 				likes = total_status[i].contents.get("likers").length;	
 			}
 		}
