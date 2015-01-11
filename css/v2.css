@@ -1,0 +1,131 @@
+#example.pushable.left.overlay .fixed.launch.button {
+  transform: translate3d(0, 0, 0);
+}
+#example.pushable.overlay.left.pushed .fixed.launch.button {
+  transform: translate3d(260px, 0, 0);
+}
+#status_sidebar_btn {
+  position: fixed;
+  top: 70px;
+  left: -1px;
+
+  width: 55px;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -moz-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -o-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -ms-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+}
+
+#status_sidebar_btn .text {
+  position: absolute;
+  white-space: nowrap;
+  top: auto;
+  left: 54px;
+  opacity: 0;
+  -webkit-transition:
+    0.3s opacity 0.3s
+  ;
+  -moz-transition:
+    0.3s opacity 0.3s
+  ;
+  -o-transition:
+    0.3s opacity 0.3s
+  ;
+  -ms-transition:
+    0.3s opacity 0.3s
+  ;
+  transition:
+    0.3s opacity 0.3s
+  ;
+}
+#status_sidebar_btn:hover {
+  width: 130px;
+}
+#status_sidebar_btn:hover .text {
+  opacity: 1;
+}
+
+
+#example .shortcuts {
+  float: right;
+  clear: both;
+}
+#example .launch.button .icon {
+  margin-left: 0px;
+}
+header .slogan{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 0 0 5px #00c6ff;
+  color: #ffffff;
+  padding-top: 30px;
+}
+#header_v2{
+  background: #00B5AD;
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.95));
+}
+.following.bar{
+  background: transparent !important;
+  position: absolute;
+  top: 0px;
+  z-index: 900;
+  left: 0%;
+  padding: 2em 0em;
+  width: 100%;
+  box-shadow: 0px 0px 0px 0px transparent;
+  border-bottom: 1px solid transparent;
+  transition: padding 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+  
+}
+.following.bar .menu{
+  background: transparent;
+}
+.following.bar.light.fixed{
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0px;
+  padding: 1em 0em;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+}
+.following.bar .menu a,.following.bar .menu div, .menu #menu_date, .menu #friends_page {
+  color: #CCE2FF !important;
+}
+.following.bar.light.fixed{
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0px;
+  padding: 1em 0em;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+}
+.following.bar.light.fixed .menu{
+  background: #ffffff;
+
+}
+.following.bar.light.fixed a,.following.bar.light.fixed #previous_date,.following.bar.light.fixed #next_date, .following.bar.light.fixed .menu #menu_date{
+  color: #000000 !important;
+}
+#sub_slogan{
+  font-size: 20px;
+}
