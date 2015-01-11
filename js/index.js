@@ -602,7 +602,7 @@ function showStatus(total_status){
 	status_section.append("hi");
 	for(var i=0; i<total_status.length; i++){
 		var template = '<div class="event">' + 
-	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>'
+	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
 	        		'<a class="user">' + total_status[i].user.get("name") + '</a> make a dent' + 
@@ -617,7 +617,7 @@ function showStatus(total_status){
     		'</div>' +
   		'</div>';
   		status_section.append(template);
-  		console.log(template);
+  		console.log("template:" + template);
 	}
 }
 
