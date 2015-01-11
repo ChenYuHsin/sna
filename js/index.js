@@ -601,6 +601,10 @@ function showStatus(total_status){
 	var status_section = $("#status_content");
 	status_section.append("hi");
 	for(var i=0; i<total_status.length; i++){
+		console.log(total_status[i].user.id);
+		console.log(total_status[i].dent.id);
+		console.log(total_status[i].createdTime);
+		console.log(total_status[i].dent.get("content"));
 		var template = '<div class="event">' + 
 	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
 	    	'<div class="content">' + 
