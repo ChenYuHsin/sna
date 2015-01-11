@@ -599,6 +599,7 @@ function showStatus(total_status){
 	// 套入 template
 	// append
 	var status_section = $("#status_content");
+	status_section.append("hi");
 	for(var i=0; i<total_status.length; i++){
 		var template = '<div class="event">' + 
 	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>'
@@ -616,6 +617,7 @@ function showStatus(total_status){
     		'</div>' +
   		'</div>';
   		status_section.append(template);
+  		console.log(template);
 	}
 }
 
