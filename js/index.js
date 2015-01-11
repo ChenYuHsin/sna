@@ -551,12 +551,11 @@ function queryStatus(currentUser){
 		var queryFriend = new Parse.Query(Friend);
 		queryFriend.get(friends[i], {
 			success: function(friend) {
-				// console.log(friend);
-				var friendDent = Parse.Object.extend("Dent");
-				var queryFriendDent = new Parse.Query(friendDent);
-				queryFriendDent.equalTo("Poster", friend);
 				alert(friend.id);
-				// queryFriendDent.descending("createdAt");
+				var Dent = Parse.Object.extend("Dent");
+				var queryFriendDent = new Parse.Query(Dent);
+				queryFriendDent.equalTo("poster", friend);
+				queryFriendDent.descending("createdAt");
 				queryFriendDent.find({
 			  		success: function(result) {
 			  			alert(result.id);
