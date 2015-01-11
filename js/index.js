@@ -573,10 +573,10 @@ function queryStatus(currentUser){
 		});
 	}
 
-	setTimeout(function(status_contents, status_times){
+	setTimeout(function(){
 		console.log(status_times);
 		console.log(status_contents);
-		sortStatus();
+		sortStatus(status_contents, status_times);
 	}, 3000);
 }
 		
