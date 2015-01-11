@@ -616,7 +616,7 @@ function showStatus(total_status){
 	var status_section = $("#status_content");
 	for(var i=0; i<total_status.length; i++){
 		var action;
-		console.log("category" + total_status.category);
+		console.log("category" + total_status[i].category);
 		if(total_status[i].category != "dent"){
 			action = "reply on your dent";
 		}else{
@@ -624,9 +624,17 @@ function showStatus(total_status){
 		}
 		var likes;
 		if(total_status[i].category == "dent"){
-			likes = total_status[i].contents.get("likes").length;
+			if(total_status[i].contents.get("likes").length == "undefined"){
+				likes = 0;
+			}else{
+				likes = total_status[i].contents.get("likes").length;	
+			}
 		}else{
-			likes = total_status[i].contents.get("likers").length;
+			if(total_status[i].contents.get("likers").length == "undefined"){
+				likes = 0;
+			}else{
+				likes = total_status[i].contents.get("likers").length;	
+			}
 		}
 		var template = '<div class="event">' + 
 	    	'<div class="label"><img src="'+ total_status[i].contents.get("poster_img") +'"></div>' + 
