@@ -561,7 +561,7 @@ function queryStatus(currentUser){
 			  				// console.log("createdAt:" + results[j].createdAt);
 			  				// status_contents.push(results[j].get("content"));
 			  				// console.log("createdAt:" + results[j].get("content"));
-			  				var status = {user: results[j].poster.id, content: results[j].get("content"), createdTime: results.createdAt};
+			  				var status = {user: results[j].get("poster").id, content: results[j].get("content"), createdTime: results.createdAt};
 			  				total_status.push(status);
 			  			}
 			  		},
