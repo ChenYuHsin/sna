@@ -132,6 +132,7 @@ jQuery(document).ready(function($){
 			}
 		});
 		
+		queryStatus(currentUser.id);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
 	    console.log($('.make_dent'));
@@ -538,6 +539,9 @@ function queryResponse(dent){
 	});
 }
 
+function queryStatus(user_id){
+	alert(user_id);
+}
 		
 
 
