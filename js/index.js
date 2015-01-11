@@ -540,8 +540,9 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	var status_contents = new Array();
-	var status_times = new Array();
+	// var status_contents = new Array();
+	// var status_times = new Array();
+	var total_status = new Array();
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
 		var Friend = Parse.Object.extend("User");
@@ -556,10 +557,12 @@ function queryStatus(currentUser){
 			  		success: function(results) {
 			  			// alert(result.id);
 			  			for(var j=0; j<results.length; j++){
-			  				status_times.push(results[j].createdAt);
-			  				console.log("createdAt:" + results[j].createdAt);
-			  				status_contents.push(results[j].get("content"));
-			  				console.log("createdAt:" + results[j].get("content"));
+			  				// status_times.push(results[j].createdAt);
+			  				// console.log("createdAt:" + results[j].createdAt);
+			  				// status_contents.push(results[j].get("content"));
+			  				// console.log("createdAt:" + results[j].get("content"));
+			  				var status = {user: results[j].poster.id, content: results[j].get("content"), createdTime: results.createdAt};
+			  				total_status.push(status);
 			  			}
 			  		},
 			  		error: function(error) {
@@ -574,16 +577,24 @@ function queryStatus(currentUser){
 	}
 
 	setTimeout(function(){
-		console.log(status_times);
-		console.log(status_contents);
-		sortStatus(status_contents, status_times);
+		// console.log(status_times);
+		// console.log(status_contents);
+		// var new_status = sortStatus(status_contents, status_times);
+		// showStatus(new_status[0], new_times[1]);
+		console.log(total_status);
 	}, 3000);
 }
 		
 function sortStatus(contents, times){
-	var new_times = times.sort();
-	console.log("old:" + times);
-	console.log("new:" + new_times);
+	// var new_times = times.sort();
+	var new_status = [times, contents];
+	return new_status;
+	// console.log("old:" + times);
+	// console.log("new:" + new_times);
+}
+
+function showStatus(times, contents){
+
 }
 
 
