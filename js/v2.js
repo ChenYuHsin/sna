@@ -91,7 +91,9 @@ $(document).ready(function(){
     });
 };
 	//window.scrollTo(scrollDistance);
-
+	$("#go_to_now").click(function(){
+		$('html,body').scrollBy(0, scrollDistance);
+	})
 	$("#scroll_up_btn").click(function(){
 		$('html,body').stop().scrollBy(0, -380);
 	})

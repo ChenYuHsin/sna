@@ -81,8 +81,8 @@ header .slogan{
   padding-top: 30px;
 }
 #header_v2{
-  background: #00B5AD;
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.95));
+  background: #f19a3e;
+  /*background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));*/
 }
 .following.bar{
   background: transparent !important;
@@ -109,7 +109,7 @@ header .slogan{
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
 }
 .following.bar .menu a,.following.bar .menu div, .menu #menu_date, .menu #friends_page {
-  color: #CCE2FF !important;
+  color: #ffffff !important;
 }
 .following.bar.light.fixed{
   background-color: #FFFFFF;
@@ -128,4 +128,13 @@ header .slogan{
 }
 #sub_slogan{
   font-size: 20px;
+}
+.ui.main.menu{
+  box-shadow: none;
+}
+.side{
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+}
+.ui.grid.page.for_page{
+  /*background: #f5ffc6;
 }
