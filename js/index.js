@@ -554,11 +554,13 @@ function queryStatus(currentUser){
 				queryFriendDent.equalTo("poster", friend);
 				queryFriendDent.find({
 			  		success: function(result) {
+			  			console.log("why");
+			  			console.log(result);
 			  			// alert(result.id);
-			  			status_times.push(result.createdAt);
-			  			console.log(result.createdAt);
+			  			status_times.push(result.createdAt + "");
+			  			console.log("createdAt:" + result.createdAt);
 			  			status_contents.push(result.get("content"));
-			  			console.log(result.get("content"));
+			  			console.log("content:" + result.get("content"));
 			  		},
 			  		error: function(error) {
 			    		alert("Error: " + error.code + " " + error.message);
