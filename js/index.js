@@ -540,7 +540,7 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	var notifications;
+	var notifications = new Array();
 	// alert("get in queryStatus");
 	// console.log("get in queryStatus");
 	var friends = currentUser.get("friends");
@@ -555,10 +555,12 @@ function queryStatus(currentUser){
 				var friendDent = Parse.Object.extend("Dent");
 				var queryFriendDent = new Parse.Query(friendDent);
 				queryFriendDent.equalTo("Poster", friend);
-				queryFriendDent.descending("createdAt");
+				alert(friend.id);
+				// queryFriendDent.descending("createdAt");
 				queryFriendDent.find({
 			  		success: function(result) {
-			  			console.log(result);
+			  			alert(result.id);
+			  			// console.log(result);
 			  			notifications[result.createdAt] = result;
 			  		},
 			  		error: function(error) {
