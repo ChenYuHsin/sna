@@ -616,10 +616,10 @@ function showStatus(total_status){
 	var status_section = $("#status_content");
 	for(var i=0; i<total_status.length; i++){
 		var action;
-		if(total_status.category == "dent"){
-			action = "make a dent";
-		}else{
+		if(total_status.category != "dent"){
 			action = "reply on your dent";
+		}else{
+			action = "make a dent";
 		}
 		var template = '<div class="event">' + 
 	    	'<div class="label"><img src="'+ total_status[i].contents.get("poster_img") +'"></div>' + 
