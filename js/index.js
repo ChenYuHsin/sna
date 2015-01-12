@@ -81,7 +81,7 @@ jQuery(document).ready(function($){
 });
 
 		function friendtimeline(){
-			var friends = currentUser.get("friends");
+			var friends = Parse.User.current().get("friends");
 			for(var i = 0;i < friends.length; i++){
 				var queryFriend = new Parse.Query(Parse.User);
 				queryFriend.get(friends[i], {
