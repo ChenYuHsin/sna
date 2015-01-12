@@ -76,7 +76,6 @@ jQuery(document).ready(function($){
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
 	    console.log($('.make_dent'));
-	    console.log($('#reply_send'));
 	} else {
 	    // show the signup or login page
 	}
@@ -294,7 +293,7 @@ function clickLike(dent_id , user_id){
 	});
 }
 
-$("#reply_send").on( "click", function() {
+$(".reply_send").on( "click", function() {
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 	console.log(dent_id);
 	deliverReponse(dent_id);
@@ -402,7 +401,7 @@ function printResponseTpl(post_id){
 						"</div>"+
 						"<div class='actions'>"+
 							"<div class='ui button'>Cancel</div>"+
-							"<div class='ui button' id='reply_send'>Send</div>"+
+							"<div class='ui button reply_send'>Send</div>"+
 						"</div></div>";
 
 				$("body").append(tpl);	
