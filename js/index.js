@@ -60,19 +60,8 @@ jQuery(document).ready(function($){
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    	});
 
-   	$("[id = 'reply_send']").click(function(){
-		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-		console.log(dent_id);
-		deliverReponse(dent_id);
-	})
-
-	$("[id = 'reply_send']").on("click",function(){
-		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-		console.log(dent_id);
-		deliverReponse(dent_id);
-	})
-
 	$("body").on( "click","#reply_send", function() {
+		console.log($(this));
 		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 		console.log(dent_id);
 		deliverReponse(dent_id);
