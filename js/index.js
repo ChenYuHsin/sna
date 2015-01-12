@@ -144,57 +144,6 @@ jQuery(document).ready(function($){
 			});
 		}
 		
-	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
-	    console.log($(".dinner").find('.cd-timeline-img'));
-	    console.log($('.make_dent'));
-	    $(".reply_send").click(function(){
-			var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-			console.log(dent_id);
-			deliverReponse(dent_id);
-		});
-	} else {
-	    // show the signup or login page
-	}
-
-})//------------------------------------------------------------------
-	
-	
-	function deliverDent(user, category, color, content, s, e){
-		var Dent = Parse.Object.extend("Dent");
-  		var dent = new Dent();
-  		var Poster = Parse.Object.extend("User");
-  		var query = new Parse.Query(Poster);
-  		var poster_img = $('.post_content img').attr('src'); 
-  		var poster_name = $('.make_dent_name').text(); 			
-		query.get(user.id, {
-			success: function(p) {
-				var poster = p;
-				var s_datetime = new Date(s);
-	  			var e_datetime = new Date(e);
-	  			dent.set("poster", poster);
-	  			dent.set("category", category);
-	  			dent.set("color", color);
-	  			dent.set("content", content);
-	  			dent.set("s_datetime", s_datetime);
-	  			dent.set("e_datetime", e_datetime);
-	  			dent.set("poster_img", poster_img);
-	  			dent.set("poster_name", poster_name);
-	  			dent.save(null, {
-				  	success: function(gameScore) {
-				    	//queryDent();
-				    	alert("success");
-				  	},
-				  	error: function(gameScore, error) {
-				    	alert('Failed to create new object, with error code: ' + error.message);
-				  	}
-				});
-			},
-			error: function(object, error) {
-				alert(error.message);
-			}
-		});
-	};
-
 function deliverDent(user, category, color, content, s, e){
 	var Dent = Parse.Object.extend("Dent");
 		var dent = new Dent();
@@ -236,6 +185,10 @@ function deliverDent(user, category, color, content, s, e){
 		}
 	});
 };
+	
+	
+
+	
 
 
 /*************************************** 這是時段template *************************************************/
@@ -360,51 +313,6 @@ function queryDent(object , querytime){
 // 	});
 // }
 
-
-
-		
-
-		function deliverReponse(dent_id){
-			var currentUser = Parse.User.current();
-			var responser = currentUser.id;
-			
-			var content = $("#reply_area").val();
-			var Dent = Parse.Object.extend("Dent");
-  			var query1 = new Parse.Query(Dent);
-  			var Responser = Parse.Object.extend("User");
-  			var query2 = new Parse.Query(Responser);
-  			query1.get(dent_id, {
-  				success: function(d) {
-  					
-  					query2.get(responser, {
-  						success: function(u){
-  							
-  							var Response = Parse.Object.extend("Response");
-  							var response = new Response();
-  							response.set("responser", u);
-  							response.set("dent_id", d);
-  							response.set("content", content);
-  							response.save(null, {
-							  	success: function(gameScore) {
-							    	//queryResponse(d);
-							    	
-							  	},
-							  	error: function(gameScore, error) {
-							    	alert('Failed to create new object, with error code: ' + error.message);
-							  	}
-							});
-  						},
-  						error: function(error){
-  							alert(error.message);
-  						}
-  					});
-  				},
-  				error: function(error){
-  					alert(error);
-  				}
-  			});
-		}
-
 function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
 	var responser = currentUser.id;
@@ -445,7 +353,7 @@ function deliverResponse(dent_id){
 			}
 		});
 }
-
+		
 
 function showResponseModal(value){
 	var modalId = ".ui.modal.modal_"+value.data.name;
