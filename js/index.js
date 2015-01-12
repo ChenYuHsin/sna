@@ -269,7 +269,7 @@ function queryDent(object , querytime){
 			
 		},
 		error: function(object, error){
-			alert(error.message);
+			console.log(error.toString());
 		}
 	});
 }
