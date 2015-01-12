@@ -26,6 +26,13 @@ $(document).on("click", "#add_friend_btn", function(){
 				var friendname = frienddata.get('name');
 				friendlist(friendid, friendurl, friendname);
 				$('#recommendfriend').children('[id="'+friendid+'"]').remove();
+
+				var addfriendevent = Parse.Object.extend("Event");
+				var addfriend = new addfriendevent();
+				addfriend.set("category", "addfriend");
+				addfriend.set("User", currentuser);
+				addfriend.set("targetuser", frienddata);
+				addfriend.save();
 			}
 		})
 	}
