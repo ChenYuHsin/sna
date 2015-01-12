@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 
 	$("body").on( "click","#reply_send", function() {
 		console.log($(this));
-		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+		var dent_id = $(this).closest(".actions").prev().find("#dent_id").find("div").attr("data-dentId");//requests["id"];
 		console.log(dent_id);
 		deliverReponse(dent_id);
 	})
@@ -375,7 +375,7 @@ function printResponseTpl(post_id){
 				
 				
 				$("#dent_id").attr("data-dentId", post_id);
-				var tpl = "<div class='ui modal reply_content small modal_"+post_id+"' >"+
+				var tpl = "<div class='ui modal reply_content small modal_"+post_id+"' data-dentId='"+post_id+"'  >"+
 						"<i class='close icon'></i>"+
 						"<div class='header'>"+
 						"Reply"+
