@@ -203,11 +203,14 @@ function queryDent(object){
 	var today = new Date();
 	var Dent = Parse.Object.extend("Dent");
 	var query = new Parse.Query(Dent);
-	var today = new Date();
-	var begining = today.setHours(0,0,0);
-	var end = today.setHours(23,59,59);
-	query.lessThan("e_datetime", end);
-	query.greaterThan("s_datetime", begining);
+	// var today = new Date();
+	// var begining = today.setHours(0,0,0);
+	// var end = today.setHours(23,59,59);
+	var today = moment();
+	var tomorrow = moment().add(1, 'days');
+	var yesterday = moment().subtract(1, 'day')
+	query.lessThan("e_datetime", tomorrow);
+	query.greaterThan("s_datetime", yesterday);
 	query.equalTo("poster", object);
 	query.include("poster");
 	
