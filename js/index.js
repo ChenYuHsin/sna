@@ -64,7 +64,8 @@ jQuery(document).ready(function($){
 	
 	var currentUser = Parse.User.current();
 	if (currentUser) {
-		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line 
+		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
+		queryDent(currentUser); 
 		/*****  朋友timeline ******/
 		var friends = currentUser.get("friends");
 		for(var i = 0;i < friends.length; i++){
@@ -76,28 +77,14 @@ jQuery(document).ready(function($){
 										"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 									"</section>";
 					$("#friends_timmeline_area #1 .content").append(friendsSection);
-					
-					
-					
+					queryDent(friends);					
 				},
 				error: function(object, error) {
 					alert(object +" "+error);
 				}
 			});
-		
-
-			var Dent = Parse.Object.extend("Dent");
-			var dent = new Parse.Query(Dent);
-			dent.equalTo("poster2", friends[i]);
-			dent.find({
-			  success: function(results) {
-			  },
-			  error: function(error) {
-			    alert("Error: " + error.code + " " + error.message);
-			  }
-			});
 		}
-		queryDent(); // 需要改呼叫時間，不然會很耗資源
+		//queryDent(); // 需要改呼叫時間，不然會很耗資源
 
 		//response modal 產生
 		var postIdArray = [];
@@ -192,10 +179,12 @@ var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId)
 				"</div>";
 	return timeTpl;	
 };
-	
-function queryDent(){
+
+function queryDent(object){
 	var Dent = Parse.Object.extend("Dent");
 	var query = new Parse.Query(Dent);
+	query.equalTo("poster", object);
+	query.include("poster");
 	
 	//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
 	query.ascending("s_datetime");
@@ -258,6 +247,72 @@ function queryDent(){
 		}
 	});
 }
+	
+// function queryDent(){
+// 	var Dent = Parse.Object.extend("Dent");
+// 	var query = new Parse.Query(Dent);
+	
+// 	//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
+// 	query.ascending("s_datetime");
+// 	query.find({
+// 		success: function(results){
+// 			var pre_time_start_hour = 8;
+// 			var pre_time_start_minute = 0;
+
+// 			for(var i=0; i<results.length; i++){
+
+// 				var dent = results[i];
+// 				var dent_poster_obj = dent.get("poster");
+// 				var dent_poster = dent.get("poster").id;
+// 				var dent_category = dent.get("category");
+// 				var dent_content = dent.get("content");
+// 				var dent_start = dent.get("s_datetime");
+// 				var dent_end = dent.get("e_datetime");
+// 				var dent_color = dent.get("color");
+// 				var calstart = dent_start.getHours();
+// 				var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
+// 				var ClassName = "[data-timelineid = '"+ dent_poster +"']";
+// 				var popuoClass = "#dent_"+dent.id+" "+".cd-timeline-img";
+// 				var gaptime = dent_end.getTime() - dent_start.getTime();
+// 				var calkeep = gaptime/60000*2;
+// 				var getstartHour = dent_start.getHours();
+// 				var getstartMinutes = dent_start.getMinutes();
+// 				var calmarginTop = (getstartHour-pre_time_start_hour)*60*2 + (getstartMinutes-pre_time_start_minute)*2;
+
+// 				pre_time_start_hour = getstartHour;
+// 				pre_time_start_minute = getstartMinutes;
+
+// 				$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
+// 				var popupTplCotent = "<div class='ui items popup_item'>"+
+// 							  "<div class='item'>"+
+// 							    "<a class='ui tiny image'>"+
+// 							      "<img src='"+dent.get('poster_img')+"' style='border-radius: .25rem;'>"+
+// 							    "</a>"+
+// 							    "<div class='content'>"+
+// 							      "<a class='author'>"+dent.get('poster_name')+"</a>"+
+// 							      "<div class='metadata'>"+
+// 							      	"<div class='date'>1</div>"+
+// 							      "</div>"+
+// 							      "<div class='description'>"+
+							        
+// 							        "<p>"+dent_content+"</p>"+
+// 							      "</div>"+
+// 							    "</div>"+
+// 							  "</div>";
+				
+// 				$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});	
+
+				
+// 				//here is for click modal
+// 				//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
+// 			}
+			
+// 		},
+// 		error: function(object, error){
+// 			alert(error.message);
+// 		}
+// 	});
+// }
 	
 	/*$('body').on("click",".cd-timeline-img",function(){
 		var post_id = $(this).closest('.cd-timeline-block').attr("id");
