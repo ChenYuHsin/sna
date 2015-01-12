@@ -1,0 +1,404 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+/* line 5, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 7, ../scss/base/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* line 8, ../scss/screen.scss */
+body {
+  font-family: "Roboto" ,"微軟正黑體" , "Microsoft JhengHei";
+}
+
+/* line 17, ../scss/screen.scss */
+.top-line {
+  color: #666666;
+}
+
+/* line 23, ../scss/screen.scss */
+.profile-con #set-3 {
+  background: #ff5db1;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #ff5db1 0%, #fe775f 0%, #ede6c6 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #ff5db1), color-stop(0%, #fe775f), color-stop(100%, #ede6c6));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg, #ff5db1 0%, #fe775f 0%, #ede6c6 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg, #ff5db1 0%, #fe775f 0%, #ede6c6 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg, #ff5db1 0%, #fe775f 0%, #ede6c6 100%);
+  /* IE10+ */
+  background: linear-gradient(45deg, #ff5db1 0%, #fe775f 0%, #ede6c6 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', endColorstr='#ede6c6',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+/* line 33, ../scss/screen.scss */
+.profile-con #set-3 .top-line {
+  padding-top: 20px;
+  text-align: center;
+}
+/* line 38, ../scss/screen.scss */
+.profile-con #set-3 span, .profile-con #set-3 i {
+  color: #333;
+  font-size: 25px;
+  vertical-align: middle;
+}
+/* line 44, ../scss/screen.scss */
+.profile-con #set-3 i {
+  vertical-align: middle;
+}
+/* line 46, ../scss/screen.scss */
+.profile-con #set-3 i.fa-angle-left {
+  margin-right: 250px;
+}
+/* line 49, ../scss/screen.scss */
+.profile-con #set-3 i.fa-ellipsis-v {
+  margin-left: 250px;
+}
+/* line 54, ../scss/screen.scss */
+.profile-con #set-3 a {
+  vertical-align: middle;
+}
+/* line 57, ../scss/screen.scss */
+.profile-con #set-3 img {
+  vertical-align: middle;
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #fff;
+}
+
+/* line 68, ../scss/screen.scss */
+#friend-followed, #might-interested {
+  background-color: #F0F0F0;
+  margin: 10px 0px 10px 0px;
+}
+
+/* line 73, ../scss/screen.scss */
+.belt {
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 76, ../scss/screen.scss */
+.belt > div {
+  color: #FFF;
+  text-align: center;
+  flex: 1;
+  background-color: #F8AC8F;
+  margin: 4px 2px 4px 2px;
+  padding: 30px 0px 30px 0px;
+}
+/* line 83, ../scss/screen.scss */
+.belt > div.followers {
+  margin-left: 0px;
+}
+/* line 86, ../scss/screen.scss */
+.belt > div.Dents {
+  background-color: #FF7F66;
+}
+/* line 89, ../scss/screen.scss */
+.belt > div.friends-included {
+  margin-right: 0px;
+}
+/* line 93, ../scss/screen.scss */
+.belt .Num {
+  font-size: 25px;
+}
+/* line 96, ../scss/screen.scss */
+.belt .belt-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #666666;
+  margin: 10px;
+}
+/* line 101, ../scss/screen.scss */
+.belt .belt-title.til-dents {
+  color: #fff;
+}
+
+/* line 109, ../scss/screen.scss */
+.ui.page.grid {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 112, ../scss/screen.scss */
+.ui.page.grid .ui.header {
+  color: #FF7F66;
+  margin: calc(2rem - .165em) 0 1rem;
+  margin: -webkit-calc(2rem - .165em) 0 1rem;
+}
+/* line 116, ../scss/screen.scss */
+.ui.page.grid .ui.header div.content {
+  font-weight: normal;
+}
+/* line 122, ../scss/screen.scss */
+.ui.page.grid .effect-zoe a {
+  margin: 10px;
+}
+
+/* Common style */
+/* line 151, ../scss/screen.scss */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 100px;
+  max-width: 200px;
+  min-height: 100px;
+  max-height: 200px;
+  width: 48%;
+  height: auto;
+  background: #3085a3;
+  text-align: center;
+}
+
+/* line 166, ../scss/screen.scss */
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.9;
+}
+
+/* line 174, ../scss/screen.scss */
+.grid figure figcaption {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
+
+/* line 182, ../scss/screen.scss */
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+/* line 187, ../scss/screen.scss */
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+/* line 198, ../scss/screen.scss */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+/* line 206, ../scss/screen.scss */
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+/* line 211, ../scss/screen.scss */
+.grid figure h2 span {
+  font-weight: 800;
+}
+
+/* line 215, ../scss/screen.scss */
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+/* line 220, ../scss/screen.scss */
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+/*---------------*/
+/***** Zoe *****/
+/*---------------*/
+/* line 230, ../scss/screen.scss */
+figure.effect-zoe figcaption {
+  top: auto;
+  bottom: 0;
+  padding: 1em;
+  height: 3.75em;
+  background: #fff;
+  color: #3c4a50;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+/* line 243, ../scss/screen.scss */
+figure.effect-zoe h2 {
+  float: left;
+}
+
+/* line 247, ../scss/screen.scss */
+figure.effect-zoe p.icon-links a {
+  float: right;
+  color: #3c4a50;
+  font-size: 1.4em;
+}
+
+/* line 253, ../scss/screen.scss */
+figure.effect-zoe:hover p.icon-links a:hover,
+figure.effect-zoe:hover p.icon-links a:focus {
+  color: #252d31;
+}
+
+/* line 258, ../scss/screen.scss */
+figure.effect-zoe p.description {
+  position: absolute;
+  bottom: 8em;
+  padding: 2em;
+  color: #fff;
+  text-transform: none;
+  font-size: 90%;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+  -webkit-backface-visibility: hidden;
+  /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+/* line 271, ../scss/screen.scss */
+figure.effect-zoe h2,
+figure.effect-zoe p.icon-links a {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 200%, 0);
+  transform: translate3d(0, 200%, 0);
+}
+
+/* line 279, ../scss/screen.scss */
+figure.effect-zoe p.icon-links a span::before {
+  display: inline-block;
+  padding: 8px 10px;
+  font-family: 'feathericons';
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 289, ../scss/screen.scss */
+figure.effect-zoe h2 {
+  display: inline-block;
+}
+
+/* line 293, ../scss/screen.scss */
+figure.effect-zoe:hover p.description {
+  opacity: 1;
+}
+
+/* line 297, ../scss/screen.scss */
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover h2,
+figure.effect-zoe:hover p.icon-links a {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 304, ../scss/screen.scss */
+figure.effect-zoe:hover h2 {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+/* line 309, ../scss/screen.scss */
+figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+/* line 314, ../scss/screen.scss */
+figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+
+/* line 319, ../scss/screen.scss */
+figure.effect-zoe:hover p.icon-links a:first-child {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
