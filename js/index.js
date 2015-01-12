@@ -237,11 +237,6 @@ function deliverDent(user, category, color, content, s, e){
 	});
 };
 
-	
-	
-
-	
-
 
 /*************************************** 這是時段template *************************************************/
 var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId){
@@ -450,7 +445,7 @@ function deliverResponse(dent_id){
 			}
 		});
 }
-		
+
 
 function showResponseModal(value){
 	var modalId = ".ui.modal.modal_"+value.data.name;
