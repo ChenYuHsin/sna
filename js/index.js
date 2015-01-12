@@ -70,8 +70,9 @@ jQuery(document).ready(function($){
 	
 	var currentUser = Parse.User.current();
 	if (currentUser) {
+		var selecteddate = $('#menu_date').text();
 		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
-		queryDent(currentUser); 
+		queryDent(currentUser, selecteddate); 
 		/*****  朋友timeline ******/
 		friendtimeline();
 		setTimeout(function(){ 
@@ -89,6 +90,7 @@ jQuery(document).ready(function($){
 });
 
 		function friendtimeline(){
+			var selecteddate = $('#menu_date').text();
 			var friends = Parse.User.current().get("friends");
 			for(var i = 0;i < friends.length; i++){
 				var queryFriend = new Parse.Query(Parse.User);
@@ -99,7 +101,7 @@ jQuery(document).ready(function($){
 											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 										"</section>";
 						$("#friends_timmeline_area #1 .content").append(friendsSection);
-						queryDent(friendobject);
+						queryDent(friendobject, selecteddate);
 					},
 					error: function(object, error) {
 						alert(object +" "+error);
@@ -199,13 +201,12 @@ var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId)
 	return timeTpl;	
 };
 
-function queryDent(object){
+function queryDent(object , querytime){
 	var today = new Date();
 	var Dent = Parse.Object.extend("Dent");
 	var query = new Parse.Query(Dent);
-	var today = new Date();
-	var begining = new Date(today.setHours(0,0,0));
-	var end = new Date(today.setHours(23,59,59));
+	var begining = new Date(querytime.setHours(0,0,0));
+	var end = new Date(querytime.setHours(23,59,59));
 	query.lessThan("e_datetime", end);
 	query.greaterThan("s_datetime", begining);
 	query.equalTo("poster", object);
