@@ -292,7 +292,7 @@ function clickLike(dent_id , user_id){
 		}
 	});
 }
-$("[id='reply_send']").on( "click", function() {
+$("div[id$='reply_send']").on( "click", function() {
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 	console.log(dent_id);
 	deliverReponse(dent_id);
