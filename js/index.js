@@ -78,31 +78,6 @@ jQuery(document).ready(function($){
 									"</section>";
 					$("#friends_timmeline_area #1 .content").append(friendsSection);
 					queryDent(friendobject);
-
-					var Dent = Parse.Object.extend("Dent");
-					var dent = new Parse.Query(Dent);
-					dent.equalTo("poster", friendobject);
-					dent.find({
-						success:function(frienddents){
-							for(var i = 0; i<frienddents.length; i++){
-								var postIdArray = [];
-								var dentId = frienddents[i].id;
-								printResponseTpl(dentId);
-								if(dentId == null){
-
-								}
-								else{
-									postIdArray.push(dentId);
-								}
-							}
-							$.each(postIdArray,function(index, value){
-								$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
-								  name: value
-								}, showResponseModal );
-							});
-						}
-					})
-
 				},
 				error: function(object, error) {
 					alert(object +" "+error);
@@ -112,7 +87,46 @@ jQuery(document).ready(function($){
 		//queryDent(); // 需要改呼叫時間，不然會很耗資源
 
 		//response modal 產生
-		var postidArray = [];
+		// var postIdArray = [];
+		// var Dent = Parse.Object.extend("Dent");
+		// var dent = new Parse.Query(Dent);
+		// dent.find({
+		// 	success: function(results) {
+		// 		for(i=0; i<results.length; i++){
+		// 			var dentId = results[i].id;
+		// 			printResponseTpl(dentId)
+		// 			if(dentId==null){
+						
+		// 			}else{
+		// 				postIdArray.push(dentId);
+		// 			}
+					
+		// 			//console.log(dentId.id);
+					
+		// 		}
+
+		// 		$.each(postIdArray,function(index, value){
+		// 			$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
+		// 			  name: value
+		// 			}, showResponseModal );
+
+		// 		});
+				
+		// 	},
+		// 	error: function(error) {
+		// 		alert("Error: " + error.code + " " + error.message);
+		// 	}
+		// });
+		
+		queryStatus(currentUser);
+	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
+	    console.log($(".dinner").find('.cd-timeline-img'));
+	    console.log($('.make_dent'));
+	    console.log($('#reply_send'));
+	} else {
+	    // show the signup or login page
+	}
+var postIdArray = [];
 		var Dent = Parse.Object.extend("Dent");
 		var dent = new Parse.Query(Dent);
 		dent.find({
@@ -123,14 +137,14 @@ jQuery(document).ready(function($){
 					if(dentId==null){
 						
 					}else{
-						postidArray.push(dentId);
+						postIdArray.push(dentId);
 					}
 					
 					//console.log(dentId.id);
 					
 				}
 
-				$.each(postidArray,function(index, value){
+				$.each(postIdArray,function(index, value){
 					$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
 					  name: value
 					}, showResponseModal );
@@ -142,14 +156,7 @@ jQuery(document).ready(function($){
 				alert("Error: " + error.code + " " + error.message);
 			}
 		});
-		
-		queryStatus(currentUser);
-	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
-	    console.log($(".dinner").find('.cd-timeline-img'));
-	    console.log($('.make_dent'));
-	} else {
-	    // show the signup or login page
-	}
+	
 });
 	
 	
