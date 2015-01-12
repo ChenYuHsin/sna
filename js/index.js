@@ -208,7 +208,9 @@ function queryDent(object){
 	// var end = today.setHours(23,59,59);
 	var today = moment();
 	var tomorrow = moment().add(1, 'days');
-	var yesterday = moment().subtract(1, 'day')
+	console.log(tomorrow);
+	var yesterday = moment().subtract(1, 'day');
+	console.log(yesterday);
 	query.lessThan("e_datetime", tomorrow);
 	query.greaterThan("s_datetime", yesterday);
 	query.equalTo("poster", object);
