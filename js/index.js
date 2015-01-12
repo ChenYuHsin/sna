@@ -68,7 +68,6 @@ jQuery(document).ready(function($){
 		queryDent(currentUser); 
 		/*****  朋友timeline ******/
 		friendtimeline();
-		//queryDent(); // 需要改呼叫時間，不然會很耗資源
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
@@ -78,6 +77,8 @@ jQuery(document).ready(function($){
 	    // show the signup or login page
 	}
 });
+
+appeardent();
 
 		function friendtimeline(){
 			var friends = Parse.User.current().get("friends");
@@ -90,7 +91,7 @@ jQuery(document).ready(function($){
 											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 										"</section>";
 						$("#friends_timmeline_area #1 .content").append(friendsSection);
-						$.when(queryDent(friendobject)).then(appeardent());
+						queryDent(friendobject);
 					},
 					error: function(object, error) {
 						alert(object +" "+error);
