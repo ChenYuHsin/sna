@@ -61,11 +61,9 @@ jQuery(document).ready(function($){
    	});
 
 	$("body").on( "click","#reply_send", function() {
-		console.log($(this));
 		//var dent_id = $(this).closest(".actions").prev().find("#dent_id").find("div").attr("data-dentId");//requests["id"];
 		var dent_id = $(this).closest(".reply_content").attr("data-dentId");
-		console.log(dent_id);
-		deliverReponse(dent_id);
+		deliverResponse(dent_id);
 	})
 
 	/***********************************  object id to me_line *******************************************/
@@ -308,12 +306,13 @@ function clickLike(dent_id , user_id){
 // });
 
 
-function deliverReponse(dent_id){
+function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
 	var responser = currentUser.id;
 	
-	var content = $("#reply_area").val();
+	var content = $("[data-dentid = '"+dent_id+"']").find("#reply_area").val();
 	console.log(content);
+	//var content = $("#reply_area").val();
 	var Dent = Parse.Object.extend("Dent");
 		var query1 = new Parse.Query(Dent);
 		var Responser = Parse.Object.extend("User");
