@@ -547,10 +547,10 @@ function showStatus(total_status){
 			}
 		}
 		var template = '<div class="event">' + 
-	    	'<div class="label"><img src="'+ total_status[i].contents.get("poster_img") +'"></div>' + 
+	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
-	        		'<a class="user">' + total_status[i].contents.get("post_name") + '</a> ' + action +
+	        		'<a class="user">' + total_status[i].user.get("name") + '</a> ' + action +
 	        		'<div class="date">' + moment(total_status[i].createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
