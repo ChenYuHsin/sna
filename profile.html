@@ -1,241 +1,468 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 
 <head>
 
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <title>I AM MOMENT</title>
+    <title>I AM MOMENT</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  
 
-  <link rel="stylesheet" href="css/reset.css">
 
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
     <link href="css/semantic.min.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/screen.css" rel="stylesheet" type="text/css">
 
-    <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
+
     <script src="js/jquery.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/semantic.min.js"></script>
     <script src="js/style.js"></script>
-
+    <script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/profile.js"></script>
 </head>
-<body id="friends_page">
-  <div class="ui inverted menu">
-      <a class="active item">
-        <i class="user icon"></i> Profile
-      </a>
-      <a class="item dropdown ui">
-        <i class="comment outline icon"></i> Notifications
-        <div class="menu">
-              <div class="item "> 
-                <img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
-                <p>庭弘在5分鐘前打卡了</p>
-              </div>
-              <div class="item">
-                <div class="ui image label">
-              <img src="/images/demo/photo2.jpg">
-               dog@doggington.com
-            </div>
-              </div>
-              
-            </div>
-          <span class="ui teal label">1</span>
-      </a>
-      <a class="item">
-        <i class="users icon"></i> Friends
-      </a>
-  </div>
-  <header>
-    <div class="clock">
-      <div id="Date"></div>
-      <ul>
-          <li id="hours"></li>
-          <li id="point">:</li>
-          <li id="min"></li>
-          <li id="point">:</li>
-          <li id="sec"></li>
-    </ul>
-    </header>
-  <div class="ui page grid">
-    <section class="sixteen wide column"> <!-- 朋友卡片-->
-      <div class="ui card profile">
-        <div class="image">
-          <img src="https://scontent-a-tpe.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10846343_739562936131548_304650056085566764_n.jpg?oh=d97ef700eb29c24c8a233a004bcf5991&oe=5545A4FD">
-        </div>
-        <div class="content">
-          <a class="header">Tommy Chu</a>
-          <div class="meta">
-            <span class="date">Joined in 2014</span>
-          </div>
+<script>
+window.fbAsyncInit = function() {
+    Parse.FacebookUtils.init({ // this line replaces FB.init({
+        appId: '633858636720666', // Facebook App ID
+        status: true, // check Facebook Login status
+        cookie: true, // enable cookies to allow Parse to access the session
+        xfbml: true, // initialize Facebook social plugins on the page
+        version: 'v2.2' // point to the latest Facebook Graph API version
+    });
 
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
-      </div>
-    </div>
-    </section>
-    <section class="sixteen wide column">
-      <h2 class="ui header">
-        <i class="settings icon"></i>
-        <div class="content">
-          My Friends
-          <div class="sub header">Here is my friends I followed.</div>
-        </div>
-      </h2>
+    // Run code after the Facebook SDK is loaded.
+    var recommendfriend = function(id, url, name) {
+        var friendbody = $('<div class="card" id="' + id + '"><div class="dimmable image"><div class="ui dimmer"></div><img src="' + url + '"></div><div class="content"><a class="header">' + name + '</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+        $('#recommendfriend').append(friendbody);
+    }
+    var friendlist = function(id, url, name) {
+        var listbody = $('<div class="card" id="' + id + '"><div class="image"><img src="' + url + '"></div><div class="content"><a class="header">' + name + '</a></div></div>');
+        $('#friendlists').append(listbody);
+    }
+    var logined = function() {
+        $('.login_btn').css("display", "none");
+        FB.api('/me/picture?width=500', function(response) {
+            var my_picture_url = response.data.url;
+            Parse.User.current().set('imagesrc', my_picture_url);
+            Parse.User.current().save();
+            $("#account_img").attr('src', my_picture_url);
+            $(".my_timeline_pic").attr('src', my_picture_url);
+            $("#profilephoto").attr('src', my_picture_url);
+        });
+        FB.api('/me', function(response) {
+            var my_name = response.name;
+            Parse.User.current().set('name', my_name);
+            Parse.User.current().save();
+            $(".account_info").html("Hi! " + my_name);
+        });
+        //Recommend friends section
+        var user = Parse.Object.extend('User');
+        var query = new Parse.Query(user);
+        query.find({
+                success: function(alluser) {
+                    for (var i = 0; i < alluser.length; i++) {
+                        if (alluser[i].id != Parse.User.current().id) {
+                            var userid = alluser[i].id;
+                            var username = alluser[i].get('name');
+                            var userphotourl = alluser[i].get('imagesrc');
+                            recommendfriend(userid, userphotourl, username);
+                            var friends = Parse.User.current().get('friends');
+                            for (var j = 0; j < friends.length; j++) {
+                                var friend = friends[j];
+                                var judge = $("div[id='" + friend + "']");
+                                if (judge != null) {
+                                    $('[id="' + friend + '"]').remove();
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+            //Friend list section
+        var userfriend = Parse.User.current().get('friends');
+        if (userfriend.length != 0) {
+            for (var i = 0; i < userfriend.length; i++) {
+                var queryfriend = Parse.Object.extend('User');
+                var query = new Parse.Query(queryfriend);
+                query.equalTo('objectId', userfriend[i]);
+                query.first({
+                    success: function(frienddata) {
+                        var friendid = frienddata.id;
+                        var friendphotourl = frienddata.get('imagesrc');
+                        var friendname = frienddata.get('name');
+                        friendlist(friendid, friendphotourl, friendname);
+                    }
+                })
+            }
+        }
+    }
+    if (Parse.User.current() != null) {
+        logined();
+    }
+};
 
-      <div class="ui cards">
-  <div class="card">
-    <div class="image">
-      <img src="img/1.jpg">
-    </div>
-    <div class="content">
-      <div class="header">胡峻杰</div>
-      <div class="meta">
-        <a class="group">Friends</a>
-      </div>
-    </div>
-    <div class="extra content">
-      <a class="right floated created">
-        Joined in 2011
-      </a>
-      <a class="friends">
-        <i class="user icon"></i>
-        22 Friends
-      </a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="img/2.jpg">
-    </div>
-    <div class="content">
-      <div class="header">Jimmy Lin</div>
-      <div class="meta">
-        <a class="group">Friends</a>
-      </div>
-    </div>
-    <div class="extra content">
-      <a class="right floated created">
-        Joined in 2013
-      </a>
-      <a class="friends">
-        <i class="user icon"></i>
-        22 Friends
-      </a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="img/3.jpg">
-    </div>
-    <div class="content">
-      <div class="header">謝慶談</div>
-      <div class="meta">
-        <a class="group">Friends</a>
-      </div>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
-    </div>
-    <div class="extra content">
-      <a class="right floated created">
-        Joined in 2012
-      </a>
-      <a class="friends">
-        <i class="user icon"></i>
-        22 Friends
-      </a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="img/4.jpg">
-    </div>
-    <div class="content">
-      <div class="header">David</div>
-      <div class="meta">
-        <a class="group">Friends</a>
-      </div>
-
-    </div>
-    <div class="extra content">
-      <a class="right floated created">
-        Joined in 2013
-      </a>
-      <a class="friends">
-        <i class="user icon"></i>
-        22 Friends
-      </a>
-    </div>
-  </div>
-</div>
-    </section>
-
-    <div class="sixteen wide column"><!--add friends-->
-      <h2 class="ui header">
-        <i class="settings icon"></i>
-        <div class="content">
-          Recommanded Friends
-          <div class="sub header">Here is friends I might know.</div>
-        </div>
-      </h2>
-
-      <div class="ui special cards">
-        <div class="card">
-          <div class="dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <div class="ui primary button">Add Friend</div>
+<body>
+    <div class="ui inverted menu">
+        <a class="active item">
+            <i class="user icon"></i> Profile
+        </a>
+        <a class="item dropdown ui">
+            <i class="comment outline icon"></i> Notifications
+            <div class="menu">
+                <div class="item ">
+                    <img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
+                    <p>庭弘在5分鐘前打卡了</p>
                 </div>
-              </div>
-            </div>
-            <img src="img/p1.jpg">
-          </div>
-          <div class="content">
-            <a class="header">Team Fu</a>
-            <div class="meta">
-              <span class="date">Create in Sep 2014</span>
-            </div>
-          </div>
-          <div class="extra content">
-            <a>
-              <i class="users icon"></i>
-              2 Members
-            </a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <div class="ui primary button">Add Friend</div>
+                <div class="item">
+                    <div class="ui image label">
+                        <img src="/img/0.jpg"> dog@doggington.com
+                    </div>
                 </div>
-              </div>
+
             </div>
-            <img src="img/p2.jpg">
-          </div>
-          <div class="content">
-            <a class="header">Team Hess</a>
-            <div class="meta">
-              <span class="date">Create in Aug 2014</span>
-            </div>
-          </div>
-          <div class="extra content">
-            <a>
-              <i class="users icon"></i>
-              2 Members
-            </a>
-          </div>
-        </div>
-      </div>
+            <span class="ui teal label">1</span>
+        </a>
+        <a class="item">
+            <i class="users icon"></i> Friends
+        </a>
     </div>
-  </div>
+    <div class="profile-con">
+        <section id="set-body">
+            <div class="top-line">
+                <i class="fa fa-angle-left"></i>
+                <span id="your-name">胡俊杰</span>
+                <i class="fa fa-ellipsis-v"></i>
+            </div>
+            <div class="icon-wrap">
+                <a href="#" class="icon-images">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </a>
+                <div class="big-circle">
+                    <img src="img/1.jpg" />
+                </div>
+                <a href="#" class="icon-images">
+                    <i class="fa fa-thumbs-o-up fa-2x"></i>
+                </a>
+            </div>
+            <div class="bottom-line">
+                <span>Taiwan <b>Taipei</b></span>
+            </div>
+        </section>
+
+        <section class="belt">
+            <div class="followers">
+                <div class="follwers-num Num">123456789</div>
+                <div class="belt-title">Followers</div>
+            </div>
+            <div class="Dents">
+                <div class="Dents-num Num">123456789</div>
+                <div class="belt-title til-dents">Dents I Made</div>
+            </div>
+            <div class="friends-included">
+                <div class="included-num Num">123456789</div>
+                <div class="belt-title">Included</div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- friends -->
+        <div class="ui page grid">
+            <h2 class="ui header">
+                <div class="content">
+                    My Friends
+                    <div class="sub header">
+                        Here are friends you have followed.
+                    </div>
+                </div>
+            </h2>
+
+            <section id="friend-followed" class="sixteen wide column">
+                <div class="friend-blocks" id="friendlists">
+                    <figure>
+                        <img src="img/4.jpg" />
+                        <figcaption>
+                            <span>高大為</span>
+                            <p class="icon-links">
+                                <a href="#"><i class="fa fa-comments-o"></i></a>
+                                <a href="#"><i class="fa fa-heart-o"></i></a>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <h2 class="ui header">
+                <div class="content">
+                    Recommended Friends
+                    <div class="sub header">
+                        Here is someone you might be interestes in.
+                    </div>
+                </div>
+            </h2>
+
+            <section id="might-interested" class="sixteen wide column">
+                <div class="friend-blocks" id="recommendfriend">
+                    <figure>
+                        <img src="img/4.jpg" />
+                        <figcaption>
+                            <span>高大為</span>
+                            <p class="icon-links">
+                                <a href="#"><i class="fa fa-comments-o"></i></a>
+                                <a href="#"><i class="fa fa-heart-o"></i></a>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+    <!--跑出來的block-->
+    <div class="ui left vertical inverted  labeled icon sidebar menu very wide">
+        <div class="ui feed item">
+            <div class="event">
+                <div class="label">
+                    <img src="img/1.jpg">
+                </div>
+                <div class="content">
+                    <div class="summary">
+                        <a class="user">
+          Elliot Fu
+        </a> added you as a friend
+                        <div class="date">
+                            1 Hour Ago
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 4 Likes
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="label">
+                    <i class="pencil icon"></i>
+                </div>
+                <div class="content">
+                    <div class="summary">
+                        You submitted a new post to the page
+                        <div class="date">
+                            3 days ago
+                        </div>
+                    </div>
+                    <div class="extra text">
+                        I'm having a BBQ this weekend. Come by around 4pm if you can.
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 11 Likes
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="label">
+                    <img src="img/1.jpg">
+                </div>
+                <div class="content">
+                    <div class="date">
+                        4 days ago
+                    </div>
+                    <div class="summary">
+                        <a>Helen Troy</a> added <a>2 new illustrations</a>
+                    </div>
+                    <div class="extra images">
+                        <a><img src="/images/wireframe/image.png">
+                        </a>
+                        <a><img src="/images/wireframe/image.png">
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 1 Like
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="label">
+                    <img src="img/1.jpg">
+                </div>
+                <div class="content">
+                    <div class="summary">
+                        <a class="user">
+          Jenny Hess
+        </a> added you as a friend
+                        <div class="date">
+                            2 Days Ago
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 8 Likes
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="label">
+                    <img src="img/4.jpg">
+                </div>
+                <div class="content">
+                    <div class="summary">
+                        <a>Joe Henderson</a> posted on his page
+                        <div class="date">
+                            3 days ago
+                        </div>
+                    </div>
+                    <div class="extra text">
+                        Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 5 Likes
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="label">
+                    <img src="img/5.jpg">
+                </div>
+                <div class="content">
+                    <div class="date">
+                        4 days ago
+                    </div>
+                    <div class="summary">
+                        <a>Justen Kitsune</a> added <a>2 new photos</a> of you
+                    </div>
+                    <div class="extra images">
+                        <a><img src="/images/wireframe/image.png">
+                        </a>
+                        <a><img src="/images/wireframe/image.png">
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <a class="like">
+                            <i class="like icon"></i> 41 Likes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- login btn -->
+    <div class="ui modal login_content small">
+        <i class="close icon"></i>
+        <div class="header">
+            Login
+        </div>
+        <div class="content">
+            <div id="my-login-button" class="ui facebook button center">
+                <i class="facebook icon"></i>Login wuth Facebook
+            </div>
+        </div>
+    </div>
+
+    <!-- friend's reply -->
+
+
+    <div class="ui modal reply_content small">
+        <i class="close icon"></i>
+        <div class="header">
+            Reply
+        </div>
+        <div class="content">
+            <div class="ui comments">
+                <div class="comment owner_post">
+                    <a class="avatar">
+                        <img src="img/5.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Joe Henderson</a>
+                        <div class="metadata">
+                            <div class="date">1 day ago</div>
+                        </div>
+                        <div class="text">
+                            晚餐吃大魚墮落！誰要跟我一起！！
+                        </div>
+
+                    </div>
+                </div>
+                <div class="comment reply_post">
+                    <a class="avatar">
+                        <img src="img/4.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Joe Henderson</a>
+                        <div class="metadata">
+                            <div class="date">1 day ago</div>
+                        </div>
+                        <div class="text">
+                            很貴誒，嘖嘖
+                        </div>
+
+                    </div>
+                </div>
+                <div class="comment reply_post">
+                    <a class="avatar">
+                        <img src="img/2.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Christian Rocha</a>
+                        <div class="metadata">
+                            <div class="date">2 days ago</div>
+                        </div>
+                        <div class="text">
+                            我想要，但等一下要上班
+                        </div>
+                    </div>
+                </div>
+                <form class="ui reply form">
+                    <div class="field">
+                        <textarea></textarea>
+                    </div>
+                    <div class="ui primary submit labeled icon button">
+                        <i class="icon edit"></i> Reply
+                    </div>
+                </form>
+            </div>
+            <!-- comments end -->
+
+        </div>
+    </div>
 </body>
-<html>
+
+</html>

@@ -70,8 +70,9 @@ jQuery(document).ready(function($){
 	
 	var currentUser = Parse.User.current();
 	if (currentUser) {
+		var selecteddate = $('#menu_date').text();
 		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
-		queryDent(currentUser); 
+		queryDent(currentUser, selecteddate); 
 		/*****  朋友timeline ******/
 		friendtimeline();
 		setTimeout(function(){ 
@@ -89,6 +90,7 @@ jQuery(document).ready(function($){
 });
 
 		function friendtimeline(){
+			var selecteddate = $('#menu_date').text();
 			var friends = Parse.User.current().get("friends");
 			for(var i = 0;i < friends.length; i++){
 				var queryFriend = new Parse.Query(Parse.User);
@@ -99,7 +101,7 @@ jQuery(document).ready(function($){
 											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 										"</section>";
 						$("#friends_timmeline_area #1 .content").append(friendsSection);
-						queryDent(friendobject);
+						queryDent(friendobject, selecteddate);
 					},
 					error: function(object, error) {
 						alert(object +" "+error);
@@ -223,6 +225,12 @@ function deliverDent(user, category, color, content, s, e){
 			    	alert('Failed to create new object, with error code: ' + error.message);
 			  	}
 			});
+			var makedentevent = Parse.Object.extend("Event");
+			var makedent = new makedentevent();
+			makedent.set("category", "makedent");
+			makedent.set("User", user);
+			makedent.set("content", content);
+			makedent.save();
 		},
 		error: function(object, error) {
 			alert(error.message);
@@ -246,9 +254,14 @@ var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId)
 	return timeTpl;	
 };
 
-function queryDent(object){
+function queryDent(object , querytime){
 	var Dent = Parse.Object.extend("Dent");
+	var selecteddate = new Date(querytime);
 	var query = new Parse.Query(Dent);
+	var begining = new Date(selecteddate.setHours(0,0,0));
+	var end = new Date(selecteddate.setHours(23,59,59));
+	query.lessThan("e_datetime", end);
+	query.greaterThan("s_datetime", begining);
 	query.equalTo("poster", object);
 	query.include("poster");
 	
@@ -309,49 +322,49 @@ function queryDent(object){
 			
 		},
 		error: function(object, error){
-			alert(error.message);
+
 		}
 	});
 }
 
-function clickLike(dent_id , user_id){
-		var User = Parse.Object.extend("User");
-		var query = new Parse.Query(User);
-		// 搜尋此使用者
-	query.get(user_id, {
-		success: function(u) {
-			var user = u;
-  			// 修改 dent 資料表內 likes 欄位的資料
-			var Dent = Parse.Object.extend("Dent");
-			var queryLikes = new Parse.Query(Dent);
+// function clickLike(dent_id , user_id){
+// 		var User = Parse.Object.extend("User");
+// 		var query = new Parse.Query(User);
+// 		// 搜尋此使用者
+// 	query.get(user_id, {
+// 		success: function(u) {
+// 			var user = u;
+//   			// 修改 dent 資料表內 likes 欄位的資料
+// 			var Dent = Parse.Object.extend("Dent");
+// 			var queryLikes = new Parse.Query(Dent);
 
-			queryLikes.get(dent_id, {
-				success: function(r){
-					r.addUnique("likes", user_id);
-					r.save(null, {
-						success: function(object){
-							console.log("update Dent-likes success.");
-							//queryDent(requests["id"]);
-						},
-						error: function(object, error){
-							console.log(error.message);
-						}
-					});
-				},
-				error: function(object, error){
-					console.log(error.message);
-				}
-			});
-			var LikesDent = Parse.Object.extend("LikesDent");
-			var likesDent = new LikesDent(); 
+// 			queryLikes.get(dent_id, {
+// 				success: function(r){
+// 					r.addUnique("likes", user_id);
+// 					r.save(null, {
+// 						success: function(object){
+// 							console.log("update Dent-likes success.");
+// 							//queryDent(requests["id"]);
+// 						},
+// 						error: function(object, error){
+// 							console.log(error.message);
+// 						}
+// 					});
+// 				},
+// 				error: function(object, error){
+// 					console.log(error.message);
+// 				}
+// 			});
+// 			var LikesDent = Parse.Object.extend("LikesDent");
+// 			var likesDent = new LikesDent(); 
 			
-		},
-		error: function(object, error) {
-			alert(error.message);
-			console.log("error");
-		}
-	});
-}
+// 		},
+// 		error: function(object, error) {
+// 			alert(error.message);
+// 			console.log("error");
+// 		}
+// 	});
+// }
 
 <<<<<<< HEAD
 
@@ -418,15 +431,15 @@ function deliverResponse(dent_id){
 						response.set("responser", u);
 						response.set("dent_id", d);
 						response.set("content", content);
-						response.save(null, {
-					  	success: function(gameScore) {
-					    	//queryResponse(d);
-					    	
-					  	},
-					  	error: function(gameScore, error) {
-					    	alert('Failed to create new object, with error code: ' + error.message);
-					  	}
-					});
+						response.save();
+
+						var replyevent = Parse.Object.extend("Event");
+						var reply = new replyevent();
+						reply.set("category", "reply");
+						reply.set("User", currentUser);
+						reply.set("content", content);
+						reply.set("targetuser", d.get('poster'));
+						reply.save();
 					},
 					error: function(error){
 						alert(error.message);
@@ -500,7 +513,7 @@ function printResponseTpl(post_id){
 
 				$("body").append(tpl);	
 		      	queryResponse(obj);
-		      	$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
+		      	//$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
 		      	$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 		    }
 			
