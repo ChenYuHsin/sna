@@ -144,7 +144,6 @@ jQuery(document).ready(function($){
 			});
 		}
 		
-<<<<<<< HEAD
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
 	    console.log($('.make_dent'));
@@ -195,7 +194,7 @@ jQuery(document).ready(function($){
 			}
 		});
 	};
-=======
+
 function deliverDent(user, category, color, content, s, e){
 	var Dent = Parse.Object.extend("Dent");
 		var dent = new Dent();
@@ -237,7 +236,7 @@ function deliverDent(user, category, color, content, s, e){
 		}
 	});
 };
->>>>>>> ad50b92e123841fe347f836e70de9806e66f885f
+
 	
 	
 
@@ -366,7 +365,7 @@ function queryDent(object , querytime){
 // 	});
 // }
 
-<<<<<<< HEAD
+
 
 		
 
@@ -410,7 +409,7 @@ function queryDent(object , querytime){
   				}
   			});
 		}
-=======
+
 function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
 	var responser = currentUser.id;
@@ -451,7 +450,6 @@ function deliverResponse(dent_id){
 			}
 		});
 }
->>>>>>> ad50b92e123841fe347f836e70de9806e66f885f
 		
 
 function showResponseModal(value){
