@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700);
+/* line 5, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../scss/base/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* line 17, ../scss/base/_base.scss */
+body {
+  font-family: "Roboto" ,"微軟正黑體" , "Microsoft JhengHei";
+}
+
+/* line 11, ../scss/friends.scss */
+#friend-followed, #might-interested {
+  background-color: #79daca;
+  margin: 10px 0px 10px 0px;
+}
+
+/* line 17, ../scss/friends.scss */
+.ui.page.grid {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 20, ../scss/friends.scss */
+.ui.page.grid .ui.header {
+  color: #3DC9B3;
+  margin: calc(2rem - .165em) 0 1rem;
+  margin: -webkit-calc(2rem - .165em) 0 1rem;
+}
+/* line 24, ../scss/friends.scss */
+.ui.page.grid .ui.header div.content {
+  font-weight: normal;
+}
+
+/* Common style */
+/* line 32, ../scss/friends.scss */
+.friend-blocks figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 100px;
+  max-width: 200px;
+  min-height: 100px;
+  max-height: 200px;
+  text-align: center;
+}
+/* line 43, ../scss/friends.scss */
+.friend-blocks figure img {
+  opacity: 0.9;
+}
+/* line 48, ../scss/friends.scss */
+.friend-blocks figure figcaption {
+  position: absolute;
+  font-size: 1.25em;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  padding: 1em;
+  height: 3.75em;
+  background: #eafdf8;
+  color: #3c4a50;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+/* line 64, ../scss/friends.scss */
+.friend-blocks figure figcaption span {
+  vertical-align: middle;
+}
+/* line 67, ../scss/friends.scss */
+.friend-blocks figure figcaption p {
+  display: inline-block;
+  font-size: 68.5%;
+}
+/* line 70, ../scss/friends.scss */
+.friend-blocks figure figcaption p a {
+  color: #3c4a50;
+  font-size: 1.4em;
+  vertical-align: middle;
+}
+/* line 80, ../scss/friends.scss */
+.friend-blocks figure:hover figcaption, .friend-blocks figure:hover p, .friend-blocks figure:focus figcaption, .friend-blocks figure:focus p {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 87, ../scss/friends.scss */
+.friend-blocks figure figcaption::before,
+.friend-blocks figure figcaption::after {
+  pointer-events: none;
+}

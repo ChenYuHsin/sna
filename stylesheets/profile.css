@@ -1,0 +1,222 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700);
+/* line 5, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../scss/base/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* line 17, ../scss/base/_base.scss */
+body {
+  font-family: "Roboto" ,"微軟正黑體" , "Microsoft JhengHei";
+}
+
+/* line 8, ../scss/profile.scss */
+.profile-con #set-body {
+  background: #328c75;
+  /* Old Browsers */
+  background: -moz-linear-gradient(-45deg, #328c75 0%, white 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #328c75), color-stop(100%, white));
+  /* Chrome, Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #328c75 0%, white 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #328c75 0%, white 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #328c75 0%, white 100%);
+  /* IE 10+ */
+  background: linear-gradient(135deg, #328c75 0%, #ffffff 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#328c75', endColorstr='#ffffff', GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+/* line 18, ../scss/profile.scss */
+.profile-con #set-body .top-line {
+  display: flex;
+  padding-top: 1em;
+}
+/* line 21, ../scss/profile.scss */
+.profile-con #set-body .top-line #your-name {
+  font-size: 1.5em;
+  flex: 1;
+}
+/* line 25, ../scss/profile.scss */
+.profile-con #set-body .top-line i {
+  font-size: 2.5em;
+  flex: 1;
+}
+/* line 29, ../scss/profile.scss */
+.profile-con #set-body .top-line span, .profile-con #set-body .top-line i {
+  vertical-align: middle;
+  text-align: center;
+}
+/* line 35, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap {
+  text-align: center;
+  padding: 2em 0 3em;
+}
+/* line 38, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .icon-images {
+  display: inline-flex;
+  margin: 0px 4.5em;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  background-color: #399f84;
+}
+/* line 47, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .icon-images i.fa {
+  color: #fff;
+  margin: auto;
+}
+/* line 51, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .icon-images:hover {
+  background-color: #fff;
+}
+/* line 53, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .icon-images:hover i.fa {
+  color: #289181;
+}
+/* line 59, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .big-circle {
+  display: inline-block;
+  vertical-align: middle;
+  height: 270px px;
+  width: 270px px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 15px #40b294;
+}
+/* line 66, ../scss/profile.scss */
+.profile-con #set-body .icon-wrap .big-circle img {
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #fff;
+}
+/* line 76, ../scss/profile.scss */
+.profile-con #set-body .bottom-line {
+  text-align: center;
+  padding-bottom: 1em;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* line 85, ../scss/profile.scss */
+#friend-followed, #might-interested {
+  background-color: #f2efef;
+  margin: 10px 0px 10px 0px;
+}
+
+/* line 90, ../scss/profile.scss */
+.belt {
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 93, ../scss/profile.scss */
+.belt > div {
+  color: #FFF;
+  text-align: center;
+  flex: 1;
+  background-color: #3DC9B3;
+  margin: 4px 2px 4px 2px;
+  padding: 30px 0px 30px 0px;
+}
+/* line 100, ../scss/profile.scss */
+.belt > div.followers {
+  margin-left: 0px;
+}
+/* line 103, ../scss/profile.scss */
+.belt > div.Dents {
+  background-color: #40b294;
+}
+/* line 106, ../scss/profile.scss */
+.belt > div.friends-included {
+  margin-right: 0px;
+}
+/* line 110, ../scss/profile.scss */
+.belt .Num {
+  font-size: 25px;
+}
+/* line 113, ../scss/profile.scss */
+.belt .belt-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #666666;
+  margin: 10px;
+}
+/* line 118, ../scss/profile.scss */
+.belt .belt-title.til-dents {
+  color: #fff;
+}
