@@ -299,12 +299,6 @@ function clickLike(dent_id , user_id){
 		}
 	});
 }
-// $("div[id$='reply_send']").on( "click", function() {
-// 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-// 	console.log(dent_id);
-// 	deliverReponse(dent_id);
-// });
-
 
 function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
@@ -430,20 +424,20 @@ function queryResponse(dent){
 	query.find({
 	  	success: function(results) {
 	  		moment.locale('zh-TW');
-	    	for (var i = 0; i < results.length; i++) { 
-	    		var currentUser = Parse.User.current();
-				var user_id = currentUser.id;
-	    		var response = results[i];
-		      	var content = response.get("content");
-		      	var datetime = moment(response.createdAt).fromNow();
-		      	var id = response.id;
+	    		for (var i = 0; i < results.length; i++) { 
+		    		var currentUser = Parse.User.current();
+					var user_id = currentUser.id;
+		    		var response = results[i];
+			      	var content = response.get("content");
+			      	var datetime = moment(response.createdAt).fromNow();
+			      	var id = response.id;
 
-		      	var likes_count = 0;
-		      	var post = response.get("responser");
-		      	var name= post.get("name");
-		      	var imgsrc= post.get("imagesrc");
+			      	var likes_count = 0;
+			      	var post = response.get("responser");
+			      	var name= post.get("name");
+			      	var imgsrc= post.get("imagesrc");
 				  	
-			    var table_response = "<div class='comment reply_post'>"+
+			    	var table_response = "<div class='comment reply_post'>"+
 					    "<a class='avatar'>"+
 					      "<img src='"+imgsrc+"'>"+
 					    "</a>"+
@@ -459,6 +453,7 @@ function queryResponse(dent){
 					    "</div>"+
 					  "</div>";
 				$('.modal_'+dent.id+ " #dent_id").after(table_response);
+			}
 	  	},
 	  	error: function(error) {
 	    	alert("Error: " + error.code + " " + error.message);
