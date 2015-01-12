@@ -60,6 +60,12 @@ jQuery(document).ready(function($){
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    	});
 
+   	$("#reply_send").click(function(){
+		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+		console.log(dent_id);
+		deliverReponse(dent_id);
+	});
+
 	/***********************************  object id to me_line *******************************************/
 	
 	var currentUser = Parse.User.current();
@@ -286,13 +292,6 @@ function clickLike(dent_id , user_id){
 		}
 	});
 }
-
-
-$("#reply_send").click(function(){
-	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-	console.log(dent_id);
-	deliverReponse(dent_id);
-});
 
 function deliverReponse(dent_id){
 	var currentUser = Parse.User.current();
