@@ -292,8 +292,7 @@ function clickLike(dent_id , user_id){
 		}
 	});
 }
-
-$(".reply_send").on( "click", function() {
+$("element[id$='reply_send']").on( "click", function() {
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 	console.log(dent_id);
 	deliverReponse(dent_id);
@@ -401,7 +400,7 @@ function printResponseTpl(post_id){
 						"</div>"+
 						"<div class='actions'>"+
 							"<div class='ui button'>Cancel</div>"+
-							"<div class='ui button reply_send'>Send</div>"+
+							"<div class='ui button' id='reply_send'>Send</div>"+
 						"</div></div>";
 
 				$("body").append(tpl);	
