@@ -313,6 +313,7 @@ function deliverReponse(dent_id){
 	var responser = currentUser.id;
 	
 	var content = $("#reply_area").val();
+	console.log(content);
 	var Dent = Parse.Object.extend("Dent");
 		var query1 = new Parse.Query(Dent);
 		var Responser = Parse.Object.extend("User");
@@ -396,7 +397,6 @@ function printResponseTpl(post_id){
 							          "</a>"+
 							        "</div>"+
 							      "</div>"+
-
 							      "<div id='poster_modal_content' class='text'>"+obj.get("content")+										   
 							    "</div>"+
 							  "</div>"+
