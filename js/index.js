@@ -523,7 +523,6 @@ function queryStatus(currentUser){
 	}
 
 	setTimeout(function(){
-		console.log(total_status);
 		showStatus(total_status);
 	}, 3000);
 }
@@ -536,14 +535,12 @@ function showStatus(total_status){
 	var status_section = $("#status_content");
 	for(var i=0; i<total_status.length; i++){
 		var action;
-		console.log("category" + total_status[i].category);
 		if(total_status[i].category != "dent"){
 			action = "reply on your dent";
 		}else{
 			action = "make a dent";
 		}
 		var likes;
-		console.log(total_status[i]);
 		if(total_status[i].category == "dent"){
 			if(total_status[i].contents.get("likes") == "undefined"){
 				likes = 0;
@@ -554,7 +551,6 @@ function showStatus(total_status){
 			if(total_status[i].contents.get("likers") == "undefined"){
 				likes = 0;
 			}else{
-				console.log(total_status[i].contents.get("likers"));
 				likes = 0;
 				// likes = total_status[i].contents.get("likers").length;	
 			}
