@@ -68,7 +68,10 @@ jQuery(document).ready(function($){
 		queryDent(currentUser); 
 		/*****  朋友timeline ******/
 		friendtimeline();
-		appeardent();
+		setTimeout(function(){ 
+			appeardent();
+		}, 3000);
+		
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
