@@ -297,12 +297,13 @@ function clickLike(dent_id , user_id){
 // 	console.log(dent_id);
 // 	deliverReponse(dent_id);
 // });
-
-$("#reply_send").on( "click", function() {
-	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-	console.log(dent_id);
-	deliverReponse(dent_id);
-});
+setTimeout(function(){ 
+	$("#reply_send").on( "click", function() {
+		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+		console.log(dent_id);
+		deliverReponse(dent_id);
+	})
+}, 3000);
 
 $("#reply_send").click(function() {
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
