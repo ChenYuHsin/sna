@@ -81,6 +81,14 @@ jQuery(document).ready(function($){
 	}
 });
 
+window.onload = function (){
+    	$("#reply_send").on( "click", function() {
+		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+		console.log(dent_id);
+		deliverReponse(dent_id);
+	})
+}
+
 		function friendtimeline(){
 			var friends = Parse.User.current().get("friends");
 			for(var i = 0;i < friends.length; i++){
