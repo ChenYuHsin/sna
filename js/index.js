@@ -68,6 +68,7 @@ jQuery(document).ready(function($){
 		queryDent(currentUser); 
 		/*****  朋友timeline ******/
 		friendtimeline();
+		appeardent();
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
@@ -77,8 +78,6 @@ jQuery(document).ready(function($){
 	    // show the signup or login page
 	}
 });
-
-appeardent();
 
 		function friendtimeline(){
 			var friends = Parse.User.current().get("friends");
