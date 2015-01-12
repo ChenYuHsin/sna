@@ -309,11 +309,8 @@ function clickLike(dent_id , user_id){
 function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
 	var responser = currentUser.id;
-	
-	console.log($("[data-dentid = '"+dent_id+"']"));
 	var content = $("[data-dentid = '"+dent_id+"']").find("#reply_area").val();
-	console.log(content);
-	//var content = $("#reply_area").val();
+
 	var Dent = Parse.Object.extend("Dent");
 		var query1 = new Parse.Query(Dent);
 		var Responser = Parse.Object.extend("User");
@@ -369,12 +366,7 @@ function printResponseTpl(post_id){
 			/**/
 			for (var i = 0; i < result.length; i++) { 
 		      var obj = result[i];
-		      var createAt = obj.createdAt;
-		      	/*$("#poster_modal_img").attr("src", obj.get("poster_img"));
-				$("#poster_modal_name").text(obj.get("poster_name"));
-				$("#poster_modal_content").text(obj.get("content"));
-				$("#poster_create_at").text(moment(createAt).fromNow());*/
-				
+		      var createAt = obj.createdAt;			
 				
 				$("#dent_id").attr("data-dentId", post_id);
 				var tpl = "<div class='ui modal reply_content small modal_"+post_id+"' data-dentId='"+post_id+"'  >"+
@@ -430,7 +422,6 @@ function queryResponse(dent){
 	if($(".reply_post").length != 0){
 		$(".reply_post").remove();
 	}
-	//console.log(dent.id);
 	var Response = Parse.Object.extend("Response");
 	var query = new Parse.Query(Response);
 	query.include('responser');
@@ -439,24 +430,18 @@ function queryResponse(dent){
 	query.find({
 	  	success: function(results) {
 	  		moment.locale('zh-TW');
-	  		// alert("Successfully retrieved " + results.length + " scores.");
 	    	for (var i = 0; i < results.length; i++) { 
-	    		//var user_id = $("#user").val();
 	    		var currentUser = Parse.User.current();
 				var user_id = currentUser.id;
 	    		var response = results[i];
 		      	var content = response.get("content");
 		      	var datetime = moment(response.createdAt).fromNow();
 		      	var id = response.id;
-		      	//var responser = response.get("responser");
-		      	//console.log("responser"+responser.get('imagesrc'));
-		      	//var likes = response.get("likers");
+
 		      	var likes_count = 0;
 		      	var post = response.get("responser");
 		      	var name= post.get("name");
 		      	var imgsrc= post.get("imagesrc");
-					//var name = response.get("responser").get('name');
-					//var imgsrc = response.get("responser").get('imagesrc');
 				  	
 			    var table_response = "<div class='comment reply_post'>"+
 					    "<a class='avatar'>"+
@@ -474,32 +459,6 @@ function queryResponse(dent){
 					    "</div>"+
 					  "</div>";
 				$('.modal_'+dent.id+ " #dent_id").after(table_response);
-						
-
-					
-				
-					
-
-					//alert(response.get("responser").id);
-		      	
-		      	//var button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
-		      	/*if(typeof(likes) != "undefined"){
-					likes_count = likes.length;
-					for(var j=0; j<likes_count; j++){
-						if(likes[j] == user_id){
-							button_status = "<td><button onclick='clickDislike(\"" + id + "\")'>Dislike</button></td>";
-						}else{
-							button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
-						}
-					}
-				}else{
-					likes_count = 0;
-					button_status = "<td><button onclick='clickLike(\"" + id + "\")'>Like</button></td>";
-				}*/
-		      	//table_response += "<tr><td>" + responser.id + "</td><td>" + content + "</td><td>" + datetime + "</td>" + button_status+ "<td>" + likes_count + "</td></tr>"
-	    	}
-
-	    	//$("#response").html(table_response);
 	  	},
 	  	error: function(error) {
 	    	alert("Error: " + error.code + " " + error.message);
@@ -522,12 +481,7 @@ function queryStatus(currentUser){
 				queryFriendDent.equalTo("poster", friend);
 				queryFriendDent.find({
 			  		success: function(results) {
-			  			// alert(result.id);
 			  			for(var j=0; j<results.length; j++){
-			  				// status_times.push(results[j].createdAt);
-			  				// console.log("createdAt:" + results[j].createdAt);
-			  				// status_contents.push(results[j].get("content"));
-			  				// console.log("createdAt:" + results[j].get("content"));
 			  				var status = {user: results[j].get("poster"), contents: results[j], createdTime: results[j].createdAt, category: "dent"};
 			  				total_status.push(status);
 			  			}
@@ -559,21 +513,9 @@ function queryStatus(currentUser){
 	}
 
 	setTimeout(function(){
-		// console.log(status_times);
-		// console.log(status_contents);
-		// var new_status = sortStatus(status_contents, status_times);
-		// showStatus(new_status[0], new_times[1]);
 		console.log(total_status);
 		showStatus(total_status);
 	}, 3000);
-}
-		
-function sortStatus(contents, times){
-	// var new_times = times.sort();
-	var new_status = [times, contents];
-	return new_status;
-	// console.log("old:" + times);
-	// console.log("new:" + new_times);
 }
 
 function showStatus(total_status){
