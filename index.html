@@ -1,568 +1,262 @@
+<!DOCTYPE html>
 <html>
-	<head>
-
-		<meta charset="UTF-8">
-
-		<title>Modent</title>
-
-		<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-		  
-
-		<link rel="stylesheet" href="css/reset.css">
-
-		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-	    <link href="css/semantic.min.css" rel="stylesheet" type="text/css">
-	    <link href="css/custom.css" rel="stylesheet" type="text/css">
-	    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-	    <!--link rel="stylesheet" href="css/jquery-ui-timepicker-addon.css"-->
-	    <!--link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"-->
-
-	    <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
-	    <script src="js/jquery.min.js"></script>
-	    <script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-	    
-	    <script src="js/modernizr.js"></script>
-	    <script src="js/semantic.min.js"></script>
-	    <script src="js/style.js"></script>
-	    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.js"></script>
-	    <script src="js/index.js"></script>
-	    <!--script src="js/jquery-ui.js"></script-->
-		<!--script src="js/jquery-ui-sliderAccess.js"></script-->
-		<!--script src="js/jquery-ui-timepicker-addon.js"></script-->
-		
-
-
-	</head>
-	<body>
-	<script>
-	        window.fbAsyncInit = function() {
-	            Parse.FacebookUtils.init({ // this line replaces FB.init({
-	              appId      : '633858636720666', // Facebook App ID
-	              status     : true,  // check Facebook Login status
-	              cookie     : true,  // enable cookies to allow Parse to access the session
-	              xfbml      : true,  // initialize Facebook social plugins on the page
-	              version    : 'v2.2' // point to the latest Facebook Graph API version
-	        	});
-	         
-	            // Run code after the Facebook SDK is loaded.
-	            var logined = function(){
-	            	var user = Parse.User.current();
-					$('.login_btn').css("display","none");
-					FB.api('/me/picture?width=100', function(response) {
-						var my_picture_url = response.data.url;
-						user.set('imagesrc', my_picture_url);
-						user.save();
-						$("#account_img").attr('src', my_picture_url);
-						$(".my_timeline_pic").attr('src', my_picture_url);
-
-					});
-					FB.api('/me', function(response) {
-						var my_name = response.name;
-						user.set('name', my_name);
-						user.save();
-						$(".account_info").html("Hi! "+ my_name);
-						$(".make_dent_name").html(my_name);
-					});
-				}
-				if(Parse.User.current()!=null){
-					logined();
-				}
-	          };
-	         
-	          (function(d, s, id){
-	            var js, fjs = d.getElementsByTagName(s)[0];
-	            if (d.getElementById(id)) {return;}
-	            js = d.createElement(s); js.id = id;
-	            js.src = "//connect.facebook.net/en_US/sdk.js";
-	            fjs.parentNode.insertBefore(js, fjs);
-	          }(document, 'script', 'facebook-jssdk'));
-
-
-	</script>
-	<div id="friends_page">
-		<!--mavigation-->
-		<div class="ui inverted main menu fixed ui grid page">
-			<div class="container">
-			  <a  class="item logo">
-			  	Modent
-			  </a>
-			  <a class="item status">
-			    <i class="alarm icon"></i> Status
-		        
-			  </a>
-				  <a class="item" id="profile">
-				    <i class="users icon"></i> Friends
-				  </a>
-				  
-				 <a href="" class="item">
-			    	<i class="angle up icon"></i>
-			  	</a>  
-			  	 <a href="" class="item">
-			    	<i class="angle down icon"></i>
-			  	</a>  
-			  	<div id="right" class="right menu inverted">
-			  		<a class="item" id="userphoto">
-			  			<img id="account_img"/>
-			  		</a>
-			  		<a class=" item account_info" id="accountinfo">
-
-			  		</a>
-				    <a class="item login_btn">
-			    		Login
-			  		</a> 
-			  		<a class="item logout_btn">
-			    		Logout
-			  		</a>   
-				</div>
-			  
-			</div>
-		</div>
-		<header>
-			<div class="clock">
-		    <div id="Date"></div>
-		    <ul>
-		        <li id="hours"></li>
-		        <li id="point">:</li>
-		        <li id="min"></li>
-		        <li id="point">:</li>
-		        <li id="sec"></li>
-	    	</ul>
-	    </header>
-		<div class="ui grid page">
-		<!-- 以下為stackable，讓rwd btn全版-->
-			<div class="row">
-				<div class="stackable column "> 
-					<div class="right floated right aligned six wide column">
-						<div class="ui ignored icon direction buttons">
-					        <div class="ui black button" data-animation="flip" title="Flip Left" data-direction="left"><i class="angle left icon"></i></div>
-						     <div class="ui black button" data-animation="flip" data-direction="right" title="Flip Right"><i class="angle right icon"></i></div>
-							</div>
-					</div>
-					<div class="left floated left aligned six wide column">
-					    <div class="ui black button btn_make_dent"><i class="write icon"></i>Make a Dent!</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!--時段的時間軸-->
-			<section id="cd-timeline" class="out time-lines cd-container two wide column center" style="position: relative">
-				<div style="width: 80px; height: 80px"></div>
-				<!-- 12個時段-->
-				<div class="cd-timeline-block" data-time="0800">
-					<span class="cd-date">08:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="0830">
-					<span class="cd-date">08:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="0900">
-					<span class="cd-date">09:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="0930">
-					<span class="cd-date">09:30</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1000" >
-					<span class="cd-date">10:00</span>
-				</div>	
-				<div class="cd-timeline-block " data-time="1030">
-					<span class="cd-date">10:30</span>	
-				</div>
-				<div class="cd-timeline-block" data-time="1100" >
-					<span class="cd-date">11:00</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1130">
-					<span class="cd-date">11:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1200">
-					<span class="cd-date">12:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1230">
-					<span class="cd-date">12:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1300">
-					<span class="cd-date">13:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1330" >
-					<span class="cd-date">13:30</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1400">
-					<span class="cd-date">14:00</span>	
-				</div>
-				<div class="cd-timeline-block" data-time="1430">
-					<span class="cd-date">14:30</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1500" >
-					<span class="cd-date">15:00</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1530">
-					<span class="cd-date">15:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1600">
-					<span class="cd-date">16:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1630">
-					<span class="cd-date">16:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1700">
-					<span class="cd-date">17:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1730" >
-					<span class="cd-date">17:30</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1800" >
-					<span class="cd-date">18:00</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1830">
-					<span class="cd-date">18:30</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1900">
-					<span class="cd-date">19:00</span>
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="1930">
-					<span class="cd-date">19:30</span>	
-				</div> <!-- cd-timeline-block -->
-				<div class="cd-timeline-block" data-time="2000">
-					<span class="cd-date">20:00</span>
-				</div> <!-- cd-timeline-block -->
-				
-			</section> <!-- cd-timeline -->
-			<!--時段的時間軸結束-->
-			
-		    <!--自己的時間軸-->
-			<section id="cd-timeline" class="me_line cd-container two wide column" style="position: relative" >
-				<a class="avatar">
-					<img class="friends_pic my_timeline_pic"/>
-				</a>
-				<!-- 12個時段-->
-				
-			</section> <!-- cd-timeline -->
-			<!--自己的時間軸結束-->
-			
-			<!--朋友的時間軸-->
-			<section id="friends_timmeline_area"  class="twelve wide column grid  ">	
-				<div class="ui cube shape">
-				  <div class="sides" >
-				  	<div class="side active 1" id="1">
-				      <div class="content">
-				        <div class="center">
-				         	<!--section id="cd-timeline" class="no_1 cd-container two wide column center" style="position: relative">
-								<img src="img/5.jpg" alt="Picture" class="friends_pic" >
-								<!-- 12個時段-->
-
-							<!--/section> <!-- cd-timeline -->
-							<!--section id="cd-timeline" class="no_2 cd-container two wide column center" style="position: relative">
-								<img src="img/4.jpg" alt="Picture" class="friends_pic" >
-								<!-- 12個時段-->
-								
-							<!--/section> <!-- cd-timeline -->
-							<!--section id="cd-timeline" class="no_3 cd-container two wide column center" style="position: relative">
-								<img src="img/2.jpg" alt="Picture" class="friends_pic" >
-								
-							</section> <!-- cd-timeline -->
-							<!--section id="cd-timeline" class="no_4 cd-container two wide column center" style="position: relative">
-								<img src="img/0.jpg" alt="Picture" class="friends_pic" >
-								
-							</section> <!-- cd-timeline -->
-							<!--section id="cd-timeline" class="no_5 cd-container two wide column center" style="position: relative">
-								<img src="img/0.jpg" alt="Picture" class="friends_pic" >
-								
-							</section> <!-- cd-timeline -->
-				        </div>
-				      </div>
-				    </div>
-				    <div class="side 2" id="2">
-				      <div class="content">
-				        <div class="center">
-				          <section id="cd-timeline" class="no_2 cd-container two wide column center" style="position: relative">
-								<img src="img/4.jpg" alt="Picture" class="friends_pic" >
-								<!-- 12個時段-->
-								
-							<section> <!-- cd-timeline -->
-				        </div>
-				      </div>
-				    </div>
-				  	<div class="side 3" id="3">
-				      <div class="content">
-				        <div class="center">
-				          3
-				        </div>
-				      </div>
-				    </div>
-				    <div class="side 4" id="4">
-				      <div class="content">
-				        <div class="center">
-				          4
-				        </div>
-				      </div>
-				    </div>
-				    <div class="side 5" id="5">
-				      <div class="content">
-				        <div class="center">
-				          5
-				        </div>
-				      </div>
-				    </div>
-				    <div class="side 6" id="6">
-				      <div class="content">
-				        <div class="center">
-				          6
-				        </div>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</section>
-			
-		</div>
-	</div>
-
-
-
-<div class="ui left vertical inverted  labeled icon sidebar menu very wide">
-  <div class="ui feed item">
-  <div class="event">
-    <div class="label">
-      <img src="img/1.jpg">
-    </div>
-    <div class="content">
-      <div class="summary">
-        <a class="user">
-          Elliot Fu
-        </a> added you as a friend
-        <div class="date">
-          1 Hour Ago
+  <head>
+    <meta charset="utf-8">
+    
+    <title>MoDənt</title>
+  <!-- 必要之import檔案 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/queries.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+  <!-- import END-->
+    <link rel="stylesheet" href="stylesheets/screen.css">
+  </head>
+      <body id="top">
+        <header id="home">
+          <!--animated BG-->
+          <div class="container demo-1" style="
+          width: 100%;
+          padding: 0px; ">
+            <div class="content">
+              <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <h1 class="main-title">
+                  MoDənt
+                  <div class="thin">Make moment into dent</div>
+                </h1>
+              </div>
+            </div>
+          </div>
+          <script src="animated-BG/js/TweenLite.min.js"></script>
+          <script src="animated-BG/js/EasePack.min.js"></script>
+          <script src="animated-BG/js/rAF.js"></script>
+          <script src="animated-BG/js/demo-1.js"></script>
+          <!--animated  -->
+        </header>
+        
+        <section class="intro text-center section-padding" id="intro">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 wp1">
+                <h1 class="arrow">New ways about sharing your days</h1>
+                <p>
+                  Link every interesting points in one day to turn it into lines. Then, everybody's line could knit out a tight connection  
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="features text-center section-padding" id="features">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Do what you do, and you'll be linked with others</h1>
+                <div class="features-wrapper">
+                  <div class="col-md-4 wp2">
+                    <div class="icon">
+                      <i class="fa fa-laptop shadow"></i>
+                    </div>
+                    <h2>Make a Dent!</h2>
+                    <p>
+                      write down your daily works.
+                    </p>
+                  </div>
+                  <div class="col-md-4 wp2 delay-05s">
+                    <div class="icon">
+                      <i class="fa fa-eye shadow"></i>
+                    </div>
+                    <h2>Find the coincidence</h2>
+                    <p>
+                      You can turn coincidence into chances.
+                    </p>
+                  </div>
+                  <div class="col-md-4 wp2 delay-1s">
+                    <div class="icon">
+                      <i class="fa fa-heart shadow"></i>
+                    </div>
+                    <h2>Friends Connection</h2>
+                    <p>Know more about your friends.</p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="swag text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <h1>make a dent!<span>Make a <em>friend!</em></span></h1>
+                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio text-center section-padding" id="portfolio">
+          <div class="container">
+            <div class="row">
+              <div id="portfolioSlider">
+                <ul class="slides">
+                  <li>
+                    <div class="col-md-4 wp4">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/keyboard.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>1. Record what you do </h2>
+                      <p>Just write down what you've done or what  you'll do Like using to-do-list.</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-05s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/clothes-hanger.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>2. Link dots, make a dent</h2>
+                      <p>Try to record a frame of time. Because we could not finish every stuff just in a moment</p>
+                    </div>
+                    <div class="col-md-4 wp4 delay-1s">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/cameras.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>3. Compare with others</h2>
+                      <p>Lots of people do lots of things in oneday. There might be some beautiful coincidence</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="ignite-cta text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <a href="http://chococheng.github.io/sna/index-v3.html" class="ignite-btn">Make a dent NOW</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 4 Likes
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <i class="pencil icon"></i>
-    </div>
-    <div class="content">
-      <div class="summary">
-        You submitted a new post to the page
-        <div class="date">
-          3 days ago
-        </div>
-      </div>
-      <div class="extra text">
-        I'm having a BBQ this weekend. Come by around 4pm if you can.
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 11 Likes
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="img/1.jpg">
-    </div>
-    <div class="content">
-      <div class="date">
-        4 days ago
-      </div>
-      <div class="summary">
-        <a>Helen Troy</a> added <a>2 new illustrations</a>
-      </div>
-      <div class="extra images">
-        <<!-- a><img src="/images/wireframe/image.png"></a>
-        <a><img src="/images/wireframe/image.png"></a> -->
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 1 Like
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="img/1.jpg">
-    </div>
-    <div class="content">
-      <div class="summary">
-        <a class="user">
-          Jenny Hess
-        </a> added you as a friend
-        <div class="date">
-          2 Days Ago
-        </div>
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 8 Likes
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="img/4.jpg">
-    </div>
-    <div class="content">
-      <div class="summary">
-        <a>Joe Henderson</a> posted on his page
-        <div class="date">
-          3 days ago
-        </div>
-      </div>
-      <div class="extra text">
-        Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 5 Likes
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="img/5.jpg">
-    </div>
-    <div class="content">
-      <div class="date">
-        4 days ago
-      </div>
-      <div class="summary">
-        <a>Justen Kitsune</a> added <a>2 new photos</a> of you
-      </div>
-      <div class="extra images">
-        <!-- <a><img src="/images/wireframe/image.png"></a>
-        <a><img src="/images/wireframe/image.png"></a> -->
-      </div>
-      <div class="meta">
-        <a class="like">
-          <i class="like icon"></i> 41 Likes
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-  
-</div>
+        <section class="team text-center section-padding" id="team">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">We're a team tring to do the best</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="team-wrapper">
 
+                      <div class="col-md-3 wp5">
+                        <img src="img/1.png" alt="Team Member">
+                        <h2>Chen Yu-Hsin</h2>
+                        <p>Senior, MIS, NCCU</p>
+                        <p>Developer</p>
+                      </div>
+                      
+                      <div class="col-md-3 wp5 delay-05s">
+                        <img src="img/3.png" alt="Team Member">
+                        <h2>chiu chui hui</h2>
+                        <p>Senior, MIS, NCCU</p>
+                        <p>Developer</p>
+                      </div>
+                      <div class="col-md-3 wp5 delay-1s">
+                        <img src="img/4.png" alt="Team Member">
+                        <h2>LIN TING-HONG</h2>
+                        <p>Senior, MIS, NCCU</p>
+                        <p>Developer</p>
+                      </div>
 
-<!-- login btn -->
-<div class="ui modal login_content small">
-	<i class="close icon"></i>
-	<div class="header">
-	Login
-	</div>
-	<div class="content">
- 		<div id="my-login-button" class="ui facebook button center">
- 			<i class="facebook icon"></i>Login wuth Facebook
-		</div>
-	</div>
-</div>
+                      <div class="col-md-3 wp5 delay-105s">
+                        <img src="img/2.png" alt="Team Member">
+                        <h2>CHENG CHIAO-I</h2>
+                        <p>Senior, MIS, NCCU</p>
+                        <p>Developer</p>
+                      </div>
 
-<!-- friend's reply -->
-
-
-<div class="ui modal reply_content small">
-	<i class="close icon"></i>
-	<div class="header">
-	Reply
-	</div>
-	<div class="content">
-		<div class="ui comments">
-			<div class="comment owner_post">
-		    <a class="avatar">
-		      <img id="poster_modal_img" src="">
-		    </a>
-		    <div class="content" id="dent_id">
-		      <a id= "poster_modal_name" class="author"></a>
-		      <div class="metadata">
-		        <div id="poster_create_at" class="date"></div>
-		        <div  class="rating modal_rating">
-		          <a id="modal_rating_count"><i class="heart icon"></i>
-		          </a>
-		        </div>
-		      </div>
-
-		      <div id="poster_modal_content" class="text">
-		       
-		      
-		    </div>
-		  </div>
-		  <form class="ui reply form">
-		    <div class="field">
-		      <textarea id="reply_area"></textarea>
-		    </div>
-		  </form>
-		</div><!-- comments end -->
-		</div>
-	</div>
-	<div class='actions'>
-		<div class='ui button'>Cancel</div>
-		<div class='ui button reply_send'>Send</div>
-	</div>
-</div>
-
-<!-- make a dent -->
-<div class='ui modal post_content small'>
-	<i class='close icon'></i>
-	<div class='header'>
-		Post
-	</div>
-						  
-	<div class='content'>
-		<div class='image'>
-			<img class="my_timeline_pic"></img>
-		</div>
-		<div class='description'>
-			<div class="make_dent_name" style="display: none"></div>
-			<textarea class="make_dent_content" placeholder="Let's share something to others!"></textarea>
-			<div class="ui form make_dent_emotion">
-			  <div class="inline fields">
-			    <label for="emotion">Feeling?</label>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="emotion" value="smile" data-color="yellow" checked="">
-			        <label><i class="smile icon"></i></label>
-			      </div>
-			    </div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="emotion" data-color="green" value="meh">
-			        <label><i class="meh icon"></i></label>
-			      </div>
-			    </div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="emotion" data-color="blue" value="frown">
-			        <label><i class="frown icon"></i></label>
-			      </div>
-			    </div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="emotion" data-color="red" value="empty heart">
-			        <label><i class="empty heart icon"></i></label>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			
-			<input type="text" id="start_datetime" placeholder="2015/1/1 17:00"><br />
-			<input type="text" id="end_datetime" placeholder="2015/1/1 18:00"><br />
-			<div class='ui primary button post_upload_pic'>
-				<i class='photo icon'></i>Upload Pictures
-			</div>
-		</div>
-	</div>
-	<div class='actions'>
-		<div class='ui button'>Cancel</div>
-		<div class='ui button dent_send'>Send</div>
-	</div>
-
-</div>
-	</body>
-</html>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="subscribe text-center">
+          <div class="container">
+            <h1><i class="fa fa-paper-plane"></i><span>Give us some advice</span></h1>
+            <form action="#">
+              <input type="text" name="" value="" placeholder="" required>
+              <input type="submit" name="" value="Send">
+            </form>
+          </div>
+        </section>
+        <section class="dark-bg text-center section-padding contact-wrap" id="contact">
+          <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Contact us</h1>
+              </div>
+            </div>
+            <div class="row contact-details">
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+                  <p>No.64,Sec.2,Zhi-Nan Rd., Wenshan,Taipei 116</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+                  <p id="phone-num">+886 919xxxxxx</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+                  <p id="email"><a href="#">100306xxx@nccu.edu.tw</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="legals">
+<!--                   <li><a href="#"></a></li>
+                  <li><a href="#"></a></li> -->
+                </ul>
+              </div>
+              <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a href="http://www.peterfinlan.com/">MoDənt</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.flexslider.js"></script>
+        <script src="js/modernizr.js"></script>
+      </body>
+    </html>

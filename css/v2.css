@@ -81,7 +81,7 @@ header .slogan{
   padding-top: 30px;
 }
 #header_v2{
-  background: #f19a3e;
+  background: #3DC9B3;
   /*background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));*/
 }
 .following.bar{
@@ -132,9 +132,11 @@ header .slogan{
 .ui.main.menu{
   box-shadow: none;
 }
-.side{
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+.side ,.ui.grid.page.for_page {
+  background-color: #eff2ef !important;
+  /**#eafdf8*/
+
 }
-.ui.grid.page.for_page{
-  /*background: #f5ffc6;
-}
+/*.ui.grid.page.for_page{
+  background: #eafdf8;
+}*/

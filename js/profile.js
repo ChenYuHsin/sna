@@ -1,10 +1,14 @@
 $(document).on("click", "#add_friend_btn", function(){
 	var recommendfriend = function(id, url, name){
-		var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+		// var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+		var friendbody = $('<figure id="'+id'"><img src="'+url+'"/><figcaption><span>'+name+'</span><p class="icon-links"><a href="#"><i class="fa fa-comments-o"></i></a><a href="#"><i class="fa fa-heart-o"></i></a></p></figcaption></figure>');
+
 		$('#recommendfriend').append(friendbody);
 	}
 	var friendlist = function(id, url, name){
-		var listbody = $('<div class="card" id="'+id+'"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+		// var listbody = $('<div class="card" id="'+id+'"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+		var friendbody = $('<figure id="'+id'"><img src="'+url+'"/><figcaption><span>'+name+'</span><p class="icon-links"><a href="#"><i class="fa fa-comments-o"></i></a><a href="#"><i class="fa fa-heart-o"></i></a></p></figcaption></figure>');
+
 		$('#friendlists').append(listbody);
 	}
 	var friendid = $(this).parent().attr('id');
