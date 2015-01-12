@@ -171,6 +171,12 @@ function deliverDent(user, category, color, content, s, e){
 			    	alert('Failed to create new object, with error code: ' + error.message);
 			  	}
 			});
+			var makedentevent = Parse.Object.extend("Event");
+			var makedent = new makedentevent();
+			makedent.set("category", "makedent");
+			makedent.set("User", user);
+			makedent.set("content", content);
+			makedent.save();
 		},
 		error: function(object, error) {
 			alert(error.message);
