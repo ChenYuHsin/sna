@@ -62,7 +62,8 @@ jQuery(document).ready(function($){
 
 	$("body").on( "click","#reply_send", function() {
 		console.log($(this));
-		var dent_id = $(this).closest(".actions").prev().find("#dent_id").find("div").attr("data-dentId");//requests["id"];
+		//var dent_id = $(this).closest(".actions").prev().find("#dent_id").find("div").attr("data-dentId");//requests["id"];
+		var dent_id = $(this).closest(".reply_content").attr("data-dentId");
 		console.log(dent_id);
 		deliverReponse(dent_id);
 	})
