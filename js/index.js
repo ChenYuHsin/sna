@@ -131,9 +131,15 @@ jQuery(document).ready(function($){
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
 	    console.log($('.make_dent'));
+	    $(".reply_send").click(function(){
+			var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+			console.log(dent_id);
+			deliverReponse(dent_id);
+		});
 	} else {
 	    // show the signup or login page
 	}
+
 })//------------------------------------------------------------------
 	
 	
@@ -325,11 +331,7 @@ jQuery(document).ready(function($){
 		}
 
 
-		$(".reply_send").click(function(){
-			var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-			console.log(dent_id);
-			deliverReponse(dent_id);
-		});
+		
 
 		function deliverReponse(dent_id){
 			var currentUser = Parse.User.current();
