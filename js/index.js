@@ -67,9 +67,8 @@ jQuery(document).ready(function($){
 		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
 		queryDent(currentUser); 
 		/*****  朋友timeline ******/
-		friendtimeline();
+		$.when(friendtimeline()).then(appeardent());
 		//queryDent(); // 需要改呼叫時間，不然會很耗資源
-		appeardent();
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
