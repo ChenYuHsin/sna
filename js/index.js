@@ -247,107 +247,6 @@ function queryDent(object){
 		}
 	});
 }
-	
-// function queryDent(){
-// 	var Dent = Parse.Object.extend("Dent");
-// 	var query = new Parse.Query(Dent);
-	
-// 	//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
-// 	query.ascending("s_datetime");
-// 	query.find({
-// 		success: function(results){
-// 			var pre_time_start_hour = 8;
-// 			var pre_time_start_minute = 0;
-
-// 			for(var i=0; i<results.length; i++){
-
-// 				var dent = results[i];
-// 				var dent_poster_obj = dent.get("poster");
-// 				var dent_poster = dent.get("poster").id;
-// 				var dent_category = dent.get("category");
-// 				var dent_content = dent.get("content");
-// 				var dent_start = dent.get("s_datetime");
-// 				var dent_end = dent.get("e_datetime");
-// 				var dent_color = dent.get("color");
-// 				var calstart = dent_start.getHours();
-// 				var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
-// 				var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-// 				var popuoClass = "#dent_"+dent.id+" "+".cd-timeline-img";
-// 				var gaptime = dent_end.getTime() - dent_start.getTime();
-// 				var calkeep = gaptime/60000*2;
-// 				var getstartHour = dent_start.getHours();
-// 				var getstartMinutes = dent_start.getMinutes();
-// 				var calmarginTop = (getstartHour-pre_time_start_hour)*60*2 + (getstartMinutes-pre_time_start_minute)*2;
-
-// 				pre_time_start_hour = getstartHour;
-// 				pre_time_start_minute = getstartMinutes;
-
-// 				$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
-// 				var popupTplCotent = "<div class='ui items popup_item'>"+
-// 							  "<div class='item'>"+
-// 							    "<a class='ui tiny image'>"+
-// 							      "<img src='"+dent.get('poster_img')+"' style='border-radius: .25rem;'>"+
-// 							    "</a>"+
-// 							    "<div class='content'>"+
-// 							      "<a class='author'>"+dent.get('poster_name')+"</a>"+
-// 							      "<div class='metadata'>"+
-// 							      	"<div class='date'>1</div>"+
-// 							      "</div>"+
-// 							      "<div class='description'>"+
-							        
-// 							        "<p>"+dent_content+"</p>"+
-// 							      "</div>"+
-// 							    "</div>"+
-// 							  "</div>";
-				
-// 				$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});	
-
-				
-// 				//here is for click modal
-// 				//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
-// 			}
-			
-// 		},
-// 		error: function(object, error){
-// 			alert(error.message);
-// 		}
-// 	});
-// }
-	
-	/*$('body').on("click",".cd-timeline-img",function(){
-		var post_id = $(this).closest('.cd-timeline-block').attr("id");
-
-		var Dent = Parse.Object.extend("Dent");
-		var query = new Parse.Query(Dent);
-		query.equalTo("objectId", post_id);
-
-		query.find({
-			success: function(result){
-				moment.locale('zh-TW');
-				
-				for (var i = 0; i < result.length; i++) { 
-			      var obj = result[i];
-			      var createAt = obj.createdAt;
-			      	$("#poster_modal_img").attr("src", obj.get("poster_img"));
-					$("#poster_modal_name").text(obj.get("poster_name"));
-					$("#poster_modal_content").text(obj.get("content"));
-					$("#poster_create_at").text(moment(createAt).fromNow());
-					$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
-					$("#modal_rating_count").text(obj.get("likes").length+ " likes");
-					$("#dent_id").attr("data-dentId", post_id);
-			      	queryResponse(obj);
-			    }
-				
-			},
-			error: function(){
-
-			}
-		})
-
-		$('.reply_content').modal('show');
-		
-	});*/
-	
 
 function clickLike(dent_id , user_id){
 		var User = Parse.Object.extend("User");
@@ -389,7 +288,7 @@ function clickLike(dent_id , user_id){
 }
 
 
-$(".reply_send").click(function(){
+$("#reply_send").click(function(){
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 	console.log(dent_id);
 	deliverReponse(dent_id);
@@ -497,7 +396,7 @@ function printResponseTpl(post_id){
 						"</div>"+
 						"<div class='actions'>"+
 							"<div class='ui button'>Cancel</div>"+
-							"<div class='ui button reply_send'>Send</div>"+
+							"<div class='ui button' id='reply_send'>Send</div>"+
 						"</div></div>";
 
 				$("body").append(tpl);	
