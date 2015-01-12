@@ -65,26 +65,26 @@ jQuery(document).ready(function($){
 	var currentUser = Parse.User.current();
 	if (currentUser) {
 		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
-		//queryDent(currentUser); 
+		queryDent(currentUser); 
 		/*****  朋友timeline ******/
 		var friends = currentUser.get("friends");
 		for(var i = 0;i < friends.length; i++){
 			var queryFriend = new Parse.Query(Parse.User);
 			queryFriend.get(friends[i], {
-				success: function(friends) {
+				success: function(friendobject) {
 					var imgsrc = friends.get("imagesrc");
 					var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
 										"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 									"</section>";
 					$("#friends_timmeline_area #1 .content").append(friendsSection);
-					//queryDent(friends);					
+					queryDent(friendobject);					
 				},
 				error: function(object, error) {
 					alert(object +" "+error);
 				}
 			});
 		}
-		queryDent(); // 需要改呼叫時間，不然會很耗資源
+		//queryDent(); // 需要改呼叫時間，不然會很耗資源
 
 		//response modal 產生
 		var postIdArray = [];
@@ -180,11 +180,11 @@ var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId)
 	return timeTpl;	
 };
 
-function queryDent(){
+function queryDent(object){
 	var Dent = Parse.Object.extend("Dent");
 	var query = new Parse.Query(Dent);
-	// query.equalTo("poster", object);
-	// query.include("poster");
+	query.equalTo("poster", object);
+	query.include("poster");
 	
 	//var origin = "<tr><th>User</th><th>Category</th><th>Content</th><th>Start Time</th><th>End Time</th><th>Response</th><th>Like</th></tr>";
 	query.ascending("s_datetime");
