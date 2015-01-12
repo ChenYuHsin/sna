@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 		deliverReponse(dent_id);
 	})
 
-	$("#reply_send").on( "click", function() {
+	$("body").on( "click","#reply_send", function() {
 		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 		console.log(dent_id);
 		deliverReponse(dent_id);
