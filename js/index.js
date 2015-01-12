@@ -200,8 +200,14 @@ var timeLineTpl = function(poster ,startmarginTo, keepTime ,face ,color, postId)
 };
 
 function queryDent(object){
+	var today = new Date();
 	var Dent = Parse.Object.extend("Dent");
 	var query = new Parse.Query(Dent);
+	var today = new Date();
+	var begining = today.setHour(0,0,0);
+	var end = today.setHours(23,59,59);
+	query.lessThan("e_datetime", end);
+	query.greaterThan("s_datetime", begining);
 	query.equalTo("poster", object);
 	query.include("poster");
 	
