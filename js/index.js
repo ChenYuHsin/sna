@@ -76,18 +76,11 @@ jQuery(document).ready(function($){
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
 	    console.log($('.make_dent'));
+	    console.log($("[id = 'reply_send']"));
 	} else {
 	    // show the signup or login page
 	}
 });
-
-window.onload = function (){
-    	$("#reply_send").on( "click", function() {
-		var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
-		console.log(dent_id);
-		deliverReponse(dent_id);
-	})
-}
 
 		function friendtimeline(){
 			var friends = Parse.User.current().get("friends");
@@ -305,6 +298,18 @@ function clickLike(dent_id , user_id){
 // 	console.log(dent_id);
 // 	deliverReponse(dent_id);
 // });
+$("[id = 'reply_send']").click(function(){
+	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+	console.log(dent_id);
+	deliverReponse(dent_id);
+})
+
+$("[id = 'reply_send']").on("click",function(){
+	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
+	console.log(dent_id);
+	deliverReponse(dent_id);
+})
+
 $("#reply_send").on( "click", function() {
 	var dent_id = $(this).closest(".actions").prev().find("#dent_id").attr("data-dentId");//requests["id"];
 	console.log(dent_id);
