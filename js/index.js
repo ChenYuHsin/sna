@@ -528,6 +528,7 @@ function showStatus(total_status){
 			action = "make a dent";
 		}
 		var likes;
+		console.log(total_status[i]);
 		if(total_status[i].category == "dent"){
 			if(total_status[i].contents.get("likes") == "undefined"){
 				likes = 0;
