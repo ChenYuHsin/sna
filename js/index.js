@@ -473,6 +473,7 @@ function queryStatus(currentUser){
 			success: function(friend) {
 				var Dent = Parse.Object.extend("Dent");
 				var queryFriendDent = new Parse.Query(Dent);
+				queryFriendDent.include('poster');
 				queryFriendDent.equalTo("poster", friend);
 				queryFriendDent.find({
 			  		success: function(results) {
@@ -488,6 +489,7 @@ function queryStatus(currentUser){
 
 				var Response = Parse.Object.extend("Response");
 				var queryFriendResponse = new Parse.Query(Response);
+				queryFriendResponse.include('responser');
 				queryFriendResponse.equalTo("responser", friend);
 				queryFriendResponse.find({
 					success: function(results) {
@@ -549,7 +551,7 @@ function showStatus(total_status){
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
 	        		'<a class="user">' + total_status[i].contents.get("post_name") + '</a> ' + action +
-	        		'<div class="date">' + moment(total_status.createdTime).fromNow() + '</div>'+
+	        		'<div class="date">' + moment(total_status[i].createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
         		total_status[i].contents.get("content") + 
