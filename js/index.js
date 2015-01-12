@@ -310,6 +310,7 @@ function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
 	var responser = currentUser.id;
 	
+	console.log($("[data-dentid = '"+dent_id+"']"));
 	var content = $("[data-dentid = '"+dent_id+"']").find("#reply_area").val();
 	console.log(content);
 	//var content = $("#reply_area").val();
