@@ -274,44 +274,44 @@ function queryDent(object , querytime){
 	});
 }
 
-function clickLike(dent_id , user_id){
-		var User = Parse.Object.extend("User");
-		var query = new Parse.Query(User);
-		// 搜尋此使用者
-	query.get(user_id, {
-		success: function(u) {
-			var user = u;
-  			// 修改 dent 資料表內 likes 欄位的資料
-			var Dent = Parse.Object.extend("Dent");
-			var queryLikes = new Parse.Query(Dent);
+// function clickLike(dent_id , user_id){
+// 		var User = Parse.Object.extend("User");
+// 		var query = new Parse.Query(User);
+// 		// 搜尋此使用者
+// 	query.get(user_id, {
+// 		success: function(u) {
+// 			var user = u;
+//   			// 修改 dent 資料表內 likes 欄位的資料
+// 			var Dent = Parse.Object.extend("Dent");
+// 			var queryLikes = new Parse.Query(Dent);
 
-			queryLikes.get(dent_id, {
-				success: function(r){
-					r.addUnique("likes", user_id);
-					r.save(null, {
-						success: function(object){
-							console.log("update Dent-likes success.");
-							//queryDent(requests["id"]);
-						},
-						error: function(object, error){
-							console.log(error.message);
-						}
-					});
-				},
-				error: function(object, error){
-					console.log(error.message);
-				}
-			});
-			var LikesDent = Parse.Object.extend("LikesDent");
-			var likesDent = new LikesDent(); 
+// 			queryLikes.get(dent_id, {
+// 				success: function(r){
+// 					r.addUnique("likes", user_id);
+// 					r.save(null, {
+// 						success: function(object){
+// 							console.log("update Dent-likes success.");
+// 							//queryDent(requests["id"]);
+// 						},
+// 						error: function(object, error){
+// 							console.log(error.message);
+// 						}
+// 					});
+// 				},
+// 				error: function(object, error){
+// 					console.log(error.message);
+// 				}
+// 			});
+// 			var LikesDent = Parse.Object.extend("LikesDent");
+// 			var likesDent = new LikesDent(); 
 			
-		},
-		error: function(object, error) {
-			alert(error.message);
-			console.log("error");
-		}
-	});
-}
+// 		},
+// 		error: function(object, error) {
+// 			alert(error.message);
+// 			console.log("error");
+// 		}
+// 	});
+// }
 
 function deliverResponse(dent_id){
 	var currentUser = Parse.User.current();
