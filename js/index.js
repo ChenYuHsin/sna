@@ -72,8 +72,8 @@ jQuery(document).ready(function($){
 			var queryFriend = new Parse.Query(Parse.User);
 			queryFriend.get(friends[i], {
 				success: function(friendobject) {
-					var imgsrc = friends.get("imagesrc");
-					var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friends.id+"'>"+
+					var imgsrc = friendobject.get("imagesrc");
+					var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
 										"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 									"</section>";
 					$("#friends_timmeline_area #1 .content").append(friendsSection);
