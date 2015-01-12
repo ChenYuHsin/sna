@@ -130,7 +130,6 @@ jQuery(document).ready(function($){
 					
 				}
 
-				console.log(postIdArray);
 				$.each(postidArray,function(index, value){
 					$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
 					  name: value
