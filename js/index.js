@@ -78,6 +78,7 @@ jQuery(document).ready(function($){
 									"</section>";
 					$("#friends_timmeline_area #1 .content").append(friendsSection);
 					queryDent(friendobject);
+					appeardent();
 				},
 				error: function(object, error) {
 					alert(object +" "+error);
@@ -85,38 +86,6 @@ jQuery(document).ready(function($){
 			});
 		}
 		//queryDent(); // 需要改呼叫時間，不然會很耗資源
-
-		//response modal 產生
-		// var postIdArray = [];
-		// var Dent = Parse.Object.extend("Dent");
-		// var dent = new Parse.Query(Dent);
-		// dent.find({
-		// 	success: function(results) {
-		// 		for(i=0; i<results.length; i++){
-		// 			var dentId = results[i].id;
-		// 			printResponseTpl(dentId)
-		// 			if(dentId==null){
-						
-		// 			}else{
-		// 				postIdArray.push(dentId);
-		// 			}
-					
-		// 			//console.log(dentId.id);
-					
-		// 		}
-
-		// 		$.each(postIdArray,function(index, value){
-		// 			$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
-		// 			  name: value
-		// 			}, showResponseModal );
-
-		// 		});
-				
-		// 	},
-		// 	error: function(error) {
-		// 		alert("Error: " + error.code + " " + error.message);
-		// 	}
-		// });
 		
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
@@ -126,40 +95,42 @@ jQuery(document).ready(function($){
 	} else {
 	    // show the signup or login page
 	}
-var postIdArray = [];
-		var Dent = Parse.Object.extend("Dent");
-		var dent = new Parse.Query(Dent);
-		dent.find({
-			success: function(results) {
-				for(i=0; i<results.length; i++){
-					var dentId = results[i].id;
-					printResponseTpl(dentId)
-					if(dentId==null){
-						
-					}else{
-						postIdArray.push(dentId);
-					}
-					
-					//console.log(dentId.id);
-					
-				}
-
-				$.each(postIdArray,function(index, value){
-					$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
-					  name: value
-					}, showResponseModal );
-
-				});
-				
-			},
-			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
-			}
-		});
-	
 });
-	
-	
+
+//response modal 產生
+		function appeardent(){
+			var postIdArray = [];
+			var Dent = Parse.Object.extend("Dent");
+			var dent = new Parse.Query(Dent);
+			dent.find({
+				success: function(results) {
+					for(i=0; i<results.length; i++){
+						var dentId = results[i].id;
+						printResponseTpl(dentId)
+						if(dentId==null){
+							
+						}else{
+							postIdArray.push(dentId);
+						}
+						
+						//console.log(dentId.id);
+						
+					}
+
+					$.each(postIdArray,function(index, value){
+						$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
+						  name: value
+						}, showResponseModal );
+
+					});
+					
+				},
+				error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
+		}
+		
 function deliverDent(user, category, color, content, s, e){
 	var Dent = Parse.Object.extend("Dent");
 		var dent = new Dent();
