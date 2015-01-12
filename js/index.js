@@ -326,15 +326,15 @@ function deliverResponse(dent_id){
 						response.set("responser", u);
 						response.set("dent_id", d);
 						response.set("content", content);
-						response.save(null, {
-					  	success: function(gameScore) {
-					    	//queryResponse(d);
-					    	
-					  	},
-					  	error: function(gameScore, error) {
-					    	alert('Failed to create new object, with error code: ' + error.message);
-					  	}
-					});
+						response.save();
+
+						var replyevent = Parse.Object.extend("Event");
+						var reply = new replyevent();
+						reply.set("category", "reply");
+						reply.set("User", currentUser);
+						reply.set("content", content);
+						reply.set("targetuser", d.get('poster'));
+						reply.save();
 					},
 					error: function(error){
 						alert(error.message);
