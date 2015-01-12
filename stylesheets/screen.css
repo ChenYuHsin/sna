@@ -1,0 +1,687 @@
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+@import url(http://fonts.googleapis.com/css?family=Playball);
+/* line 5, ../sass/screen.scss */
+.large-header {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("../img/black-and-white-dark-light-1036.jpg");
+}
+
+/* line 12, ../sass/screen.scss */
+.demo-1 .main-title {
+  font-size: 5em;
+  letter-spacing: 0.1em;
+  position: absolute;
+  color: #f9f1e9;
+  text-align: center;
+  top: 70%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  font-weight: 100;
+  font-family: 'Playball', cursive;
+}
+/* line 24, ../sass/screen.scss */
+.demo-1 .main-title .thin {
+  letter-spacing: 2px;
+  font-size: 17px;
+  font-weight: 100;
+  font-family: 'Varela Round', sans-serif;
+}
+
+/* line 32, ../sass/screen.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 38, ../sass/screen.scss */
+html, html a {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+/* line 43, ../sass/screen.scss */
+body {
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+}
+
+/* line 48, ../sass/screen.scss */
+a {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* line 54, ../sass/screen.scss */
+a:hover, a:focus {
+  color: #3dc9b3;
+  text-decoration: none;
+}
+
+/* line 58, ../sass/screen.scss */
+p {
+  margin: 1em 0;
+  color: #8c9398;
+  word-spacing: 1px;
+  line-height: 25px;
+  font-size: 20px;
+}
+
+/* line 65, ../sass/screen.scss */
+h2 {
+  font-size: 22px;
+  color: #353535;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* line 71, ../sass/screen.scss */
+h2::after {
+  content: " ";
+  border: solid 2px #3dc9b3;
+  display: block;
+  width: 35px;
+  margin: 25px auto;
+}
+
+/* line 78, ../sass/screen.scss */
+.section-padding {
+  padding: 90px 0 100px;
+}
+
+/* line 81, ../sass/screen.scss */
+.dark-bg {
+  background: #f3f5f8;
+}
+
+/* line 85, ../sass/screen.scss */
+.light-box {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 0px 0px #f0f2f4;
+  -moz-box-shadow: 0px 3px 0px 0px #f0f2f4;
+  box-shadow: 0px 3px 0px 0px #f0f2f4;
+  padding: 20px 0;
+}
+
+/* line 92, ../sass/screen.scss */
+.light-box:hover, .light-box:focus {
+  -webkit-box-shadow: 0px 3px 0px 0px #3dc9b3;
+  -moz-box-shadow: 0px 3px 0px 0px #3dc9b3;
+  box-shadow: 0px 3px 0px 0px #3dc9b3;
+}
+
+/* line 97, ../sass/screen.scss */
+.box-hover {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+
+/* line 103, ../sass/screen.scss */
+.box-hover:hover, .box-hover:focus {
+  transform: translate(0, -15px);
+  -webkit-transform: translate(0, -15px);
+  -ms-transform: translate(0, -15px);
+}
+
+/* ==========================================================================
+Intro
+========================================================================== */
+/* line 113, ../sass/screen.scss */
+.intro {
+  background: #f3f5f8;
+}
+
+/* line 116, ../sass/screen.scss */
+.intro p {
+  margin: 50px 0 0;
+}
+
+/* line 119, ../sass/screen.scss */
+h1.arrow {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #353535;
+  letter-spacing: 1px;
+  background: url("../img/h1-bg.png") no-repeat center bottom;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+Features
+========================================================================== */
+/* line 132, ../sass/screen.scss */
+.features-wrapper, .team-wrapper {
+  margin: 70px 0 0;
+}
+
+/* line 135, ../sass/screen.scss */
+.shadow {
+  text-shadow: #37b5a1 1px 1px, #37b5a1 2px 2px, #37b5a1 3px 3px, #37b5a1 4px 4px, #37b5a1 5px 5px, #37b5a1 6px 6px, #37b5a1 7px 7px, #37b5a1 8px 8px, #37b5a1 9px 9px, #37b5a1 10px 10px, #37b5a1 11px 11px, #37b5a1 12px 12px, #37b6a2 13px 13px, #37b7a3 14px 14px, #38b8a4 15px 15px, #38b9a5 16px 16px, #38baa6 17px 17px, #39bba7 18px 18px, #39bca8 19px 19px, #39bda9 20px 20px, #3abfaa 21px 21px, #3ac0ab 22px 22px, #3ac1ac 23px 23px, #3bc2ad 24px 24px, #3bc3ae 25px 25px, #3bc4af 26px 26px, #3cc5b0 27px 27px, #3cc6b1 28px 28px, #3cc7b2 29px 29px, #3dc9b3 30px 30px;
+}
+
+/* line 138, ../sass/screen.scss */
+.icon {
+  height: 175px;
+  width: 175px;
+  line-height: 175px;
+  max-width: 100%;
+  background: #3dc9b3;
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  display: block;
+  color: #fff;
+  font-size: 55px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 auto 50px;
+}
+
+/* ==========================================================================
+Swag
+========================================================================== */
+/* line 161, ../sass/screen.scss */
+.swag {
+  background: url("../img/city-crossing-man.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 50px 0;
+}
+
+/* line 170, ../sass/screen.scss */
+.swag h1 {
+  color: #fff;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+/* line 176, ../sass/screen.scss */
+.swag h1 span {
+  display: block;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+/* line 181, ../sass/screen.scss */
+.down-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: rgba(61, 201, 179, 0.8);
+  display: inline-block;
+  margin: 10px auto 20px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* line 196, ../sass/screen.scss */
+.down-arrow-btn:hover, .down-arrow-btn:focus {
+  color: #fff;
+  background: #3dc9b3;
+}
+
+/* ==========================================================================
+Portfolio
+========================================================================== */
+/* line 204, ../sass/screen.scss */
+.effects {
+  padding-left: 15px;
+}
+
+/* line 207, ../sass/screen.scss */
+.effects .img {
+  position: relative;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* line 214, ../sass/screen.scss */
+.effects .img:nth-child(n) {
+  margin-right: 5px;
+}
+
+/* line 217, ../sass/screen.scss */
+.effects .img:first-child {
+  margin-left: -15px;
+}
+
+/* line 220, ../sass/screen.scss */
+.effects .img:last-child {
+  margin-right: 0;
+}
+
+/* line 223, ../sass/screen.scss */
+.effects .img img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+/* line 229, ../sass/screen.scss */
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: rgba(100, 194, 158, 0.8);
+  overflow: hidden;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+/* line 240, ../sass/screen.scss */
+a.close-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  background-color: #000;
+  cursor: pointer;
+}
+
+/* line 256, ../sass/screen.scss */
+a.close-overlay.hidden {
+  display: none;
+}
+
+/* line 259, ../sass/screen.scss */
+a.expand {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 30px;
+}
+
+/* line 270, ../sass/screen.scss */
+.overlay-effect .img i {
+  font-size: 30px;
+}
+
+/* line 273, ../sass/screen.scss */
+.overlay-effect .overlay {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+/* line 281, ../sass/screen.scss */
+.overlay-effect .overlay a.expand {
+  left: 0;
+  right: 0;
+  bottom: 47%;
+  margin: 0 auto -30px auto;
+}
+
+/* line 288, ../sass/screen.scss */
+.img img {
+  width: -webkit-calc(100% + 40px) !important;
+  width: calc(100% + 40px) !important;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -moz-transition: opacity 0.35s, -moz-transform 0.35s;
+  -o-transition: opacity 0.35s, -o-transform 0.35s;
+  -webkit-transform: translate3d(-40px, 0, 0);
+  transform: translate3d(-40px, 0, 0);
+  -ms-transform: translate3d(-40px, 0, 0);
+}
+
+/* line 299, ../sass/screen.scss */
+.img:hover img {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(-40px, 0, 0);
+}
+
+/* line 304, ../sass/screen.scss */
+.designs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50px;
+}
+
+/* ==========================================================================
+Subscribe
+========================================================================== */
+/* line 316, ../sass/screen.scss */
+.subscribe {
+  background: url("../img/macbook-air-notebook-person-157.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 120px 0 140px;
+}
+
+/* line 325, ../sass/screen.scss */
+.subscribe h1 {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* line 329, ../sass/screen.scss */
+.subscribe h1 span {
+  display: block;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* line 337, ../sass/screen.scss */
+.subscribe input[type=text] {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 1px #fff;
+  padding: 20px;
+  width: 30%;
+  color: #242830;
+}
+
+/* line 345, ../sass/screen.scss */
+.subscribe input[type=text]:hover,
+.subscribe input[type=text]:focus {
+  background-color: white;
+  border: solid 1px #fff;
+  padding: 20px;
+  width: 30%;
+  color: #242830;
+}
+
+/* line 355, ../sass/screen.scss */
+.subscribe input[type=submit] {
+  background: rgba(61, 201, 179, 0.3);
+  border: solid 1px rgba(61, 201, 179, 0.3);
+  padding: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+/* line 368, ../sass/screen.scss */
+.subscribe input[type=submit]:hover {
+  background: #3dc9b3;
+  border: solid 1px #3dc9b3;
+  color: #fff;
+}
+
+/* ==========================================================================
+CTA
+========================================================================== */
+/* line 377, ../sass/screen.scss */
+.ignite-cta {
+  background-color: #242830;
+  padding: 70px 0;
+}
+
+/* line 381, ../sass/screen.scss */
+.ignite-btn {
+  display: inline-block;
+  padding: 25px 40px;
+  color: #fff;
+  border: solid 3px #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* line 390, ../sass/screen.scss */
+.ignite-btn:hover, .ignite-btn:focus {
+  color: #fff;
+  border: solid 3px #3dc9b3;
+  background-color: #3dc9b3;
+}
+
+/* ==========================================================================
+Team
+========================================================================== */
+/* line 399, ../sass/screen.scss */
+.team img {
+  margin-bottom: 40px;
+}
+
+/* line 402, ../sass/screen.scss */
+ul.social-buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 407, ../sass/screen.scss */
+ul.social-buttons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* line 411, ../sass/screen.scss */
+ul.social-buttons li:last-child {
+  margin-right: 0;
+}
+
+/* line 414, ../sass/screen.scss */
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #242830;
+  display: inline-block;
+  color: #fff;
+  font-size: 17px;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* line 428, ../sass/screen.scss */
+.social-btn:hover, .social-btn:focus {
+  background: #3dc9b3;
+  color: #fff;
+}
+
+/* line 432, ../sass/screen.scss */
+.social {
+  margin-top: 25px;
+}
+
+/* ==========================================================================
+Contact
+========================================================================== */
+/* line 439, ../sass/screen.scss */
+.up-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: rgba(61, 201, 179, 0.5);
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 18px;
+  line-height: 46px;
+  text-align: center;
+  position: absolute;
+  top: -26px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 460, ../sass/screen.scss */
+.up-btn:hover, up-btn:focus {
+  color: #fff;
+  background: #3dc9b3;
+}
+
+/* line 464, ../sass/screen.scss */
+.contact-details {
+  margin: 70px 0;
+}
+
+/* line 467, ../sass/screen.scss */
+.contact-details h2 {
+  font-size: 20px;
+}
+
+/* line 470, ../sass/screen.scss */
+.contact-details h2 span {
+  display: block;
+  color: #3dc9b3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+/* line 478, ../sass/screen.scss */
+.contact-wrap {
+  position: relative;
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+/* line 485, ../sass/screen.scss */
+footer a {
+  color: #a1a9b0;
+}
+
+/* line 488, ../sass/screen.scss */
+footer {
+  background-color: #242830;
+  padding: 40px 0 30px;
+}
+
+/* line 492, ../sass/screen.scss */
+footer p {
+  color: #fff;
+}
+
+/* line 495, ../sass/screen.scss */
+ul.legals {
+  list-style: none;
+  color: #fff;
+  line-height: 25px;
+}
+
+/* line 500, ../sass/screen.scss */
+ul.legals li {
+  display: inline-block;
+}
+
+/* line 503, ../sass/screen.scss */
+ul.legals li::after {
+  content: " |";
+}
+
+/* line 506, ../sass/screen.scss */
+ul.legals li:last-child::after {
+  content: "";
+}
+
+/* line 509, ../sass/screen.scss */
+.legals {
+  text-align: left;
+}
+
+/* line 512, ../sass/screen.scss */
+.credit {
+  text-align: right;
+}
+
+/* ==========================================================================
+FlexSlider Custom CSS
+========================================================================== */
+/* line 519, ../sass/screen.scss */
+#servicesSlider {
+  margin-top: 70px;
+}
+
+/* line 522, ../sass/screen.scss */
+ul.slides li {
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+Waypoints
+========================================================================== */
+/* line 529, ../sass/screen.scss */
+.wp1, .wp2, .wp3, .wp4, .wp5, .wp6 {
+  visibility: hidden;
+}
+
+/* line 532, ../sass/screen.scss */
+.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight {
+  visibility: visible;
+}
+
+/* line 535, ../sass/screen.scss */
+.delay-05s {
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+}
+
+/* line 539, ../sass/screen.scss */
+.delay-1s {
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+/* line 544, ../sass/screen.scss */
+.delay-105s {
+  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+}
+
+/* line 555, ../sass/screen.scss */
+#phone-num, #email {
+  line-height: 50px;
+}
