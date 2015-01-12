@@ -67,26 +67,9 @@ jQuery(document).ready(function($){
 		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
 		queryDent(currentUser); 
 		/*****  朋友timeline ******/
-		var friends = currentUser.get("friends");
-		for(var i = 0;i < friends.length; i++){
-			var queryFriend = new Parse.Query(Parse.User);
-			queryFriend.get(friends[i], {
-				success: function(friendobject) {
-					var imgsrc = friendobject.get("imagesrc");
-					var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
-										"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
-									"</section>";
-					$("#friends_timmeline_area #1 .content").append(friendsSection);
-					queryDent(friendobject);
-					appeardent();
-				},
-				error: function(object, error) {
-					alert(object +" "+error);
-				}
-			});
-		}
+		friendtimeline();
 		//queryDent(); // 需要改呼叫時間，不然會很耗資源
-		
+		appeardent();
 		queryStatus(currentUser);
 	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
 	    console.log($(".dinner").find('.cd-timeline-img'));
@@ -96,6 +79,26 @@ jQuery(document).ready(function($){
 	    // show the signup or login page
 	}
 });
+
+		function friendtimeline(){
+			var friends = currentUser.get("friends");
+			for(var i = 0;i < friends.length; i++){
+				var queryFriend = new Parse.Query(Parse.User);
+				queryFriend.get(friends[i], {
+					success: function(friendobject) {
+						var imgsrc = friendobject.get("imagesrc");
+						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
+											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+										"</section>";
+						$("#friends_timmeline_area #1 .content").append(friendsSection);
+						queryDent(friendobject);
+					},
+					error: function(object, error) {
+						alert(object +" "+error);
+					}
+				});
+			}
+		}
 
 //response modal 產生
 		function appeardent(){
