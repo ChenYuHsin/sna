@@ -14,46 +14,70 @@
     <link href="css/custom.css" rel="stylesheet" type="text/css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="stylesheets/profile.css" rel="stylesheet" type="text/css">
+    <link href="css/v2.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
 
     <script src="js/jquery.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/semantic.min.js"></script>
     <script src="js/style.js"></script>
+    <script src="js/v2.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.js"></script>    
 </head>
 
 
 <body>
-    <div class="ui inverted menu">
-        <a class="active item">
-            <i class="user icon"></i> Profile
-        </a>
-        <a class="item dropdown ui">
-            <i class="comment outline icon"></i> Notifications
-            <div class="menu">
-                <div class="item ">
-                    <img src="https://scontent-b-tpe.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10169457_10201664228155525_1572832268666663769_n.jpg?oh=ca79e7f75fbdd2d1ec3435843d867b79&oe=5510BACA">
-                    <p>庭弘在5分鐘前打卡了</p>
-                </div>
-                <div class="item">
-                    <div class="ui image label">
-                        <img src="/img/0.jpg"> dog@doggington.com
+        <div class="following bar">
+        <!--mavigation-->
+        <div class="ui  main menu ">
+            <div class="ui page grid">
+                <div class="column">
+                    <div class="container">
+                      <a  class="item logo">
+                        Modent
+                      </a>
+                          <a class="item" id="profile">
+                            <i class="users icon"></i> Friends
+                          </a>
+
+                        <!--friends page-->
+                        
+                        
+                        <div id="right" class="right menu inverted ">
+                            
+                             <!--a href="" class="item">
+                                <i class="left chevron icon" id="previous_date" data-content="Previous slide" data-position="bottom center"></i>
+                            </a>
+                            <div class="item" id="friends_page">1</div>
+                            <a href="" class="item">
+                                <i class="right chevron icon" id="next_date" data-content="Next slide" data-position="bottom center"></i>
+                            </a-->
+                            <a class="item" id="userphoto">
+                                <img id="account_img"/>
+                            </a>
+                            <a class=" item account_info" id="accountinfo">
+
+                            </a>
+                            <a class="item login_btn">
+                                Login
+                            </a> 
+                            <a class="item logout_btn">
+                                Logout
+                            </a>   
+                        </div>
+                      
                     </div>
                 </div>
-
             </div>
-            <span class="ui teal label">1</span>
-        </a>
-        <a class="item">
-            <i class="users icon"></i> Friends
-        </a>
+        </div>
     </div>
     <div class="profile-con">
         <section id="set-body">
             <div class="top-line">
-                <i class="fa fa-angle-left"></i>
+                
                 <span id="your-name">胡俊杰</span>
-                <i class="fa fa-ellipsis-v"></i>  
+                
             </div>           
             <div class="icon-wrap">
                 <a href="#" class="icon-images">
@@ -66,9 +90,7 @@
                     <i class="fa fa-thumbs-o-up fa-2x"></i>
                 </a>
             </div>
-            <div class="bottom-line">
-                <span>Taiwan <b>Taipei</b></span>
-            </div>
+            
         </section>
 
         <section class="belt">

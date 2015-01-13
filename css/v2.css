@@ -81,7 +81,7 @@ header .slogan{
   padding-top: 30px;
 }
 #header_v2{
-  background: #3DC9B3;
+  background: linear-gradient(180deg, #328c75 0%, #ffffff 100%);
   /*background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));*/
 }
 .following.bar{
