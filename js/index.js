@@ -111,6 +111,18 @@ jQuery(document).ready(function($){
 			}
 		}
 
+		function v2friend(selecteddate){
+			var friends = Parse.User.current().get("friends");
+			for(var i = 0; i<friends.length; i++){
+				var queryFriend = new Parse.Query(Parse.User);
+				queryFriend.get(friends[i],{
+					success:function(friendobject){
+						queryDent(friendobject, selecteddate);
+					}
+				})
+			}
+		}
+
 //response modal 產生
 		function appeardent(){
 			var postIdArray = [];
