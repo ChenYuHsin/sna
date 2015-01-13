@@ -114,8 +114,10 @@ jQuery(document).ready(function($){
 		function v2friend(selecteddate){
 			var friends = Parse.User.current().get("friends");
 			for(var i = 0; i<friends.length; i++){
-				var queryFriend = new Parse.Query(Parse.User);
-				queryFriend.get(friends[i],{
+				var user = Parse.Object.extend("User");
+				var query = new Parse.Query(user);
+				query.equalTo('objectId', friends[i]);
+				query.first({
 					success:function(friendobject){
 						queryDent(friendobject, selecteddate);
 					}
