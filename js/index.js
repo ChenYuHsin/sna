@@ -133,12 +133,15 @@ jQuery(document).ready(function($){
 				arr.push(dent_id);
 			});
 			console.log(arr);
-			$.each(arr,function(index, value){
-				$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
-					name: value
-				}, showResponseModal );
+			setTimeout(function(){
+				$.each(arr,function(index, value){
+					$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
+						name: value
+					}, showResponseModal );
 
-			});
+				});
+			},2000)
+			
 		}
 
 //response modal 產生
@@ -391,7 +394,6 @@ function showResponseModal(value){
 	var modalId = ".ui.modal.modal_"+value.data.name;
 	console.log(modalId);
 	$(modalId).modal('show');
-	alert();
 }
 		
 function printResponseTpl(post_id){
