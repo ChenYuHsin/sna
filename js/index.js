@@ -127,6 +127,17 @@ jQuery(document).ready(function($){
 					}
 				})
 			}
+			var arr=[];
+			$(".modal.reply_content").each(function(){
+				var dent_id = $(this).attr("data-dentid");
+				arr.push(dent_id);
+			})
+			$.each(arr,function(index, value){
+				$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
+					name: value
+				}, showResponseModal );
+
+			});
 		}
 
 //response modal 產生
