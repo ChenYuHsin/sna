@@ -77,7 +77,7 @@ $(document).ready(function(){
 		v2friend(selecteddate);
 		setTimeout(function(){ 
 			appeardent();
-		}, 10000);		
+		}, 6000);		
 		
 	})
 	$("#previous_date").click(function(){
