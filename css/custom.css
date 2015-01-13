@@ -533,7 +533,7 @@ div.codepen_arrow .right:after {
 }
 
 #userphoto:hover{
-  cursor:default;
+  cursor:pointer;
 }
 
 #accountinfo:hover{
