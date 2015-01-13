@@ -220,3 +220,11 @@ body {
 .belt .belt-title.til-dents {
   color: #fff;
 }
+
+/* choco add css */
+#your-name{
+  margin-top: 80;
+}
+#profile_footer{
+  background: linear-gradient(180deg, #328c75 0%, #ffffff 100%);
+}
