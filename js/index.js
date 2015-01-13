@@ -231,57 +231,58 @@ function queryDent(object , querytime){
 	query.ascending("s_datetime");
 	query.find({
 		success: function(results){
-			var pre_time_start_hour = 8;
-			var pre_time_start_minute = 0;
+			if(results.length != 0){
+				var pre_time_start_hour = 8;
+				var pre_time_start_minute = 0;
 
-			for(var i=0; i<results.length; i++){
+				for(var i=0; i<results.length; i++){
 
-				var dent = results[i];
-				var dent_poster_obj = dent.get("poster");
-				var dent_poster = dent.get("poster").id;
-				var dent_category = dent.get("category");
-				var dent_content = dent.get("content");
-				var dent_start = dent.get("s_datetime");
-				var dent_end = dent.get("e_datetime");
-				var dent_color = dent.get("color");
-				var calstart = dent_start.getHours();
-				var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
-				var ClassName = "[data-timelineid = '"+ dent_poster +"']";
-				var popuoClass = "#dent_"+dent.id+" "+".cd-timeline-img";
-				var gaptime = dent_end.getTime() - dent_start.getTime();
-				var calkeep = gaptime/60000*2;
-				var getstartHour = dent_start.getHours();
-				var getstartMinutes = dent_start.getMinutes();
-				var calmarginTop = (getstartHour-pre_time_start_hour)*60*2 + (getstartMinutes-pre_time_start_minute)*2;
+					var dent = results[i];
+					var dent_poster_obj = dent.get("poster");
+					var dent_poster = dent.get("poster").id;
+					var dent_category = dent.get("category");
+					var dent_content = dent.get("content");
+					var dent_start = dent.get("s_datetime");
+					var dent_end = dent.get("e_datetime");
+					var dent_color = dent.get("color");
+					var calstart = dent_start.getHours();
+					var calkeep = (dent_end.getTime() - dent_start.getTime())/3600000;
+					var ClassName = "[data-timelineid = '"+ dent_poster +"']";
+					var popuoClass = "#dent_"+dent.id+" "+".cd-timeline-img";
+					var gaptime = dent_end.getTime() - dent_start.getTime();
+					var calkeep = gaptime/60000*2;
+					var getstartHour = dent_start.getHours();
+					var getstartMinutes = dent_start.getMinutes();
+					var calmarginTop = (getstartHour-pre_time_start_hour)*60*2 + (getstartMinutes-pre_time_start_minute)*2;
 
-				pre_time_start_hour = getstartHour;
-				pre_time_start_minute = getstartMinutes;
+					pre_time_start_hour = getstartHour;
+					pre_time_start_minute = getstartMinutes;
 
-				$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
-				var popupTplCotent = "<div class='ui items popup_item'>"+
-							  "<div class='item'>"+
-							    "<a class='ui tiny image'>"+
-							      "<img src='"+dent.get('poster_img')+"' style='border-radius: .25rem;'>"+
-							    "</a>"+
-							    "<div class='content'>"+
-							      "<a class='author'>"+dent.get('poster_name')+"</a>"+
-							      "<div class='metadata'>"+
-							      	"<div class='date'>1</div>"+
-							      "</div>"+
-							      "<div class='description'>"+
-							        
-							        "<p>"+dent_content+"</p>"+
-							      "</div>"+
-							    "</div>"+
-							  "</div>";
-				
-				$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});	
+					$(ClassName).append(timeLineTpl(dent_poster,calmarginTop, calkeep, dent_category  ,dent_color, dent.id));
+					var popupTplCotent = "<div class='ui items popup_item'>"+
+								  "<div class='item'>"+
+								    "<a class='ui tiny image'>"+
+								      "<img src='"+dent.get('poster_img')+"' style='border-radius: .25rem;'>"+
+								    "</a>"+
+								    "<div class='content'>"+
+								      "<a class='author'>"+dent.get('poster_name')+"</a>"+
+								      "<div class='metadata'>"+
+								      	"<div class='date'>1</div>"+
+								      "</div>"+
+								      "<div class='description'>"+
+								        
+								        "<p>"+dent_content+"</p>"+
+								      "</div>"+
+								    "</div>"+
+								  "</div>";
+					
+					$(popuoClass).attr("data-html", popupTplCotent).popup({on: "hover"});	
 
-				
-				//here is for click modal
-				//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
-			}
-			
+					
+					//here is for click modal
+					//origin += "<tr><td>" + dent_poster + "</td><td>" + dent_category + "</td><td>" + dent_content + "</td><td>" + dent_start + "</td><td>" + dent_end + "</td><td><a href='response.html?id=" + dent.id + "'>Link</a></td><td><button onclick='like(\"" + dent.id + "\")'>Like</button></td></tr>";
+				}
+			}	
 		},
 		error: function(object, error){
 
