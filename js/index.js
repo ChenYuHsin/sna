@@ -391,6 +391,7 @@ function showResponseModal(value){
 	var modalId = ".ui.modal.modal_"+value.data.name;
 	console.log(modalId);
 	$(modalId).modal('show');
+	alert();
 }
 		
 function printResponseTpl(post_id){
