@@ -77,7 +77,7 @@ jQuery(document).ready(function($){
 			friendtimeline();
 			setTimeout(function(){ 
 				appeardent();
-			}, 3000);
+			}, 2000);
 			
 			queryStatus(currentUser);
 		    console.log($("[data-timelineid = '8hGeU3b7nd']"));

@@ -70,14 +70,14 @@ $(document).ready(function(){
 		$("[timelineid = '"+Parse.User.current().id+"']").html("");
 		var userfriend = Parse.User.current().get('friends');
 		for(var i = 0; i< userfriend.length; i++){
-			$("[timelineid = '"+userfriend[i]+"']").html("");
+			$("[timelineid = '"+userfriend[i]+"']").remove();
 		}
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
 		friendtimeline();
 		setTimeout(function(){ 
 			appeardent();
-		}, 3000);		
+		}, 2000);		
 		
 	})
 	$("#previous_date").click(function(){
@@ -92,14 +92,14 @@ $(document).ready(function(){
 		$("[timelineid = '"+Parse.User.current().id+"']").html("");
 		var userfriend = Parse.User.current().get('friends');
 		for(var i = 0; i< userfriend.length; i++){
-			$("[timelineid = '"+userfriend[i]+"']").html("");
+			$("[timelineid = '"+userfriend[i]+"']").remove();
 		}
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
 		friendtimeline();
 		setTimeout(function(){ 
 			appeardent();
-		}, 3000);	
+		}, 2000);	
 	})
 
 	//scroll
