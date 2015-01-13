@@ -415,7 +415,7 @@ function printResponseTpl(post_id){
 				$("body").append(tpl);	
 		      	queryResponse(obj);
 		      	$(".modal_rating").click(clickLike(post_id ,Parse.User.current().id));
-		      	$("#modal_rating_count").text(obj.get("likes").length+ " likes");
+		      	//$("#modal_rating_count").text(obj.get("likes").length+ " likes");
 		    }
 			
 		},
@@ -545,7 +545,7 @@ function showStatus(total_status){
 			if(total_status[i].contents.get("likes") == "undefined"){
 				likes = 0;
 			}else{
-				likes = total_status[i].contents.get("likes").length;	
+				//likes = total_status[i].contents.get("likes").length;	
 			}
 		}else{
 			if(total_status[i].contents.get("likers") == "undefined"){
