@@ -67,10 +67,10 @@ $(document).ready(function(){
 
 		$("#menu_date").html(monthNames[nextDate.getMonth()]+"/"+nextDate.getDate()+"/"+nextDate.getFullYear());
 
-		$("[data-timelineid = '"+Parse.User.current().id+"']").html();
+		$("[data-timelineid = '"+Parse.User.current().id+"']").empty();
 		var userfriend = Parse.User.current().get('friends');
 		for(var i = 0; i< userfriend.length; i++){
-			$("[data-timelineid = '"+userfriend[i]+"']").html();
+			$("[data-timelineid = '"+userfriend[i]+"']").empty();
 		}
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
@@ -89,11 +89,11 @@ $(document).ready(function(){
 
 		$("#menu_date").html(monthNames[previousDate.getMonth()]+"/"+previousDate.getDate()+"/"+previousDate.getFullYear());
 		
-		$("[data-timelineid = '"+Parse.User.current().id+"']").html();
+		$("[data-timelineid = '"+Parse.User.current().id+"']").empty();
 		var userfriend = Parse.User.current().get('friends');
 		for(var i = 0; i< userfriend.length; i++){
 			console.log($("[data-timelineid = '"+userfriend[i]+"']"));
-			$("[data-timelineid = '"+userfriend[i]+"']").html();
+			$("[data-timelineid = '"+userfriend[i]+"']").empty();
 		}
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
