@@ -41,11 +41,15 @@ jQuery(document).ready(function($){
 	});
 
 	$("#profile").click(function(){
-	    window.location.assign("profile3.html");
+	    window.location.assign("friends.html");
 	});
 
 	$(".logo").click(function(){
-	    window.location.assign("index.html");
+	    window.location.assign("index-v3.html");
+	});
+
+	$("#userphoto").click(function(){
+	    window.location.assign("profile3.html");
 	});
 
 	$(".dent_send").click(function(){
