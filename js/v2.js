@@ -77,7 +77,7 @@ $(document).ready(function(){
 		v2friend(selecteddate);
 		setTimeout(function(){ 
 			appeardent();
-		}, 2000);		
+		}, 3000);		
 		
 	})
 	$("#previous_date").click(function(){
@@ -99,7 +99,7 @@ $(document).ready(function(){
 		v2friend(selecteddate);
 		setTimeout(function(){ 
 			appeardent();
-		}, 2000);	
+		}, 3000);	
 	})
 
 	//scroll
