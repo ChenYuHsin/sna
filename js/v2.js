@@ -75,9 +75,9 @@ $(document).ready(function(){
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
 		v2friend(selecteddate);
-		setTimeout(function(){ 
-			appeardent();
-		}, 3000);		
+		// setTimeout(function(){ 
+		// 	appeardent();
+		// }, 3000);		
 		
 	})
 	$("#previous_date").click(function(){
@@ -97,9 +97,9 @@ $(document).ready(function(){
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
 		v2friend(selecteddate);
-		setTimeout(function(){ 
-			appeardent();
-		}, 3000);	
+		// setTimeout(function(){ 
+		// 	appeardent();
+		// }, 3000);	
 	})
 
 	//scroll
