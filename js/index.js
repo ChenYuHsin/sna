@@ -131,7 +131,8 @@ jQuery(document).ready(function($){
 			$(".modal.reply_content").each(function(){
 				var dent_id = $(this).attr("data-dentid");
 				arr.push(dent_id);
-			})
+			});
+			console.log(arr);
 			$.each(arr,function(index, value){
 				$( "#dent_"+value+ " .cd-timeline-img" ).on( "click", {
 					name: value
