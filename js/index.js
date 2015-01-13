@@ -67,26 +67,27 @@ jQuery(document).ready(function($){
 	})
 
 	/***********************************  object id to me_line *******************************************/
-	
-	var currentUser = Parse.User.current();
-	if (currentUser) {
-		var selecteddate = $('#menu_date').text();
-		$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
-		queryDent(currentUser, selecteddate); 
-		/*****  朋友timeline ******/
-		friendtimeline();
-		setTimeout(function(){ 
-			appeardent();
-		}, 3000);
-		
-		queryStatus(currentUser);
-	    console.log($("[data-timelineid = '8hGeU3b7nd']"));
-	    console.log($(".dinner").find('.cd-timeline-img'));
-	    console.log($('.make_dent'));
-	    console.log($("[id = 'reply_send']"));
-	} else {
-	    // show the signup or login page
-	}
+	setTimeout(function(){
+		var currentUser = Parse.User.current();
+		if (currentUser) {
+			var selecteddate = $('#menu_date').text();
+			$('.me_line').attr("data-timelineid", currentUser.id);//object id to me_line
+			queryDent(currentUser, selecteddate); 
+			/*****  朋友timeline ******/
+			friendtimeline();
+			setTimeout(function(){ 
+				appeardent();
+			}, 3000);
+			
+			queryStatus(currentUser);
+		    console.log($("[data-timelineid = '8hGeU3b7nd']"));
+		    console.log($(".dinner").find('.cd-timeline-img'));
+		    console.log($('.make_dent'));
+		    console.log($("[id = 'reply_send']"));
+		} else {
+		    // show the signup or login page
+		}
+	}, 1500);
 });
 
 		function friendtimeline(){
