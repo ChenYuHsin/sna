@@ -67,17 +67,17 @@ $(document).ready(function(){
 
 		$("#menu_date").html(monthNames[nextDate.getMonth()]+"/"+nextDate.getDate()+"/"+nextDate.getFullYear());
 
-		// $("[timelineid = '"+Parse.User.current().id+"']").html("");
-		// var userfriend = Parse.User.current().get('friends');
-		// for(var i = 0; i< userfriend.length; i++){
-		// 	$("[timelineid = '"+userfriend[i]+"']").html("");
-		// }
-		// var selecteddate = $('#menu_date').text();
-		// queryDent(Parse.User.current(), selecteddate); 
-		// friendtimeline();
-		// setTimeout(function(){ 
-		// 	appeardent();
-		// }, 3000);		
+		$("[timelineid = '"+Parse.User.current().id+"']").html("");
+		var userfriend = Parse.User.current().get('friends');
+		for(var i = 0; i< userfriend.length; i++){
+			$("[timelineid = '"+userfriend[i]+"']").html("");
+		}
+		var selecteddate = $('#menu_date').text();
+		queryDent(Parse.User.current(), selecteddate); 
+		friendtimeline();
+		setTimeout(function(){ 
+			appeardent();
+		}, 3000);		
 		
 	})
 	$("#previous_date").click(function(){
@@ -89,17 +89,17 @@ $(document).ready(function(){
 
 		$("#menu_date").html(monthNames[previousDate.getMonth()]+"/"+previousDate.getDate()+"/"+previousDate.getFullYear());
 		
-		// $("[timelineid = '"+Parse.User.current().id+"']").html("");
-		// var userfriend = Parse.User.current().get('friends');
-		// for(var i = 0; i< userfriend.length; i++){
-		// 	$("[timelineid = '"+userfriend[i]+"']").html("");
-		// }
-		// var selecteddate = $('#menu_date').text();
-		// queryDent(Parse.User.current(), selecteddate); 
-		// friendtimeline();
-		// setTimeout(function(){ 
-		// 	appeardent();
-		// }, 3000);	
+		$("[timelineid = '"+Parse.User.current().id+"']").html("");
+		var userfriend = Parse.User.current().get('friends');
+		for(var i = 0; i< userfriend.length; i++){
+			$("[timelineid = '"+userfriend[i]+"']").html("");
+		}
+		var selecteddate = $('#menu_date').text();
+		queryDent(Parse.User.current(), selecteddate); 
+		friendtimeline();
+		setTimeout(function(){ 
+			appeardent();
+		}, 3000);	
 	})
 
 	//scroll
