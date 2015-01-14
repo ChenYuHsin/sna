@@ -6,8 +6,11 @@ jQuery(document).ready(function($){
 		var color = $('input:radio:checked[name="emotion"]').attr('data-color');
     	//var category = $('#category').val();
     	var content = $('.make_dent_content').val();
-    	var start_datetime = $('#start_datetime').val();
-    	var end_datetime = $('#end_datetime').val();
+    	var start_datetime_old = $('#start_datetime').val();
+		var start_datetime = new Date(Date.parse(start_datetime_old)-28800000);// 考慮時區 CST +0800
+    	var end_datetime_old = $('#end_datetime').val();
+		var end_datetime = new Date(Date.parse(end_datetime_old)-28800000); // 考慮時區 CST +0800
+    	console.log(start_datetime + ":" + end_datetime);
     	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    	});
@@ -40,32 +43,80 @@ jQuery(document).ready(function($){
 		    // show the signup or login page
 		}
 	}, 1500);
+
+	var themoment = new Date();
+	var current_date = themoment.toISOString();
+	var updown;
+	var current_hour = themoment.getHours();
+	var current_minute = themoment.getMinutes();
+	var current_string = current_date.substring(0,10) + "T" + current_hour + ":" + current_minute;
+	$("#start_datetime").val(current_string);
+	$("#end_datetime").val(current_string);
 });
 
 		function friendtimeline(){
 			var selecteddate = $('#menu_date').text();
-			var friends = Parse.User.current().get("friends");
-			for(var i = 0;i < friends.length; i++){
-				var queryFriend = new Parse.Query(Parse.User);
-				queryFriend.get(friends[i], {
-					success: function(friendobject) {
-						var imgsrc = friendobject.get("imagesrc");
-						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
-											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
-										"</section>";
-						if(i<=4){
-							$("#friends_timmeline_area #1 .content").append(friendsSection);
-							queryDent(friendobject, selecteddate);
+			var queryfriend = Parse.Object.extend("User");
+			var query = new Parse.Query(queryfriend);
+			query.find({
+				success:function(frienddata){
+					for(var i = 0; i<frienddata.length; i++){
+						var friends = Parse.User.current().get("friends");
+						for(var j = 0; j<friends.length; j++){
+							if(frienddata[i].id == friends[j]){
+								if(j <= 4){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #1 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 5 && j <=9){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #2 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 10 && j <=14){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #3 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 15 && j <=19){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #4 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 20 && j <=24){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #5 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 25 && j <=29){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
+									$("#friends_timmeline_area #6 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+							}
 						}
-						else{
-
-						}
-					},
-					error: function(object, error) {
-						alert(object +" "+error);
 					}
-				});
-			}
+				}
+			})
 		}
 
 		function v2friend(selecteddate){
@@ -155,6 +206,7 @@ function deliverDent(user, category, color, content, s, e){
 			  	success: function(gameScore) {
 			    	//queryDent();
 			    	alert("success");
+			    	window.location.assign("modent.html");
 			  	},
 			  	error: function(gameScore, error) {
 			    	alert('Failed to create new object, with error code: ' + error.message);
@@ -278,7 +330,7 @@ function clickLike(dent_id , user_id){
 					r.addUnique("likes", user_id);
 					r.save(null, {
 						success: function(object){
-							console.log("update Dent-likes success.");
+							// console.log("update Dent-likes success.");
 							//queryDent(requests["id"]);
 						},
 						error: function(object, error){
@@ -463,103 +515,89 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	// var status_contents = new Array();
-	// var status_times = new Array();
-	var total_status = new Array();
-	var friends = currentUser.get("friends");
-	for(var i = 0;i < friends.length; i++){
-		var Friend = Parse.Object.extend("User");
-		var queryFriend = new Parse.Query(Friend);
-		queryFriend.get(friends[i], {
-			success: function(friend) {
-				var Dent = Parse.Object.extend("Dent");
-				var queryFriendDent = new Parse.Query(Dent);
-				queryFriendDent.include('poster');
-				queryFriendDent.equalTo("poster", friend);
-				queryFriendDent.find({
-			  		success: function(results) {
-			  			for(var j=0; j<results.length; j++){
-			  				var status = {user: results[j].get("poster"), contents: results[j], createdTime: results[j].createdAt, category: "dent"};
-			  				total_status.push(status);
-			  			}
-			  		},
-			  		error: function(error) {
-			    		alert("Error: " + error.code + " " + error.message);
-			  		}
-				});
+	// 因應增加event table，修改邏輯，
+	// 先抓出所有朋友，存到陣列
+	// 在抓出所有event去判斷category和targetPointer
 
-				var Response = Parse.Object.extend("Response");
-				var queryFriendResponse = new Parse.Query(Response);
-				queryFriendResponse.include('responser');
-				queryFriendResponse.equalTo("responser", friend);
-				queryFriendResponse.find({
-					success: function(results) {
-			  			for(var k=0; k<results.length; k++){
-			  				var status = {user: results[k].get("responser"), contents: results[k], createdTime: results[k].createdAt, category: "response"};
-			  				total_status.push(status);
-			  			}
-			  		},
-			  		error: function(error) {
-			    		alert("Error: " + error.code + " " + error.message);
-			  		}
-				});
-			},
-			error: function(object, error) {
-				alert(object +" "+error);
+	var currentUser_id = currentUser.id;
+	var AllFriends = Parse.Object.extend("User");
+	var query_all_friends = new Parse.Query(AllFriends);
+	var friend_list = new Array();
+	var event_list = new Array();
+	query_all_friends.equalTo("friends", currentUser_id);
+	query_all_friends.find({
+		success: function(friends) {
+			for(var i=0; i<friends.length; i++){
+				friend_list.push(friends[i]);
 			}
-		});
-	}
 
-	setTimeout(function(){
-		showStatus(total_status);
-	}, 3000);
+			var Event = Parse.Object.extend("Event");
+			var query_event = new Parse.Query(Event);
+			query_event.descending("createdAt");
+			query_event.include('User');
+			query_event.find({
+				success: function(results){
+					for(var j=0; j<results.length; j++){
+						switch(results[j].get("category")){
+							case "makedent":
+								for(var k=0; k<friend_list.length; k++){
+									if(results[j].get("User").id == friend_list[k].id){
+										var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "發佈一則新 dent"};
+										event_list.push(myevent);
+									}
+								}
+								
+								break;
+
+							case "reply":
+								if(results[j].get("targetuser").id == currentUser_id){
+									var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "回應你的 dent"};
+									event_list.push(myevent);
+								}
+								break;
+
+							case "addfriend":
+								if(results[j].get("targetuser").id == currentUser_id){
+									var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "加你為好友"};
+									event_list.push(myevent);
+								}
+								break;
+
+							default:
+								break;
+						}
+					}
+					showStatus(event_list);
+				}
+			});
+		}
+	});
 }
 
-function showStatus(total_status){
-	// 應該先排列
-	// for 解析所有status
-	// 套入 template
-	// append
+function showStatus(event_list){
+	// 改為event_list，時間已經排好了，第一筆為最近的Event
+	console.log(event_list);
 	var status_section = $("#status_content");
-	for(var i=0; i<total_status.length; i++){
-		var action;
-		if(total_status[i].category != "dent"){
-			action = "reply on your dent";
+	for(var i=0; i<event_list.length; i++){
+		var contents;
+		if(event_list[i].contents.trim() != "" || event_list[i].contents != null){
+			contents = event_list[i].contents;
 		}else{
-			action = "make a dent";
-		}
-		var likes;
-		if(total_status[i].category == "dent"){
-			if(total_status[i].contents.get("likes") == "undefined"){
-				likes = 0;
-			}else{
-				//likes = total_status[i].contents.get("likes").length;	
-			}
-		}else{
-			if(total_status[i].contents.get("likers") == "undefined"){
-				likes = 0;
-			}else{
-				likes = 0;
-				// likes = total_status[i].contents.get("likers").length;	
-			}
+			contents = "";
 		}
 		var template = '<div class="event">' + 
-	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
+	    	'<div class="label"><img src="'+ event_list[i].user.get("imagesrc") +'"></div>' + 
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
-	        		'<a class="user">' + total_status[i].user.get("name") + '</a> ' + action +
-	        		'<div class="date">' + moment(total_status[i].createdTime).fromNow() + '</div>'+
+	        		'<a class="user">' + event_list[i].user.get("name") + '</a> ' + event_list[i].category +
+	        		'<div class="date">' + moment(event_list[i].createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
-        		total_status[i].contents.get("content") + 
-      			'</div>' +
-	      		'<div class="meta">' +
-	        		'<a class="like"><i class="like icon"></i> ' + likes + ' Likes</a>'+
+        		contents + 
       			'</div>' +
     		'</div>' +
   		'</div>';
   		status_section.append(template);
-  		// console.log("template:" + template);
 	}
 }
 

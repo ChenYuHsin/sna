@@ -16,10 +16,10 @@ $(document).ready(function(){
 	                user.set('facebookid', fbid);
 	                user.set('friends', []);
 	                user.save();
-	                location.assign("index.html");
+	                location.assign("modent.html");
 	            } 
 	            else{
-	                location.assign("index.html");
+	                location.assign("modent.html");
 	            }
 	        },
 	        error: function(user, error) {
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	});
 
 	$(".logo").click(function(){
-	    window.location.assign("index-v3.html");
+	    window.location.assign("modent.html");
 	});
 
 	$("#userphoto").click(function(){
