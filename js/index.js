@@ -53,26 +53,50 @@ jQuery(document).ready(function($){
 						for(var j = 0; j<friends.length; j++){
 							if(frienddata[i].id == friends[j]){
 								if(j <= 4){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #1 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
 								else if(j >= 5 && j <=9){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #2 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
 								else if(j >= 10 && j <=14){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #3 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
 								else if(j >= 15 && j <=19){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #4 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
 								else if(j >= 20 && j <=24){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #5 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
 								else if(j >= 25 && j <=29){
+									var imgsrc = frienddata[i].get("imagesrc");
+			 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+frienddata[i].id+"'>"+
+			 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			 							"</section>";
 									$("#friends_timmeline_area #6 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
 								}
