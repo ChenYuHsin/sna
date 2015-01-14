@@ -6,8 +6,10 @@ jQuery(document).ready(function($){
 		var color = $('input:radio:checked[name="emotion"]').attr('data-color');
     	//var category = $('#category').val();
     	var content = $('.make_dent_content').val();
-    	var start_datetime = $('#start_datetime').val();
-    	var end_datetime = $('#end_datetime').val();
+    	var start_datetime_old = $('#start_datetime').val();
+		var start_datetime = new Date(Date.parse(start_datetime_old)-28800000);
+    	var end_datetime_old = $('#end_datetime').val();
+		var end_datetime = new Date(Date.parse(end_datetime_old)-28800000);    	
     	console.log(start_datetime + ":" + end_datetime);
     	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
@@ -50,6 +52,8 @@ jQuery(document).ready(function($){
 	var current_string = current_date.substring(0,10) + "T" + current_hour + ":" + current_minute;
 	$("#start_datetime").val(current_string);
 	$("#end_datetime").val(current_string);
+
+	console.log(new_time);
 });
 
 		function friendtimeline(){
