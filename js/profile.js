@@ -51,8 +51,10 @@ function deliverDent(user, category, color, content, s, e){
 		var dent = new Dent();
 		var Poster = Parse.Object.extend("User");
 		var query = new Parse.Query(Poster);
-		var poster_img = $('.post_content img').attr('src'); 
-		var poster_name = $('.make_dent_name').text(); 			
+		var poster_img = Parse.User.current().get('imagesrc'); 
+		var poster_name = Parse.User.current().get('name');
+		// var poster_img = $('.post_content img').attr('src'); 
+		// var poster_name = $('.make_dent_name').text(); 	 			
 	query.get(user.id, {
 		success: function(p) {
 			var poster = p;
