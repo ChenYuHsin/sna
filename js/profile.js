@@ -31,7 +31,7 @@ $(document).ready(function(){
 		}
 	})
 
-	$('#gotofacebook').attr('href', "www.facebook.com/"+Parse.User.current().get('facebookid'));
+	//$('#gotofacebook').attr('href', "www.facebook.com/"+Parse.User.current().get('facebookid'));
 
 	$(document).on("click", "#quickdent", function(){
 		var currentuser = Parse.User.current();
