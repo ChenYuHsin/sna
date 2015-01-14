@@ -546,7 +546,7 @@ function queryStatus(currentUser){
 	var event_list = new Array();
 	console.log("currentUser_id:" + currentUser_id);
 	query_all_friends.equalTo("friends", currentUser_id);
-	query.find(){
+	query_all_friends.find(){
 		success: function(friends) {
 			for(var i=0; i<friends.length; i++){
 				friend_list.push(friends[i]);
