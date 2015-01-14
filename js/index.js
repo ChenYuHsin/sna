@@ -8,6 +8,7 @@ jQuery(document).ready(function($){
     	var content = $('.make_dent_content').val();
     	var start_datetime = $('#start_datetime').val();
     	var end_datetime = $('#end_datetime').val();
+		console.log(start_datetime + ":" + end_datetime);
     	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
    	});
@@ -532,9 +533,6 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	// var status_contents = new Array();
-	// var status_times = new Array();
-	var total_status = new Array();
 	var friends = currentUser.get("friends");
 	for(var i = 0;i < friends.length; i++){
 		var Friend = Parse.Object.extend("User");
