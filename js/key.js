@@ -45,7 +45,7 @@ $(document).ready(function(){
 	});
 
 	$(".logo").click(function(){
-	    window.location.assign("index.html");
+	    window.location.assign("modent.html");
 	});
 
 	$("#userphoto").click(function(){
