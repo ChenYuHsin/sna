@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-
+	
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
 		var category = $('input:radio:checked[name="emotion"]').val();
@@ -53,8 +53,13 @@ jQuery(document).ready(function($){
 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
 											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 										"</section>";
-						$("#friends_timmeline_area #1 .content").append(friendsSection);
-						queryDent(friendobject, selecteddate);
+						if(i<=4){
+							$("#friends_timmeline_area #1 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else{
+
+						}
 					},
 					error: function(object, error) {
 						alert(object +" "+error);
