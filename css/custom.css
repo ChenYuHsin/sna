@@ -567,6 +567,6 @@ div.codepen_arrow .right:after {
 }
 
 #friendimage{
-  width:191px;
-  height:191px;
+  width:153px !important;
+  height:153px !important;
 }
