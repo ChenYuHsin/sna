@@ -51,7 +51,7 @@ jQuery(document).ready(function($){
 					for(var i = 0; i<frienddata.length; i++){
 						var friends = Parse.User.current().get("friends");
 						for(var j = 0; j<friends.length; j++){
-							if(frienddata[i] == friends[j]){
+							if(frienddata[i].id == friends[j]){
 								if(j <= 4){
 									$("#friends_timmeline_area #1 .content").append(friendsSection);
 					 				queryDent(frienddata[i], selecteddate);
