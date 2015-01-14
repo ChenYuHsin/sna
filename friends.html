@@ -107,7 +107,9 @@
                             }
                 }
                 if(Parse.User.current()!=null){
-                    logined();
+                    setTimeout(function(){
+                        logined();
+                    },2000)
                 }
               };
              
