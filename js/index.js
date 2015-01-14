@@ -44,28 +44,64 @@ jQuery(document).ready(function($){
 
 		function friendtimeline(){
 			var selecteddate = $('#menu_date').text();
-			var friends = Parse.User.current().get("friends");
-			for(var i = 0;i < friends.length; i++){
-				var queryFriend = new Parse.Query(Parse.User);
-				queryFriend.get(friends[i], {
-					success: function(friendobject) {
-						var imgsrc = friendobject.get("imagesrc");
-						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
-											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
-										"</section>";
-						if(i<=4){
-							$("#friends_timmeline_area #1 .content").append(friendsSection);
-							queryDent(friendobject, selecteddate);
+			var queryfriend = Parse.Object.extend("User");
+			var query = new Parse.Query(queryfriend);
+			query.find({
+				success:function(frienddata){
+					for(var i = 0; i<frienddata.length; i++){
+						var friends = Parse.User.current().get("friends");
+						for(var j = 0; j<friends.length; j++){
+							if(frienddata[i] == friends[j]){
+								if(j <= 4){
+									$("#friends_timmeline_area #1 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 5 && j <=9){
+									$("#friends_timmeline_area #2 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 10 && j <=14){
+									$("#friends_timmeline_area #3 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 15 && j <=19){
+									$("#friends_timmeline_area #4 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 20 && j <=24){
+									$("#friends_timmeline_area #5 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+								else if(j >= 25 && j <=29){
+									$("#friends_timmeline_area #6 .content").append(friendsSection);
+					 				queryDent(frienddata[i], selecteddate);
+								}
+							}
 						}
-						else{
-
-						}
-					},
-					error: function(object, error) {
-						alert(object +" "+error);
 					}
-				});
-			}
+				}
+			})
+			// for(var i = 0;i < friends.length; i++){
+			// 	var queryFriend = new Parse.Query(Parse.User);
+			// 	queryFriend.get(friends[i], {
+			// 		success: function(friendobject) {
+			// 			var imgsrc = friendobject.get("imagesrc");
+			// 			var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
+			// 								"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
+			// 							"</section>";
+			// 			if(i<=4){
+			// 				$("#friends_timmeline_area #1 .content").append(friendsSection);
+			// 				queryDent(friendobject, selecteddate);
+			// 			}
+			// 			else{
+
+			// 			}
+			// 		},
+			// 		error: function(object, error) {
+			// 			alert(object +" "+error);
+			// 		}
+			// 	});
+			// }
 		}
 
 		function v2friend(selecteddate){
