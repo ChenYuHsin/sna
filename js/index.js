@@ -615,9 +615,6 @@ function showStatus(event_list){
 	      		'<div class="extra text">' +
         		contents + 
       			'</div>' +
-	      		'<div class="meta">' +
-	        		'<a class="like"><i class="like icon"></i> ' + likes + ' Likes</a>'+
-      			'</div>' +
     		'</div>' +
   		'</div>';
   		status_section.append(template);
