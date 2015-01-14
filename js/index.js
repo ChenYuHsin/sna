@@ -546,7 +546,7 @@ function queryStatus(currentUser){
 	var event_list = new Array();
 	console.log("currentUser_id:" + currentUser_id);
 	query_all_friends.equalTo("friends", currentUser_id);
-	query_all_friends.find(){
+	query_all_friends.find({
 		success: function(friends) {
 			for(var i=0; i<friends.length; i++){
 				friend_list.push(friends[i]);
@@ -557,7 +557,7 @@ function queryStatus(currentUser){
 			var query_event = new Parse.Query(Event);
 			query_event.descending("createdAt");
 			query_event.include('User');
-			query_event.find(){
+			query_event.find({
 				success: function(results){
 					for(var j=0; j<results.length; j++){
 						switch(results[j].get("category")){
@@ -592,9 +592,9 @@ function queryStatus(currentUser){
 					console.log("event_list:" + event_list);
 					showStatus(event_list);
 				}
-			}
+			});
 		}
-	};
+	});
 }
 
 function showStatus(event_list){
