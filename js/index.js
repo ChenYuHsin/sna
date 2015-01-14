@@ -199,7 +199,7 @@ function queryDent(object , querytime){
 	query.find({
 		success: function(results){
 			if(results.length != 0){
-				var pre_time_start_hour = 8;
+				var pre_time_start_hour = 0;
 				var pre_time_start_minute = 0;
 
 				for(var i=0; i<results.length; i++){
