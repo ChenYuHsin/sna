@@ -22,10 +22,10 @@ $(document).ready(function(){
 	});
 	
 	$('.shape').shape();
-	$('.ui.ignored .button:nth-child(1)').click(function(){
+	$('.ui.ignored #frindes_previous').click(function(){
 		$('.shape').shape('set next side', getSideUp()).shape('flip left');
 	});
-	$('.ui.ignored .button:nth-child(2)').click(function(){
+	$('.ui.ignored  #frindes_next').click(function(){
 		$('.shape').shape('set next side', getSideDown()).shape('flip right');
 	});
 
