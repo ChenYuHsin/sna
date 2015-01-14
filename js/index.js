@@ -49,12 +49,35 @@ jQuery(document).ready(function($){
 				var queryFriend = new Parse.Query(Parse.User);
 				queryFriend.get(friends[i], {
 					success: function(friendobject) {
+						console.log(i);
 						var imgsrc = friendobject.get("imagesrc");
 						var friendsSection = "<section id='cd-timeline' class='dinner no_" +i + " cd-container two wide column center' style='position: relative' data-timelineId='"+friendobject.id+"'>"+
 											"<img src='"+imgsrc+"' alt='Picture' class='friends_pic'>"+
 										"</section>";
-						$("#friends_timmeline_area #1 .content").append(friendsSection);
-						queryDent(friendobject, selecteddate);
+						if(i <= 4){
+							$("#friends_timmeline_area #1 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else if(i>=5 && i<=9){
+							$("#friends_timmeline_area #2 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else if(i>=10 && i<=14){
+							$("#friends_timmeline_area #3 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else if(i>=15 && i<=19){
+							$("#friends_timmeline_area #4 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else if(i>=20 && i<=24){
+							$("#friends_timmeline_area #5 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
+						else{
+							$("#friends_timmeline_area #6 .content").append(friendsSection);
+							queryDent(friendobject, selecteddate);
+						}
 					},
 					error: function(object, error) {
 						alert(object +" "+error);
