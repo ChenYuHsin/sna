@@ -22,12 +22,54 @@
     <script src="js/modernizr.js"></script>
     <script src="js/semantic.min.js"></script>
     <script src="js/style.js"></script>
+    <script src="js/key.js"></script>
     <script src="js/v2.js"></script>
     <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.js"></script>    
 </head>
 
 
 <body>
+    <script>
+            window.fbAsyncInit = function() {
+                Parse.FacebookUtils.init({ // this line replaces FB.init({
+                  appId      : '633858636720666', // Facebook App ID
+                  status     : true,  // check Facebook Login status
+                  cookie     : true,  // enable cookies to allow Parse to access the session
+                  xfbml      : true,  // initialize Facebook social plugins on the page
+                  version    : 'v2.2' // point to the latest Facebook Graph API version
+                });
+             
+                // Run code after the Facebook SDK is loaded.
+                var logined = function(){
+                    $('.login_btn').css("display","none");
+                    FB.api('/me/picture?width=500', function(response) {
+                        var my_picture_url = response.data.url;
+                        Parse.User.current().set('imagesrc', my_picture_url);
+                        Parse.User.current().save();
+                        $("#account_img").attr('src', my_picture_url);
+                        $("#profilephoto").attr('src', my_picture_url);
+                    });
+                    FB.api('/me', function(response) {
+                        var my_name = response.name;
+                        Parse.User.current().set('name', my_name);
+                        Parse.User.current().save();
+                        $(".account_info").html("Hi! "+ my_name);
+                        $("#your-name").html(my_name);
+                    });
+                }
+                if(Parse.User.current()!=null){
+                    logined();
+                }
+              };
+             
+              (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+    </script>
         <div class="following bar">
         <!--mavigation-->
         <div class="ui  main menu ">
@@ -76,7 +118,7 @@
         <section id="set-body">
             <div class="top-line">
                 
-                <span id="your-name">胡俊杰</span>
+                <span id="your-name"></span>
                 
             </div>           
             <div class="icon-wrap">
@@ -84,7 +126,7 @@
                     <i class="fa fa-facebook fa-2x"></i>
                 </a>
                 <div class="big-circle">
-                    <img src="img/1.jpg"/>
+                    <img id="profilephoto" src=""/>
                 </div>         
                 <a href="#" class="icon-images">
                     <i class="fa fa-thumbs-o-up fa-2x"></i>
