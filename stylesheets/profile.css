@@ -108,6 +108,8 @@ body {
 .profile-con #set-body .top-line #your-name {
   font-size: 1.5em;
   flex: 1;
+  margin-top: 100px;
+  color: #ffffff;
 }
 /* line 25, ../scss/profile.scss */
 .profile-con #set-body .top-line i {

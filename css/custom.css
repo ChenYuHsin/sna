@@ -530,12 +530,12 @@ div.codepen_arrow .right:after {
 }
 .logo:hover{
   cursor: pointer;
+  
 }
 
 #userphoto:hover{
   cursor:pointer;
 }
-
 #accountinfo:hover{
   cursor:default;
 }
@@ -545,8 +545,17 @@ div.codepen_arrow .right:after {
 
 #profile:hover{
   cursor:pointer;
+ 
 }
 
 .status:hover{
   cursor:pointer;
+
+}
+.menu .item{
+  padding: 19px 10px !important;
+}
+.menu .column{
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
 }

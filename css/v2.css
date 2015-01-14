@@ -78,7 +78,7 @@ header .slogan{
   text-align: center;
   text-shadow: 0 0 5px #00c6ff;
   color: #ffffff;
-  padding-top: 30px;
+  padding-top: 65px;
 }
 #header_v2{
   background: linear-gradient(180deg, #328c75 0%, #ffffff 100%);
@@ -125,6 +125,9 @@ header .slogan{
 }
 .following.bar.light.fixed a,.following.bar.light.fixed #previous_date,.following.bar.light.fixed #next_date, .following.bar.light.fixed .menu #menu_date{
   color: #000000 !important;
+}
+.following.bar .ui.menu .item.logo{
+  font-size: 20px !important;
 }
 #sub_slogan{
   font-size: 20px;

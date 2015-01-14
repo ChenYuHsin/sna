@@ -60,8 +60,8 @@ Main components
 
 -------------------------------- */
 header {
-  height: 200px;
-  line-height: 200px;
+  height: 350px;
+  line-height: 100px;
   text-align: center;
   background: #303e49;
 }
@@ -72,8 +72,8 @@ header h1 {
 }
 @media only screen and (min-width: 1170px) {
   header {
-    height: 300px;
-    line-height: 300px;
+    height: 350px;
+    line-height: 100px;
   }
   header h1 {
     font-size: 24px;
