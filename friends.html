@@ -43,11 +43,11 @@
                 // Run code after the Facebook SDK is loaded.
                 var recommendfriend = function(id, url, name){
                     var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
-                    $('#might-interested').append(friendbody);
+                    $('#recommendfriend').append(friendbody);
                 }
                 var friendlist = function(id, url, name){
                     var listbody = $('<div class="card" id="'+id+'"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
-                    $('#friend-followed').append(listbody);
+                    $('#friendlists').append(listbody);
                 }
                 var logined = function(){
                     //Recommend friends section
@@ -168,8 +168,12 @@
                 </div>
             </h2>
 
-            <section id="friend-followed" class="sixteen wide column">         
-                <div class="friend-blocks">
+            <section id="friend-followed" class="sixteen wide column"> 
+                <div class="ui six doubling cards" id="friendlists">
+
+                </div>
+
+                <!-- <div class="friend-blocks">
                     <figure>
                         <img src="img/4.jpg"/>
                         <figcaption>
@@ -180,7 +184,7 @@
                             </p>
                         </figcaption>           
                     </figure>
-                </div>
+                </div> -->
             </section>
 
             <h2 class="ui header">
@@ -192,8 +196,11 @@
                 </div>
             </h2>
 
-            <section id="might-interested" class="sixteen wide column"> 
-                <div class="friend-blocks">
+            <section id="might-interested" class="sixteen wide column">
+                <div class="ui six doubling special cards" id="recommendfriend">
+
+                </div>   
+                <!-- <div class="friend-blocks">
                     <figure>
                         <img src="img/4.jpg"/>
                         <figcaption>
@@ -204,7 +211,7 @@
                             </p>
                         </figcaption>           
                     </figure>
-                </div>
+                </div> -->
             </section>
             
         </div>
