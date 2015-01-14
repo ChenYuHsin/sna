@@ -1,5 +1,4 @@
-setTimeout(function(){
-	$(document).on("click", "#add_friend_btn", function(){
+$(document).on("click", "#add_friend_btn", function(){
 		var recommendfriend = function(id, url, name){
 			var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
 
@@ -40,4 +39,3 @@ setTimeout(function(){
 			})
 		}
 	});
-},2000)
