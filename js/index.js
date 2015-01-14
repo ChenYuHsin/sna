@@ -7,9 +7,9 @@ jQuery(document).ready(function($){
     	//var category = $('#category').val();
     	var content = $('.make_dent_content').val();
     	var start_datetime_old = $('#start_datetime').val();
-		var start_datetime = new Date(Date.parse(start_datetime_old)-28800000);
+		var start_datetime = new Date(Date.parse(start_datetime_old)-28800000);// 考慮時區 CST +0800
     	var end_datetime_old = $('#end_datetime').val();
-		var end_datetime = new Date(Date.parse(end_datetime_old)-28800000);    	
+		var end_datetime = new Date(Date.parse(end_datetime_old)-28800000); // 考慮時區 CST +0800
     	console.log(start_datetime + ":" + end_datetime);
     	deliverDent(currentUser, category, color, content, start_datetime, end_datetime);
 		// alert( user + ":" + content + ":" + start_datetime + ":" + end_datetime);
@@ -535,95 +535,85 @@ function queryResponse(dent){
 }
 
 function queryStatus(currentUser){
-	// var status_contents = new Array();
-	// var status_times = new Array();
-	var total_status = new Array();
-	var friends = currentUser.get("friends");
-	for(var i = 0;i < friends.length; i++){
-		var Friend = Parse.Object.extend("User");
-		var queryFriend = new Parse.Query(Friend);
-		queryFriend.get(friends[i], {
-			success: function(friend) {
-				var Dent = Parse.Object.extend("Dent");
-				var queryFriendDent = new Parse.Query(Dent);
-				queryFriendDent.include('poster');
-				queryFriendDent.equalTo("poster", friend);
-				queryFriendDent.find({
-			  		success: function(results) {
-			  			for(var j=0; j<results.length; j++){
-			  				var status = {user: results[j].get("poster"), contents: results[j], createdTime: results[j].createdAt, category: "dent"};
-			  				total_status.push(status);
-			  			}
-			  		},
-			  		error: function(error) {
-			    		alert("Error: " + error.code + " " + error.message);
-			  		}
-				});
+	// 因應增加event table，修改邏輯，
+	// 先抓出所有朋友，存到陣列
+	// 在抓出所有event去判斷category和targetPointer
 
-				var Response = Parse.Object.extend("Response");
-				var queryFriendResponse = new Parse.Query(Response);
-				queryFriendResponse.include('responser');
-				queryFriendResponse.equalTo("responser", friend);
-				queryFriendResponse.find({
-					success: function(results) {
-			  			for(var k=0; k<results.length; k++){
-			  				var status = {user: results[k].get("responser"), contents: results[k], createdTime: results[k].createdAt, category: "response"};
-			  				total_status.push(status);
-			  			}
-			  		},
-			  		error: function(error) {
-			    		alert("Error: " + error.code + " " + error.message);
-			  		}
-				});
-			},
-			error: function(object, error) {
-				alert(object +" "+error);
+	var currentUser_id = currentUser.id;
+	var AllFriends = Parse.Object.extend("User");
+	var query_all_friends = new Parse.Query(AllFriends);
+	var friend_list = new Array();
+	var event_list = new Array();
+	query_all_friends.equalTo("friends", currentUser_id);
+	query.find(){
+		success: function(friends) {
+			for(var i=0; i<friends.length; i++){
+				friend_list.push(friends[i]);
 			}
-		});
-	}
 
-	setTimeout(function(){
-		showStatus(total_status);
-	}, 3000);
+			var Event = Parse.Object.extend("Event");
+			var query_event = new Parse.Query(Event);
+			query_event.descending("createdAt");
+			query_event.include('User');
+			query_event.find(){
+				success: function(results){
+					for(var j=0; j<results.length; j++){
+						switch(results[j].get("category")){
+							case "makedent":
+								for(var k=0; k<friend_list.length; k++){
+									if(results[j].get("User").id == friend_list[k].id){
+										var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "發佈一則新 dent"};
+										event_list.push(myevent);
+									}
+								}
+								
+								break;
+
+							case "reply":
+								if(results[j].get("targetuser").id == currentUser_id){
+									var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "回應你的 dent"};
+									event_list.push(myevent);
+								}
+								break;
+
+							case "addfriend":
+								if(results[j].get("targetuser").id == currentUser_id){
+									var myevent = {user: results[j].get("User"), contents: results[j].get("content"), createdTime: results[j].createdAt, category: "加你為好友"};
+									event_list.push(myevent);
+								}
+								break;
+
+							default:
+								break;
+						}
+					}
+
+					showStatus(event_list);
+				}
+			}
+		}
+	};
 }
 
-function showStatus(total_status){
-	// 應該先排列
-	// for 解析所有status
-	// 套入 template
-	// append
+function showStatus(event_list){
+	// 改為event_list，時間已經排好了，第一筆為最近的Event
 	var status_section = $("#status_content");
-	for(var i=0; i<total_status.length; i++){
-		var action;
-		if(total_status[i].category != "dent"){
-			action = "reply on your dent";
+	for(var i=0; i<event_list.length; i++){
+		var contents;
+		if(event_list[i].contents.trim() != "" || event_list[i].contents != null){
+			contents = event_list[i].contents;
 		}else{
-			action = "make a dent";
-		}
-		var likes;
-		if(total_status[i].category == "dent"){
-			if(total_status[i].contents.get("likes") == "undefined"){
-				likes = 0;
-			}else{
-				//likes = total_status[i].contents.get("likes").length;	
-			}
-		}else{
-			if(total_status[i].contents.get("likers") == "undefined"){
-				likes = 0;
-			}else{
-				likes = 0;
-				// likes = total_status[i].contents.get("likers").length;	
-			}
+			contents = "";
 		}
 		var template = '<div class="event">' + 
-	    	'<div class="label"><img src="'+ total_status[i].user.get("imagesrc") +'"></div>' + 
+	    	'<div class="label"><img src="'+ event_list[i].user.get("imagesrc") +'"></div>' + 
 	    	'<div class="content">' + 
 	      		'<div class="summary">' + 
-	        		'<a class="user">' + total_status[i].user.get("name") + '</a> ' + action +
-	        		'<div class="date">' + moment(total_status[i].createdTime).fromNow() + '</div>'+
+	        		'<a class="user">' + event_list[i].user.get("name") + '</a> ' + event_list[i].category +
+	        		'<div class="date">' + moment(event_list[i].createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
-        		total_status[i].contents.get("content") + 
+        		content + 
       			'</div>' +
 	      		'<div class="meta">' +
 	        		'<a class="like"><i class="like icon"></i> ' + likes + ' Likes</a>'+
@@ -631,7 +621,6 @@ function showStatus(total_status){
     		'</div>' +
   		'</div>';
   		status_section.append(template);
-  		// console.log("template:" + template);
 	}
 }
 
