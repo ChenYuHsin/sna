@@ -52,8 +52,6 @@ jQuery(document).ready(function($){
 	var current_string = current_date.substring(0,10) + "T" + current_hour + ":" + current_minute;
 	$("#start_datetime").val(current_string);
 	$("#end_datetime").val(current_string);
-
-	console.log(new_time);
 });
 
 		function friendtimeline(){
