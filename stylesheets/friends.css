@@ -87,10 +87,10 @@ body {
 }
 
 /* line 17, ../scss/friends.scss */
-.ui.page.grid {
+/*.ui.page.grid {
   margin: 0px;
   padding: 0px;
-}
+}*/
 /* line 20, ../scss/friends.scss */
 .ui.page.grid .ui.header {
   color: #3DC9B3;
