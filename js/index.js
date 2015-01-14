@@ -350,7 +350,7 @@ function clickLike(dent_id , user_id){
 					r.addUnique("likes", user_id);
 					r.save(null, {
 						success: function(object){
-							console.log("update Dent-likes success.");
+							// console.log("update Dent-likes success.");
 							//queryDent(requests["id"]);
 						},
 						error: function(object, error){
