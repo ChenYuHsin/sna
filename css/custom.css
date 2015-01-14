@@ -655,3 +655,8 @@ transform:translate3d(-10px, 0, 0)}
   left: 10px;
   bottom: 200px;
 }
+
+/*************  loader ************/
+.dimmer{
+  position: fixed !important;
+}

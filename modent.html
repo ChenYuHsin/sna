@@ -82,6 +82,7 @@
 
 
 	</script>
+<div class="ui segment" id="loader">
 	<div id="friends_page">
 
 
@@ -174,6 +175,7 @@
 	    <div class="knop up" id="frindes_previous">
 			<div class="pijl-links"></div>
 		</div>
+		  
 		<div class="ui grid page for_page">
 		<!-- 以下為stackable，讓rwd btn全版-->
 			<div class="row">
@@ -191,7 +193,7 @@
 				</div>
 			</div>
 
-
+			
 			<!--時段的時間軸-->
 			<section id="cd-timeline" class="out time-lines cd-container two wide column center" style="position: relative">
 				<div style="width: 80px; height: 80px"></div>
@@ -358,6 +360,7 @@
 			
 			<!--朋友的時間軸-->
 			<section id="friends_timmeline_area"  class="twelve wide column grid  ">	
+  					
 				<div class="ui cube shape">
 				  <div class="sides" >
 				  	<div class="side active 1" id="1">
@@ -404,14 +407,17 @@
 				    </div>
 				  </div>
 				</div>
-				
+
+				</div>
+			</div>
 			</section>
+			
 			
 		</div>
 	</div>
 	<div class="knop down" id="frindes_next">
 		<div class="pijl-rechts"></div>
-	</div>
+	</div>	
 
 <!--STATUS CODE-->
 <div class="ui left vertical inverted  labeled icon sidebar menu  wide">
@@ -533,5 +539,11 @@
 	</div>
 
 </div>
+<div class="ui dimmer"><!-- loader 2  class= active -->
+    <div class="ui large text loader">Loading</div>
+  </div><!-- loader end -->
+ 
+</div>
+
 	</body>
 </html>
