@@ -28,6 +28,14 @@ $(document).ready(function(){
 	$('#frindes_next').click(function(){
 		$('.shape').shape('set next side', getSideDown()).shape('flip right');
 	});
+	$('body').keydown(function(event){
+ 		if (event.which == 37) { //左鍵的代碼
+  			$('.shape').shape('set next side', getSideUp()).shape('flip left');
+ 		}
+ 		if (event.which == 39) { //右鍵的代碼
+ 			$('.shape').shape('set next side', getSideDown()).shape('flip right');
+ 		}
+	});
 
 	//make dent emption
 	$('.make_dent_emotion .checkbox').checkbox();

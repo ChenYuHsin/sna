@@ -171,7 +171,9 @@
 			</div>
 		    <!--div class="ui huge inverted black button btn_make_dent"><i class="write icon"></i>Make a Dent!</div-->
 	    </header>
-	    
+	    <div class="knop up" id="frindes_previous">
+			<div class="pijl-links"></div>
+		</div>
 		<div class="ui grid page for_page">
 		<!-- 以下為stackable，讓rwd btn全版-->
 			<div class="row">
@@ -353,16 +355,9 @@
 			</section> <!-- cd-timeline -->
 			<!--自己的時間軸結束-->
 			
-			<section class="one wide column center" style="position: relative">
-				<div class="ui animated button" id="frindes_previous" style=" position: fixed">
-				  <div class="visible content" style="vertical-align: middle">N<br>E<br>X<br>T</div>
-				  <div class="hidden content">
-				    <i class="left arrow icon"></i>
-				  </div>
-				</div>
-			</section>
+			
 			<!--朋友的時間軸-->
-			<section id="friends_timmeline_area"  class="ten wide column grid  ">	
+			<section id="friends_timmeline_area"  class="twelve wide column grid  ">	
 				<div class="ui cube shape">
 				  <div class="sides" >
 				  	<div class="side active 1" id="1">
@@ -411,17 +406,12 @@
 				</div>
 				
 			</section>
-			<section class="one wide column center" style="position: relative">
-					<div class="ui animated button" id="frindes_next" style=" position: fixed">
-					  <div class="visible content" style="vertical-align: middle">N<br>E<br>X<br>T</div>
-					  <div class="hidden content">
-					    <i class="right arrow icon"></i>
-					  </div>
-					</div>
-				</section>	
+			
 		</div>
 	</div>
-
+	<div class="knop down" id="frindes_next">
+		<div class="pijl-rechts"></div>
+	</div>
 
 <!--STATUS CODE-->
 <div class="ui left vertical inverted  labeled icon sidebar menu  wide">
@@ -531,8 +521,9 @@
 			  </div>
 			</div>
 			
-			<input type="datetime-local" id="start_datetime" value="2015-01-13T00:59" /><br />
-			<input type="datetime-local" id="end_datetime" value="2015-01-13T00:59" /><br />
+			<br />
+			<label>Start dent:</label>&nbsp<input type="datetime-local" id="start_datetime" value="2015-01-13T00:59" /><br /><br />
+			<label>End dent:</label>&nbsp&nbsp&nbsp<input type="datetime-local" id="end_datetime" value="2015-01-13T00:59" /><br />
 			
 		</div>
 	</div>
