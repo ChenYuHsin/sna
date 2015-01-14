@@ -57,11 +57,11 @@
                         $("#your-name").html(my_name);
                     });
                 var recommendfriend = function(id, url, name){
-                    var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image" id="friendimage"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+                    var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><img  id="friendimage" src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
                     $('#recommendfriend').append(friendbody);
                 }
                 var friendlist = function(id, url, name){
-                    var listbody = $('<div class="card" id="'+id+'"><div class="image" id="friendimage"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+                    var listbody = $('<div class="card" id="'+id+'"><div class="image"><img id="friendimage" src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
                     $('#friendlists').append(listbody);
                 }
                 var logined = function(){
