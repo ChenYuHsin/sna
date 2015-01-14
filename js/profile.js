@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	var myfriend = Parse.User.current().get('friends');
+	var myfriendnum = myfriend.length;
+	$('.included-num').html(myfriendnum);
+
 	var follower = Parse.Object.extend("User");
 	var query = new Parse.Query(follower);
 	query.notEqualTo("objectId", Parse.User.current().id);
@@ -26,4 +30,63 @@ $(document).ready(function(){
 			$('.Dents-num').html(mydentnum);
 		}
 	})
+
+	$(document).on("click", "#quickdent", function(){
+		var currentuser = Parse.User.current();
+		var category = "frown";
+		var color = "blue";
+		var content = "一支穿雲箭，千軍萬馬來相見！";
+		var s = Date();
+		var e = new Date(s.getTime() + 30*60000);
+		deliverDent(currentuser, category, color, content, s, e);
+
+	})
+
+	$(document).on("click", "#gotofacebook", function(){
+		window.location.assign("www.facebook.com/"+Parse.User.current().get('facebookid'));
+	})
+
 })
+
+function deliverDent(user, category, color, content, s, e){
+	var Dent = Parse.Object.extend("Dent");
+		var dent = new Dent();
+		var Poster = Parse.Object.extend("User");
+		var query = new Parse.Query(Poster);
+		var poster_img = $('.post_content img').attr('src'); 
+		var poster_name = $('.make_dent_name').text(); 			
+	query.get(user.id, {
+		success: function(p) {
+			var poster = p;
+			var s_datetime = new Date(s);
+  			var e_datetime = new Date(e);
+  			dent.set("poster", poster);
+  			dent.set("category", category);
+  			dent.set("color", color);
+  			dent.set("content", content);
+  			dent.set("s_datetime", s_datetime);
+  			dent.set("e_datetime", e_datetime);
+  			dent.set("poster_img", poster_img);
+  			dent.set("poster_name", poster_name);
+  			dent.save(null, {
+			  	success: function(gameScore) {
+			    	//queryDent();
+			    	alert("success");
+			    	window.location.assign("modent.html");
+			  	},
+			  	error: function(gameScore, error) {
+			    	alert('Failed to create new object, with error code: ' + error.message);
+			  	}
+			});
+			var makedentevent = Parse.Object.extend("Event");
+			var makedent = new makedentevent();
+			makedent.set("category", "makedent");
+			makedent.set("User", user);
+			makedent.set("content", content);
+			makedent.save();
+		},
+		error: function(object, error) {
+			alert(error.message);
+		}
+	});
+};
