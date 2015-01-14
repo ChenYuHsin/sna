@@ -104,7 +104,7 @@ $(document).ready(function(){
 
 	//scroll
 	var currentScroll = (newDate.getHours())*60+newDate.getMinutes();
-	var scrollDistance = currentScroll*2-(8*60*2);
+	var scrollDistance = currentScroll*2-(60*2);
 	console.log(scrollDistance);
 
 	$.fn.scrollBy = function (x, y) {
