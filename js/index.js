@@ -544,14 +544,12 @@ function queryStatus(currentUser){
 	var query_all_friends = new Parse.Query(AllFriends);
 	var friend_list = new Array();
 	var event_list = new Array();
-	console.log("currentUser_id:" + currentUser_id);
 	query_all_friends.equalTo("friends", currentUser_id);
 	query_all_friends.find({
 		success: function(friends) {
 			for(var i=0; i<friends.length; i++){
 				friend_list.push(friends[i]);
 			}
-			console.log("friend_list:" + friend_list);
 
 			var Event = Parse.Object.extend("Event");
 			var query_event = new Parse.Query(Event);
@@ -589,7 +587,6 @@ function queryStatus(currentUser){
 								break;
 						}
 					}
-					console.log("event_list:" + event_list);
 					showStatus(event_list);
 				}
 			});
@@ -599,7 +596,7 @@ function queryStatus(currentUser){
 
 function showStatus(event_list){
 	// 改為event_list，時間已經排好了，第一筆為最近的Event
-	console.log("event_list:" + event_list);
+	console.log(event_list);
 	var status_section = $("#status_content");
 	for(var i=0; i<event_list.length; i++){
 		var contents;
