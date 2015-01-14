@@ -40,6 +40,15 @@ jQuery(document).ready(function($){
 		    // show the signup or login page
 		}
 	}, 1500);
+
+	var themoment = new Date();
+	var current_date = themoment.toISOString();
+	var updown;
+	var current_hour = themoment.getHours();
+	var current_minute = themoment.getMinutes();
+	var current_string = current_date.substring(0,10) + "T" + current_hour + ":" + current_minute;
+	$("#start_datetime").val(current_string);
+	$("#end_datetime").val(current_string);
 });
 
 		function friendtimeline(){
