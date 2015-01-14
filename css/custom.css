@@ -545,7 +545,14 @@ div.codepen_arrow .right:after {
 
 #profile:hover{
   cursor:pointer;
- 
+}
+
+#gotofacebook:hover{
+  cursor:pointer;
+}
+
+#quickdent:hover{
+  cursor:pointer;
 }
 
 .status:hover{

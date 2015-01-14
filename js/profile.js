@@ -37,13 +37,13 @@ $(document).ready(function(){
 		var color = "blue";
 		var content = "一支穿雲箭，千軍萬馬來相見！";
 		var s = Date();
-		var e = new Date(s.getTime() + 30*60000);
+		var e = Date(s.getTime() + 30*60000);
 		deliverDent(currentuser, category, color, content, s, e);
 
 	})
 
 	$(document).on("click", "#gotofacebook", function(){
-		window.location.assign("www.facebook.com/"+Parse.User.current().get('facebookid'));
+		window.location.href="'www.facebook.com/'"+Parse.User.current().get('facebookid')+"'";
 	})
 
 })
