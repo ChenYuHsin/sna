@@ -75,9 +75,7 @@
                                             var userid = alluser[i].id;
                                             var username = alluser[i].get('name');
                                             var userphotourl = alluser[i].get('imagesrc');
-                                            setTimeout(function(){
-                                                recommendfriend(userid, userphotourl, username);
-                                            },3000)      
+                                            recommendfriend(userid, userphotourl, username);   
                                             var friends = Parse.User.current().get('friends');
                                             for(var j = 0; j<friends.length; j++){
                                                 var friend = friends[j];
