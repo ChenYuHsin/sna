@@ -30,12 +30,85 @@
     <script src="js/style.js"></script>
     <script src="js/key.js"></script>
     <script src="js/v2.js"></script>
-    <script src="js/profile.js"></script>
     <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.js"></script>    
 
 </head>
 
 <body>
+    <script>
+            window.fbAsyncInit = function() {
+                Parse.FacebookUtils.init({ // this line replaces FB.init({
+                  appId      : '633858636720666', // Facebook App ID
+                  status     : true,  // check Facebook Login status
+                  cookie     : true,  // enable cookies to allow Parse to access the session
+                  xfbml      : true,  // initialize Facebook social plugins on the page
+                  version    : 'v2.2' // point to the latest Facebook Graph API version
+                });
+             
+                // Run code after the Facebook SDK is loaded.
+                var recommendfriend = function(id, url, name){
+                    var friendbody = $('<div class="card" id="'+id+'"><div class="dimmable image"><div class="ui dimmer"></div><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div><div class="ui bottom blue attached button" id="add_friend_btn"><i class="add icon"></i>Add Friend</div></div>');
+                    $('#might-interested').append(friendbody);
+                }
+                var friendlist = function(id, url, name){
+                    var listbody = $('<div class="card" id="'+id+'"><div class="image"><img src="'+url+'"></div><div class="content"><a class="header">'+name+'</a></div></div>');
+                    $('#friend-followed').append(listbody);
+                }
+                var logined = function(){
+                    //Recommend friends section
+                    var user = Parse.Object.extend('User');
+                            var query = new Parse.Query(user);
+                            query.find({
+                                success:function(alluser){
+                                    for(var i = 0; i<alluser.length; i++){
+                                        if(alluser[i].id != Parse.User.current().id){
+                                            var userid = alluser[i].id;
+                                            var username = alluser[i].get('name');
+                                            var userphotourl = alluser[i].get('imagesrc');
+                                            recommendfriend(userid, userphotourl, username);
+                                            var friends = Parse.User.current().get('friends');
+                                            for(var j = 0; j<friends.length; j++){
+                                                var friend = friends[j];
+                                                var judge = $("div[id='"+friend+"']");
+                                                if(judge!=null){
+                                                    $('[id="'+friend+'"]').remove();
+                                                }
+                                            }   
+                                        }
+                                    }
+                                }
+                            })
+                            //Friend list section
+                            var userfriend = Parse.User.current().get('friends');
+                            if(userfriend.length != 0){
+                                for(var i = 0; i<userfriend.length; i++){
+                                    var queryfriend = Parse.Object.extend('User');
+                                    var query = new Parse.Query(queryfriend);
+                                    query.equalTo('objectId', userfriend[i]);
+                                    query.first({
+                                        success:function(frienddata){
+                                            var friendid = frienddata.id;
+                                            var friendphotourl = frienddata.get('imagesrc');
+                                            var friendname = frienddata.get('name');
+                                            friendlist(friendid, friendphotourl, friendname);
+                                        }
+                                    })
+                                }
+                            }
+                }
+                if(Parse.User.current()!=null){
+                    logined();
+                }
+              };
+             
+              (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+    </script>
            <div class="following bar">
         <!--mavigation-->
         <div class="ui  main menu ">
@@ -109,7 +182,7 @@
             </h2>
 
             <section id="friend-followed" class="sixteen wide column">         
-                <div class="friend-blocks">
+                <!-- <div class="friend-blocks">
                     <figure>
                         <img src="img/4.jpg"/>
                         <figcaption>
@@ -120,7 +193,7 @@
                             </p>
                         </figcaption>           
                     </figure>
-                </div>
+                </div> -->
             </section>
 
             <h2 class="ui header">
@@ -133,7 +206,7 @@
             </h2>
 
             <section id="might-interested" class="sixteen wide column"> 
-                <div class="friend-blocks">
+                <!-- <div class="friend-blocks">
                     <figure>
                         <img src="img/4.jpg"/>
                         <figcaption>
@@ -144,7 +217,7 @@
                             </p>
                         </figcaption>           
                     </figure>
-                </div>
+                </div> -->
             </section>
             
         </div>
