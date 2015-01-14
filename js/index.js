@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-
+	
 	$(".dent_send").click(function(){
 		var currentUser = Parse.User.current();
 		var category = $('input:radio:checked[name="emotion"]').val();
