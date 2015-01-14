@@ -613,7 +613,7 @@ function showStatus(event_list){
 	        		'<div class="date">' + moment(event_list[i].createdTime).fromNow() + '</div>'+
 	      		'</div>' +
 	      		'<div class="extra text">' +
-        		content + 
+        		contents + 
       			'</div>' +
 	      		'<div class="meta">' +
 	        		'<a class="like"><i class="like icon"></i> ' + likes + ' Likes</a>'+
