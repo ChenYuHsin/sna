@@ -49,6 +49,6 @@ $(document).ready(function(){
 	});
 
 	$("#userphoto").click(function(){
-	    window.location.assign("profile3.html");
+	    window.location.assign("profile-new.html");
 	});
 })
