@@ -38,7 +38,7 @@ $(document).on("click", "#add_friend_btn", function(){
 					}
 				})
 			}
-		})
+		}).modal("show");
 		//var r = confirm("Do you want to add " + friendname + " as a friend?");
 		/*if (r==true){
 			var currentuser = Parse.User.current();
