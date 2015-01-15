@@ -59,7 +59,11 @@ $(document).ready(function(){
 	var chooseDate = monthNames[newDate.getMonth()]+"/"+newDate.getDate()+"/"+newDate.getFullYear();
 
 	$("#next_date").click(function(){
-
+		
+		$("#put_dimmer").addClass("active dimmer");
+		setTimeout(function(){ 
+		 	$("#put_dimmer").removeClass("active dimmer");
+		 }, 2000);	
 		var user_choose_date = $("#menu_date").text();
 		var nowTime = new Date(user_choose_date);
 		
@@ -82,10 +86,10 @@ $(document).ready(function(){
 	})
 	$("#previous_date").click(function(){
 
-		$("#put_dimmer").addClass("dimmer");
+		$("#put_dimmer").addClass("active dimmer");
 		setTimeout(function(){ 
-		 	$("#put_dimmer").removeClass("dimmer");
-		 }, 1000);	
+		 	$("#put_dimmer").removeClass("active dimmer");
+		 }, 2000);	
 		var user_choose_date = $("#menu_date").text();
 		var nowTime = new Date(user_choose_date);
 		
