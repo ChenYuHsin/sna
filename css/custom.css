@@ -559,6 +559,9 @@ div.codepen_arrow .right:after {
   cursor:pointer;
 
 }
+.right.chevron, .left.chevron{
+  cursor:pointer;
+}
 .menu .item{
   padding: 19px 10px !important;
 }
@@ -662,4 +665,12 @@ transform:translate3d(-10px, 0, 0)}
 }
 .ui.segment{
   padding: 0;
+}
+
+/*************  notices sidebar  *************/
+.left.sidebar.menu{
+  background: #2e2f2f;
+}
+.launch.button.attached{
+  background: #2e2f2f;
 }
