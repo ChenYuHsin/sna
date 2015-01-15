@@ -400,7 +400,7 @@ function showResponseModal(value){
 	console.log(modalId);
 	$(modalId).modal({
 		close: ".close",
-	});
+	}).modal("show");
 }
 		
 function printResponseTpl(post_id){
