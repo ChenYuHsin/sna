@@ -421,7 +421,7 @@ function showResponseModal(value){
 						  "</div>";
 					$('.ui.reply.form').before(table_response);
 					//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
-					$('#reply_area').val("");
+					$("[data-dentid = '"+value.data.name+"']").find("#reply_area").html("");
 			}, 1500);
 			return false;
 	    }
