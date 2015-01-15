@@ -15,7 +15,12 @@ $(document).ready(function(){
 
 	});
 	//$('.ui.sticky').sticky();
-    
+    $("#frindes_next").popup({
+    	position: "bottom right",
+    });
+    $("#frindes_previous").popup({
+    	position: "bottom left",
+    });
 	
 	$('.login_btn').click(function(){
 		$('.login_content').modal('show');
