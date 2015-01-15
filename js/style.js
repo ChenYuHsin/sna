@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 	});
 
-	$("quickdent").popup();
+	$("#quickdent").popup();
 	//$('.ui.sticky').sticky();
     $("#frindes_next").popup({
     	position: "bottom right",
