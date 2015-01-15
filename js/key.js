@@ -23,7 +23,7 @@ $(document).ready(function(){
 	            }
 	        },
 	        error: function(user, error) {
-	            location.assign("index.html");
+	            location.assign("modent.html");
 	        }
 	    });
 	});
