@@ -205,7 +205,7 @@ function deliverDent(user, category, color, content, s, e){
   			dent.save(null, {
 			  	success: function(gameScore) {
 			    	//queryDent();
-			    	alert("success");
+			    	//alert("success");
 			    	window.location.assign("modent.html");
 			  	},
 			  	error: function(gameScore, error) {
@@ -398,7 +398,9 @@ function deliverResponse(dent_id){
 function showResponseModal(value){
 	var modalId = ".ui.modal.modal_"+value.data.name;
 	console.log(modalId);
-	$(modalId).modal('show');
+	$(modalId).modal({
+		close: ".close",
+	});
 }
 		
 function printResponseTpl(post_id){
