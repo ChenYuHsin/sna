@@ -417,7 +417,7 @@ function showResponseModal(value){
 					      
 					    "</div>"+
 					  "</div>";
-				$('.modal_'+dent.id+ " #dent_id").after(table_response);
+				$('.modal_'+value.data.name+ " #dent_id").after(table_response);
 				$('#reply_area').html("");
 	      return false;
 	    }
