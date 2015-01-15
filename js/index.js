@@ -454,7 +454,7 @@ function printResponseTpl(post_id){
 							"</div>"+
 							"</div>"+
 						"</div>"+
-						"<div class='action'>"+
+						"<div class='actions'>"+
 							"<div class='ui button'>Cancel</div>"+
 							"<div class='ui button' id='reply_send'>Send</div>"+
 						"</div></div>";
