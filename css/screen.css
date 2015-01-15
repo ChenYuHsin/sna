@@ -290,3 +290,6 @@ body {
 .friend-blocks figure figcaption::after {
   pointer-events: none;
 }
+.login_btn:hover{
+  cursor:pointer;
+}
