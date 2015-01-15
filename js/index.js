@@ -425,8 +425,8 @@ function showResponseModal(value){
 					$('.ui.reply.form').before(table_response);
 					//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
 					$('#reply_area').val("");
-		      return false;
 			}, 1500);
+			return false;
 	    }
 	}).modal("show");
 
