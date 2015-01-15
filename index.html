@@ -16,6 +16,25 @@
     <script src="js/key.js"></script>
   </head>
       <body id="top">
+        <script>
+            window.fbAsyncInit = function() {
+                Parse.FacebookUtils.init({ // this line replaces FB.init({
+                  appId      : '633858636720666', // Facebook App ID
+                  status     : true,  // check Facebook Login status
+                  cookie     : true,  // enable cookies to allow Parse to access the session
+                  xfbml      : true,  // initialize Facebook social plugins on the page
+                  version    : 'v2.2' // point to the latest Facebook Graph API version
+                });
+             
+              (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+    </script>
+
         <header id="home">
           <!--animated BG-->
           <div class="container demo-1" style="
