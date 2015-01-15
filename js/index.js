@@ -402,6 +402,8 @@ function showResponseModal(value){
 	$(modalId).modal({
 		close: ".close",
 		onApprove : function() {
+			console.log($('#reply_area').val());
+			console.log($('#reply_area').text());
 		  var table_response = "<div class='comment reply_post'>"+
 					    "<a class='avatar'>"+
 					      "<img src='"+Parse.User.current().get('imagesrc')+"'>"+
@@ -417,7 +419,7 @@ function showResponseModal(value){
 					      
 					    "</div>"+
 					  "</div>";
-				$('.modal_'+value.data.name+ " #dent_id").after(table_response);
+				$('.modal_'+value.data.name+ " .reply_post").after(table_response);
 				$('#reply_area').val("");
 	      return false;
 	    }
