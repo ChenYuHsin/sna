@@ -35,12 +35,15 @@ $(document).ready(function(){
 
 	$(document).on("click", "#quickdent", function(){
 		var currentuser = Parse.User.current();
-		var category = "frown";
-		var color = "blue";
+		var category = "Empty Star";
+		var color = "black";
 		var content = "一支穿雲箭，千軍萬馬來相見！";
 		var s = new Date();
 		var e = new Date(s.getTime() + 30*60000);
 		deliverDent(currentuser, category, color, content, s, e);
+		setTimeout(function(){
+			$("#quickdent_modal").modal("show");
+		}, 1000)
 
 	})
 
