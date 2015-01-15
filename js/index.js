@@ -421,7 +421,7 @@ function showResponseModal(value){
 					      
 					    "</div>"+
 					  "</div>";
-				$('.ui .reply .form').before(table_response);
+				$('.ui.reply.form').before(table_response);
 				//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
 				$('#reply_area').val("");
 	      return false;
