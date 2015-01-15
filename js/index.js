@@ -412,13 +412,13 @@ function showResponseModal(value){
 					        "<div class='date'>"+moment().fromNow()+"</div>"+
 					      "</div>"+
 					      "<div class=text'>"+
-					        $('#reply_area').text()+
+					        $('#reply_area').val()+
 					      "</div>"+
 					      
 					    "</div>"+
 					  "</div>";
 				$('.modal_'+value.data.name+ " #dent_id").after(table_response);
-				$('#reply_area').html("");
+				$('#reply_area').val("");
 	      return false;
 	    }
 	}).modal("show");
