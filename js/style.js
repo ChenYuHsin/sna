@@ -14,6 +14,8 @@ $(document).ready(function(){
 		$('.post_content').modal('show');
 
 	});
+
+	$("quickdent").popup();
 	//$('.ui.sticky').sticky();
     $("#frindes_next").popup({
     	position: "bottom right",
