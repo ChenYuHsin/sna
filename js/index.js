@@ -402,8 +402,44 @@ function showResponseModal(value){
 	$(modalId).modal({
 		close: ".close",
 		onApprove : function() {
+		  var tpl = "<div class='ui modal reply_content small modal_"+Parse.User.current().id+"' data-dentId='"+Parse.User.current().id+"'  >"+
+						"<i class='close icon'></i>"+
+						"<div class='header'>"+
+						"Reply"+
+						"</div>"+
+						"<div class='content' id='reply_content'>"+
+							"<div class='ui comments'>"+
+								"<div class='comment owner_post'>"+
+							    "<a class='avatar'>"+
+							      "<img id='poster_modal_img' src='"+Parse.User.current().get('imagesrc')+"'>"+
+							    "</a>"+
+							    "<div class='content' id='dent_id'>"+
+							      "<a id= 'poster_modal_name' class='author'>"+Parse.User.current().get('name')+"</a>"+
+							      "<div class='metadata'>"+
+							        "<div id='poster_create_at' class='date'>"+moment(createAt).fromNow()+"</div>"+
+							        "<div  class='rating modal_rating'>"+
+							          "<a id='modal_rating_count'><i class='heart icon'></i>"+
+							          "</a>"+
+							        "</div>"+
+							      "</div>"+
+							      "<div id='poster_modal_content' class='text'>"+$('#reply_area').text()+										   
+							    "</div>"+
+							  "</div>"+
+							  "<form class='ui reply form'>"+
+							    "<div class='field'>"+
+							      "<textarea id='reply_area'></textarea>"+
+							    "</div>"+
+							  "</form>"+
+							"</div>"+
+							"</div>"+
+						"</div>"+
+						"<div class='actions'>"+
+							"<div class='ui button'>Cancel</div>"+
+							"<div class='ui button ok' id='reply_send'>Send</div>"+
+						"</div></div>";
+
+				$("body").append(tpl);
 	      return false;
-	      location.reload();
 	    }
 	}).modal("show");
 
