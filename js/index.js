@@ -402,6 +402,7 @@ function showResponseModal(value){
 	$(modalId).modal({
 		close: ".close",
 		onApprove : function() {
+	      return false;
 	      location.reload();
 	    }
 	}).modal("show");
