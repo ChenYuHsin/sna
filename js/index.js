@@ -404,7 +404,7 @@ function showResponseModal(value){
 		onApprove : function() {
 			setTimeout(function(){
 				console.log($('#reply_area'));
-				console.log($('#reply_area').html());
+				console.log(document.getElementById("reply_area").value);
 				console.log($('#reply_area').val());
 				console.log($('#reply_area').text());
 			  	var table_response = "<div class='comment reply_post'>"+
