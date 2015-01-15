@@ -24,9 +24,9 @@ $(document).ready(function(){
     	position: "bottom left",
     });
 	
-	$('.login_btn').click(function(){
-		$('.login_content').modal('show');
-	});
+	// $('.login_btn').click(function(){
+	// 	$('.login_content').modal('show');
+	// });
 	
 	$('.shape').shape();
 	$('#frindes_previous').click(function(){

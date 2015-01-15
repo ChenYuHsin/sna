@@ -8,7 +8,7 @@ $(document).ready(function(){
 	}
 
 	//fblogin button
-	$("#my-login-button").click(function(){
+	$(".login_btn").click(function(){
 	    Parse.FacebookUtils.logIn("user_friends", {
 	        success: function(user) {
 	            if (!user.existed()){
