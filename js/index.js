@@ -400,6 +400,9 @@ function showResponseModal(value){
 	console.log(modalId);
 	$(modalId).modal({
 		close: ".close",
+		onApprove : function() {
+	      window.alert('Approved!');
+	    }
 	}).modal("show");
 }
 		
@@ -449,7 +452,7 @@ function printResponseTpl(post_id){
 							"</div>"+
 							"</div>"+
 						"</div>"+
-						"<div class='actions'>"+
+						"<div class='action'>"+
 							"<div class='ui button'>Cancel</div>"+
 							"<div class='ui button' id='reply_send'>Send</div>"+
 						"</div></div>";
