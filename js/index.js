@@ -402,6 +402,7 @@ function showResponseModal(value){
 	$(modalId).modal({
 		close: ".close",
 		onApprove : function() {
+			setTimeout(function(){
 			  	var table_response = "<div class='comment reply_post'>"+
 						    "<a class='avatar'>"+
 						      "<img src='"+Parse.User.current().get('imagesrc')+"'>"+
@@ -420,6 +421,7 @@ function showResponseModal(value){
 					$('.ui.reply.form').before(table_response);
 					//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
 					$("[data-dentid = '"+value.data.name+"']").find("#reply_area").val("");
+			}, 1000);
 			return false;
 	    }
 	}).modal("show");
