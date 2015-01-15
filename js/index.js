@@ -405,15 +405,6 @@ function showResponseModal(value){
 	      window.alert('Approved!');
 	    }
 	}).modal("show");
-	var Dent = Parse.Object.extend("Dent");
-	var query = new Parse.Query(Dent);
-	query.equalTo("objectId", value.data.name);
-	query.find({
-		success: function(result){
-			queryResponse(result);
-		}
-	})
-	
 
 }
 		
