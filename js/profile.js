@@ -41,9 +41,7 @@ $(document).ready(function(){
 		var s = new Date();
 		var e = new Date(s.getTime() + 30*60000);
 		deliverDent(currentuser, category, color, content, s, e);
-		setTimeout(function(){
-			$("#quickdent_modal").modal("show");
-		}, 1000)
+		
 
 	})
 
@@ -74,8 +72,12 @@ function deliverDent(user, category, color, content, s, e){
   			dent.save(null, {
 			  	success: function(gameScore) {
 			    	//queryDent();
-			    	alert("success");
-			    	window.location.assign("modent.html");
+			    	
+					$("#quickdent_modal").modal("show");
+					
+			    	setTimeout(function(){
+			    		window.location.assign("modent.html");
+			    	}, 2000);
 			  	},
 			  	error: function(gameScore, error) {
 			    	alert('Failed to create new object, with error code: ' + error.message);
