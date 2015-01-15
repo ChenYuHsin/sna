@@ -402,29 +402,31 @@ function showResponseModal(value){
 	$(modalId).modal({
 		close: ".close",
 		onApprove : function() {
-			console.log($('#reply_area'));
-			console.log($('#reply_area').html());
-			console.log($('#reply_area').val());
-			console.log($('#reply_area').text());
-		  var table_response = "<div class='comment reply_post'>"+
-					    "<a class='avatar'>"+
-					      "<img src='"+Parse.User.current().get('imagesrc')+"'>"+
-					    "</a>"+
-					    "<div class='content'>"+
-					      "<a class='author'>"+Parse.User.current().get('name')+"</a>"+
-					      "<div class='metadata'>"+
-					        "<div class='date'>"+moment().fromNow()+"</div>"+
-					      "</div>"+
-					      "<div class=text'>"+
-					        $('#reply_area').val()+
-					      "</div>"+
-					      
-					    "</div>"+
-					  "</div>";
-				$('.ui.reply.form').before(table_response);
-				//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
-				$('#reply_area').val("");
-	      return false;
+			setTimeout(function(){
+				console.log($('#reply_area'));
+				console.log($('#reply_area').html());
+				console.log($('#reply_area').val());
+				console.log($('#reply_area').text());
+			  	var table_response = "<div class='comment reply_post'>"+
+						    "<a class='avatar'>"+
+						      "<img src='"+Parse.User.current().get('imagesrc')+"'>"+
+						    "</a>"+
+						    "<div class='content'>"+
+						      "<a class='author'>"+Parse.User.current().get('name')+"</a>"+
+						      "<div class='metadata'>"+
+						        "<div class='date'>"+moment().fromNow()+"</div>"+
+						      "</div>"+
+						      "<div class=text'>"+
+						        $('#reply_area').val()+
+						      "</div>"+
+						      
+						    "</div>"+
+						  "</div>";
+					$('.ui.reply.form').before(table_response);
+					//$('.modal_'+value.data.name+ " .reply_post").before(table_response);
+					$('#reply_area').val("");
+		      return false;
+			}, 1500);
 	    }
 	}).modal("show");
 
