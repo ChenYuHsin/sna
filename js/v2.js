@@ -82,6 +82,7 @@ $(document).ready(function(){
 	})
 	$("#previous_date").click(function(){
 
+		
 		var user_choose_date = $("#menu_date").text();
 		var nowTime = new Date(user_choose_date);
 		
@@ -97,9 +98,10 @@ $(document).ready(function(){
 		var selecteddate = $('#menu_date').text();
 		queryDent(Parse.User.current(), selecteddate); 
 		v2friend(selecteddate);
-		// setTimeout(function(){ 
-		// 	appeardent();
-		// }, 3000);	
+		$("#put_dimmer").addClass("active");
+		setTimeout(function(){ 
+		 	$("#put_dimmer").removeClass("active");
+		 }, 1000);	
 	})
 
 	//scroll
