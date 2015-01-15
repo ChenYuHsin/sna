@@ -403,10 +403,7 @@ function showResponseModal(value){
 		close: ".close",
 		onApprove : function() {
 			setTimeout(function(){
-				console.log($('#reply_area'));
-				console.log(document.getElementById("reply_area").value);
-				console.log($('#reply_area').val());
-				console.log($('#reply_area').text());
+				console.log($("[data-dentid = '"+value.data.name+"']").find("#reply_area").val());
 			  	var table_response = "<div class='comment reply_post'>"+
 						    "<a class='avatar'>"+
 						      "<img src='"+Parse.User.current().get('imagesrc')+"'>"+
@@ -417,7 +414,7 @@ function showResponseModal(value){
 						        "<div class='date'>"+moment().fromNow()+"</div>"+
 						      "</div>"+
 						      "<div class=text'>"+
-						        $('#reply_area').val()+
+						        $("[data-dentid = '"+value.data.name+"']").find("#reply_area").val()+
 						      "</div>"+
 						      
 						    "</div>"+
