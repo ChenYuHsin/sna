@@ -416,7 +416,7 @@ function showResponseModal(value){
 							    "<div class='content' id='dent_id'>"+
 							      "<a id= 'poster_modal_name' class='author'>"+Parse.User.current().get('name')+"</a>"+
 							      "<div class='metadata'>"+
-							        "<div id='poster_create_at' class='date'>"+moment(createAt).fromNow()+"</div>"+
+							        "<div id='poster_create_at' class='date'>"+moment().fromNow()+"</div>"+
 							        "<div  class='rating modal_rating'>"+
 							          "<a id='modal_rating_count'><i class='heart icon'></i>"+
 							          "</a>"+
